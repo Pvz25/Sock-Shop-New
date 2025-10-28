@@ -32,18 +32,18 @@ This guide provides comprehensive instructions for simulating three realistic pr
 The Sock Shop application serves as a **production-like testbed** for evaluating SRE agent capabilities. These three incidents represent the most common and impactful failure scenarios in e-commerce microservices:
 
 1. **Resource Exhaustion (Crash)** - Tests ability to detect and diagnose catastrophic failures
-2. **Performance Degradation (Latency)** - Tests ability to identify subtle degradation before failure
+2. **Hybrid Incident (Front-end Crash + Backend Latency)** - Tests ability to differentiate service-level failures and identify architectural bottlenecks
 3. **Distributed Transaction Failures (Inconsistency)** - Tests ability to trace complex multi-service issues
 
 ### Value for SRE Agent Development
 
 | Capability | Incident 1 | Incident 2 | Incident 3 |
 |------------|-----------|-----------|-----------|
-| **Log Analysis** | ✅ OOMKilled events | ✅ Slow query warnings | ✅ Connection errors |
-| **Metric Correlation** | ✅ CPU/Memory spikes | ✅ Latency increases | ✅ Service availability |
-| **Root Cause Analysis** | ✅ Resource limits | ✅ Resource pressure | ✅ Service dependencies |
-| **Impact Assessment** | ✅ Total outage | ✅ User frustration | ✅ Financial inconsistency |
-| **Remediation Suggestions** | ✅ Scaling, limits | ✅ HPA, optimization | ✅ Retry logic, circuit breakers |
+| **Log Analysis** | ✅ OOMKilled events | ✅ Connection timeouts, SIGTERM | ✅ Connection errors |
+| **Metric Correlation** | ✅ CPU/Memory spikes | ✅ Selective restarts, latency | ✅ Service availability |
+| **Root Cause Analysis** | ✅ Resource limits | ✅ Architectural bottleneck | ✅ Service dependencies |
+| **Impact Assessment** | ✅ Total outage | ✅ Intermittent availability | ✅ Financial inconsistency |
+| **Remediation Suggestions** | ✅ Scaling, limits | ✅ Front-end HPA, load balancing | ✅ Retry logic, circuit breakers |
 
 ### Demonstration Value
 
@@ -74,6 +74,18 @@ kubectl cluster-info
 kubectl -n sock-shop get pods
 
 # Expected: All pods 1/1 READY, Running status
+```
+
+**⚠️ Important for Incident 3:** Orders service must be v1.0-status-fix version with `OrderStatus` lifecycle support
+```powershell
+# Verify orders service has status lifecycle support
+kubectl -n sock-shop logs deployment/orders --tail=20 | Select-String "status updated"
+
+# Expected Output (shows status transitions):
+# Order [id] status updated to CREATED
+# Order [id] status updated to PENDING  
+# Order [id] status updated to PAID
+# (or PAYMENT_FAILED if payment fails)
 ```
 
 #### 3. Datadog Agent Configured
@@ -146,22 +158,24 @@ Invoke-WebRequest -UseBasicParsing http://localhost:2025 -TimeoutSec 5
 
 **File:** [INCIDENT-2-APP-LATENCY.md](./INCIDENT-2-APP-LATENCY.md)
 
-**Summary:** Simulate moderate user load (750 concurrent users) causing significant performance degradation without crashes.
+**Summary:** Simulate moderate user load (750 concurrent users) causing significant performance degradation. **HYBRID INCIDENT:** Front-end experiences crashes (5-10 restarts) while backend services remain stable with latency only.
 
 **Key Characteristics:**
 - User Load: 750 concurrent users
-- Response Time: 2-5 seconds (normal: <300ms)
+- Response Time: 9-13 seconds average (normal: <300ms)
 - CPU Usage: 80-95% (high pressure)
 - Memory Usage: 60-85% (pressure but stable)
-- Pod Restarts: 0 (stays running)
-- User Impact: Severe slowness, frustration
+- Pod Restarts: **Front-end: 5-10 restarts** | Backend: 0 (stays running)
+- User Impact: Intermittent availability with severe slowness
 - Recovery: Automatic (load drops)
 
 **Datadog Evidence:**
-- High P95 response times (3000-5000ms)
-- "Slow query" warnings
-- "Connection pool exhausted" errors
-- CPU throttling logs
+- Connection timeout errors: 1,464 total
+- Response times: 9-13 seconds average (20-25 seconds peak)
+- Front-end pod restarts: 5-10 during test
+- Backend services: No restarts, stable
+- SIGTERM and connection refused errors (front-end crash logs)
+- CPU throttling: Front-end at limits, backends moderate
 
 **Use Case:** Demonstrates SRE agent's ability to detect subtle degradation and recommend performance optimizations before catastrophic failure.
 
@@ -171,11 +185,14 @@ Invoke-WebRequest -UseBasicParsing http://localhost:2025 -TimeoutSec 5
 
 **File:** [INCIDENT-3-PAYMENT-FAILURE.md](./INCIDENT-3-PAYMENT-FAILURE.md)
 
+**⚠️ PREREQUISITE:** Requires v1.0-status-fix version of orders service with `OrderStatus` lifecycle support (`CREATED` → `PENDING` → `PAID`/`PAYMENT_FAILED`)
+
 **Summary:** Simulate payment service failure during checkout, creating inconsistent transaction states (payment processed but order shows failed).
 
 **Key Characteristics:**
 - Trigger: Payment service scaled to 0 replicas
-- Order Status: "PAYMENT_FAILED"
+- Order Status Lifecycle: `CREATED` → `PENDING` → `PAYMENT_FAILED` (when payment service unavailable)
+- Expected Failed Orders: ~4 (based on test execution with 10 users, 2 minutes)
 - Payment Status: May be captured (real-world scenario)
 - Pod Restarts: 0 (partial failure)
 - User Impact: Financial inconsistency, trust damage
@@ -199,12 +216,12 @@ Invoke-WebRequest -UseBasicParsing http://localhost:2025 -TimeoutSec 5
 |--------|-------------------|---------------------|---------------------|
 | **Load Tool** | Locust (3000 users) | Locust (750 users) | Manual or Locust (10 users) |
 | **Duration** | 5 minutes | 8 minutes | 2 minutes |
-| **Pods Restart?** | ✅ Yes (multiple) | ❌ No | ❌ No |
-| **Error Rate** | 60%+ | <5% | 100% (payment calls) |
+| **Pods Restart?** | ✅ Yes (multiple) | ⚠️ Partial (front-end only) | ❌ No |
+| **Error Rate** | 60%+ | 75-85% (connection timeouts) | 100% (payment calls) |
 | **Recovery Type** | Automatic | Automatic | Manual |
 | **Data Consistency** | ✅ Intact | ✅ Intact | ❌ Inconsistent |
 | **Financial Impact** | None | None | High (potential) |
-| **Complexity** | Low | Medium | High |
+| **Complexity** | Low | Medium-High (Hybrid) | High |
 | **Demo Value** | High (dramatic) | Medium (subtle) | Critical (realistic) |
 
 ### Command Quick Reference
@@ -239,11 +256,11 @@ kubectl -n sock-shop delete configmap locustfile-<incident>
 # Incident 1 - OOMKilled events
 source:kubernetes OOMKilled kube_namespace:sock-shop
 
-# Incident 2 - High latency
-kube_namespace:sock-shop response_time:>2000
+# Incident 2 - HYBRID incident (connection timeouts + front-end crashes)
+kube_namespace:sock-shop ("Connection refused" OR SIGTERM OR "Connection timeout")
 
 # Incident 3 - Payment failures
-kube_namespace:sock-shop service:orders "PAYMENT_FAILED"
+kube_namespace:sock-shop service:sock-shop-orders "PAYMENT_FAILED"
 
 # General error search
 kube_namespace:sock-shop status:error
@@ -307,7 +324,7 @@ code INCIDENT-1-APP-CRASH.md
 
 #### Phase 3: Execute Incident 2 - Latency (20 minutes)
 
-**Goal:** Demonstrate subtle performance degradation detection
+**Goal:** Demonstrate HYBRID incident - front-end crashes under load while backend services only experience latency
 
 ```powershell
 # Navigate to incident guide
@@ -315,27 +332,37 @@ code INCIDENT-2-APP-LATENCY.md
 
 # Execute steps from guide
 # Key observation points:
-# - Response times increase but NO crashes
-# - CPU/Memory high but stable (not exceeding limits)
-# - Users can complete actions but very slowly
-# - No pod restarts (RESTARTS=0)
-# - Datadog shows "slow query" warnings
+# - Response times: 9-13 seconds average (severe degradation)
+# - Front-end: 5-10 pod restarts during 8-minute test (connection exhaustion)
+# - Backend services: 0 restarts, latency only (stable under filtered load)
+# - Connection timeout errors: 1,464 total (front-end unable to accept connections)
+# - CPU/Memory: Front-end at 80-95%; backends at 40-60%
+# - Datadog shows connection timeouts and intermittent availability
 
 # Recovery verification:
-# - Response times normalize
+# - Response times normalize to <200ms
 # - Resources drop to baseline
-# - No restarts occurred throughout
+# - Front-end restart count increased by 5-10
+# - Backend services: no new restarts
 ```
 
 **SRE Agent Test Questions:**
-1. "Users are complaining the site is slow. What's happening?"
-2. "Why are response times 3+ seconds?"
-3. "Will the application crash if we don't intervene?"
-4. "What optimizations would reduce latency?"
+1. "Users are complaining the site is slow and sometimes unavailable. What's happening?"
+2. "Why are response times 9-13 seconds with frequent connection failures?"
+3. "Why is front-end crashing but backend services stable?"
+4. "What architectural bottleneck is causing this hybrid failure pattern?"
+5. "What optimizations would prevent front-end crashes under this load?"
 
 #### Phase 4: Execute Incident 3 - Payment Failure (15 minutes)
 
 **Goal:** Demonstrate distributed transaction failure and data inconsistency
+
+**⚠️ PREREQUISITE CHECK:**
+```powershell
+# Verify orders service has OrderStatus lifecycle support
+kubectl -n sock-shop logs deployment/orders --tail=50 | Select-String "status updated"
+# Should show: "Order [id] status updated to CREATED/PENDING/PAID/PAYMENT_FAILED"
+```
 
 ```powershell
 # Navigate to incident guide
@@ -344,15 +371,17 @@ code INCIDENT-3-PAYMENT-FAILURE.md
 # Execute steps from guide
 # Key observation points:
 # - Payment service goes down (0 replicas)
-# - Orders created but marked "PAYMENT_FAILED"
-# - No pod crashes (partial failure)
-# - Users see payment errors
-# - Datadog shows "connection refused" to payment
+# - Order status lifecycle: CREATED → PENDING → PAYMENT_FAILED
+# - Orders created but marked "PAYMENT_FAILED" (expect ~4 failures)
+# - No pod crashes (partial failure - different from Incidents 1 & 2)
+# - Users see payment errors but orders ARE recorded in database
+# - Datadog shows "Payment failed for order" logs with connection refused errors
 
 # Recovery verification:
-# - Payment service restored
-# - New orders process successfully
-# - FAILED orders identified for remediation
+# - Payment service restored (scale to 1 replica)
+# - New orders process successfully (CREATED → PENDING → PAID)
+# - Query and count FAILED orders for remediation (expect 4)
+# - Verify successful order shows full lifecycle with shipment
 ```
 
 **SRE Agent Test Questions:**
@@ -438,14 +467,14 @@ Create these saved views in Datadog Logs:
 kube_namespace:sock-shop (OOMKilled OR CrashLoopBackOff OR "out of memory")
 ```
 
-**View 2: "Incident 2 - Performance Issues"**
+**View 2: "Incident 2 - HYBRID Incident (Front-end Crashes)"**
 ```
-kube_namespace:sock-shop (response_time:>1000 OR "slow query" OR "connection pool")
+kube_namespace:sock-shop (service:sock-shop-front-end AND ("Connection refused" OR SIGTERM OR "Connection timeout"))
 ```
 
 **View 3: "Incident 3 - Payment Failures"**
 ```
-kube_namespace:sock-shop ("PAYMENT_FAILED" OR "connection refused" AND service:payment)
+kube_namespace:sock-shop service:sock-shop-orders ("PAYMENT_FAILED" OR "Payment failed for order")
 ```
 
 **View 4: "All Errors"**
@@ -503,40 +532,52 @@ For each incident, test the SRE agent's ability to:
 #### Incident 2 Testing Prompts
 
 **Performance Investigation:**
-> "Users are reporting the website is very slow. Can you investigate?"
+> "Users are reporting the website is very slow and sometimes unavailable. Can you investigate?"
 
 **Expected Agent Response:**
-- Detected high P95 response times (3-5 seconds)
-- CPU usage: 80-95% (high pressure, throttling)
-- Found "slow query" and "connection pool" warnings
-- Pods NOT crashing (stays running)
-- Concluded: Resource pressure under moderate load
+- Detected HYBRID incident pattern:
+  - Front-end: 5-10 restarts (crashes due to connection exhaustion)
+  - Backend services: 0 restarts (stable with latency only)
+- Response times: 9-13 seconds average
+- Connection timeout errors: 1,464 total
+- CPU usage: Front-end 80-95% (throttled), Backend 40-60%
+- Root cause: Front-end is architectural bottleneck
+- Concluded: 750 concurrent users exceed front-end connection handling capacity
 
 **Comparison Question:**
 > "Is this the same issue as the crash we had earlier?"
 
 **Expected Agent Response:**
-- No, different severity
-- Crash: 3000 users, 100% resource, pods restart
-- Latency: 750 users, 80-95% resource, pods stable
-- Both indicate need for scaling, but latency is early warning
+- HYBRID incident - exhibits characteristics of both:
+  - Incident 1 behavior (front-end): Connection exhaustion causing crashes/restarts
+  - Incident 2 behavior (backend): Latency with stability
+- Key difference: Front-end fails under 750 users while backends handle load
+- Architectural insight: Front-end is single point of failure and bottleneck
+- Implication: Scaling front-end horizontally would prevent crashes and improve backend load distribution
 
 ---
 
 #### Incident 3 Testing Prompts
 
 **Transaction Investigation:**
-> "A customer says they were charged $29.99 but didn't receive order confirmation for order ID 68f35ed59c10d300018b7011. Please investigate."
+> "A customer says they were charged $29.99 but didn't receive order confirmation for order ID 6900953ac1f4320001b50703. Please investigate."
 
 **Expected Agent Response:**
-1. Queried logs for order ID: 68f35ed59c10d300018b7011
-2. Found: Order created, status: PAYMENT_FAILED
-3. Root cause: Payment service was unavailable (connection refused)
-4. Timeline: Order created → Payment call failed → Order marked failed
+1. Queried Datadog logs: `kube_namespace:sock-shop "6900953ac1f4320001b50703"`
+2. Found order lifecycle in logs:
+   - T+0s: Order created with ID: 6900953ac1f4320001b50703, status: CREATED
+   - T+0.01s: Order status updated to PENDING
+   - T+0.01s: Sending payment request to http://payment/paymentAuth
+   - T+2s: ERROR - Payment failed: Connection refused (Connection refused)
+   - T+2.06s: WARN - Order status updated to PAYMENT_FAILED due to: Connection refused
+3. Root cause: Payment service scaled to 0 replicas (unavailable during incident window)
+4. Impact: Order recorded in database with PAYMENT_FAILED status but customer may have been charged
 5. Recommendation: 
    - Verify with payment gateway if charge actually processed
-   - If charged: Manually mark order PAID and fulfill
-   - If not charged: Notify customer, request re-order
+   - Check payment service logs (if available) for transaction ID
+   - If charged: Manually update order status to PAID in database and trigger fulfillment
+   - If not charged: Notify customer of system issue, request re-order with discount
+   - Review all orders with PAYMENT_FAILED status during incident window (expect 4 total)
 
 **Architectural Improvement:**
 > "How do we prevent payment failures from creating inconsistent states?"
@@ -741,8 +782,8 @@ This master guide provides everything needed to execute three comprehensive inci
 ### Key Takeaways
 
 1. **Incident 1 (Crash):** Dramatic, easy to detect, demonstrates resource limit analysis
-2. **Incident 2 (Latency):** Subtle, requires nuanced analysis, demonstrates performance profiling
-3. **Incident 3 (Payment):** Complex, multi-service, demonstrates distributed transaction tracing
+2. **Incident 2 (HYBRID):** Front-end crashes while backends stable, demonstrates architectural bottleneck identification and differential diagnosis
+3. **Incident 3 (Payment):** Complex, multi-service, demonstrates distributed transaction tracing and OrderStatus lifecycle analysis (requires v1.0-status-fix)
 
 ### Next Steps
 
@@ -750,6 +791,7 @@ This master guide provides everything needed to execute three comprehensive inci
    - Review [COMPLETE-SETUP-GUIDE.md](./COMPLETE-SETUP-GUIDE.md)
    - Ensure Datadog is configured ([DATADOG-COMMANDS-TO-RUN.md](./DATADOG-COMMANDS-TO-RUN.md))
    - Verify application health
+   - **For Incident 3:** Confirm orders service v1.0-status-fix deployment (OrderStatus lifecycle support)
 
 2. **Execute Incidents:**
    - Start with Incident 1 (most straightforward)
@@ -775,9 +817,16 @@ This master guide provides everything needed to execute three comprehensive inci
 
 ---
 
-**Document Version:** 1.0  
-**Last Updated:** October 27, 2025  
+**Document Version:** 1.1  
+**Last Updated:** October 28, 2025  
 **Author:** SRE Team  
 **Contact:** For questions or issues, refer to repository documentation
+
+**Version 1.1 Changes:**
+- Added critical prerequisite for Incident 3 (v1.0-status-fix with OrderStatus lifecycle)
+- Updated Incident 2 to accurately reflect HYBRID nature (front-end crashes, backend latency)
+- Enhanced all Incident 3 references with OrderStatus lifecycle details
+- Corrected Datadog service tags and query syntax
+- Added actual test execution metrics and order IDs
 
 **Remember:** These are controlled test scenarios. Always coordinate with team members and never run on production systems!
