@@ -1,0 +1,52 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: locust-login-burst-151425
+  namespace: sock-shop
+spec:
+  backoffLimit: 0
+  template:
+    metadata:
+      labels:
+        app: locust
+    spec:
+      restartPolicy: Never
+      volumes:
+        - name: locustfile
+          configMap:
+            name: locustfile-cm
+            items:
+              - key: locustfile.py
+                path: locustfile.py
+      containers:
+        - name: locust
+          image: locustio/locust:2.32.1
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: LOCUST_HOST
+              value: "http://front-end.sock-shop.svc.cluster.local"
+            - name: LOGIN_PATH
+              value: "/login"      # set "/" if your app has no login route, or keep POST in your python
+            - name: USERS
+              value: "2000"
+            - name: SPAWN_RATE
+              value: "200"
+            - name: RUN_TIME
+              value: "3m"
+          volumeMounts:
+            - name: locustfile
+              mountPath: /mnt/locust
+          workingDir: /mnt/locust
+          command: ["sh","-lc"]
+          args:
+            - |
+              echo "Starting Locust against  (LOGIN_PATH=) ..."
+              ls -l
+              echo "----"
+              cat locustfile.py | sed -n '1,80p'
+              echo "---- launching ----"
+              locust -f locustfile.py \
+                --host "" \
+                --headless \
+                -u "" -r "" \
+                --run-time ""

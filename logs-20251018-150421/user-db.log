@@ -1,0 +1,4 @@
+2025-10-18T09:11:59.532+0000 I NETWORK  [listener] connection accepted from 10.244.1.22:45632 #2 (2 connections now open)
+2025-10-18T09:23:14.625+0000 I STORAGE  [conn1] createCollection: users.addresses with generated UUID: 200a4458-fda7-4ebc-ad4b-8cdf43df6ae7
+2025-10-18T09:23:29.598+0000 I STORAGE  [conn2] createCollection: users.cards with generated UUID: 6c28d60f-620d-4296-ab2d-89d0193d21ef
+2025-10-18T09:23:44.903+0000 I NETWORK  [listener] connection accepted from 10.244.1.22:49330 #3 (3 connections now open)

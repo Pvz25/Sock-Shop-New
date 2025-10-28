@@ -1,0 +1,91 @@
+===========================================
+ORDERS SERVICE SOURCE CODE ANALYSIS
+Date: 10/28/2025 12:02:48
+===========================================
+
+CustomerOrder.java:
+  Location: D:\sock-shop-orders\src\main\java\works\weave\socks\orders\entities\CustomerOrder.java
+  Size: 3510 bytes
+
+OrdersController.java:
+  Location: D:\sock-shop-orders\src\main\java\works\weave\socks\orders\controllers\OrdersController.java
+  Size: 7842 bytes
+
+Status enum: NOT FOUND (will need to create)
+
+===========================================
+STATUS FIELD ANALYSIS
+===========================================
+
+Total mentions of 'status' in Java files: 7
+
+Top 10 files with 'status' mentions:
+  HealthCheck.java : 7 mentions
+
+CustomerOrder.java - Status field: NOT FOUND
+
+CustomerOrder.java - First 50 lines:
+-----------------------------------
+package works.weave.socks.orders.entities;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.util.Calendar;
+import java.util.Collection;
+import java.util.Date;
+import java.util.List;
+
+// curl -XPOST -H 'Content-type: application/json' http://localhost:8082/orders -d '{"customer":
+// "http://localhost:8080/customer/1", "address": "http://localhost:8080/address/1", "card":
+// "http://localhost:8080/card/1", "items": "http://localhost:8081/carts/1/items"}'
+
+// curl http://localhost:8082/orders/search/customerId\?custId\=1
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+@Document
+public class CustomerOrder {
+
+    @Id
+    private String id;
+
+    private String customerId;
+
+    private Customer customer;
+
+    private Address address;
+
+    private Card card;
+
+    private Collection<Item> items;
+
+    private Shipment shipment;
+
+    private Date date = Calendar.getInstance().getTime();
+
+    private float total;
+
+    public CustomerOrder() {
+    }
+
+    public CustomerOrder(String id, String customerId, Customer customer, Address address, Card card,
+                         Collection<Item> items, Shipment shipment, Date date, float total) {
+        this.id = id;
+        this.customerId = customerId;
+        this.customer = customer;
+        this.address = address;
+        this.card = card;
+
+OrdersController.java - newOrder() method: NOT FOUND
+
+OrdersController.java - newOrder() method excerpt:
+---------------------------------------------------
+Could not extract newOrder() method
+
+Build Configuration:
+  Build tool: Maven (pom.xml found)
+  Version: 1.4.4.RELEASE
+
+Dockerfile: NOT FOUND
+

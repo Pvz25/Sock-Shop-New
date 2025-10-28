@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: locustfile-cm
+  namespace: sock-shop
+data:
+  locustfile.py: |
+    from locust import HttpUser, task, between
+    import os
+    LOGIN_PATH = os.getenv("LOGIN_PATH", "/login")  # set "/" if your app has no login route
+    class LoginUser(HttpUser):
+        wait_time = between(1, 2.5)
+        @task
+        def login(self):
+            # If your app uses GET page login, this will still return 200/302; if it's POST, adjust accordingly
+            with self.client.get(LOGIN_PATH, name="LOGIN", catch_response=True) as r:
+                if r.status_code not in (200, 302):
+                    r.failure(f"Unexpected status {r.status_code}")

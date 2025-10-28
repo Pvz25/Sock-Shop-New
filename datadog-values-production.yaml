@@ -1,0 +1,105 @@
+# Production-Ready Datadog Configuration for Sock-Shop Demo
+# This configuration enables reliable log collection from sock-shop namespace
+# with minimal overhead and no unnecessary features enabled.
+
+datadog:
+  site: us5.datadoghq.com
+  apiKeyExistingSecret: datadog-secret
+  clusterName: sockshop-kind
+
+  # === LOG COLLECTION CONFIGURATION ===
+  logs:
+    enabled: true
+    containerCollectUsingFiles: true
+    # Set to true for initial testing, can be set to false in production
+    # if you add pod annotations (see Solution 2 below)
+    containerCollectAll: true
+    
+    # Optional: Exclude system namespaces from log collection
+    # to reduce noise and improve performance
+    containerExclude:
+      - "kube_namespace:kube-system"
+      - "kube_namespace:kube-public"
+      - "kube_namespace:kube-node-lease"
+      - "kube_namespace:local-path-storage"
+
+  # === KUBELET CONFIGURATION (KIND-specific) ===
+  kubelet:
+    tlsVerify: false         # KIND clusters use self-signed certs
+    useApiServer: true       # Required for KIND
+
+  # === DISABLE UNNECESSARY FEATURES ===
+  # These are disabled to minimize resource usage and simplify troubleshooting
+  apm:
+    enabled: false
+  processAgent:
+    enabled: false
+  admissionController:
+    enabled: false
+  orchestratorExplorer:
+    enabled: false
+  kubeStateMetricsCore:
+    enabled: false
+  clusterChecks:
+    enabled: false
+  
+  # Container features not needed for log collection
+  useHostPID: false
+  containerImageCollection:
+    enabled: false
+  containerLifecycle:
+    enabled: false
+
+# === CLUSTER AGENT ===
+# Disabled for simplified KIND deployment
+clusterAgent:
+  enabled: false
+
+# === SYSTEM PROBE ===
+# Not needed for log collection
+systemProbe:
+  enabled: false
+
+# === AGENT DAEMONSET CONFIGURATION ===
+agents:
+  # Allow agent to run on control-plane nodes (KIND requirement)
+  tolerations:
+    - key: "node-role.kubernetes.io/control-plane"
+      operator: "Exists"
+      effect: "NoSchedule"
+    - key: "node-role.kubernetes.io/master"
+      operator: "Exists"
+      effect: "NoSchedule"
+  
+  # CRITICAL: useHostNetwork required on KIND for kubelet communication
+  useHostNetwork: true
+
+  containers:
+    # Disable trace agent (not needed)
+    traceAgent:
+      enabled: false
+    
+    # Main agent container configuration
+    agent:
+      env:
+        # Use node name as hostname (prevents hostname resolution issues)
+        - name: DD_HOSTNAME
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName
+        
+        # Explicitly disable APM
+        - name: DD_APM_ENABLED
+          value: "false"
+        
+        # Log collection settings (explicit overrides)
+        - name: DD_LOGS_ENABLED
+          value: "true"
+        - name: DD_LOGS_CONFIG_CONTAINER_COLLECT_ALL
+          value: "true"
+        - name: DD_LOGS_CONFIG_K8S_CONTAINER_USE_FILE
+          value: "true"
+        
+        # Optional: Set log level (use "info" for production, "debug" for troubleshooting)
+        - name: DD_LOG_LEVEL
+          value: "info"

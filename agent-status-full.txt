@@ -1,0 +1,1048 @@
+2025-10-27 15:04:04 UTC | CORE | INFO | (pkg/util/log/log.go:736 in func1) | Using '/opt/datadog-agent/embedded' as Python home
+2025-10-27 15:04:04 UTC | CORE | INFO | (pkg/util/log/log.go:731 in func1) | Starting to load the configuration
+2025-10-27 15:04:04 UTC | CORE | INFO | (pkg/util/log/log.go:731 in func1) | Loading proxy settings
+2025-10-27 15:04:04 UTC | CORE | INFO | (pkg/util/log/log.go:731 in func1) | Starting to resolve secrets
+2025-10-27 15:04:04 UTC | CORE | INFO | (pkg/util/log/log.go:731 in func1) | Finished resolving secrets
+2025-10-27 15:04:04 UTC | CORE | WARN | (pkg/util/log/log.go:776 in func1) | Deactivating Autoconfig will disable most components. It's recommended to use autoconfig_exclude_features and autoconfig_include_features to activate/deactivate features selectively
+2025-10-27 15:04:04 UTC | CORE | INFO | (pkg/config/setup/config.go:2243 in LoadCustom) | Starting to load the configuration
+2025-10-27 15:04:04 UTC | CORE | WARN | (pkg/api/security/cert/cert_getter.go:36 in getCertFilepath) | IPC cert/key created or retrieved next to auth_token_file_path location: /etc/datadog-agent/auth/ipc_cert.pem
+Getting the status from the agent.
+
+2025-10-27 15:04:04 UTC | CORE | INFO | (comp/core/ipc/impl@v0.71.2/ipc.go:194 in printAuthSignature) | successfully loaded the IPC auth primitives (fingerprint: 58ad2e8d81908a5a)
+===============
+Agent (v7.71.2)
+===============
+  Status date: 2025-10-27 15:04:04.57 UTC (1761577444570)
+  Agent start: 2025-10-27 14:16:24.06 UTC (1761574584060)
+  Pid: 1
+  Go Version: go1.24.6
+  Python Version: 3.12.11
+  Build arch: amd64
+  Agent flavor: agent
+  FIPS Mode: not available
+  Log Level: INFO
+
+  Paths
+  =====
+    Config File: /etc/datadog-agent/datadog.yaml
+    conf.d: /etc/datadog-agent/conf.d
+    checks.d: /etc/datadog-agent/checks.d
+
+========
+Hostname
+========
+
+  cluster-name: sockshop-kind
+  host_aliases: [sockshop-control-plane-sockshop-kind]
+  hostname: sockshop-control-plane
+  hostname-resolution-version: 1
+  socket-fqdn: sockshop-control-plane
+  socket-hostname: sockshop-control-plane
+  host tags:
+    cluster_name:sockshop-kind
+    kube_cluster_name:sockshop-kind
+    kube_node:sockshop-control-plane
+    kube_node_role:control-plane
+    orch_cluster_id:eed7b200-acaa-41ff-95e1-39bd2d914e13
+  hostname provider: configuration
+
+
+Host Info
+=========
+  bootTime: 2025-10-27 12:23:35 UTC (1761567815000)
+  hostId: 27db5570-02d6-4b2f-a258-e7b15001205e
+  kernelArch: x86_64
+  kernelVersion: 6.6.87.1-microsoft-standard-WSL2
+  os: linux
+  platform: debian
+  platformFamily: debian
+  platformVersion: 12
+  procs: 38
+  uptime: 1h52m50s
+  virtualizationRole: guest
+  virtualizationSystem: kvm
+
+
+======
+Clocks
+======
+
+NTP offset: 279.924ms
+
+=================
+HA Agent Metadata
+=================
+
+
+========
+Metadata
+========
+
+  agent_startup_time_ms: 1761574584060
+  agent_version: 7.71.2
+  auto_instrumentation_modes: []
+  config_apm_dd_url: 
+  config_dd_url: 
+  config_eks_fargate: false
+  config_id: 
+  config_logs_dd_url: 
+  config_logs_socks5_proxy_address: 
+  config_no_proxy: [169.254.169.254 100.100.100.200]
+  config_process_dd_url: 
+  config_proxy_http: 
+  config_proxy_https: 
+  config_site: us5.datadoghq.com
+  diagnostics: map[connectivity:[{success Agent package yum  map[endpoint:https://yum.datadoghq.com]} {success Agent keys  map[endpoint:https://keys.datadoghq.com]} {success Agent installation  map[endpoint:https://install.datadoghq.com]} {success APM traces  map[endpoint:https://trace.agent.us5.datadoghq.com./_health]} {success LLM obs  map[endpoint:https://llmobs-intake.us5.datadoghq.com./api/v2/llmobs]} {success Remote configuration  map[endpoint:https://config.us5.datadoghq.com./_health]} {success Agent package apt  map[endpoint:https://apt.datadoghq.com]} {success Connectivity to https://dbm-metrics-intake.us5.datadoghq.com./api/v2/databasequery  map[]} {success Connectivity to https://dbm-metrics-intake.us5.datadoghq.com./api/v2/dbmmetrics  map[]} {success Connectivity to https://dbm-metrics-intake.us5.datadoghq.com./api/v2/dbmmetadata  map[]} {success Connectivity to https://dbm-metrics-intake.us5.datadoghq.com./api/v2/dbmactivity  map[]} {success Connectivity to https://dbm-metrics-intake.us5.datadoghq.com./api/v2/dbmhealth  map[]} {success Connectivity to https://ndm-intake.us5.datadoghq.com./api/v2/ndm  map[]} {success Connectivity to https://snmp-traps-intake.us5.datadoghq.com./api/v2/ndmtraps  map[]} {success Connectivity to https://ndmflow-intake.us5.datadoghq.com./api/v2/ndmflow  map[]} {success Connectivity to https://netpath-intake.us5.datadoghq.com./api/v2/netpath  map[]} {success Connectivity to https://contlcycle-intake.us5.datadoghq.com./api/v2/contlcycle  map[]} {success Connectivity to https://contimage-intake.us5.datadoghq.com./api/v2/contimage  map[]} {success Connectivity to https://sbom-intake.us5.datadoghq.com./api/v2/sbom  map[]} {success HTTPS connectivity to https://agent-http-intake.logs.us5.datadoghq.com./api/v2/logs  map[]} {success Connectivity to https://app.us5.datadoghq.com./api/v1/series  map[]} {success Connectivity to https://app.us5.datadoghq.com./api/v1/check_run  map[]} {success Connectivity to https://app.us5.datadoghq.com./intake/  map[]} {success Connectivity to https://app.us5.datadoghq.com./api/v1/validate  map[]} {success Connectivity to https://app.us5.datadoghq.com./api/v1/metadata  map[]} {success Connectivity to https://app.us5.datadoghq.com./api/v2/series  map[]} {success Connectivity to https://app.us5.datadoghq.com./api/beta/sketches  map[]} {success Connectivity to https://7-71-2-flare.agent.us5.datadoghq.com./support/flare  map[]}]]
+  feature_apm_enabled: true
+  feature_auto_instrumentation_enabled: false
+  feature_container_images_enabled: false
+  feature_csm_vm_containers_enabled: false
+  feature_csm_vm_hosts_enabled: false
+  feature_cspm_enabled: false
+  feature_cspm_host_benchmarks_enabled: false
+  feature_cws_enabled: false
+  feature_cws_network_enabled: true
+  feature_cws_remote_config_enabled: true
+  feature_cws_security_profiles_enabled: false
+  feature_discovery_enabled: false
+  feature_dynamic_instrumentation_enabled: false
+  feature_gpu_monitoring_enabled: false
+  feature_imdsv2_enabled: false
+  feature_logs_enabled: true
+  feature_networks_enabled: false
+  feature_networks_http_enabled: true
+  feature_networks_https_enabled: true
+  feature_oom_kill_enabled: false
+  feature_otlp_enabled: false
+  feature_process_enabled: true
+  feature_process_language_detection_enabled: false
+  feature_processes_container_enabled: true
+  feature_remote_configuration_enabled: true
+  feature_tcp_queue_length_enabled: false
+  feature_usm_enabled: false
+  feature_usm_go_tls_enabled: true
+  feature_usm_http2_enabled: false
+  feature_usm_istio_enabled: true
+  feature_usm_kafka_enabled: false
+  feature_usm_postgres_enabled: false
+  feature_usm_redis_enabled: false
+  feature_windows_crash_detection_enabled: false
+  fips_mode: false
+  flavor: agent
+  fleet_policies_applied: []
+  hostname_source: configuration
+  infrastructure_mode: full
+  install_method_installer_version: datadog-3.139.1
+  install_method_tool: helm
+  install_method_tool_version: Helm
+  logs_transport: HTTP
+  system_probe_core_enabled: true
+  system_probe_gateway_lookup_enabled: true
+  system_probe_kernel_headers_download_enabled: false
+  system_probe_max_connections_per_message: 600
+  system_probe_prebuilt_fallback_enabled: false
+  system_probe_protocol_classification_enabled: true
+  system_probe_root_namespace_enabled: true
+  system_probe_runtime_compilation_enabled: false
+  system_probe_telemetry_enabled: false
+  system_probe_track_tcp_4_connections: true
+  system_probe_track_tcp_6_connections: true
+  system_probe_track_udp_4_connections: true
+  system_probe_track_udp_6_connections: true
+
+=========
+Collector
+=========
+
+
+  Running Checks
+  ==============
+
+    container
+    ---------
+      Instance ID: container [OK]
+      Configuration Source: file:/etc/datadog-agent/conf.d/container.d/conf.yaml.default[0]
+      Total Runs: 190
+      Metric Samples: Last Run: 339, Total: 64,410
+      Events: Last Run: 0, Total: 0
+      Service Checks: Last Run: 0, Total: 0
+      Average Execution Time : 12ms
+      Last Execution Date : 2025-10-27 15:03:59.072 UTC (1761577439072)
+      Last Successful Execution Date : 2025-10-27 15:03:59 UTC (1761577439000)
+      metadata:
+        config.source: /etc/datadog-agent/conf.d/container.d/conf.yaml.default[0]
+
+
+    containerd
+    ----------
+      Instance ID: containerd [OK]
+      Configuration Source: file:/etc/datadog-agent/conf.d/containerd.d/conf.yaml.default[0]
+      Total Runs: 189
+      Metric Samples: Last Run: 73, Total: 13,797
+      Events: Last Run: 0, Total: 0
+      Service Checks: Last Run: 0, Total: 0
+      Average Execution Time : 2ms
+      Last Execution Date : 2025-10-27 15:03:50.957 UTC (1761577430957)
+      Last Successful Execution Date : 2025-10-27 15:03:50 UTC (1761577430000)
+      metadata:
+        config.source: /etc/datadog-agent/conf.d/containerd.d/conf.yaml.default[0]
+
+
+    coredns (6.0.1)
+    ---------------
+      Instance ID: coredns:54e56ab8b245c92a [OK]
+      Configuration Source: file:/etc/datadog-agent/conf.d/coredns.d/auto_conf.yaml[0]
+      Total Runs: 190
+      Metric Samples: Last Run: 177, Total: 33,630
+      Events: Last Run: 0, Total: 0
+      Service Checks: Last Run: 1, Total: 190
+      Average Execution Time : 11ms
+      Last Execution Date : 2025-10-27 15:04:01.076 UTC (1761577441076)
+      Last Successful Execution Date : 2025-10-27 15:04:01 UTC (1761577441000)
+      metadata:
+        config.source: /etc/datadog-agent/conf.d/coredns.d/auto_conf.yaml[0]
+
+      Instance ID: coredns:6d06cd468cd0202f [OK]
+      Configuration Source: file:/etc/datadog-agent/conf.d/coredns.d/auto_conf.yaml[0]
+      Total Runs: 190
+      Metric Samples: Last Run: 177, Total: 33,630
+      Events: Last Run: 0, Total: 0
+      Service Checks: Last Run: 1, Total: 190
+      Average Execution Time : 118ms
+      Last Execution Date : 2025-10-27 15:03:54.173 UTC (1761577434173)
+      Last Successful Execution Date : 2025-10-27 15:03:54 UTC (1761577434000)
+      metadata:
+        config.source: /etc/datadog-agent/conf.d/coredns.d/auto_conf.yaml[0]
+
+
+    cpu
+    ---
+      Instance ID: cpu [OK]
+      Configuration Source: file:/etc/datadog-agent/conf.d/cpu.d/conf.yaml.default[0]
+      Total Runs: 190
+      Metric Samples: Last Run: 19, Total: 3,603
+      Events: Last Run: 0, Total: 0
+      Service Checks: Last Run: 0, Total: 0
+      Average Execution Time : 2ms
+      Last Execution Date : 2025-10-27 15:03:58.067 UTC (1761577438067)
+      Last Successful Execution Date : 2025-10-27 15:03:58 UTC (1761577438000)
+      metadata:
+        config.source: /etc/datadog-agent/conf.d/cpu.d/conf.yaml.default[0]
+
+
+    cri
+    ---
+      Instance ID: cri [OK]
+      Configuration Source: file:/etc/datadog-agent/conf.d/cri.d/conf.yaml.default[0]
+      Total Runs: 189
+      Metric Samples: Last Run: 0, Total: 0
+      Events: Last Run: 0, Total: 0
+      Service Checks: Last Run: 0, Total: 0
+      Average Execution Time : 11ms
+      Last Execution Date : 2025-10-27 15:03:49.964 UTC (1761577429964)
+      Last Successful Execution Date : 2025-10-27 15:03:49 UTC (1761577429000)
+      metadata:
+        config.source: /etc/datadog-agent/conf.d/cri.d/conf.yaml.default[0]
+
+
+    disk (7.1.0)
+    ------------
+      Instance ID: disk:67cc0574430a16ba [OK]
+      Configuration Source: file:/etc/datadog-agent/conf.d/disk.d/conf.yaml.default[0]
+      Total Runs: 190
+      Metric Samples: Last Run: 890, Total: 169,100
+      Events: Last Run: 0, Total: 0
+      Service Checks: Last Run: 0, Total: 0
+      Average Execution Time : 139ms
+      Last Execution Date : 2025-10-27 15:03:57.241 UTC (1761577437241)
+      Last Successful Execution Date : 2025-10-27 15:03:57 UTC (1761577437000)
+      metadata:
+        config.source: /etc/datadog-agent/conf.d/disk.d/conf.yaml.default[0]
+
+
+    file_handle
+    -----------
+      Instance ID: file_handle [OK]
+      Configuration Source: file:/etc/datadog-agent/conf.d/file_handle.d/conf.yaml.default[0]
+      Total Runs: 190
+      Metric Samples: Last Run: 5, Total: 950
+      Events: Last Run: 0, Total: 0
+      Service Checks: Last Run: 0, Total: 0
+      Average Execution Time : 0s
+      Last Execution Date : 2025-10-27 15:04:04.064 UTC (1761577444064)
+      Last Successful Execution Date : 2025-10-27 15:04:04 UTC (1761577444000)
+      metadata:
+        config.source: /etc/datadog-agent/conf.d/file_handle.d/conf.yaml.default[0]
+
+
+    io
+    --
+      Instance ID: io [OK]
+      Configuration Source: file:/etc/datadog-agent/conf.d/io.d/conf.yaml.default[0]
+      Total Runs: 190
+      Metric Samples: Last Run: 106, Total: 20,068
+      Events: Last Run: 0, Total: 0
+      Service Checks: Last Run: 0, Total: 0
+      Average Execution Time : 0s
+      Last Execution Date : 2025-10-27 15:03:56.064 UTC (1761577436064)
+      Last Successful Execution Date : 2025-10-27 15:03:56 UTC (1761577436000)
+      metadata:
+        config.source: /etc/datadog-agent/conf.d/io.d/conf.yaml.default[0]
+
+
+    kube_apiserver_metrics (7.1.0)
+    ------------------------------
+      Instance ID: kube_apiserver_metrics:d58981f024242e1f [OK]
+      Configuration Source: file:/etc/datadog-agent/conf.d/kube_apiserver_metrics.d/auto_conf.yaml[0]
+      Total Runs: 189
+      Metric Samples: Last Run: 13,227, Total: 2,499,535
+      Events: Last Run: 0, Total: 0
+      Service Checks: Last Run: 2, Total: 378
+      Average Execution Time : 2.341s
+      Last Execution Date : 2025-10-27 15:03:55.37 UTC (1761577435370)
+      Last Successful Execution Date : 2025-10-27 15:03:55 UTC (1761577435000)
+      metadata:
+        config.source: /etc/datadog-agent/conf.d/kube_apiserver_metrics.d/auto_conf.yaml[0]
+
+
+    kube_controller_manager (8.0.1)
+    -------------------------------
+      Instance ID: kube_controller_manager:a0e5666297fe4a92 [OK]
+      Configuration Source: file:/etc/datadog-agent/conf.d/kube_controller_manager.d/auto_conf.yaml[0]
+      Total Runs: 190
+      Metric Samples: Last Run: 1,510, Total: 286,900
+      Events: Last Run: 0, Total: 0
+      Service Checks: Last Run: 4, Total: 760
+      Average Execution Time : 137ms
+      Last Execution Date : 2025-10-27 15:04:00.236 UTC (1761577440236)
+      Last Successful Execution Date : 2025-10-27 15:04:00 UTC (1761577440000)
+      metadata:
+        config.source: /etc/datadog-agent/conf.d/kube_controller_manager.d/auto_conf.yaml[0]
+
+
+    kube_scheduler (7.0.1)
+    ----------------------
+      Instance ID: kube_scheduler:662ee31be3059871 [OK]
+      Configuration Source: file:/etc/datadog-agent/conf.d/kube_scheduler.d/auto_conf.yaml[0]
+      Total Runs: 189
+      Metric Samples: Last Run: 143, Total: 27,027
+      Events: Last Run: 0, Total: 0
+      Service Checks: Last Run: 4, Total: 756
+      Average Execution Time : 107ms
+      Last Execution Date : 2025-10-27 15:03:52.153 UTC (1761577432153)
+      Last Successful Execution Date : 2025-10-27 15:03:52 UTC (1761577432000)
+      metadata:
+        config.source: /etc/datadog-agent/conf.d/kube_scheduler.d/auto_conf.yaml[0]
+
+
+    kubelet
+    -------
+      Instance ID: kubelet [OK]
+      Configuration Source: file:/etc/datadog-agent/conf.d/kubelet.d/conf.yaml.default[0]
+      Total Runs: 143
+      Metric Samples: Last Run: 804, Total: 114,959
+      Events: Last Run: 0, Total: 0
+      Service Checks: Last Run: 5, Total: 715
+      Average Execution Time : 157ms
+      Last Execution Date : 2025-10-27 15:04:01.567 UTC (1761577441567)
+      Last Successful Execution Date : 2025-10-27 15:04:01 UTC (1761577441000)
+      metadata:
+        config.source: /etc/datadog-agent/conf.d/kubelet.d/conf.yaml.default[0]
+
+
+    load
+    ----
+      Instance ID: load [OK]
+      Configuration Source: file:/etc/datadog-agent/conf.d/load.d/conf.yaml.default[0]
+      Total Runs: 190
+      Metric Samples: Last Run: 6, Total: 1,140
+      Events: Last Run: 0, Total: 0
+      Service Checks: Last Run: 0, Total: 0
+      Average Execution Time : 3ms
+      Last Execution Date : 2025-10-27 15:04:03.068 UTC (1761577443068)
+      Last Successful Execution Date : 2025-10-27 15:04:03 UTC (1761577443000)
+      metadata:
+        config.source: /etc/datadog-agent/conf.d/load.d/conf.yaml.default[0]
+
+
+    memory
+    ------
+      Instance ID: memory [OK]
+      Configuration Source: file:/etc/datadog-agent/conf.d/memory.d/conf.yaml.default[0]
+      Total Runs: 189
+      Metric Samples: Last Run: 20, Total: 3,780
+      Events: Last Run: 0, Total: 0
+      Service Checks: Last Run: 0, Total: 0
+      Average Execution Time : 0s
+      Last Execution Date : 2025-10-27 15:03:55.064 UTC (1761577435064)
+      Last Successful Execution Date : 2025-10-27 15:03:55 UTC (1761577435000)
+      metadata:
+        config.source: /etc/datadog-agent/conf.d/memory.d/conf.yaml.default[0]
+
+
+    network (5.3.0)
+    ---------------
+      Instance ID: network:4b0649b7e11f0772 [OK]
+      Configuration Source: file:/etc/datadog-agent/conf.d/network.d/conf.yaml.default[0]
+      Total Runs: 190
+      Metric Samples: Last Run: 127, Total: 24,130
+      Events: Last Run: 0, Total: 0
+      Service Checks: Last Run: 0, Total: 0
+      Average Execution Time : 2ms
+      Last Execution Date : 2025-10-27 15:04:02.067 UTC (1761577442067)
+      Last Successful Execution Date : 2025-10-27 15:04:02 UTC (1761577442000)
+      metadata:
+        config.source: /etc/datadog-agent/conf.d/network.d/conf.yaml.default[0]
+
+
+    ntp
+    ---
+      Instance ID: ntp:3c427a42a70bbf8 [OK]
+      Configuration Source: file:/etc/datadog-agent/conf.d/ntp.d/conf.yaml.default[0]
+      Total Runs: 4
+      Metric Samples: Last Run: 1, Total: 4
+      Events: Last Run: 0, Total: 0
+      Service Checks: Last Run: 1, Total: 4
+      Average Execution Time : 1.572s
+      Last Execution Date : 2025-10-27 15:01:46.782 UTC (1761577306782)
+      Last Successful Execution Date : 2025-10-27 15:01:46 UTC (1761577306000)
+      metadata:
+        config.source: /etc/datadog-agent/conf.d/ntp.d/conf.yaml.default[0]
+
+
+    orchestrator_pod
+    ----------------
+      Instance ID: orchestrator_pod:888ebc42a3817b00 [OK]
+      Configuration Source: file:/etc/datadog-agent/conf.d/orchestrator_pod.d/conf.yaml.default[0]
+      Total Runs: 189
+      Metric Samples: Last Run: 0, Total: 0
+      Events: Last Run: 0, Total: 0
+      Service Checks: Last Run: 0, Total: 0
+      Average Execution Time : 22ms
+      Last Execution Date : 2025-10-27 15:03:54.07 UTC (1761577434070)
+      Last Successful Execution Date : 2025-10-27 15:03:54 UTC (1761577434000)
+      metadata:
+        config.source: /etc/datadog-agent/conf.d/orchestrator_pod.d/conf.yaml.default[0]
+
+
+    telemetry
+    ---------
+      Instance ID: telemetry [OK]
+      Configuration Source: file:/etc/datadog-agent/conf.d/telemetry.d/conf.yaml.default[0]
+      Total Runs: 190
+      Metric Samples: Last Run: 8, Total: 1,520
+      Events: Last Run: 0, Total: 0
+      Service Checks: Last Run: 0, Total: 0
+      Average Execution Time : 4ms
+      Last Execution Date : 2025-10-27 15:04:01.064 UTC (1761577441064)
+      Last Successful Execution Date : 2025-10-27 15:04:01 UTC (1761577441000)
+      metadata:
+        config.source: /etc/datadog-agent/conf.d/telemetry.d/conf.yaml.default[0]
+
+
+    uptime
+    ------
+      Instance ID: uptime [OK]
+      Configuration Source: file:/etc/datadog-agent/conf.d/uptime.d/conf.yaml.default[0]
+      Total Runs: 189
+      Metric Samples: Last Run: 1, Total: 189
+      Events: Last Run: 0, Total: 0
+      Service Checks: Last Run: 0, Total: 0
+      Average Execution Time : 15ms
+      Last Execution Date : 2025-10-27 15:03:53.073 UTC (1761577433073)
+      Last Successful Execution Date : 2025-10-27 15:03:53 UTC (1761577433000)
+      metadata:
+        config.source: /etc/datadog-agent/conf.d/uptime.d/conf.yaml.default[0]
+
+  Check Initialization Errors
+  ===========================
+
+
+      etcd (9.0.1)
+      ------------
+
+      instance 0:
+
+        could not invoke 'etcd' python check constructor. New constructor API returned:
+Traceback (most recent call last):
+  File "/opt/datadog-agent/embedded/lib/python3.12/site-packages/datadog_checks/etcd/etcd.py", line 73, in __init__
+    super(Etcd, self).__init__(
+  File "/opt/datadog-agent/embedded/lib/python3.12/site-packages/datadog_checks/base/checks/openmetrics/base_check.py", line 126, in __init__
+    raise CheckException(
+datadog_checks.base.errors.CheckException: The agent could not connect to any of the following URLs: ['https://172.19.0.3:2379/metrics', 'http://172.19.0.3:2379/metrics'].
+Deprecated constructor API returned:
+Etcd.__init__() got an unexpected keyword argument 'agentConfig'
+  Loading Errors
+  ==============
+    etcd
+    ----
+      Core Check Loader:
+        Check etcd not found in Catalog
+
+      Python Check Loader:
+        could not configure check instance for python check etcd: could not invoke 'etcd' python check constructor. New constructor API returned:
+Traceback (most recent call last):
+  File "/opt/datadog-agent/embedded/lib/python3.12/site-packages/datadog_checks/etcd/etcd.py", line 73, in __init__
+    super(Etcd, self).__init__(
+  File "/opt/datadog-agent/embedded/lib/python3.12/site-packages/datadog_checks/base/checks/openmetrics/base_check.py", line 126, in __init__
+    raise CheckException(
+datadog_checks.base.errors.CheckException: The agent could not connect to any of the following URLs: ['https://172.19.0.3:2379/metrics', 'http://172.19.0.3:2379/metrics'].
+Deprecated constructor API returned:
+Etcd.__init__() got an unexpected keyword argument 'agentConfig'
+
+
+==========
+Aggregator
+==========
+
+  Checks Metric Sample: 3,357,443
+  Dogstatsd Metric Sample: 22,389
+  Event: 1
+  Events Flushed: 1
+  Number Of Flushes: 190
+  Series Flushed: 3,220,138
+  Service Check: 3,182
+  Service Checks Flushed: 3,372
+
+=========
+APM Agent
+=========
+
+  Status: Running
+  Pid: 1
+  Uptime: 2853 seconds
+  Mem alloc: 10,620,960 bytes
+  Hostname: sockshop-control-plane-sockshop-kind
+  Receiver: 0.0.0.0:8126
+  Endpoints:
+    https://trace.agent.us5.datadoghq.com.
+
+  Receiver (previous minute)
+  ==========================
+    No traces received in the previous minute.
+
+
+
+  Writer (previous minute)
+  ========================
+    Traces: 0 payloads, 0 traces, 0 events, 0 bytes
+    Stats: 0 payloads, 0 stats buckets, 0 bytes
+
+=============
+Autodiscovery
+=============
+
+  Enabled Features
+  ================
+    containerd
+    cri
+    kube_orchestratorexplorer
+    kubernetes
+
+=====================
+Datadog Cluster Agent
+=====================
+
+    - Datadog Cluster Agent endpoint detected: https://10.96.103.30:5005
+    Successfully connected to the Datadog Cluster Agent.
+    - Running: 7.71.2+commit.a13e160920
+
+=========
+DogStatsD
+=========
+
+  Event Packets: 0
+  Event Parse Errors: 0
+  Metric Packets: 21,818
+  Metric Parse Errors: 0
+  Service Check Packets: 0
+  Service Check Parse Errors: 0
+  Udp Bytes: 3,304,147
+  Udp Packet Reading Errors: 0
+  Udp Packets: 10,859
+  Uds Bytes: 0
+  Uds Origin Detection Errors: 0
+  Uds Packet Reading Errors: 0
+  Uds Packets: 1
+  Unterminated Metric Errors: 0
+
+Tip: For troubleshooting, enable 'dogstatsd_metrics_stats_enable' in the main datadog.yaml file to generate Dogstatsd logs. Once 'dogstatsd_metrics_stats_enable' is enabled, users can also use 'dogstatsd-stats' command to get visibility of the latest collected metrics.
+
+=========
+Endpoints
+=========
+
+  https://app.us5.datadoghq.com. - API Key ending with:
+      - 88eb8
+
+================
+Fleet Automation
+================
+
+
+  Fleet Management is disabled
+
+  Remote Management Status:    Disabled
+  Datadog Installer Status:    Not running
+
+
+=========
+Forwarder
+=========
+
+  Transactions
+  ============
+    Cluster: 0
+    ClusterRole: 0
+    ClusterRoleBinding: 0
+    CronJob: 0
+    CustomResource: 0
+    CustomResourceDefinition: 0
+    DaemonSet: 0
+    Deployment: 0
+    Dropped: 0
+    ECSTask: 0
+    EndpointSlice: 0
+    HighPriorityQueueFull: 0
+    HorizontalPodAutoscaler: 0
+    Ingress: 0
+    Job: 0
+    LimitRange: 0
+    Namespace: 0
+    NetworkPolicy: 0
+    Node: 0
+    OrchestratorManifest: 33
+    PersistentVolume: 0
+    PersistentVolumeClaim: 0
+    Pod: 33
+    PodDisruptionBudget: 0
+    ReplicaSet: 0
+    Requeued: 0
+    Retried: 0
+    RetryQueueSize: 0
+    Role: 0
+    RoleBinding: 0
+    Service: 0
+    ServiceAccount: 0
+    StatefulSet: 0
+    StorageClass: 0
+    VerticalPodAutoscaler: 0
+
+  Transaction Successes
+  =====================
+    Total number: 974
+    Successes By Endpoint:
+      check_run_v1: 190
+      intake: 18
+      metadata_v1: 36
+      orchestrator: 33
+      orchmanifest: 33
+      process: 285
+      series_v2: 379
+
+  On-disk storage
+  ===============
+    On-disk storage is disabled. Configure `forwarder_storage_max_size_in_bytes` to enable it.
+
+  API Keys status
+  ===============
+    API key ending with 88eb8: API Key valid
+
+=========
+JMX Fetch
+=========
+
+  Information
+  ==================
+  Initialized checks
+  ==================
+    no checks
+
+  Failed checks
+  =============
+    no checks
+
+
+==========
+Logs Agent
+==========
+
+    Reliable: Sending compressed logs in HTTPS to agent-http-intake.logs.us5.datadoghq.com. on port 443 (API Key: ***************************88eb8)
+    BytesSent: 3761272
+    EncodedBytesSent: 473719
+    LogsProcessed: 3750
+    LogsSent: 3750
+    LogsTruncated: 0
+    RetryCount: 0
+    RetryTimeSpent: 0s
+    CoreAgentProcessOpenFiles: 57
+    OSFileLimit: 1048576
+  ============
+  Integrations
+  ============
+
+  local-path-storage/local-path-provisioner-58cc7856b6-zmzww/local-path-provisioner
+  ---------------------------------------------------------------------------------
+    - Type: file
+      Identifier: 4888578f9f59196cee838068195351fa7b7ae5f20ab3523029b00bbbaad3a033
+      Path: /var/log/pods/local-path-storage_local-path-provisioner-58cc7856b6-zmzww_e909ec56-4f13-49f5-aec1-4c20c2a6348c/local-path-provisioner/*.log
+      Service: local-path-provisioner
+      Source: local-path-provisioner
+      TailingMode: beginning
+      Status: OK
+        1 files tailed out of 2 files matching
+      Inputs:
+        /var/log/pods/local-path-storage_local-path-provisioner-58cc7856b6-zmzww_e909ec56-4f13-49f5-aec1-4c20c2a6348c/local-path-provisioner/23.log  
+      Bytes Read: 819   
+      Pipeline Latency:
+        Average Latency: 1.475752ms
+        24h Average Latency: 1.475752ms
+        Peak Latency: 1.490784ms
+        24h Peak Latency: 1.490784ms  
+      Processing Rules: No rules applied 
+
+  kube-system/kube-controller-manager-sockshop-control-plane/kube-controller-manager
+  ----------------------------------------------------------------------------------
+    - Type: file
+      Identifier: 822d49374c865aa914e681cab1640c858d7e30a46a7a792a8506c0d9060c16a1
+      Path: /var/log/pods/kube-system_kube-controller-manager-sockshop-control-plane_4b112ecb-3c46-4663-abbc-1485aef4c51b/kube-controller-manager/*.log
+      Service: kube-controller-manager-amd64
+      Source: kube-controller-manager-amd64
+      Status: Error: could not find any file matching pattern /var/log/pods/kube-system_kube-controller-manager-sockshop-control-plane_4b112ecb-3c46-4663-abbc-1485aef4c51b/kube-controller-manager/*.log, check that all its subdirectories are executable
+        0 files tailed out of 0 files matching  
+      Bytes Read: 0   
+      Pipeline Latency:
+        Average Latency: 0s
+        24h Average Latency: 0s
+        Peak Latency: 0s
+        24h Peak Latency: 0s  
+      Processing Rules: No rules applied 
+
+  kube-system/kube-apiserver-sockshop-control-plane/kube-apiserver
+  ----------------------------------------------------------------
+    - Type: file
+      Identifier: 590a5f420a14ef3838909ee55e53690df5941e09ce4964ad6d30e25585c4cbb2
+      Path: /var/log/pods/kube-system_kube-apiserver-sockshop-control-plane_55ca0b81-87d9-4d73-9691-df58d26e6f47/kube-apiserver/*.log
+      Service: kube-apiserver-amd64
+      Source: kube-apiserver-amd64
+      Status: Error: could not find any file matching pattern /var/log/pods/kube-system_kube-apiserver-sockshop-control-plane_55ca0b81-87d9-4d73-9691-df58d26e6f47/kube-apiserver/*.log, check that all its subdirectories are executable
+        0 files tailed out of 0 files matching  
+      Bytes Read: 0   
+      Pipeline Latency:
+        Average Latency: 0s
+        24h Average Latency: 0s
+        Peak Latency: 0s
+        24h Peak Latency: 0s  
+      Processing Rules: No rules applied 
+
+  kube-system/kindnet-b88fx/kindnet-cni
+  -------------------------------------
+    - Type: file
+      Identifier: a08d7e894f350d6a0f53752437f26e271abed26b8b2ed0f1b2eeb0e268109834
+      Path: /var/log/pods/kube-system_kindnet-b88fx_5adecd90-bc7b-4482-a233-7fa44dcacca8/kindnet-cni/*.log
+      Service: kindnetd
+      Source: kindnetd
+      TailingMode: beginning
+      Status: OK
+        1 files tailed out of 2 files matching
+      Inputs:
+        /var/log/pods/kube-system_kindnet-b88fx_5adecd90-bc7b-4482-a233-7fa44dcacca8/kindnet-cni/13.log  
+      Bytes Read: 255692   
+      Pipeline Latency:
+        Average Latency: 536.211µs
+        24h Average Latency: 536.211µs
+        Peak Latency: 39.342579ms
+        24h Peak Latency: 39.342579ms  
+      Processing Rules: No rules applied 
+
+  monitoring/kps-prometheus-node-exporter-vwj4p/node-exporter
+  -----------------------------------------------------------
+    - Type: file
+      Identifier: 6505a88b96bbdaf8b040e0b182efbd2c7499f991ef34946a8d23f5404780ea2c
+      Path: /var/log/pods/monitoring_kps-prometheus-node-exporter-vwj4p_93945da5-736e-4116-a867-89d1adf19222/node-exporter/*.log
+      Service: node-exporter
+      Source: node-exporter
+      TailingMode: beginning
+      Status: OK
+        1 files tailed out of 2 files matching
+      Inputs:
+        /var/log/pods/monitoring_kps-prometheus-node-exporter-vwj4p_93945da5-736e-4116-a867-89d1adf19222/node-exporter/11.log  
+      Bytes Read: 7568   
+      Pipeline Latency:
+        Average Latency: 852.225µs
+        24h Average Latency: 852.225µs
+        Peak Latency: 884.633µs
+        24h Peak Latency: 884.633µs  
+      Processing Rules: No rules applied 
+
+  kube-system/etcd-sockshop-control-plane/etcd
+  --------------------------------------------
+    - Type: file
+      Identifier: ba5d83a21f60ec37029dc24c422a573e3ccd98a0192fdc3fdecf2e33bac4b7a2
+      Path: /var/log/pods/kube-system_etcd-sockshop-control-plane_b8f2c356-4c7c-4723-b542-87dd0085ffe8/etcd/*.log
+      Service: etcd
+      Source: etcd
+      Status: Error: could not find any file matching pattern /var/log/pods/kube-system_etcd-sockshop-control-plane_b8f2c356-4c7c-4723-b542-87dd0085ffe8/etcd/*.log, check that all its subdirectories are executable
+        0 files tailed out of 0 files matching  
+      Bytes Read: 0   
+      Pipeline Latency:
+        Average Latency: 0s
+        24h Average Latency: 0s
+        Peak Latency: 0s
+        24h Peak Latency: 0s  
+      Processing Rules: No rules applied 
+
+  datadog/datadog-agent-kxnjt/init-config
+  ---------------------------------------
+    - Type: file
+      Identifier: 767132630a4bd4cbe8591c4a6dac1707a2b82717e3b1295f75eb10b10e7fc5fb
+      Path: /var/log/pods/datadog_datadog-agent-kxnjt_c349a1b9-530c-4ba3-a905-9e40766997d8/init-config/*.log
+      Service: agent
+      Source: agent
+      TailingMode: beginning
+      Status: OK
+        1 files tailed out of 1 files matching
+      Inputs:
+        /var/log/pods/datadog_datadog-agent-kxnjt_c349a1b9-530c-4ba3-a905-9e40766997d8/init-config/0.log  
+      Bytes Read: 101   
+      Pipeline Latency:
+        Average Latency: 608.442µs
+        24h Average Latency: 608.442µs
+        Peak Latency: 608.442µs
+        24h Peak Latency: 608.442µs  
+      Processing Rules: No rules applied 
+
+  datadog/datadog-agent-kxnjt/init-volume
+  ---------------------------------------
+    - Type: file
+      Identifier: 5d5d45bb917b6e907768776e743d4d35493134b00577e31ea973291964707ab1
+      Path: /var/log/pods/datadog_datadog-agent-kxnjt_c349a1b9-530c-4ba3-a905-9e40766997d8/init-volume/*.log
+      Service: agent
+      Source: agent
+      TailingMode: beginning
+      Status: OK
+        1 files tailed out of 1 files matching
+      Inputs:
+        /var/log/pods/datadog_datadog-agent-kxnjt_c349a1b9-530c-4ba3-a905-9e40766997d8/init-volume/0.log  
+      Bytes Read: 0   
+      Pipeline Latency:
+        Average Latency: 0s
+        24h Average Latency: 0s
+        Peak Latency: 0s
+        24h Peak Latency: 0s  
+      Processing Rules: No rules applied 
+
+  datadog/datadog-agent-kxnjt/trace-agent
+  ---------------------------------------
+    - Type: file
+      Identifier: 4dd7d8e2666ea0a22d249bdf6c6778e030554e3f1bcf9b9da980f31083e8bb60
+      Path: /var/log/pods/datadog_datadog-agent-kxnjt_c349a1b9-530c-4ba3-a905-9e40766997d8/trace-agent/*.log
+      Service: agent
+      Source: agent
+      TailingMode: beginning
+      Status: OK
+        1 files tailed out of 1 files matching
+      Inputs:
+        /var/log/pods/datadog_datadog-agent-kxnjt_c349a1b9-530c-4ba3-a905-9e40766997d8/trace-agent/0.log  
+      Bytes Read: 18408   
+      Pipeline Latency:
+        Average Latency: 379.321µs
+        24h Average Latency: 379.321µs
+        Peak Latency: 685.865µs
+        24h Peak Latency: 685.865µs  
+      Processing Rules: No rules applied 
+
+  kube-system/coredns-668d6bf9bc-9q5zp/coredns
+  --------------------------------------------
+    - Type: file
+      Identifier: 98bdbc582aa64f0763c6d673d307976bd04f8d665e053188990ad45946f4fe9a
+      Path: /var/log/pods/kube-system_coredns-668d6bf9bc-9q5zp_3a9ff1b7-b8a2-4fa3-b038-d0fd310a1370/coredns/*.log
+      Service: coredns
+      Source: coredns
+      TailingMode: beginning
+      Status: OK
+        1 files tailed out of 2 files matching
+      Inputs:
+        /var/log/pods/kube-system_coredns-668d6bf9bc-9q5zp_3a9ff1b7-b8a2-4fa3-b038-d0fd310a1370/coredns/13.log  
+      Bytes Read: 28472   
+      Pipeline Latency:
+        Average Latency: 734.671µs
+        24h Average Latency: 734.671µs
+        Peak Latency: 1.765022ms
+        24h Peak Latency: 1.765022ms  
+      Processing Rules: No rules applied 
+
+  kube-system/coredns-668d6bf9bc-5kwsp/coredns
+  --------------------------------------------
+    - Type: file
+      Identifier: a1e675525ad660f4430072de67a7a0403ad01f27fa9b8d923908cadc5a30bd93
+      Path: /var/log/pods/kube-system_coredns-668d6bf9bc-5kwsp_9a70cb6d-b571-4b4a-a686-ddb8626cbfe1/coredns/*.log
+      Service: coredns
+      Source: coredns
+      TailingMode: beginning
+      Status: OK
+        1 files tailed out of 2 files matching
+      Inputs:
+        /var/log/pods/kube-system_coredns-668d6bf9bc-5kwsp_9a70cb6d-b571-4b4a-a686-ddb8626cbfe1/coredns/13.log  
+      Bytes Read: 29577   
+      Pipeline Latency:
+        Average Latency: 879.541µs
+        24h Average Latency: 879.541µs
+        Peak Latency: 2.371761ms
+        24h Peak Latency: 2.371761ms  
+      Processing Rules: No rules applied 
+
+  datadog/datadog-agent-kxnjt/agent
+  ---------------------------------
+    - Type: file
+      Identifier: f939d98b6f372bc7e3e8c84cb6d9b213962a6c892bc69fd2f7c2c7af60e4cfe0
+      Path: /var/log/pods/datadog_datadog-agent-kxnjt_c349a1b9-530c-4ba3-a905-9e40766997d8/agent/*.log
+      Service: agent
+      Source: agent
+      TailingMode: beginning
+      Status: OK
+        1 files tailed out of 1 files matching
+      Inputs:
+        /var/log/pods/datadog_datadog-agent-kxnjt_c349a1b9-530c-4ba3-a905-9e40766997d8/agent/0.log  
+      Bytes Read: 260961   
+      Pipeline Latency:
+        Average Latency: 767.514µs
+        24h Average Latency: 767.514µs
+        Peak Latency: 46.544102ms
+        24h Peak Latency: 46.544102ms  
+      Processing Rules: No rules applied 
+
+  kube-system/kube-proxy-jn4cg/kube-proxy
+  ---------------------------------------
+    - Type: file
+      Identifier: 98ebf6fc878cd25a519daca0d1183e2c778708a53283cb5029d8f869bf61ebbd
+      Path: /var/log/pods/kube-system_kube-proxy-jn4cg_d491d550-3570-4ead-8b4e-a02a03576a48/kube-proxy/*.log
+      Service: kube-proxy-amd64
+      Source: kube-proxy-amd64
+      TailingMode: beginning
+      Status: OK
+        1 files tailed out of 2 files matching
+      Inputs:
+        /var/log/pods/kube-system_kube-proxy-jn4cg_d491d550-3570-4ead-8b4e-a02a03576a48/kube-proxy/13.log  
+      Bytes Read: 2803   
+      Pipeline Latency:
+        Average Latency: 2.306436ms
+        24h Average Latency: 2.306436ms
+        Peak Latency: 2.668584ms
+        24h Peak Latency: 2.668584ms  
+      Processing Rules: No rules applied 
+
+  kube-system/kube-scheduler-sockshop-control-plane/kube-scheduler
+  ----------------------------------------------------------------
+    - Type: file
+      Identifier: c797b156062e8ab7a7c171bd8c45b4c26f0e0225740bf377dfbe01dbbcbb6c8e
+      Path: /var/log/pods/kube-system_kube-scheduler-sockshop-control-plane_c8eb332e-14d5-478e-8950-eca011045392/kube-scheduler/*.log
+      Service: kube-scheduler-amd64
+      Source: kube-scheduler-amd64
+      Status: Error: could not find any file matching pattern /var/log/pods/kube-system_kube-scheduler-sockshop-control-plane_c8eb332e-14d5-478e-8950-eca011045392/kube-scheduler/*.log, check that all its subdirectories are executable
+        0 files tailed out of 0 files matching  
+      Bytes Read: 0   
+      Pipeline Latency:
+        Average Latency: 0s
+        24h Average Latency: 0s
+        Peak Latency: 0s
+        24h Peak Latency: 0s  
+      Processing Rules: No rules applied 
+
+==========
+OTel Agent
+==========
+
+
+  Status: Not running or unreachable on https://localhost:7777.
+  Error: OTel Agent is not enabled.
+
+====
+OTLP
+====
+
+  Status: Not enabled
+  Collector status: Not running
+
+
+
+=============
+Process Agent
+=============
+
+  Status: Not running or unreachable
+
+=================
+Process Component
+=================
+
+
+  Enabled Checks: [process rtprocess]
+  System Probe Process Module Status: Not running
+  Process Language Detection Enabled: False
+
+  =================
+  Process Endpoints
+  =================
+    https://process.us5.datadoghq.com. - API Key ending with:
+        - 88eb8
+
+  =========
+  Collector
+  =========
+    Last collection time: 2025-10-27 15:03:56
+    Docker socket: 
+    Number of processes: 38
+    Number of containers: 12
+    Process Queue length: 0
+    RTProcess Queue length: 0
+    Connections Queue length: 0
+    Event Queue length: 0
+    Pod Queue length: 0
+    Process Bytes enqueued: 0
+    RTProcess Bytes enqueued: 0
+    Connections Bytes enqueued: 0
+    Event Bytes enqueued: 0
+    Pod Bytes enqueued: 0
+    Drop Check Payloads: []
+    Number of submission errors: 0
+
+  ==========
+  Extractors
+  ==========
+
+    Workloadmeta
+    ============
+      Cache size: 0
+      Stale diffs discarded: 0
+      Diffs dropped: 0
+
+====================
+Remote Configuration
+====================
+
+
+Organization enabled: False
+API Key: Not authorized, add the Remote Configuration Read permission to enable it for this agent.
+Last error: None
+
+
+
+=======
+Secrets
+=======
+No secret_backend_command set: secrets feature is not enabled
+
+===
+SSI
+===
+
+    SSI is not enabled.
+
+
+========================
+Transport Proxy Warnings
+========================
+
+  No Transport Proxy Warnings
+

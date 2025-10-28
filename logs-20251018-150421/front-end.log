@@ -1,0 +1,754 @@
+(node:20) [DEP0066] DeprecationWarning: OutgoingMessage.prototype._headers is deprecated
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Request received: /cart, undefined
+Customer ID: PClOeC6SqzcqHU1AZII64pZWslK7JDeG
+[0mGET /catalogue?size=5 [32m200 [0m- ms - -[0m
+[0mGET /catalogue/images/holy_2.jpeg [32m200 [0m102.367 ms - 43812[0m
+[0mGET /catalogue/510a0d7e-8e83-4193-b483-e27e09ddc34d [32m200 [0m- ms - -[0m
+[0mGET /catalogue?sort=id&size=3&tags=sport [32m200 [0m- ms - -[0m
+Attempting to add to cart: {"id":"510a0d7e-8e83-4193-b483-e27e09ddc34d"}
+{"id":"510a0d7e-8e83-4193-b483-e27e09ddc34d","name":"SuperSport XL","description":"Ready for action. Engineers: be ready to smash that next bug! Be ready, with these super-action-sport-masterpieces. This particular engineer was chased away from the office with a stick.","imageUrl":["/catalogue/images/puma_1.jpeg","/catalogue/images/puma_2.jpeg"],"price":15,"count":820,"tag":["sport","black","formal"]}
+
+POST to carts: http://carts/carts/0Ejzd-HXkwrbbUfWHwoYX1msuQp3dC7T/items body: {"itemId":"510a0d7e-8e83-4193-b483-e27e09ddc34d","unitPrice":15}
+[0mGET /catalogue?size=3 [32m200 [0m- ms - -[0m
+[0mGET /card [32m200 [0m- ms - -[0m
+[0mGET /address [32m200 [0m- ms - -[0m
+[0mPOST /cart [32m201 [0m- ms - -[0m
+[0mGET /cart [32m200 [0m- ms - -[0m
+Request received: /cart, undefined
+Customer ID: 0Ejzd-HXkwrbbUfWHwoYX1msuQp3dC7T
+[0mGET /cart [32m200 [0m- ms - -[0m
+Request received: /cart, undefined
+Customer ID: 0Ejzd-HXkwrbbUfWHwoYX1msuQp3dC7T
+[0mGET /cart [32m200 [0m- ms - -[0m
+Request received: /cart, undefined
+Customer ID: 0Ejzd-HXkwrbbUfWHwoYX1msuQp3dC7T
+[0mGET /catalogue/510a0d7e-8e83-4193-b483-e27e09ddc34d [32m200 [0m- ms - -[0m
+[0mGET /cart [32m200 [0m- ms - -[0m
+[0mGET /catalogue/510a0d7e-8e83-4193-b483-e27e09ddc34d [32m200 [0m- ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m53.980 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m6.694 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m10.179 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m8.500 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m5.837 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m7.089 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m16.678 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m7.084 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m9.302 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m5.949 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m10.143 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m6.008 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m5.734 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m7.750 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m7.588 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m6.154 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m9.026 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m5.404 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m8.212 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m7.123 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m5.355 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m8.196 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m15.678 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m6.475 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m5.695 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m6.820 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m7.174 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m5.325 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m7.275 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m6.122 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m8.011 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m6.575 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m5.776 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m5.713 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m10.969 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m5.826 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m5.444 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m8.403 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m5.549 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m6.039 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m5.317 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m5.644 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m6.032 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m6.099 ms - -[0m
+Request received: /cart, undefined
+Customer ID: 0Ejzd-HXkwrbbUfWHwoYX1msuQp3dC7T
+[0mGET /card [32m200 [0m- ms - -[0m
+[0mGET /address [32m200 [0m- ms - -[0m
+[0mGET /catalogue?size=3 [32m200 [0m- ms - -[0m
+[0mGET /cart [32m200 [0m- ms - -[0m
+Request received: /cart, undefined
+Customer ID: 0Ejzd-HXkwrbbUfWHwoYX1msuQp3dC7T
+[0mGET /catalogue/510a0d7e-8e83-4193-b483-e27e09ddc34d [32m200 [0m- ms - -[0m
+[0mGET /cart [32m200 [0m- ms - -[0m
+[0mGET /catalogue/510a0d7e-8e83-4193-b483-e27e09ddc34d [32m200 [0m- ms - -[0m
+Posting Customer: {"username":"Parvaiz","password":"Test123","email":"mdp.cloud25@gmail.com","firstName":"Parvaiz","lastName":"Shah"}
+{ id: '68f35a909c10d300018b6ffe' }
+68f35a909c10d300018b6ffe
+Merging carts for customer id: 68f35a909c10d300018b6ffe and session id: 0Ejzd-HXkwrbbUfWHwoYX1msuQp3dC7T
+Carts merged.
+set cookie68f35a909c10d300018b6ffe
+Sent cookies.
+[0mPOST /register [32m200 [0m848.495 ms - 33[0m
+Request received: /cart, undefined
+Customer ID: 68f35a909c10d300018b6ffe
+[0mGET /card [32m200 [0m- ms - -[0m
+[0mGET /address [32m200 [0m- ms - -[0m
+[0mGET /catalogue?size=3 [32m200 [0m- ms - -[0m
+[0mGET /customers/0Ejzd-HXkwrbbUfWHwoYX1msuQp3dC7T [32m200 [0m- ms - -[0m
+[0mGET /cart [32m200 [0m- ms - -[0m
+Request received: /cart, undefined
+Customer ID: 68f35a909c10d300018b6ffe
+[0mGET /catalogue/510a0d7e-8e83-4193-b483-e27e09ddc34d [32m200 [0m- ms - -[0m
+[0mGET /cart [32m200 [0m- ms - -[0m
+[0mGET /catalogue/510a0d7e-8e83-4193-b483-e27e09ddc34d [32m200 [0m- ms - -[0m
+[0mGET /catalogue?size=5 [32m200 [0m- ms - -[0m
+Request received: /cart, undefined
+Customer ID: 0Ejzd-HXkwrbbUfWHwoYX1msuQp3dC7T
+[0mGET /cart [32m200 [0m- ms - -[0m
+Received login request
+401
+Error with log in: true
+[0mGET /login [33m401 [0m6.736 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m7.068 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m9.481 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m7.380 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m8.389 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m5.877 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m9.519 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m6.574 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m7.920 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m11.613 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m6.421 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m7.376 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m5.304 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m7.747 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m8.819 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m5.713 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m5.399 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m4.995 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m8.054 ms - -[0m
+Received login request
+500
+Error with log in: true
+[0mGET /login [33m401 [0m5.813 ms - -[0m
+[0mGET /health [33m404 [0m5.663 ms - 19[0m
+Posting Customer: {"username":"demo","password":"demo","email":"demo@example.com","firstName":"Demo","lastName":"User"}
+{ id: '68f35bde9c10d300018b6fff' }
+68f35bde9c10d300018b6fff
+Merging carts for customer id: 68f35bde9c10d300018b6fff and session id: CDbblcufoWu5oRwlgr00OSRqMk2Na2G-
+Carts merged.
+set cookie68f35bde9c10d300018b6fff
+Sent cookies.
+[0mPOST /register [32m200 [0m1434.115 ms - 33[0m
+Posting Customer: {"username":"Rayaan","password":"Test1234","email":"Rayaan@gmail.com","firstName":"Shah","lastName":"Mohammed"}
+{ id: '68f35c679c10d300018b7000' }
+68f35c679c10d300018b7000
+Merging carts for customer id: 68f35c679c10d300018b7000 and session id: 0Ejzd-HXkwrbbUfWHwoYX1msuQp3dC7T
+Carts merged.
+set cookie68f35c679c10d300018b7000
+Sent cookies.
+[0mPOST /register [32m200 [0m527.931 ms - 33[0m
+[0mGET /catalogue?size=5 [32m200 [0m- ms - -[0m
+Request received: /cart, undefined
+Customer ID: 68f35c679c10d300018b7000
+[0mGET /customers/0Ejzd-HXkwrbbUfWHwoYX1msuQp3dC7T [32m200 [0m- ms - -[0m
+[0mGET /cart [32m200 [0m- ms - -[0m
+[0mGET /catalogue?page=1&size=6&tags= [32m200 [0m- ms - -[0m
+Request received: /cart, undefined
+Customer ID: 68f35c679c10d300018b7000
+[0mGET /catalogue/size?tags= [32m200 [0m- ms - -[0m
+[0mGET /customers/0Ejzd-HXkwrbbUfWHwoYX1msuQp3dC7T [32m200 [0m- ms - -[0m
+[0mGET /tags [32m200 [0m- ms - -[0m
+[0mGET /cart [32m200 [0m- ms - -[0m
+Attempting to add to cart: {"id":"03fef6ac-1896-4ce8-bd69-b798f85c6e0b"}
+{"id":"03fef6ac-1896-4ce8-bd69-b798f85c6e0b","name":"Holy","description":"Socks fit for a Messiah. You too can experience walking in water with these special edition beauties. Each hole is lovingly proggled to leave smooth edges. The only sock approved by a higher power.","imageUrl":["/catalogue/images/holy_1.jpeg","/catalogue/images/holy_2.jpeg"],"price":99.99,"count":1,"tag":["magic","action"]}
+
+POST to carts: http://carts/carts/68f35c679c10d300018b7000/items body: {"itemId":"03fef6ac-1896-4ce8-bd69-b798f85c6e0b","unitPrice":99.99}
+[0mPOST /cart [32m201 [0m- ms - -[0m
+Attempting to add to cart: {"id":"03fef6ac-1896-4ce8-bd69-b798f85c6e0b"}
+{"id":"03fef6ac-1896-4ce8-bd69-b798f85c6e0b","name":"Holy","description":"Socks fit for a Messiah. You too can experience walking in water with these special edition beauties. Each hole is lovingly proggled to leave smooth edges. The only sock approved by a higher power.","imageUrl":["/catalogue/images/holy_1.jpeg","/catalogue/images/holy_2.jpeg"],"price":99.99,"count":1,"tag":["magic","action"]}
+
+POST to carts: http://carts/carts/68f35c679c10d300018b7000/items body: {"itemId":"03fef6ac-1896-4ce8-bd69-b798f85c6e0b","unitPrice":99.99}
+[0mPOST /cart [32m201 [0m- ms - -[0m
+Request received: /cart, undefined
+Customer ID: 68f35c679c10d300018b7000
+[0mGET /address [32m200 [0m- ms - -[0m
+[0mGET /card [32m200 [0m- ms - -[0m
+[0mGET /catalogue?size=3 [32m200 [0m- ms - -[0m
+[0mGET /customers/0Ejzd-HXkwrbbUfWHwoYX1msuQp3dC7T [32m200 [0m- ms - -[0m
+[0mGET /cart [32m200 [0m- ms - -[0m
+Request received: /cart, undefined
+Customer ID: 68f35c679c10d300018b7000
+[0mGET /catalogue/03fef6ac-1896-4ce8-bd69-b798f85c6e0b [32m200 [0m- ms - -[0m
+[0mGET /cart [32m200 [0m- ms - -[0m
+[0mGET /catalogue/03fef6ac-1896-4ce8-bd69-b798f85c6e0b [32m200 [0m- ms - -[0m
+Posting Address: {"number":"781","street":"Banjara hills","city":"Hyderabad","postcode":"500008","country":"India","userID":"68f35c679c10d300018b7000"}
+[0mPOST /addresses [32m200 [0m- ms - -[0m
+Request received: /cart, undefined
+Customer ID: 68f35c679c10d300018b7000
+[0mGET /card [32m200 [0m- ms - -[0m
+[0mGET /address [32m200 [0m- ms - -[0m
+[0mGET /cart [32m200 [0m- ms - -[0m
+[0mGET /catalogue?size=3 [32m200 [0m- ms - -[0m
+Request received: /cart, undefined
+Customer ID: 68f35c679c10d300018b7000
+[0mGET /customers/0Ejzd-HXkwrbbUfWHwoYX1msuQp3dC7T [32m200 [0m- ms - -[0m
+[0mGET /catalogue/03fef6ac-1896-4ce8-bd69-b798f85c6e0b [32m200 [0m- ms - -[0m
+[0mGET /cart [32m200 [0m- ms - -[0m
+[0mGET /catalogue/03fef6ac-1896-4ce8-bd69-b798f85c6e0b [32m200 [0m- ms - -[0m
+Posting Card: {"longNum":"123456789","expires":"12/25","ccv":"125","userID":"68f35c679c10d300018b7000"}
+[0mPOST /cards [32m200 [0m- ms - -[0m
+Request received: /cart, undefined
+Customer ID: 68f35c679c10d300018b7000
+[0mGET /card [32m200 [0m- ms - -[0m
+[0mGET /address [32m200 [0m- ms - -[0m
+[0mGET /catalogue?size=3 [32m200 [0m- ms - -[0m
+[0mGET /customers/0Ejzd-HXkwrbbUfWHwoYX1msuQp3dC7T [32m200 [0m- ms - -[0m
+[0mGET /cart [32m200 [0m- ms - -[0m
+Request received: /cart, undefined
+Customer ID: 68f35c679c10d300018b7000
+[0mGET /catalogue/03fef6ac-1896-4ce8-bd69-b798f85c6e0b [32m200 [0m- ms - -[0m
+[0mGET /cart [32m200 [0m- ms - -[0m
+[0mGET /catalogue/03fef6ac-1896-4ce8-bd69-b798f85c6e0b [32m200 [0m- ms - -[0m
+Request received with body: {}
+Received response: "{\"firstName\":\"Shah\",\"lastName\":\"Mohammed\",\"username\":\"Rayaan\",\"id\":\"68f35c679c10d300018b7000\",\"_links\":{\"addresses\":{\"href\":\"http://user/customers/68f35c679c10d300018b7000/addresses\"},\"cards\":{\"href\":\"http://user/customers/68f35c679c10d300018b7000/cards\"},\"customer\":{\"href\":\"http://user/customers/68f35c679c10d300018b7000\"},\"self\":{\"href\":\"http://user/customers/68f35c679c10d300018b7000\"}}}\n"
+addressLink: GET Request to: http://user/addresses/68f35c679c10d300018b7000
+cardLink: GET Request to: http://user/cards/68f35c679c10d300018b7000
+Received response: "{\"street\":\"Banjara hills\",\"number\":\"781\",\"country\":\"India\",\"city\":\"Hyderabad\",\"postcode\":\"500008\",\"id\":\"68f35c679c10d300018b7000\",\"_links\":{\"address\":{\"href\":\"http://user/addresses/68f35c679c10d300018b7000\"},\"self\":{\"href\":\"http://user/addresses/68f35c679c10d300018b7000\"}}}\n"
+Received response: "{\"longNum\":\"123456789\",\"expires\":\"12/25\",\"ccv\":\"125\",\"id\":\"68f35c679c10d300018b7000\",\"_links\":{\"card\":{\"href\":\"http://user/cards/68f35c679c10d300018b7000\"},\"self\":{\"href\":\"http://user/cards/68f35c679c10d300018b7000\"}}}\n"
+[ undefined, undefined ]
+Posting Order: {"customer":"http://user/customers/68f35c679c10d300018b7000","address":"http://user/addresses/68f35c679c10d300018b7000","card":"http://user/cards/68f35c679c10d300018b7000","items":"http://carts/carts/68f35c679c10d300018b7000/items"}
+Order response: {"statusCode":406,"body":{"timestamp":1760779425771,"status":406,"error":"Not Acceptable","exception":"works.weave.socks.orders.controllers.OrdersController$PaymentDeclinedException","message":"Payment declined: amount exceeds 105.00","path":"/orders"},"headers":{"x-application-context":"orders:8080","content-type":"application/json;charset=UTF-8","transfer-encoding":"chunked","date":"Sat, 18 Oct 2025 09:23:45 GMT","connection":"close"},"request":{"uri":{"protocol":"http:","slashes":true,"auth":null,"host":"orders","port":80,"hostname":"orders","hash":null,"search":null,"query":null,"pathname":"/orders","path":"/orders","href":"http://orders/orders"},"method":"POST","headers":{"accept":"application/json","content-type":"application/json","content-length":232}}}
+Order response: {"timestamp":1760779425771,"status":406,"error":"Not Acceptable","exception":"works.weave.socks.orders.controllers.OrdersController$PaymentDeclinedException","message":"Payment declined: amount exceeds 105.00","path":"/orders"}
+[0mPOST /orders [33m406 [0m- ms - -[0m
+Request received: /cart, undefined
+Customer ID: 68f35c679c10d300018b7000
+[0mGET /card [32m200 [0m- ms - -[0m
+[0mGET /address [32m200 [0m- ms - -[0m
+[0mGET /catalogue?size=3 [32m200 [0m- ms - -[0m
+[0mGET /customers/0Ejzd-HXkwrbbUfWHwoYX1msuQp3dC7T [32m200 [0m- ms - -[0m
+[0mGET /cart [32m200 [0m- ms - -[0m
+Request received: /cart, undefined
+Customer ID: 68f35c679c10d300018b7000
+[0mGET /catalogue/03fef6ac-1896-4ce8-bd69-b798f85c6e0b [32m200 [0m- ms - -[0m
+[0mGET /cart [32m200 [0m- ms - -[0m
+[0mGET /catalogue/03fef6ac-1896-4ce8-bd69-b798f85c6e0b [32m200 [0m- ms - -[0m
+Request received with body: {}
+Received response: "{\"firstName\":\"Shah\",\"lastName\":\"Mohammed\",\"username\":\"Rayaan\",\"id\":\"68f35c679c10d300018b7000\",\"_links\":{\"addresses\":{\"href\":\"http://user/customers/68f35c679c10d300018b7000/addresses\"},\"cards\":{\"href\":\"http://user/customers/68f35c679c10d300018b7000/cards\"},\"customer\":{\"href\":\"http://user/customers/68f35c679c10d300018b7000\"},\"self\":{\"href\":\"http://user/customers/68f35c679c10d300018b7000\"}}}\n"
+addressLink: GET Request to: http://user/addresses/68f35c679c10d300018b7000
+cardLink: GET Request to: http://user/cards/68f35c679c10d300018b7000
+Received response: "{\"longNum\":\"123456789\",\"expires\":\"12/25\",\"ccv\":\"125\",\"id\":\"68f35c679c10d300018b7000\",\"_links\":{\"card\":{\"href\":\"http://user/cards/68f35c679c10d300018b7000\"},\"self\":{\"href\":\"http://user/cards/68f35c679c10d300018b7000\"}}}\n"
+Received response: "{\"street\":\"Banjara hills\",\"number\":\"781\",\"country\":\"India\",\"city\":\"Hyderabad\",\"postcode\":\"500008\",\"id\":\"68f35c679c10d300018b7000\",\"_links\":{\"address\":{\"href\":\"http://user/addresses/68f35c679c10d300018b7000\"},\"self\":{\"href\":\"http://user/addresses/68f35c679c10d300018b7000\"}}}\n"
+[ undefined, undefined ]
+Posting Order: {"customer":"http://user/customers/68f35c679c10d300018b7000","address":"http://user/addresses/68f35c679c10d300018b7000","card":"http://user/cards/68f35c679c10d300018b7000","items":"http://carts/carts/68f35c679c10d300018b7000/items"}
+Order response: {"statusCode":406,"body":{"timestamp":1760779430588,"status":406,"error":"Not Acceptable","exception":"works.weave.socks.orders.controllers.OrdersController$PaymentDeclinedException","message":"Payment declined: amount exceeds 105.00","path":"/orders"},"headers":{"x-application-context":"orders:8080","content-type":"application/json;charset=UTF-8","transfer-encoding":"chunked","date":"Sat, 18 Oct 2025 09:23:50 GMT","connection":"close"},"request":{"uri":{"protocol":"http:","slashes":true,"auth":null,"host":"orders","port":80,"hostname":"orders","hash":null,"search":null,"query":null,"pathname":"/orders","path":"/orders","href":"http://orders/orders"},"method":"POST","headers":{"accept":"application/json","content-type":"application/json","content-length":232}}}
+Order response: {"timestamp":1760779430588,"status":406,"error":"Not Acceptable","exception":"works.weave.socks.orders.controllers.OrdersController$PaymentDeclinedException","message":"Payment declined: amount exceeds 105.00","path":"/orders"}
+[0mPOST /orders [33m406 [0m- ms - -[0m
+Attempting to update cart item: {"id":"03fef6ac-1896-4ce8-bd69-b798f85c6e0b","quantity":"1"}
+{"id":"03fef6ac-1896-4ce8-bd69-b798f85c6e0b","name":"Holy","description":"Socks fit for a Messiah. You too can experience walking in water with these special edition beauties. Each hole is lovingly proggled to leave smooth edges. The only sock approved by a higher power.","imageUrl":["/catalogue/images/holy_1.jpeg","/catalogue/images/holy_2.jpeg"],"price":99.99,"count":1,"tag":["magic","action"]}
+
+PATCH to carts: http://carts/carts/68f35c679c10d300018b7000/items body: {"itemId":"03fef6ac-1896-4ce8-bd69-b798f85c6e0b","quantity":1,"unitPrice":99.99}
+[0mPOST /cart/update [32m202 [0m- ms - -[0m
+Request received: /cart, undefined
+Customer ID: 68f35c679c10d300018b7000
+[0mGET /card [32m200 [0m- ms - -[0m
+[0mGET /catalogue?size=3 [32m200 [0m- ms - -[0m
+[0mGET /address [32m200 [0m- ms - -[0m
+[0mGET /cart [32m200 [0m- ms - -[0m
+Request received: /cart, undefined
+Customer ID: 68f35c679c10d300018b7000
+[0mGET /customers/0Ejzd-HXkwrbbUfWHwoYX1msuQp3dC7T [32m200 [0m- ms - -[0m
+[0mGET /catalogue/03fef6ac-1896-4ce8-bd69-b798f85c6e0b [32m200 [0m- ms - -[0m
+[0mGET /cart [32m200 [0m- ms - -[0m
+[0mGET /catalogue/03fef6ac-1896-4ce8-bd69-b798f85c6e0b [32m200 [0m- ms - -[0m
+Request received with body: {}
+Received response: "{\"firstName\":\"Shah\",\"lastName\":\"Mohammed\",\"username\":\"Rayaan\",\"id\":\"68f35c679c10d300018b7000\",\"_links\":{\"addresses\":{\"href\":\"http://user/customers/68f35c679c10d300018b7000/addresses\"},\"cards\":{\"href\":\"http://user/customers/68f35c679c10d300018b7000/cards\"},\"customer\":{\"href\":\"http://user/customers/68f35c679c10d300018b7000\"},\"self\":{\"href\":\"http://user/customers/68f35c679c10d300018b7000\"}}}\n"
+addressLink: GET Request to: http://user/addresses/68f35c679c10d300018b7000
+cardLink: GET Request to: http://user/cards/68f35c679c10d300018b7000
+Received response: "{\"street\":\"Banjara hills\",\"number\":\"781\",\"country\":\"India\",\"city\":\"Hyderabad\",\"postcode\":\"500008\",\"id\":\"68f35c679c10d300018b7000\",\"_links\":{\"address\":{\"href\":\"http://user/addresses/68f35c679c10d300018b7000\"},\"self\":{\"href\":\"http://user/addresses/68f35c679c10d300018b7000\"}}}\n"
+Received response: "{\"longNum\":\"123456789\",\"expires\":\"12/25\",\"ccv\":\"125\",\"id\":\"68f35c679c10d300018b7000\",\"_links\":{\"card\":{\"href\":\"http://user/cards/68f35c679c10d300018b7000\"},\"self\":{\"href\":\"http://user/cards/68f35c679c10d300018b7000\"}}}\n"
+[ undefined, undefined ]
+Posting Order: {"customer":"http://user/customers/68f35c679c10d300018b7000","address":"http://user/addresses/68f35c679c10d300018b7000","card":"http://user/cards/68f35c679c10d300018b7000","items":"http://carts/carts/68f35c679c10d300018b7000/items"}
+Order response: {"statusCode":500,"body":{"timestamp":1760779443813,"status":500,"error":"Internal Server Error","exception":"java.lang.IllegalStateException","message":"Unable to create order due to timeout from one of the services.","path":"/orders"},"headers":{"x-application-context":"orders:8080","content-type":"application/json;charset=UTF-8","transfer-encoding":"chunked","date":"Sat, 18 Oct 2025 09:24:03 GMT","connection":"close"},"request":{"uri":{"protocol":"http:","slashes":true,"auth":null,"host":"orders","port":80,"hostname":"orders","hash":null,"search":null,"query":null,"pathname":"/orders","path":"/orders","href":"http://orders/orders"},"method":"POST","headers":{"accept":"application/json","content-type":"application/json","content-length":232}}}
+Order response: {"timestamp":1760779443813,"status":500,"error":"Internal Server Error","exception":"java.lang.IllegalStateException","message":"Unable to create order due to timeout from one of the services.","path":"/orders"}
+[0mPOST /orders [31m500 [0m- ms - -[0m
+Request received with body: {}
+Request received: /cart, undefined
+Customer ID: 68f35c679c10d300018b7000
+[0mGET /customers/0Ejzd-HXkwrbbUfWHwoYX1msuQp3dC7T [32m200 [0m- ms - -[0m
+[0mGET /cart [32m200 [0m- ms - -[0m
+[0mGET /catalogue/03fef6ac-1896-4ce8-bd69-b798f85c6e0b [32m200 [0m- ms - -[0m
+Received response: "{\n  \"_embedded\" : {\n    \"customerOrders\" : [ ]\n  },\n  \"_links\" : {\n    \"self\" : {\n      \"href\" : \"http://orders/orders/search/customerId?sort=date&custId=68f35c679c10d300018b7000\"\n    }\n  }\n}"
+[0mGET /orders [32m201 [0m- ms - -[0m
+Request received with body: {}
+Request received: /cart, undefined
+Customer ID: 68f35c679c10d300018b7000
+[0mGET /customers/0Ejzd-HXkwrbbUfWHwoYX1msuQp3dC7T [32m200 [0m- ms - -[0m
+Received response: "{\n  \"_embedded\" : {\n    \"customerOrders\" : [ ]\n  },\n  \"_links\" : {\n    \"self\" : {\n      \"href\" : \"http://orders/orders/search/customerId?sort=date&custId=68f35c679c10d300018b7000\"\n    }\n  }\n}"
+[0mGET /orders [32m201 [0m- ms - -[0m
+[0mGET /cart [32m200 [0m- ms - -[0m
+[0mGET /catalogue/03fef6ac-1896-4ce8-bd69-b798f85c6e0b [32m200 [0m- ms - -[0m
+Request received with body: {}
+Request received: /cart, undefined
+Customer ID: 68f35c679c10d300018b7000
+[0mGET /customers/0Ejzd-HXkwrbbUfWHwoYX1msuQp3dC7T [32m200 [0m- ms - -[0m
+Received response: "{\n  \"_embedded\" : {\n    \"customerOrders\" : [ ]\n  },\n  \"_links\" : {\n    \"self\" : {\n      \"href\" : \"http://orders/orders/search/customerId?sort=date&custId=68f35c679c10d300018b7000\"\n    }\n  }\n}"
+[0mGET /orders [32m201 [0m- ms - -[0m
+[0mGET /cart [32m200 [0m- ms - -[0m
+[0mGET /catalogue/03fef6ac-1896-4ce8-bd69-b798f85c6e0b [32m200 [0m- ms - -[0m
+Request received: /cart, undefined
+Customer ID: 68f35c679c10d300018b7000
+[0mGET /card [32m200 [0m- ms - -[0m
+[0mGET /address [32m200 [0m- ms - -[0m
+[0mGET /cart [32m200 [0m- ms - -[0m
+[0mGET /catalogue?size=3 [32m200 [0m- ms - -[0m
+Request received: /cart, undefined
+Customer ID: 68f35c679c10d300018b7000
+[0mGET /customers/0Ejzd-HXkwrbbUfWHwoYX1msuQp3dC7T [32m200 [0m- ms - -[0m
+[0mGET /catalogue/03fef6ac-1896-4ce8-bd69-b798f85c6e0b [32m200 [0m- ms - -[0m
+[0mGET /cart [32m200 [0m- ms - -[0m
+[0mGET /catalogue/03fef6ac-1896-4ce8-bd69-b798f85c6e0b [32m200 [0m- ms - -[0m
+Request received with body: {}
+Received response: "{\"firstName\":\"Shah\",\"lastName\":\"Mohammed\",\"username\":\"Rayaan\",\"id\":\"68f35c679c10d300018b7000\",\"_links\":{\"addresses\":{\"href\":\"http://user/customers/68f35c679c10d300018b7000/addresses\"},\"cards\":{\"href\":\"http://user/customers/68f35c679c10d300018b7000/cards\"},\"customer\":{\"href\":\"http://user/customers/68f35c679c10d300018b7000\"},\"self\":{\"href\":\"http://user/customers/68f35c679c10d300018b7000\"}}}\n"
+addressLink: GET Request to: http://user/addresses/68f35c679c10d300018b7000
+cardLink: GET Request to: http://user/cards/68f35c679c10d300018b7000
+Received response: "{\"street\":\"Banjara hills\",\"number\":\"781\",\"country\":\"India\",\"city\":\"Hyderabad\",\"postcode\":\"500008\",\"id\":\"68f35c679c10d300018b7000\",\"_links\":{\"address\":{\"href\":\"http://user/addresses/68f35c679c10d300018b7000\"},\"self\":{\"href\":\"http://user/addresses/68f35c679c10d300018b7000\"}}}\n"
+Received response: "{\"longNum\":\"123456789\",\"expires\":\"12/25\",\"ccv\":\"125\",\"id\":\"68f35c679c10d300018b7000\",\"_links\":{\"card\":{\"href\":\"http://user/cards/68f35c679c10d300018b7000\"},\"self\":{\"href\":\"http://user/cards/68f35c679c10d300018b7000\"}}}\n"
+[ undefined, undefined ]
+Posting Order: {"customer":"http://user/customers/68f35c679c10d300018b7000","address":"http://user/addresses/68f35c679c10d300018b7000","card":"http://user/cards/68f35c679c10d300018b7000","items":"http://carts/carts/68f35c679c10d300018b7000/items"}
+Order response: {"statusCode":201,"body":{"id":"68f35ccc8c07df000189e4e3","customerId":"68f35c679c10d300018b7000","customer":{"id":null,"firstName":"Shah","lastName":"Mohammed","username":"Rayaan","addresses":[],"cards":[]},"address":{"id":null,"number":"781","street":"Banjara hills","city":"Hyderabad","postcode":"500008","country":"India"},"card":{"id":null,"longNum":"123456789","expires":"12/25","ccv":"125"},"items":[{"id":"68f35c7400c4fa0001a66a39","itemId":"03fef6ac-1896-4ce8-bd69-b798f85c6e0b","quantity":1,"unitPrice":99.99}],"shipment":{"id":"7e778167-d3b4-47ba-9765-94cca714f811","name":"68f35c679c10d300018b7000"},"date":"2025-10-18T09:24:28.840+0000","total":104.979996},"headers":{"x-application-context":"orders:8080","content-type":"application/json;charset=UTF-8","transfer-encoding":"chunked","date":"Sat, 18 Oct 2025 09:24:29 GMT","connection":"close"},"request":{"uri":{"protocol":"http:","slashes":true,"auth":null,"host":"orders","port":80,"hostname":"orders","hash":null,"search":null,"query":null,"pathname":"/orders","path":"/orders","href":"http://orders/orders"},"method":"POST","headers":{"accept":"application/json","content-type":"application/json","content-length":232}}}
+Order response: {"id":"68f35ccc8c07df000189e4e3","customerId":"68f35c679c10d300018b7000","customer":{"id":null,"firstName":"Shah","lastName":"Mohammed","username":"Rayaan","addresses":[],"cards":[]},"address":{"id":null,"number":"781","street":"Banjara hills","city":"Hyderabad","postcode":"500008","country":"India"},"card":{"id":null,"longNum":"123456789","expires":"12/25","ccv":"125"},"items":[{"id":"68f35c7400c4fa0001a66a39","itemId":"03fef6ac-1896-4ce8-bd69-b798f85c6e0b","quantity":1,"unitPrice":99.99}],"shipment":{"id":"7e778167-d3b4-47ba-9765-94cca714f811","name":"68f35c679c10d300018b7000"},"date":"2025-10-18T09:24:28.840+0000","total":104.979996}
+[0mPOST /orders [32m201 [0m- ms - -[0m
+Attempting to delete cart for user: 68f35c679c10d300018b7000
+User cart deleted with status: 202
+[0mDELETE /cart [32m202 [0m- ms - -[0m
+Request received with body: {}
+Request received: /cart, undefined
+Customer ID: 68f35c679c10d300018b7000
+[0mGET /customers/0Ejzd-HXkwrbbUfWHwoYX1msuQp3dC7T [32m200 [0m- ms - -[0m
+[0mGET /cart [32m200 [0m- ms - -[0m
+Received response: "{\n  \"_embedded\" : {\n    \"customerOrders\" : [ {\n      \"customerId\" : \"68f35c679c10d300018b7000\",\n      \"customer\" : {\n        \"firstName\" : \"Shah\",\n        \"lastName\" : \"Mohammed\",\n        \"username\" : \"Rayaan\",\n        \"addresses\" : [ ],\n        \"cards\" : [ ]\n      },\n      \"address\" : {\n        \"number\" : \"781\",\n        \"street\" : \"Banjara hills\",\n        \"city\" : \"Hyderabad\",\n        \"postcode\" : \"500008\",\n        \"country\" : \"India\"\n      },\n      \"card\" : {\n        \"longNum\" : \"123456789\",\n        \"expires\" : \"12/25\",\n        \"ccv\" : \"125\"\n      },\n      \"items\" : [ {\n        \"itemId\" : \"03fef6ac-1896-4ce8-bd69-b798f85c6e0b\",\n        \"quantity\" : 1,\n        \"unitPrice\" : 99.99\n      } ],\n      \"shipment\" : {\n        \"name\" : \"68f35c679c10d300018b7000\"\n      },\n      \"date\" : \"2025-10-18T09:24:28.840+0000\",\n      \"total\" : 104.979996,\n      \"_links\" : {\n        \"self\" : {\n          \"href\" : \"http://orders/orders/68f35ccc8c07df000189e4e3\"\n        },\n        \"order\" : {\n          \"href\" : \"http://orders/orders/68f35ccc8c07df000189e4e3\"\n        }\n      }\n    } ]\n  },\n  \"_links\" : {\n    \"self\" : {\n      \"href\" : \"http://orders/orders/search/customerId?sort=date&custId=68f35c679c10d300018b7000\"\n    }\n  }\n}"
+[0mGET /orders [32m201 [0m- ms - -[0m
+Request received: /cart, undefined
+Customer ID: 68f35c679c10d300018b7000
+[0mGET /customers/0Ejzd-HXkwrbbUfWHwoYX1msuQp3dC7T [32m200 [0m- ms - -[0m
+[0mGET /cart [32m200 [0m- ms - -[0m
+[0mGET /orders/68f35ccc8c07df000189e4e3 [32m200 [0m179.142 ms - -[0m
+[0mGET /catalogue/03fef6ac-1896-4ce8-bd69-b798f85c6e0b [32m200 [0m- ms - -[0m
+Posting Customer: {"username":"demo_1760779656","password":"demo","email":"demo_1760779656@example.com","firstName":"Demo","lastName":"User"}
+{ id: '68f35d899c10d300018b7001' }
+68f35d899c10d300018b7001
+Merging carts for customer id: 68f35d899c10d300018b7001 and session id: sJPXBKTWpONUAV7mdU1l1tmPUatCmHbX
+Carts merged.
+set cookie68f35d899c10d300018b7001
+Sent cookies.
+[0mPOST /register [32m200 [0m121.973 ms - 33[0m
+Posting Customer: {"username":"demo_1760779781","password":"demo","email":"demo_1760779781@example.com","firstName":"Demo","lastName":"User"}
+{ id: '68f35e059c10d300018b7002' }
+68f35e059c10d300018b7002
+Merging carts for customer id: 68f35e059c10d300018b7002 and session id: o1sbQ5WY0_JBxDLvKyFQQMgTvrtMJOhe
+Carts merged.
+set cookie68f35e059c10d300018b7002
+Sent cookies.
+[0mPOST /register [32m200 [0m182.056 ms - 33[0m
+Posting Customer: {"username":"demo_1760779792","password":"demo","email":"demo_1760779792@example.com","firstName":"Demo","lastName":"User"}
+{ id: '68f35e109c10d300018b7003' }
+68f35e109c10d300018b7003
+Merging carts for customer id: 68f35e109c10d300018b7003 and session id: ToiayeiXs1tIUT0o26ZETS-vtlsQK0nL
+Carts merged.
+set cookie68f35e109c10d300018b7003
+Sent cookies.
+[0mPOST /register [32m200 [0m217.063 ms - 33[0m
+Request received: /cart, undefined
+Customer ID: 0Ejzd-HXkwrbbUfWHwoYX1msuQp3dC7T
+[0mGET /catalogue?size=5 [32m200 [0m- ms - -[0m
+[0mGET /cart [32m200 [0m- ms - -[0m
+Posting Customer: {"username":"Parvaiz","password":"Test1234","email":"mdp.cloud25@gmail.com","firstName":"Mohammed","lastName":"Parvaiz"}
+500
+Error with log in: true
+[0mPOST /register [31m500 [0m84.389 ms - -[0m
+Posting Customer: {"username":"Parvaiz","password":"Test1234","email":"mdp.cloud25@gmail.com","firstName":"Mohammed","lastName":"Parvaiz"}
+500
+Error with log in: true
+[0mPOST /register [31m500 [0m13.755 ms - -[0m
+Posting Customer: {"username":"Parvaiz","password":"Test1234","email":"mdp.cloud25@gmail.com","firstName":"Mohammed","lastName":"Parvaiz"}
+500
+Error with log in: true
+[0mPOST /register [31m500 [0m16.983 ms - -[0m
+Posting Customer: {"username":"Parvaiz","password":"Test1234","email":"mdp.cloud25@gmail.com","firstName":"Mohammed","lastName":"Parvaiz"}
+500
+Error with log in: true
+[0mPOST /register [31m500 [0m24.854 ms - -[0m
+Posting Customer: {"username":"Parvaiz","password":"Test1234","email":"mdp.cloud25@gmail.com","firstName":"Mohammed","lastName":"Parvaiz"}
+500
+Error with log in: true
+[0mPOST /register [31m500 [0m14.484 ms - -[0m
+Posting Customer: {"username":"Parvaiz","password":"Test1234","email":"mdp.cloud25@gmail.com","firstName":"Mohammed","lastName":"Parvaiz"}
+500
+Error with log in: true
+[0mPOST /register [31m500 [0m14.477 ms - -[0m
+Posting Customer: {"username":"Parvaiz","password":"Test1234","email":"mdp.cloud25@gmail.com","firstName":"Mohammed","lastName":"Parvaiz"}
+500
+Error with log in: true
+[0mPOST /register [31m500 [0m12.088 ms - -[0m
+Posting Customer: {"username":"Parvaiz","password":"Test1234","email":"mdp.cloud25@gmail.com","firstName":"Mohammed","lastName":"Parvaiz"}
+500
+Error with log in: true
+[0mPOST /register [31m500 [0m15.341 ms - -[0m
+Received login request
+401
+Error with log in: true
+[0mGET /login [33m401 [0m12.673 ms - -[0m
+Posting Customer: {"username":"Parvaiz","password":"Test1234","email":"Parvaiz@gmail.com","firstName":"Mohammed","lastName":"Parvaiz"}
+500
+Error with log in: true
+[0mPOST /register [31m500 [0m13.690 ms - -[0m
+Posting Customer: {"username":"Parvaiz","password":"Test1234","email":"Parvaiz@gmail.com","firstName":"Mohammed","lastName":"Parvaiz"}
+500
+Error with log in: true
+[0mPOST /register [31m500 [0m14.357 ms - -[0m
+Posting Customer: {"username":"Parvaiz","password":"Test1234","email":"Parvaiz@gmail.com","firstName":"Mohammed","lastName":"Parvaiz"}
+500
+Error with log in: true
+[0mPOST /register [31m500 [0m10.895 ms - -[0m
+Posting Customer: {"username":"Parvaiz","password":"Test1234","email":"Parvaiz@gmail.com","firstName":"Mohammed","lastName":"Parvaiz"}
+500
+Error with log in: true
+[0mPOST /register [31m500 [0m11.336 ms - -[0m
+Posting Customer: {"username":"Parvaiz","password":"Test1234","email":"Parvaiz@gmail.com","firstName":"Mohammed","lastName":"Parvaiz"}
+500
+Error with log in: true
+[0mPOST /register [31m500 [0m15.024 ms - -[0m
+Posting Customer: {"username":"Abdul1","password":"Test1234","email":"abdul1@gmail.com","firstName":"abdul","lastName":"ateeb"}
+{ id: '68f35ed59c10d300018b7011' }
+68f35ed59c10d300018b7011
+Merging carts for customer id: 68f35ed59c10d300018b7011 and session id: 0Ejzd-HXkwrbbUfWHwoYX1msuQp3dC7T
+Carts merged.
+set cookie68f35ed59c10d300018b7011
+Sent cookies.
+[0mPOST /register [32m200 [0m82.057 ms - 33[0m
+[0mGET /catalogue?size=5 [32m200 [0m- ms - -[0m
+Request received: /cart, undefined
+Customer ID: 68f35ed59c10d300018b7011
+[0mGET /customers/0Ejzd-HXkwrbbUfWHwoYX1msuQp3dC7T [32m200 [0m- ms - -[0m
+[0mGET /cart [32m200 [0m- ms - -[0m
+[0mGET /tags [32m200 [0m- ms - -[0m
+[0mGET /catalogue?page=1&size=6&tags= [32m200 [0m- ms - -[0m
+[0mGET /catalogue/size?tags= [32m200 [0m- ms - -[0m
+Request received: /cart, undefined
+Customer ID: 68f35ed59c10d300018b7011
+[0mGET /customers/0Ejzd-HXkwrbbUfWHwoYX1msuQp3dC7T [32m200 [0m- ms - -[0m
+[0mGET /cart [32m200 [0m- ms - -[0m
+Attempting to add to cart: {"id":"808a2de1-1aaa-4c25-a9b9-6612e8f29a38"}
+{"id":"808a2de1-1aaa-4c25-a9b9-6612e8f29a38","name":"Crossed","description":"A mature sock, crossed, with an air of nonchalance.","imageUrl":["/catalogue/images/cross_1.jpeg","/catalogue/images/cross_2.jpeg"],"price":17.32,"count":738,"tag":["blue","red","action","formal"]}
+
+POST to carts: http://carts/carts/68f35ed59c10d300018b7011/items body: {"itemId":"808a2de1-1aaa-4c25-a9b9-6612e8f29a38","unitPrice":17.32}
+[0mPOST /cart [32m201 [0m- ms - -[0m
+Attempting to add to cart: {"id":"819e1fbf-8b7e-4f6d-811f-693534916a8b"}
+{"id":"819e1fbf-8b7e-4f6d-811f-693534916a8b","name":"Figueroa","description":"enim officia aliqua excepteur esse deserunt quis aliquip nostrud anim","imageUrl":["/catalogue/images/WAT.jpg","/catalogue/images/WAT2.jpg"],"price":14,"count":808,"tag":["formal","green","blue"]}
+
+POST to carts: http://carts/carts/68f35ed59c10d300018b7011/items body: {"itemId":"819e1fbf-8b7e-4f6d-811f-693534916a8b","unitPrice":14}
+[0mPOST /cart [32m201 [0m- ms - -[0m
+Request received: /cart, undefined
+Customer ID: 68f35ed59c10d300018b7011
+[0mGET /catalogue/size?tags= [32m200 [0m- ms - -[0m
+[0mGET /catalogue?page=2&size=6&tags= [32m200 [0m- ms - -[0m
+[0mGET /tags [32m200 [0m- ms - -[0m
+[0mGET /cart [32m200 [0m- ms - -[0m
+[0mGET /customers/0Ejzd-HXkwrbbUfWHwoYX1msuQp3dC7T [32m200 [0m- ms - -[0m
+[0mGET /catalogue/images/classic2.jpg [32m200 [0m104.072 ms - 246759[0m
+[0mGET /catalogue/images/catsocks2.jpg [32m200 [0m199.423 ms - 333305[0m
+[0mGET /catalogue/images/catsocks.jpg [32m200 [0m271.431 ms - 286025[0m
+[0mGET /catalogue/images/youtube_2.jpeg [32m200 [0m198.237 ms - 42898[0m
+[0mGET /catalogue/images/classic.jpg [32m200 [0m190.978 ms - 386242[0m
+[0mGET /catalogue/images/youtube_1.jpeg [32m200 [0m210.963 ms - 37589[0m
+[0mGET /catalogue/808a2de1-1aaa-4c25-a9b9-6612e8f29a38 [32m200 [0m- ms - -[0m
+[0mGET /catalogue/819e1fbf-8b7e-4f6d-811f-693534916a8b [32m200 [0m- ms - -[0m
+Attempting to add to cart: {"id":"d3588630-ad8e-49df-bbd7-3167f7efb246"}
+{"id":"d3588630-ad8e-49df-bbd7-3167f7efb246","name":"YouTube.sock","description":"We were not paid to sell this sock. It's just a bit geeky.","imageUrl":["/catalogue/images/youtube_1.jpeg","/catalogue/images/youtube_2.jpeg"],"price":10.99,"count":801,"tag":["geek","formal"]}
+
+POST to carts: http://carts/carts/68f35ed59c10d300018b7011/items body: {"itemId":"d3588630-ad8e-49df-bbd7-3167f7efb246","unitPrice":10.99}
+[0mPOST /cart [32m201 [0m- ms - -[0m
+Request received: /cart, undefined
+Customer ID: 68f35ed59c10d300018b7011
+[0mGET /card [32m200 [0m- ms - -[0m
+[0mGET /address [32m200 [0m- ms - -[0m
+[0mGET /cart [32m200 [0m- ms - -[0m
+Request received: /cart, undefined
+Customer ID: 68f35ed59c10d300018b7011
+[0mGET /catalogue?size=3 [32m200 [0m- ms - -[0m
+[0mGET /customers/0Ejzd-HXkwrbbUfWHwoYX1msuQp3dC7T [32m200 [0m- ms - -[0m
+[0mGET /catalogue/808a2de1-1aaa-4c25-a9b9-6612e8f29a38 [32m200 [0m- ms - -[0m
+[0mGET /catalogue/d3588630-ad8e-49df-bbd7-3167f7efb246 [32m200 [0m- ms - -[0m
+[0mGET /catalogue/819e1fbf-8b7e-4f6d-811f-693534916a8b [32m200 [0m- ms - -[0m
+[0mGET /cart [32m200 [0m- ms - -[0m
+[0mGET /catalogue/819e1fbf-8b7e-4f6d-811f-693534916a8b [32m200 [0m- ms - -[0m
+[0mGET /catalogue/808a2de1-1aaa-4c25-a9b9-6612e8f29a38 [32m200 [0m- ms - -[0m
+[0mGET /catalogue/d3588630-ad8e-49df-bbd7-3167f7efb246 [32m200 [0m- ms - -[0m
+Posting Address: {"number":"121","street":"Banjara hills","city":"charlotte","postcode":"28117","country":"United States","userID":"68f35ed59c10d300018b7011"}
+[0mPOST /addresses [32m200 [0m- ms - -[0m
+Request received: /cart, undefined
+Customer ID: 68f35ed59c10d300018b7011
+[0mGET /card [32m200 [0m- ms - -[0m
+[0mGET /address [32m200 [0m- ms - -[0m
+[0mGET /cart [32m200 [0m- ms - -[0m
+[0mGET /catalogue?size=3 [32m200 [0m- ms - -[0m
+Request received: /cart, undefined
+Customer ID: 68f35ed59c10d300018b7011
+[0mGET /catalogue/808a2de1-1aaa-4c25-a9b9-6612e8f29a38 [32m200 [0m- ms - -[0m
+[0mGET /customers/0Ejzd-HXkwrbbUfWHwoYX1msuQp3dC7T [32m200 [0m- ms - -[0m
+[0mGET /catalogue/819e1fbf-8b7e-4f6d-811f-693534916a8b [32m200 [0m- ms - -[0m
+[0mGET /catalogue/d3588630-ad8e-49df-bbd7-3167f7efb246 [32m200 [0m- ms - -[0m
+[0mGET /cart [32m200 [0m- ms - -[0m
+[0mGET /catalogue/819e1fbf-8b7e-4f6d-811f-693534916a8b [32m200 [0m- ms - -[0m
+[0mGET /catalogue/d3588630-ad8e-49df-bbd7-3167f7efb246 [32m200 [0m- ms - -[0m
+[0mGET /catalogue/808a2de1-1aaa-4c25-a9b9-6612e8f29a38 [32m200 [0m- ms - -[0m
+Posting Card: {"longNum":"123456789","expires":"12/25","ccv":"125","userID":"68f35ed59c10d300018b7011"}
+[0mPOST /cards [32m200 [0m- ms - -[0m
+Request received: /cart, undefined
+Customer ID: 68f35ed59c10d300018b7011
+[0mGET /address [32m200 [0m- ms - -[0m
+[0mGET /card [32m200 [0m- ms - -[0m
+[0mGET /catalogue?size=3 [32m200 [0m- ms - -[0m
+[0mGET /customers/0Ejzd-HXkwrbbUfWHwoYX1msuQp3dC7T [32m200 [0m- ms - -[0m
+[0mGET /cart [32m200 [0m- ms - -[0m
+Request received: /cart, undefined
+Customer ID: 68f35ed59c10d300018b7011
+[0mGET /catalogue/819e1fbf-8b7e-4f6d-811f-693534916a8b [32m200 [0m- ms - -[0m
+[0mGET /catalogue/d3588630-ad8e-49df-bbd7-3167f7efb246 [32m200 [0m- ms - -[0m
+[0mGET /cart [32m200 [0m- ms - -[0m
+[0mGET /catalogue/808a2de1-1aaa-4c25-a9b9-6612e8f29a38 [32m200 [0m- ms - -[0m
+[0mGET /catalogue/819e1fbf-8b7e-4f6d-811f-693534916a8b [32m200 [0m- ms - -[0m
+[0mGET /catalogue/808a2de1-1aaa-4c25-a9b9-6612e8f29a38 [32m200 [0m- ms - -[0m
+[0mGET /catalogue/d3588630-ad8e-49df-bbd7-3167f7efb246 [32m200 [0m- ms - -[0m
+Request received: /cart, undefined
+Customer ID: 68f35ed59c10d300018b7011
+[0mGET /address [32m200 [0m- ms - -[0m
+[0mGET /card [32m200 [0m- ms - -[0m
+[0mGET /catalogue?size=3 [32m200 [0m- ms - -[0m
+[0mGET /customers/0Ejzd-HXkwrbbUfWHwoYX1msuQp3dC7T [32m200 [0m- ms - -[0m
+[0mGET /cart [32m200 [0m- ms - -[0m
+Request received: /cart, undefined
+Customer ID: 68f35ed59c10d300018b7011
+[0mGET /catalogue/808a2de1-1aaa-4c25-a9b9-6612e8f29a38 [32m200 [0m- ms - -[0m
+[0mGET /catalogue/819e1fbf-8b7e-4f6d-811f-693534916a8b [32m200 [0m- ms - -[0m
+[0mGET /catalogue/d3588630-ad8e-49df-bbd7-3167f7efb246 [32m200 [0m- ms - -[0m
+[0mGET /cart [32m200 [0m- ms - -[0m
+[0mGET /catalogue/808a2de1-1aaa-4c25-a9b9-6612e8f29a38 [32m200 [0m- ms - -[0m
+[0mGET /catalogue/819e1fbf-8b7e-4f6d-811f-693534916a8b [32m200 [0m- ms - -[0m
+[0mGET /catalogue/d3588630-ad8e-49df-bbd7-3167f7efb246 [32m200 [0m- ms - -[0m
+Request received with body: {}
+Received response: "{\"firstName\":\"abdul\",\"lastName\":\"ateeb\",\"username\":\"Abdul1\",\"id\":\"68f35ed59c10d300018b7011\",\"_links\":{\"addresses\":{\"href\":\"http://user/customers/68f35ed59c10d300018b7011/addresses\"},\"cards\":{\"href\":\"http://user/customers/68f35ed59c10d300018b7011/cards\"},\"customer\":{\"href\":\"http://user/customers/68f35ed59c10d300018b7011\"},\"self\":{\"href\":\"http://user/customers/68f35ed59c10d300018b7011\"}}}\n"
+addressLink: GET Request to: http://user/addresses/68f35ed59c10d300018b7011
+cardLink: GET Request to: http://user/cards/68f35ed59c10d300018b7011
+Received response: "{\"street\":\"Banjara hills\",\"number\":\"121\",\"country\":\"United States\",\"city\":\"charlotte\",\"postcode\":\"28117\",\"id\":\"68f35ed59c10d300018b7011\",\"_links\":{\"address\":{\"href\":\"http://user/addresses/68f35ed59c10d300018b7011\"},\"self\":{\"href\":\"http://user/addresses/68f35ed59c10d300018b7011\"}}}\n"
+Received response: "{\"longNum\":\"123456789\",\"expires\":\"12/25\",\"ccv\":\"125\",\"id\":\"68f35ed59c10d300018b7011\",\"_links\":{\"card\":{\"href\":\"http://user/cards/68f35ed59c10d300018b7011\"},\"self\":{\"href\":\"http://user/cards/68f35ed59c10d300018b7011\"}}}\n"
+[ undefined, undefined ]
+Posting Order: {"customer":"http://user/customers/68f35ed59c10d300018b7011","address":"http://user/addresses/68f35ed59c10d300018b7011","card":"http://user/cards/68f35ed59c10d300018b7011","items":"http://carts/carts/68f35ed59c10d300018b7011/items"}
+Order response: {"statusCode":201,"body":{"id":"68f35f028c07df000189e4e4","customerId":"68f35ed59c10d300018b7011","customer":{"id":null,"firstName":"abdul","lastName":"ateeb","username":"Abdul1","addresses":[],"cards":[]},"address":{"id":null,"number":"121","street":"Banjara hills","city":"charlotte","postcode":"28117","country":"United States"},"card":{"id":null,"longNum":"123456789","expires":"12/25","ccv":"125"},"items":[{"id":"68f35edd00c4fa0001a66a40","itemId":"808a2de1-1aaa-4c25-a9b9-6612e8f29a38","quantity":1,"unitPrice":17.32},{"id":"68f35edf00c4fa0001a66a41","itemId":"819e1fbf-8b7e-4f6d-811f-693534916a8b","quantity":1,"unitPrice":14},{"id":"68f35ee400c4fa0001a66a42","itemId":"d3588630-ad8e-49df-bbd7-3167f7efb246","quantity":1,"unitPrice":10.99}],"shipment":{"id":"1108edd5-c853-44bf-a3f3-2701f1d339ae","name":"68f35ed59c10d300018b7011"},"date":"2025-10-18T09:33:54.091+0000","total":47.299995},"headers":{"x-application-context":"orders:8080","content-type":"application/json;charset=UTF-8","transfer-encoding":"chunked","date":"Sat, 18 Oct 2025 09:33:54 GMT","connection":"close"},"request":{"uri":{"protocol":"http:","slashes":true,"auth":null,"host":"orders","port":80,"hostname":"orders","hash":null,"search":null,"query":null,"pathname":"/orders","path":"/orders","href":"http://orders/orders"},"method":"POST","headers":{"accept":"application/json","content-type":"application/json","content-length":232}}}
+Order response: {"id":"68f35f028c07df000189e4e4","customerId":"68f35ed59c10d300018b7011","customer":{"id":null,"firstName":"abdul","lastName":"ateeb","username":"Abdul1","addresses":[],"cards":[]},"address":{"id":null,"number":"121","street":"Banjara hills","city":"charlotte","postcode":"28117","country":"United States"},"card":{"id":null,"longNum":"123456789","expires":"12/25","ccv":"125"},"items":[{"id":"68f35edd00c4fa0001a66a40","itemId":"808a2de1-1aaa-4c25-a9b9-6612e8f29a38","quantity":1,"unitPrice":17.32},{"id":"68f35edf00c4fa0001a66a41","itemId":"819e1fbf-8b7e-4f6d-811f-693534916a8b","quantity":1,"unitPrice":14},{"id":"68f35ee400c4fa0001a66a42","itemId":"d3588630-ad8e-49df-bbd7-3167f7efb246","quantity":1,"unitPrice":10.99}],"shipment":{"id":"1108edd5-c853-44bf-a3f3-2701f1d339ae","name":"68f35ed59c10d300018b7011"},"date":"2025-10-18T09:33:54.091+0000","total":47.299995}
+[0mPOST /orders [32m201 [0m- ms - -[0m
+Attempting to delete cart for user: 68f35ed59c10d300018b7011
+User cart deleted with status: 202
+[0mDELETE /cart [32m202 [0m- ms - -[0m
+Request received with body: {}
+Request received: /cart, undefined
+Customer ID: 68f35ed59c10d300018b7011
+[0mGET /customers/0Ejzd-HXkwrbbUfWHwoYX1msuQp3dC7T [32m200 [0m- ms - -[0m
+[0mGET /cart [32m200 [0m- ms - -[0m
+Received response: "{\n  \"_embedded\" : {\n    \"customerOrders\" : [ {\n      \"customerId\" : \"68f35ed59c10d300018b7011\",\n      \"customer\" : {\n        \"firstName\" : \"abdul\",\n        \"lastName\" : \"ateeb\",\n        \"username\" : \"Abdul1\",\n        \"addresses\" : [ ],\n        \"cards\" : [ ]\n      },\n      \"address\" : {\n        \"number\" : \"121\",\n        \"street\" : \"Banjara hills\",\n        \"city\" : \"charlotte\",\n        \"postcode\" : \"28117\",\n        \"country\" : \"United States\"\n      },\n      \"card\" : {\n        \"longNum\" : \"123456789\",\n        \"expires\" : \"12/25\",\n        \"ccv\" : \"125\"\n      },\n      \"items\" : [ {\n        \"itemId\" : \"808a2de1-1aaa-4c25-a9b9-6612e8f29a38\",\n        \"quantity\" : 1,\n        \"unitPrice\" : 17.32\n      }, {\n        \"itemId\" : \"819e1fbf-8b7e-4f6d-811f-693534916a8b\",\n        \"quantity\" : 1,\n        \"unitPrice\" : 14.0\n      }, {\n        \"itemId\" : \"d3588630-ad8e-49df-bbd7-3167f7efb246\",\n        \"quantity\" : 1,\n        \"unitPrice\" : 10.99\n      } ],\n      \"shipment\" : {\n        \"name\" : \"68f35ed59c10d300018b7011\"\n      },\n      \"date\" : \"2025-10-18T09:33:54.091+0000\",\n      \"total\" : 47.299995,\n      \"_links\" : {\n        \"self\" : {\n          \"href\" : \"http://orders/orders/68f35f028c07df000189e4e4\"\n        },\n        \"order\" : {\n          \"href\" : \"http://orders/orders/68f35f028c07df000189e4e4\"\n        }\n      }\n    } ]\n  },\n  \"_links\" : {\n    \"self\" : {\n      \"href\" : \"http://orders/orders/search/customerId?sort=date&custId=68f35ed59c10d300018b7011\"\n    }\n  }\n}"
+[0mGET /orders [32m201 [0m- ms - -[0m
+Request received: /cart, undefined
+Customer ID: 68f35ed59c10d300018b7011
+[0mGET /customers/0Ejzd-HXkwrbbUfWHwoYX1msuQp3dC7T [32m200 [0m- ms - -[0m
+[0mGET /cart [32m200 [0m- ms - -[0m
+[0mGET /orders/68f35f028c07df000189e4e4 [32m200 [0m328.526 ms - -[0m
+[0mGET /catalogue/d3588630-ad8e-49df-bbd7-3167f7efb246 [32m200 [0m- ms - -[0m
+[0mGET /catalogue/808a2de1-1aaa-4c25-a9b9-6612e8f29a38 [32m200 [0m- ms - -[0m
+[0mGET /catalogue/819e1fbf-8b7e-4f6d-811f-693534916a8b [32m200 [0m- ms - -[0m

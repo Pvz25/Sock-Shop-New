@@ -1,0 +1,67 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: locustfile-cm
+  namespace: sock-shop
+data:
+  locustfile.py: |
+    from locust import HttpUser, task, between
+    import os
+
+    class WebUser(HttpUser):
+        wait_time = between(1, 2.5)
+
+        @task
+        def login(self):
+            # Adjust payload to your app's expected creds if needed
+            self.client.post("/login", json={"username": "user", "password": "password"})
+
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: locust-login-burst-quick
+  namespace: sock-shop
+spec:
+  backoffLimit: 0
+  template:
+    metadata:
+      labels:
+        app: locust
+    spec:
+      restartPolicy: Never
+      volumes:
+        - name: locustfile
+          configMap:
+            name: locustfile-cm
+            items:
+              - key: locustfile.py
+                path: locustfile.py
+      containers:
+        - name: locust
+          image: locustio/locust:2.32.1
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: LOCUST_HOST
+              value: "http://front-end.sock-shop.svc.cluster.local"
+            - name: LOGIN_PATH
+              value: "/login"
+            - name: USERS
+              value: "500"
+            - name: SPAWN_RATE
+              value: "100"
+            - name: RUN_TIME
+              value: "90s"
+          volumeMounts:
+            - name: locustfile
+              mountPath: /mnt/locust
+          workingDir: /mnt/locust
+          command: ["sh","-lc"]
+          args:
+            - |
+              echo "Starting Locust against ${LOCUST_HOST} (LOGIN_PATH=${LOGIN_PATH}) ..."
+              locust -f locustfile.py \
+                --host "${LOCUST_HOST}" \
+                --headless \
+                -u "${USERS}" -r "${SPAWN_RATE}" \
+                --run-time "${RUN_TIME}"

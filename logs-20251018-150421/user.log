@@ -1,0 +1,1785 @@
+ts=2025-10-18T07:37:33.489583429Z caller=middlewares.go:153 method=Health result=2 took=688.988┬╡s
+ts=2025-10-18T07:37:35.580423293Z caller=middlewares.go:153 method=Health result=2 took=589.498┬╡s
+ts=2025-10-18T07:37:38.489838219Z caller=middlewares.go:153 method=Health result=2 took=682.707┬╡s
+ts=2025-10-18T07:37:43.489941842Z caller=middlewares.go:153 method=Health result=2 took=685.12┬╡s
+ts=2025-10-18T07:37:45.580425487Z caller=middlewares.go:153 method=Health result=2 took=613.893┬╡s
+ts=2025-10-18T07:37:48.489910788Z caller=middlewares.go:153 method=Health result=2 took=1.154241ms
+ts=2025-10-18T07:37:51.029760312Z caller=middlewares.go:153 method=Health result=2 took=652.143┬╡s
+ts=2025-10-18T07:37:53.120571407Z caller=middlewares.go:153 method=Health result=2 took=820.002┬╡s
+ts=2025-10-18T07:37:56.029839944Z caller=middlewares.go:153 method=Health result=2 took=625.104┬╡s
+ts=2025-10-18T07:38:01.029401708Z caller=middlewares.go:153 method=Health result=2 took=539.342┬╡s
+ts=2025-10-18T07:38:03.121281332Z caller=middlewares.go:153 method=Health result=2 took=865.845┬╡s
+ts=2025-10-18T07:38:06.030642265Z caller=middlewares.go:153 method=Health result=2 took=1.036905ms
+ts=2025-10-18T07:38:11.029614234Z caller=middlewares.go:153 method=Health result=2 took=554.164┬╡s
+ts=2025-10-18T07:38:13.12033567Z caller=middlewares.go:153 method=Health result=2 took=718.844┬╡s
+ts=2025-10-18T07:38:16.029643178Z caller=middlewares.go:153 method=Health result=2 took=726.568┬╡s
+ts=2025-10-18T07:38:18.520634792Z caller=middlewares.go:153 method=Health result=2 took=761.256┬╡s
+ts=2025-10-18T07:38:20.612702667Z caller=middlewares.go:153 method=Health result=2 took=983.445┬╡s
+ts=2025-10-18T07:38:23.520321172Z caller=middlewares.go:153 method=Health result=2 took=689.019┬╡s
+ts=2025-10-18T07:38:28.520980159Z caller=middlewares.go:153 method=Health result=2 took=571.822┬╡s
+ts=2025-10-18T07:38:30.612000395Z caller=middlewares.go:153 method=Health result=2 took=541.437┬╡s
+ts=2025-10-18T07:38:33.521137284Z caller=middlewares.go:153 method=Health result=2 took=624.422┬╡s
+ts=2025-10-18T07:38:38.521575317Z caller=middlewares.go:153 method=Health result=2 took=715.285┬╡s
+ts=2025-10-18T07:38:40.611532517Z caller=middlewares.go:153 method=Health result=2 took=602.289┬╡s
+ts=2025-10-18T07:38:43.521091902Z caller=middlewares.go:153 method=Health result=2 took=625.463┬╡s
+ts=2025-10-18T07:38:46.121028425Z caller=middlewares.go:153 method=Health result=2 took=684.13┬╡s
+ts=2025-10-18T07:38:48.212296575Z caller=middlewares.go:153 method=Health result=2 took=632.733┬╡s
+ts=2025-10-18T07:38:51.12158714Z caller=middlewares.go:153 method=Health result=2 took=563.991┬╡s
+ts=2025-10-18T07:38:56.122108147Z caller=middlewares.go:153 method=Health result=2 took=755.309┬╡s
+ts=2025-10-18T07:38:58.21267411Z caller=middlewares.go:153 method=Health result=2 took=521.544┬╡s
+ts=2025-10-18T07:39:01.121231838Z caller=middlewares.go:153 method=Health result=2 took=555.949┬╡s
+ts=2025-10-18T07:39:06.122494296Z caller=middlewares.go:153 method=Health result=2 took=617.131┬╡s
+ts=2025-10-18T07:39:08.21198124Z caller=middlewares.go:153 method=Health result=2 took=684.729┬╡s
+ts=2025-10-18T07:39:11.121177877Z caller=middlewares.go:153 method=Health result=2 took=604.633┬╡s
+ts=2025-10-18T07:39:13.634192596Z caller=middlewares.go:153 method=Health result=2 took=753.48┬╡s
+ts=2025-10-18T07:39:15.724851024Z caller=middlewares.go:153 method=Health result=2 took=772.982┬╡s
+ts=2025-10-18T07:39:18.634553885Z caller=middlewares.go:153 method=Health result=2 took=616.859┬╡s
+ts=2025-10-18T07:39:23.635248189Z caller=middlewares.go:153 method=Health result=2 took=803.194┬╡s
+ts=2025-10-18T07:39:25.724873586Z caller=middlewares.go:153 method=Health result=2 took=581.054┬╡s
+ts=2025-10-18T07:39:28.63469249Z caller=middlewares.go:153 method=Health result=2 took=595.116┬╡s
+ts=2025-10-18T07:39:33.634715529Z caller=middlewares.go:153 method=Health result=2 took=883.885┬╡s
+ts=2025-10-18T07:39:35.72594285Z caller=middlewares.go:153 method=Health result=2 took=996.096┬╡s
+ts=2025-10-18T07:39:38.634147736Z caller=middlewares.go:153 method=Health result=2 took=423.027┬╡s
+ts=2025-10-18T07:39:41.229335949Z caller=middlewares.go:153 method=Health result=2 took=949.758┬╡s
+ts=2025-10-18T07:39:43.319810923Z caller=middlewares.go:153 method=Health result=2 took=618.564┬╡s
+ts=2025-10-18T07:39:46.227658259Z caller=middlewares.go:153 method=Health result=2 took=588.781┬╡s
+ts=2025-10-18T07:39:51.228466892Z caller=middlewares.go:153 method=Health result=2 took=606.285┬╡s
+ts=2025-10-18T07:39:53.319984336Z caller=middlewares.go:153 method=Health result=2 took=707.095┬╡s
+ts=2025-10-18T07:39:56.228855843Z caller=middlewares.go:153 method=Health result=2 took=597.011┬╡s
+ts=2025-10-18T07:40:01.229018657Z caller=middlewares.go:153 method=Health result=2 took=654.664┬╡s
+ts=2025-10-18T07:40:03.319267093Z caller=middlewares.go:153 method=Health result=2 took=582.421┬╡s
+ts=2025-10-18T07:40:06.228555782Z caller=middlewares.go:153 method=Health result=2 took=508.415┬╡s
+ts=2025-10-18T07:40:08.802398905Z caller=middlewares.go:153 method=Health result=2 took=433.146┬╡s
+ts=2025-10-18T07:40:10.892750647Z caller=middlewares.go:153 method=Health result=2 took=529.286┬╡s
+ts=2025-10-18T07:40:13.802458089Z caller=middlewares.go:153 method=Health result=2 took=589.543┬╡s
+ts=2025-10-18T07:40:18.802140947Z caller=middlewares.go:153 method=Health result=2 took=523.373┬╡s
+ts=2025-10-18T07:40:20.893831209Z caller=middlewares.go:153 method=Health result=2 took=634.524┬╡s
+ts=2025-10-18T07:40:23.802004259Z caller=middlewares.go:153 method=Health result=2 took=647.412┬╡s
+ts=2025-10-18T07:40:28.802079715Z caller=middlewares.go:153 method=Health result=2 took=579.619┬╡s
+ts=2025-10-18T07:40:30.892945449Z caller=middlewares.go:153 method=Health result=2 took=532.534┬╡s
+ts=2025-10-18T07:40:33.802277224Z caller=middlewares.go:153 method=Health result=2 took=550.066┬╡s
+ts=2025-10-18T07:40:36.313272955Z caller=middlewares.go:153 method=Health result=2 took=747.859┬╡s
+ts=2025-10-18T07:40:38.403241487Z caller=middlewares.go:153 method=Health result=2 took=568.788┬╡s
+ts=2025-10-18T07:40:41.31236489Z caller=middlewares.go:153 method=Health result=2 took=469.906┬╡s
+ts=2025-10-18T07:40:46.313480704Z caller=middlewares.go:153 method=Health result=2 took=592.595┬╡s
+ts=2025-10-18T07:40:48.403836823Z caller=middlewares.go:153 method=Health result=2 took=601.758┬╡s
+ts=2025-10-18T07:40:51.312575668Z caller=middlewares.go:153 method=Health result=2 took=579.676┬╡s
+ts=2025-10-18T07:40:56.313073292Z caller=middlewares.go:153 method=Health result=2 took=656.808┬╡s
+ts=2025-10-18T07:40:58.404306928Z caller=middlewares.go:153 method=Health result=2 took=707.907┬╡s
+ts=2025-10-18T07:41:01.312537886Z caller=middlewares.go:153 method=Health result=2 took=634.424┬╡s
+ts=2025-10-18T07:41:03.865497373Z caller=middlewares.go:153 method=Health result=2 took=927.069┬╡s
+ts=2025-10-18T07:41:05.954342311Z caller=middlewares.go:153 method=Health result=2 took=527.901┬╡s
+ts=2025-10-18T07:41:08.863869919Z caller=middlewares.go:153 method=Health result=2 took=596.433┬╡s
+ts=2025-10-18T07:41:13.864006773Z caller=middlewares.go:153 method=Health result=2 took=511.35┬╡s
+ts=2025-10-18T07:41:15.9546935Z caller=middlewares.go:153 method=Health result=2 took=1.098189ms
+ts=2025-10-18T07:41:18.863172315Z caller=middlewares.go:153 method=Health result=2 took=536.344┬╡s
+ts=2025-10-18T07:41:23.864419047Z caller=middlewares.go:153 method=Health result=2 took=503.415┬╡s
+ts=2025-10-18T07:41:25.955038918Z caller=middlewares.go:153 method=Health result=2 took=617.354┬╡s
+ts=2025-10-18T07:41:28.863391976Z caller=middlewares.go:153 method=Health result=2 took=513.19┬╡s
+ts=2025-10-18T07:41:31.364992268Z caller=middlewares.go:153 method=Health result=2 took=558.712┬╡s
+ts=2025-10-18T07:41:33.45687295Z caller=middlewares.go:153 method=Health result=2 took=761.795┬╡s
+ts=2025-10-18T07:41:36.366008223Z caller=middlewares.go:153 method=Health result=2 took=871.821┬╡s
+ts=2025-10-18T07:41:41.365483364Z caller=middlewares.go:153 method=Health result=2 took=591.942┬╡s
+ts=2025-10-18T07:41:43.456332075Z caller=middlewares.go:153 method=Health result=2 took=697.968┬╡s
+ts=2025-10-18T07:41:46.365956458Z caller=middlewares.go:153 method=Health result=2 took=584.483┬╡s
+ts=2025-10-18T07:41:51.366068972Z caller=middlewares.go:153 method=Health result=2 took=541.027┬╡s
+ts=2025-10-18T07:41:53.457225807Z caller=middlewares.go:153 method=Health result=2 took=529.33┬╡s
+ts=2025-10-18T07:41:56.365338873Z caller=middlewares.go:153 method=Health result=2 took=624.781┬╡s
+ts=2025-10-18T07:41:58.946703009Z caller=middlewares.go:153 method=Health result=2 took=690.874┬╡s
+ts=2025-10-18T07:42:01.036795581Z caller=middlewares.go:153 method=Health result=2 took=546.832┬╡s
+ts=2025-10-18T07:42:03.94594695Z caller=middlewares.go:153 method=Health result=2 took=632.74┬╡s
+ts=2025-10-18T07:42:08.946832271Z caller=middlewares.go:153 method=Health result=2 took=582.218┬╡s
+ts=2025-10-18T07:42:11.038034639Z caller=middlewares.go:153 method=Health result=2 took=656.4┬╡s
+ts=2025-10-18T07:42:13.946102398Z caller=middlewares.go:153 method=Health result=2 took=655.927┬╡s
+ts=2025-10-18T07:42:18.945556433Z caller=middlewares.go:153 method=Health result=2 took=560.005┬╡s
+ts=2025-10-18T07:42:21.037400184Z caller=middlewares.go:153 method=Health result=2 took=975.697┬╡s
+ts=2025-10-18T07:42:23.946098563Z caller=middlewares.go:153 method=Health result=2 took=592.328┬╡s
+ts=2025-10-18T07:42:26.472751962Z caller=middlewares.go:153 method=Health result=2 took=597.102┬╡s
+ts=2025-10-18T07:42:28.563890329Z caller=middlewares.go:153 method=Health result=2 took=542.439┬╡s
+ts=2025-10-18T07:42:31.472572206Z caller=middlewares.go:153 method=Health result=2 took=744.442┬╡s
+ts=2025-10-18T07:42:36.473444269Z caller=middlewares.go:153 method=Health result=2 took=573.504┬╡s
+ts=2025-10-18T07:42:38.563927167Z caller=middlewares.go:153 method=Health result=2 took=576.122┬╡s
+ts=2025-10-18T07:42:41.472544693Z caller=middlewares.go:153 method=Health result=2 took=536.518┬╡s
+ts=2025-10-18T07:42:46.472838769Z caller=middlewares.go:153 method=Health result=2 took=529.401┬╡s
+ts=2025-10-18T07:42:48.563588288Z caller=middlewares.go:153 method=Health result=2 took=644.216┬╡s
+ts=2025-10-18T07:42:51.47181446Z caller=middlewares.go:153 method=Health result=2 took=599.318┬╡s
+ts=2025-10-18T07:42:54.085466398Z caller=middlewares.go:153 method=Health result=2 took=596.625┬╡s
+ts=2025-10-18T07:42:56.177412896Z caller=middlewares.go:153 method=Health result=2 took=538.266┬╡s
+ts=2025-10-18T07:42:59.08493071Z caller=middlewares.go:153 method=Health result=2 took=627.981┬╡s
+ts=2025-10-18T07:43:04.086290976Z caller=middlewares.go:153 method=Health result=2 took=523.953┬╡s
+ts=2025-10-18T07:43:06.176036585Z caller=middlewares.go:153 method=Health result=2 took=674.658┬╡s
+ts=2025-10-18T07:43:09.084970442Z caller=middlewares.go:153 method=Health result=2 took=564.962┬╡s
+ts=2025-10-18T07:43:14.085806889Z caller=middlewares.go:153 method=Health result=2 took=622.662┬╡s
+ts=2025-10-18T07:43:16.176216074Z caller=middlewares.go:153 method=Health result=2 took=808.635┬╡s
+ts=2025-10-18T07:43:19.085496292Z caller=middlewares.go:153 method=Health result=2 took=733.036┬╡s
+ts=2025-10-18T07:43:21.622642025Z caller=middlewares.go:153 method=Health result=2 took=648.4┬╡s
+ts=2025-10-18T07:43:23.714155666Z caller=middlewares.go:153 method=Health result=2 took=819.922┬╡s
+ts=2025-10-18T07:43:26.621999384Z caller=middlewares.go:153 method=Health result=2 took=520.573┬╡s
+ts=2025-10-18T07:43:31.621565661Z caller=middlewares.go:153 method=Health result=2 took=612.002┬╡s
+ts=2025-10-18T07:43:33.712094571Z caller=middlewares.go:153 method=Health result=2 took=501.858┬╡s
+ts=2025-10-18T07:43:36.622187799Z caller=middlewares.go:153 method=Health result=2 took=718.903┬╡s
+ts=2025-10-18T07:43:41.622435208Z caller=middlewares.go:153 method=Health result=2 took=681.113┬╡s
+ts=2025-10-18T07:43:43.712564873Z caller=middlewares.go:153 method=Health result=2 took=552.604┬╡s
+ts=2025-10-18T07:43:46.621902269Z caller=middlewares.go:153 method=Health result=2 took=626.755┬╡s
+ts=2025-10-18T07:43:49.165594654Z caller=middlewares.go:153 method=Health result=2 took=825.011┬╡s
+ts=2025-10-18T07:43:51.25565032Z caller=middlewares.go:153 method=Health result=2 took=602.462┬╡s
+ts=2025-10-18T07:43:54.164563259Z caller=middlewares.go:153 method=Health result=2 took=824.57┬╡s
+ts=2025-10-18T07:43:59.165830393Z caller=middlewares.go:153 method=Health result=2 took=949.334┬╡s
+ts=2025-10-18T07:44:01.256200184Z caller=middlewares.go:153 method=Health result=2 took=784.876┬╡s
+ts=2025-10-18T07:44:04.164899845Z caller=middlewares.go:153 method=Health result=2 took=509.785┬╡s
+ts=2025-10-18T07:44:09.164696225Z caller=middlewares.go:153 method=Health result=2 took=629.37┬╡s
+ts=2025-10-18T07:44:11.255743273Z caller=middlewares.go:153 method=Health result=2 took=651.36┬╡s
+ts=2025-10-18T07:44:14.164294795Z caller=middlewares.go:153 method=Health result=2 took=603.239┬╡s
+ts=2025-10-18T07:44:16.69812057Z caller=middlewares.go:153 method=Health result=2 took=575.386┬╡s
+ts=2025-10-18T07:44:18.789408726Z caller=middlewares.go:153 method=Health result=2 took=535.451┬╡s
+ts=2025-10-18T07:44:21.697138633Z caller=middlewares.go:153 method=Health result=2 took=588.839┬╡s
+ts=2025-10-18T07:44:26.697563539Z caller=middlewares.go:153 method=Health result=2 took=650.056┬╡s
+ts=2025-10-18T07:44:28.788626952Z caller=middlewares.go:153 method=Health result=2 took=680.443┬╡s
+ts=2025-10-18T07:44:31.69717401Z caller=middlewares.go:153 method=Health result=2 took=567.086┬╡s
+ts=2025-10-18T07:44:36.697142478Z caller=middlewares.go:153 method=Health result=2 took=526.166┬╡s
+ts=2025-10-18T07:44:38.788416902Z caller=middlewares.go:153 method=Health result=2 took=542.277┬╡s
+ts=2025-10-18T07:44:41.696773393Z caller=middlewares.go:153 method=Health result=2 took=539.092┬╡s
+ts=2025-10-18T07:44:44.23185463Z caller=middlewares.go:153 method=Health result=2 took=657.468┬╡s
+ts=2025-10-18T07:44:46.322372668Z caller=middlewares.go:153 method=Health result=2 took=671.57┬╡s
+ts=2025-10-18T07:44:49.231977125Z caller=middlewares.go:153 method=Health result=2 took=623.091┬╡s
+ts=2025-10-18T07:44:54.23169624Z caller=middlewares.go:153 method=Health result=2 took=686.525┬╡s
+ts=2025-10-18T07:44:56.322223752Z caller=middlewares.go:153 method=Health result=2 took=699.844┬╡s
+ts=2025-10-18T07:44:59.231736358Z caller=middlewares.go:153 method=Health result=2 took=610.963┬╡s
+ts=2025-10-18T07:45:04.231780761Z caller=middlewares.go:153 method=Health result=2 took=653.832┬╡s
+ts=2025-10-18T07:45:06.322295378Z caller=middlewares.go:153 method=Health result=2 took=565.586┬╡s
+ts=2025-10-18T07:45:09.231941914Z caller=middlewares.go:153 method=Health result=2 took=729.241┬╡s
+ts=2025-10-18T07:45:11.812124438Z caller=middlewares.go:153 method=Health result=2 took=598.928┬╡s
+ts=2025-10-18T07:45:13.901793053Z caller=middlewares.go:153 method=Health result=2 took=641.831┬╡s
+ts=2025-10-18T07:45:16.811045527Z caller=middlewares.go:153 method=Health result=2 took=702.955┬╡s
+ts=2025-10-18T07:45:21.811807943Z caller=middlewares.go:153 method=Health result=2 took=523.461┬╡s
+ts=2025-10-18T07:45:23.901919774Z caller=middlewares.go:153 method=Health result=2 took=522.414┬╡s
+ts=2025-10-18T07:45:26.811648528Z caller=middlewares.go:153 method=Health result=2 took=516.729┬╡s
+ts=2025-10-18T07:45:31.81166785Z caller=middlewares.go:153 method=Health result=2 took=653.978┬╡s
+ts=2025-10-18T07:45:33.901942506Z caller=middlewares.go:153 method=Health result=2 took=521.455┬╡s
+ts=2025-10-18T07:45:36.8123292Z caller=middlewares.go:153 method=Health result=2 took=1.055066ms
+ts=2025-10-18T07:45:39.33477532Z caller=middlewares.go:153 method=Health result=2 took=574.565┬╡s
+ts=2025-10-18T07:45:41.424649232Z caller=middlewares.go:153 method=Health result=2 took=767.793┬╡s
+ts=2025-10-18T07:45:44.333469585Z caller=middlewares.go:153 method=Health result=2 took=629.231┬╡s
+ts=2025-10-18T07:45:49.333665939Z caller=middlewares.go:153 method=Health result=2 took=642.234┬╡s
+ts=2025-10-18T07:45:51.425183842Z caller=middlewares.go:153 method=Health result=2 took=632.669┬╡s
+ts=2025-10-18T07:45:54.333197114Z caller=middlewares.go:153 method=Health result=2 took=643.023┬╡s
+ts=2025-10-18T07:45:59.333641962Z caller=middlewares.go:153 method=Health result=2 took=549.227┬╡s
+ts=2025-10-18T07:46:01.424242472Z caller=middlewares.go:153 method=Health result=2 took=554.12┬╡s
+ts=2025-10-18T07:46:04.332687767Z caller=middlewares.go:153 method=Health result=2 took=584.864┬╡s
+ts=2025-10-18T07:46:06.933346886Z caller=middlewares.go:153 method=Health result=2 took=586.328┬╡s
+ts=2025-10-18T07:46:09.024071062Z caller=middlewares.go:153 method=Health result=2 took=670.272┬╡s
+ts=2025-10-18T07:46:11.933718695Z caller=middlewares.go:153 method=Health result=2 took=591.162┬╡s
+ts=2025-10-18T07:46:16.933659733Z caller=middlewares.go:153 method=Health result=2 took=479.312┬╡s
+ts=2025-10-18T07:46:19.024129752Z caller=middlewares.go:153 method=Health result=2 took=640.609┬╡s
+ts=2025-10-18T07:46:21.932736597Z caller=middlewares.go:153 method=Health result=2 took=590.939┬╡s
+ts=2025-10-18T07:46:26.933468095Z caller=middlewares.go:153 method=Health result=2 took=533.745┬╡s
+ts=2025-10-18T07:46:29.024350345Z caller=middlewares.go:153 method=Health result=2 took=550.816┬╡s
+ts=2025-10-18T07:46:31.932646945Z caller=middlewares.go:153 method=Health result=2 took=671.036┬╡s
+ts=2025-10-18T07:46:34.477215481Z caller=middlewares.go:153 method=Health result=2 took=603.404┬╡s
+ts=2025-10-18T07:46:36.567112933Z caller=middlewares.go:153 method=Health result=2 took=755.977┬╡s
+ts=2025-10-18T07:46:39.476045039Z caller=middlewares.go:153 method=Health result=2 took=523.02┬╡s
+ts=2025-10-18T07:46:44.477471109Z caller=middlewares.go:153 method=Health result=2 took=613.031┬╡s
+ts=2025-10-18T07:46:46.567388482Z caller=middlewares.go:153 method=Health result=2 took=702.193┬╡s
+ts=2025-10-18T07:46:49.476605991Z caller=middlewares.go:153 method=Health result=2 took=549.156┬╡s
+ts=2025-10-18T07:46:54.477762903Z caller=middlewares.go:153 method=Health result=2 took=826.598┬╡s
+ts=2025-10-18T07:46:56.567622874Z caller=middlewares.go:153 method=Health result=2 took=658.368┬╡s
+ts=2025-10-18T07:46:59.47713037Z caller=middlewares.go:153 method=Health result=2 took=755.822┬╡s
+ts=2025-10-18T07:47:02.091343987Z caller=middlewares.go:153 method=Health result=2 took=611.747┬╡s
+ts=2025-10-18T07:47:04.181807805Z caller=middlewares.go:153 method=Health result=2 took=711.108┬╡s
+ts=2025-10-18T07:47:07.090267193Z caller=middlewares.go:153 method=Health result=2 took=628.806┬╡s
+ts=2025-10-18T07:47:12.090937223Z caller=middlewares.go:153 method=Health result=2 took=609.647┬╡s
+ts=2025-10-18T07:47:14.182049818Z caller=middlewares.go:153 method=Health result=2 took=594.18┬╡s
+ts=2025-10-18T07:47:17.090041075Z caller=middlewares.go:153 method=Health result=2 took=519.031┬╡s
+ts=2025-10-18T07:47:22.090696588Z caller=middlewares.go:153 method=Health result=2 took=589.274┬╡s
+ts=2025-10-18T07:47:24.182130351Z caller=middlewares.go:153 method=Health result=2 took=1.07997ms
+ts=2025-10-18T07:47:27.089985787Z caller=middlewares.go:153 method=Health result=2 took=580.856┬╡s
+ts=2025-10-18T07:47:29.654332121Z caller=middlewares.go:153 method=Health result=2 took=731.871┬╡s
+ts=2025-10-18T07:47:31.744396314Z caller=middlewares.go:153 method=Health result=2 took=677.041┬╡s
+ts=2025-10-18T07:47:34.65340675Z caller=middlewares.go:153 method=Health result=2 took=558.39┬╡s
+ts=2025-10-18T07:47:39.654472357Z caller=middlewares.go:153 method=Health result=2 took=570.71┬╡s
+ts=2025-10-18T07:47:41.743964262Z caller=middlewares.go:153 method=Health result=2 took=630.823┬╡s
+ts=2025-10-18T07:47:44.654410412Z caller=middlewares.go:153 method=Health result=2 took=752.62┬╡s
+ts=2025-10-18T07:47:49.653747734Z caller=middlewares.go:153 method=Health result=2 took=633.333┬╡s
+ts=2025-10-18T07:47:51.744496466Z caller=middlewares.go:153 method=Health result=2 took=527.249┬╡s
+ts=2025-10-18T07:47:54.654119757Z caller=middlewares.go:153 method=Health result=2 took=746.496┬╡s
+ts=2025-10-18T07:47:57.182938764Z caller=middlewares.go:153 method=Health result=2 took=379.062┬╡s
+ts=2025-10-18T07:47:59.273872141Z caller=middlewares.go:153 method=Health result=2 took=767.8┬╡s
+ts=2025-10-18T07:48:02.1823246Z caller=middlewares.go:153 method=Health result=2 took=669.338┬╡s
+ts=2025-10-18T07:48:07.183904419Z caller=middlewares.go:153 method=Health result=2 took=731.146┬╡s
+ts=2025-10-18T07:48:09.274405527Z caller=middlewares.go:153 method=Health result=2 took=770.656┬╡s
+ts=2025-10-18T07:48:12.183602675Z caller=middlewares.go:153 method=Health result=2 took=603.768┬╡s
+ts=2025-10-18T07:48:17.183815079Z caller=middlewares.go:153 method=Health result=2 took=684.283┬╡s
+ts=2025-10-18T07:48:19.273363166Z caller=middlewares.go:153 method=Health result=2 took=733.336┬╡s
+ts=2025-10-18T07:48:22.182769836Z caller=middlewares.go:153 method=Health result=2 took=611.78┬╡s
+ts=2025-10-18T07:48:24.744936545Z caller=middlewares.go:153 method=Health result=2 took=556.44┬╡s
+ts=2025-10-18T07:48:26.834807542Z caller=middlewares.go:153 method=Health result=2 took=553.054┬╡s
+ts=2025-10-18T07:48:29.745959361Z caller=middlewares.go:153 method=Health result=2 took=1.090123ms
+ts=2025-10-18T07:48:34.744408163Z caller=middlewares.go:153 method=Health result=2 took=738.736┬╡s
+ts=2025-10-18T07:48:36.834805934Z caller=middlewares.go:153 method=Health result=2 took=490.642┬╡s
+ts=2025-10-18T07:48:39.744652126Z caller=middlewares.go:153 method=Health result=2 took=697.828┬╡s
+ts=2025-10-18T07:48:44.745365974Z caller=middlewares.go:153 method=Health result=2 took=907.212┬╡s
+ts=2025-10-18T07:48:46.8362471Z caller=middlewares.go:153 method=Health result=2 took=684.086┬╡s
+ts=2025-10-18T07:48:49.745073642Z caller=middlewares.go:153 method=Health result=2 took=784.655┬╡s
+ts=2025-10-18T07:48:52.262411199Z caller=middlewares.go:153 method=Health result=2 took=467.5┬╡s
+ts=2025-10-18T07:48:54.352416304Z caller=middlewares.go:153 method=Health result=2 took=598.85┬╡s
+ts=2025-10-18T07:48:57.262172339Z caller=middlewares.go:153 method=Health result=2 took=641.255┬╡s
+ts=2025-10-18T07:49:02.262441599Z caller=middlewares.go:153 method=Health result=2 took=581.599┬╡s
+ts=2025-10-18T07:49:04.352784693Z caller=middlewares.go:153 method=Health result=2 took=622.603┬╡s
+ts=2025-10-18T07:49:07.262255429Z caller=middlewares.go:153 method=Health result=2 took=712.484┬╡s
+ts=2025-10-18T07:49:12.263736503Z caller=middlewares.go:153 method=Health result=2 took=752.324┬╡s
+ts=2025-10-18T07:49:14.353200382Z caller=middlewares.go:153 method=Health result=2 took=646.042┬╡s
+ts=2025-10-18T07:49:17.261883768Z caller=middlewares.go:153 method=Health result=2 took=568.551┬╡s
+ts=2025-10-18T07:49:19.871172372Z caller=middlewares.go:153 method=Health result=2 took=708.672┬╡s
+ts=2025-10-18T07:49:21.961133413Z caller=middlewares.go:153 method=Health result=2 took=589.317┬╡s
+ts=2025-10-18T07:49:24.869791425Z caller=middlewares.go:153 method=Health result=2 took=741.964┬╡s
+ts=2025-10-18T07:49:29.870901556Z caller=middlewares.go:153 method=Health result=2 took=642.77┬╡s
+ts=2025-10-18T07:49:31.961408242Z caller=middlewares.go:153 method=Health result=2 took=761.36┬╡s
+ts=2025-10-18T07:49:34.869700436Z caller=middlewares.go:153 method=Health result=2 took=490.697┬╡s
+ts=2025-10-18T07:49:39.870771508Z caller=middlewares.go:153 method=Health result=2 took=580.934┬╡s
+ts=2025-10-18T07:49:41.961313111Z caller=middlewares.go:153 method=Health result=2 took=673.262┬╡s
+ts=2025-10-18T07:49:44.870037454Z caller=middlewares.go:153 method=Health result=2 took=587.721┬╡s
+ts=2025-10-18T07:49:47.394591478Z caller=middlewares.go:153 method=Health result=2 took=613.757┬╡s
+ts=2025-10-18T07:49:49.484966073Z caller=middlewares.go:153 method=Health result=2 took=659.502┬╡s
+ts=2025-10-18T07:49:52.393976874Z caller=middlewares.go:153 method=Health result=2 took=534.68┬╡s
+ts=2025-10-18T07:49:57.394064377Z caller=middlewares.go:153 method=Health result=2 took=618.903┬╡s
+ts=2025-10-18T07:49:59.485597089Z caller=middlewares.go:153 method=Health result=2 took=635.504┬╡s
+ts=2025-10-18T07:50:02.394557494Z caller=middlewares.go:153 method=Health result=2 took=578.534┬╡s
+ts=2025-10-18T07:50:07.394642745Z caller=middlewares.go:153 method=Health result=2 took=607.527┬╡s
+ts=2025-10-18T07:50:09.48541706Z caller=middlewares.go:153 method=Health result=2 took=690.542┬╡s
+ts=2025-10-18T07:50:12.394270943Z caller=middlewares.go:153 method=Health result=2 took=633.005┬╡s
+ts=2025-10-18T07:50:15.013206846Z caller=middlewares.go:153 method=Health result=2 took=552.63┬╡s
+ts=2025-10-18T07:50:17.103529373Z caller=middlewares.go:153 method=Health result=2 took=623.424┬╡s
+ts=2025-10-18T07:50:20.013155676Z caller=middlewares.go:153 method=Health result=2 took=540.067┬╡s
+ts=2025-10-18T07:50:25.013592944Z caller=middlewares.go:153 method=Health result=2 took=747.446┬╡s
+ts=2025-10-18T07:50:27.103628491Z caller=middlewares.go:153 method=Health result=2 took=735.076┬╡s
+ts=2025-10-18T07:50:30.013001134Z caller=middlewares.go:153 method=Health result=2 took=592.416┬╡s
+ts=2025-10-18T07:50:35.012234462Z caller=middlewares.go:153 method=Health result=2 took=558.822┬╡s
+ts=2025-10-18T07:50:37.103108517Z caller=middlewares.go:153 method=Health result=2 took=486.489┬╡s
+ts=2025-10-18T07:50:40.013238807Z caller=middlewares.go:153 method=Health result=2 took=566.663┬╡s
+ts=2025-10-18T07:50:42.568648149Z caller=middlewares.go:153 method=Health result=2 took=588.481┬╡s
+ts=2025-10-18T07:50:44.659864444Z caller=middlewares.go:153 method=Health result=2 took=642.986┬╡s
+ts=2025-10-18T07:50:47.568576802Z caller=middlewares.go:153 method=Health result=2 took=566.845┬╡s
+ts=2025-10-18T07:50:52.568290119Z caller=middlewares.go:153 method=Health result=2 took=566.687┬╡s
+ts=2025-10-18T07:50:54.659396944Z caller=middlewares.go:153 method=Health result=2 took=778.155┬╡s
+ts=2025-10-18T07:50:57.567810888Z caller=middlewares.go:153 method=Health result=2 took=400.378┬╡s
+ts=2025-10-18T07:51:02.568379646Z caller=middlewares.go:153 method=Health result=2 took=586.798┬╡s
+ts=2025-10-18T07:51:04.659780681Z caller=middlewares.go:153 method=Health result=2 took=550.681┬╡s
+ts=2025-10-18T07:51:07.568156658Z caller=middlewares.go:153 method=Health result=2 took=574.809┬╡s
+ts=2025-10-18T07:51:10.130581856Z caller=middlewares.go:153 method=Health result=2 took=684.662┬╡s
+ts=2025-10-18T07:51:12.220423281Z caller=middlewares.go:153 method=Health result=2 took=673.488┬╡s
+ts=2025-10-18T07:51:15.12950082Z caller=middlewares.go:153 method=Health result=2 took=543.863┬╡s
+ts=2025-10-18T07:51:20.130835845Z caller=middlewares.go:153 method=Health result=2 took=688.258┬╡s
+ts=2025-10-18T07:51:22.221026706Z caller=middlewares.go:153 method=Health result=2 took=572.229┬╡s
+ts=2025-10-18T07:51:25.129493413Z caller=middlewares.go:153 method=Health result=2 took=615.493┬╡s
+ts=2025-10-18T07:51:30.131305501Z caller=middlewares.go:153 method=Health result=2 took=660.993┬╡s
+ts=2025-10-18T07:51:32.220685227Z caller=middlewares.go:153 method=Health result=2 took=606.162┬╡s
+ts=2025-10-18T07:51:35.129723064Z caller=middlewares.go:153 method=Health result=2 took=632.115┬╡s
+ts=2025-10-18T07:51:37.703783022Z caller=middlewares.go:153 method=Health result=2 took=812.107┬╡s
+ts=2025-10-18T07:51:39.793433921Z caller=middlewares.go:153 method=Health result=2 took=618.51┬╡s
+ts=2025-10-18T07:51:42.701888885Z caller=middlewares.go:153 method=Health result=2 took=516.267┬╡s
+ts=2025-10-18T07:51:47.703548494Z caller=middlewares.go:153 method=Health result=2 took=642.404┬╡s
+ts=2025-10-18T07:51:49.79347185Z caller=middlewares.go:153 method=Health result=2 took=551.691┬╡s
+ts=2025-10-18T07:51:52.702183136Z caller=middlewares.go:153 method=Health result=2 took=657.444┬╡s
+ts=2025-10-18T07:51:57.70261966Z caller=middlewares.go:153 method=Health result=2 took=595.801┬╡s
+ts=2025-10-18T07:51:59.793986651Z caller=middlewares.go:153 method=Health result=2 took=690.612┬╡s
+ts=2025-10-18T07:52:02.70222898Z caller=middlewares.go:153 method=Health result=2 took=623.806┬╡s
+ts=2025-10-18T07:52:05.229693136Z caller=middlewares.go:153 method=Health result=2 took=504.587┬╡s
+ts=2025-10-18T07:52:07.322439905Z caller=middlewares.go:153 method=Health result=2 took=574.912┬╡s
+ts=2025-10-18T07:52:10.229464703Z caller=middlewares.go:153 method=Health result=2 took=524.283┬╡s
+ts=2025-10-18T07:52:15.231020688Z caller=middlewares.go:153 method=Health result=2 took=826.061┬╡s
+ts=2025-10-18T07:52:17.320667085Z caller=middlewares.go:153 method=Health result=2 took=641.535┬╡s
+ts=2025-10-18T07:52:20.230395641Z caller=middlewares.go:153 method=Health result=2 took=653.998┬╡s
+ts=2025-10-18T07:52:25.230017137Z caller=middlewares.go:153 method=Health result=2 took=523.99┬╡s
+ts=2025-10-18T07:52:27.321508822Z caller=middlewares.go:153 method=Health result=2 took=622.393┬╡s
+ts=2025-10-18T07:52:30.230072158Z caller=middlewares.go:153 method=Health result=2 took=630.444┬╡s
+ts=2025-10-18T07:52:32.832014862Z caller=middlewares.go:153 method=Health result=2 took=562.789┬╡s
+ts=2025-10-18T07:52:34.92311725Z caller=middlewares.go:153 method=Health result=2 took=835.666┬╡s
+ts=2025-10-18T07:52:37.832259999Z caller=middlewares.go:153 method=Health result=2 took=751.403┬╡s
+ts=2025-10-18T07:52:42.832528252Z caller=middlewares.go:153 method=Health result=2 took=575.941┬╡s
+ts=2025-10-18T07:52:44.923409139Z caller=middlewares.go:153 method=Health result=2 took=539.001┬╡s
+ts=2025-10-18T07:52:47.832098454Z caller=middlewares.go:153 method=Health result=2 took=784.613┬╡s
+ts=2025-10-18T07:52:52.831972078Z caller=middlewares.go:153 method=Health result=2 took=582.31┬╡s
+ts=2025-10-18T07:52:54.922251975Z caller=middlewares.go:153 method=Health result=2 took=549.932┬╡s
+ts=2025-10-18T07:52:57.83286078Z caller=middlewares.go:153 method=Health result=2 took=980.513┬╡s
+ts=2025-10-18T07:53:00.347290281Z caller=middlewares.go:153 method=Health result=2 took=675.18┬╡s
+ts=2025-10-18T07:53:02.437325182Z caller=middlewares.go:153 method=Health result=2 took=511.868┬╡s
+ts=2025-10-18T07:53:05.345671483Z caller=middlewares.go:153 method=Health result=2 took=567.439┬╡s
+ts=2025-10-18T07:53:10.346429682Z caller=middlewares.go:153 method=Health result=2 took=654.654┬╡s
+ts=2025-10-18T07:53:12.437465815Z caller=middlewares.go:153 method=Health result=2 took=748.14┬╡s
+ts=2025-10-18T07:53:15.346191664Z caller=middlewares.go:153 method=Health result=2 took=674.643┬╡s
+ts=2025-10-18T07:53:20.348748253Z caller=middlewares.go:153 method=Health result=2 took=705.744┬╡s
+ts=2025-10-18T07:53:22.437596435Z caller=middlewares.go:153 method=Health result=2 took=589.967┬╡s
+ts=2025-10-18T07:53:25.346648349Z caller=middlewares.go:153 method=Health result=2 took=597.845┬╡s
+ts=2025-10-18T07:53:27.979166246Z caller=middlewares.go:153 method=Health result=2 took=557.04┬╡s
+ts=2025-10-18T07:53:30.069970626Z caller=middlewares.go:153 method=Health result=2 took=601.538┬╡s
+ts=2025-10-18T07:53:32.978544054Z caller=middlewares.go:153 method=Health result=2 took=632.422┬╡s
+ts=2025-10-18T07:53:37.97892109Z caller=middlewares.go:153 method=Health result=2 took=559.199┬╡s
+ts=2025-10-18T07:53:40.069588479Z caller=middlewares.go:153 method=Health result=2 took=675.025┬╡s
+ts=2025-10-18T07:53:42.97973191Z caller=middlewares.go:153 method=Health result=2 took=562.275┬╡s
+ts=2025-10-18T07:53:47.980227978Z caller=middlewares.go:153 method=Health result=2 took=719.293┬╡s
+ts=2025-10-18T07:53:50.070398131Z caller=middlewares.go:153 method=Health result=2 took=731.473┬╡s
+ts=2025-10-18T07:53:52.979092036Z caller=middlewares.go:153 method=Health result=2 took=460.278┬╡s
+ts=2025-10-18T07:53:55.52400112Z caller=middlewares.go:153 method=Health result=2 took=670.96┬╡s
+ts=2025-10-18T07:53:57.614613421Z caller=middlewares.go:153 method=Health result=2 took=570.77┬╡s
+ts=2025-10-18T07:54:00.523919328Z caller=middlewares.go:153 method=Health result=2 took=590.806┬╡s
+ts=2025-10-18T07:54:05.523436551Z caller=middlewares.go:153 method=Health result=2 took=623.691┬╡s
+ts=2025-10-18T07:54:07.614381202Z caller=middlewares.go:153 method=Health result=2 took=824.459┬╡s
+ts=2025-10-18T07:54:10.523832515Z caller=middlewares.go:153 method=Health result=2 took=609.327┬╡s
+ts=2025-10-18T07:54:15.523817453Z caller=middlewares.go:153 method=Health result=2 took=594.904┬╡s
+ts=2025-10-18T07:54:17.61428873Z caller=middlewares.go:153 method=Health result=2 took=825.865┬╡s
+ts=2025-10-18T07:54:20.523882133Z caller=middlewares.go:153 method=Health result=2 took=808.458┬╡s
+ts=2025-10-18T07:54:23.152897047Z caller=middlewares.go:153 method=Health result=2 took=667.473┬╡s
+ts=2025-10-18T07:54:25.243732472Z caller=middlewares.go:153 method=Health result=2 took=561.285┬╡s
+ts=2025-10-18T07:54:28.152829082Z caller=middlewares.go:153 method=Health result=2 took=566.337┬╡s
+ts=2025-10-18T07:54:33.1525866Z caller=middlewares.go:153 method=Health result=2 took=614.667┬╡s
+ts=2025-10-18T07:54:35.242721849Z caller=middlewares.go:153 method=Health result=2 took=542.088┬╡s
+ts=2025-10-18T07:54:38.152678863Z caller=middlewares.go:153 method=Health result=2 took=588.936┬╡s
+ts=2025-10-18T07:54:43.152968286Z caller=middlewares.go:153 method=Health result=2 took=504.069┬╡s
+ts=2025-10-18T07:54:45.24439668Z caller=middlewares.go:153 method=Health result=2 took=686.957┬╡s
+ts=2025-10-18T07:54:48.1519754Z caller=middlewares.go:153 method=Health result=2 took=551.202┬╡s
+ts=2025-10-18T07:54:50.710572518Z caller=middlewares.go:153 method=Health result=2 took=509.538┬╡s
+ts=2025-10-18T07:54:52.80100717Z caller=middlewares.go:153 method=Health result=2 took=1.092784ms
+ts=2025-10-18T07:54:55.710653111Z caller=middlewares.go:153 method=Health result=2 took=1.157042ms
+ts=2025-10-18T07:55:00.710001281Z caller=middlewares.go:153 method=Health result=2 took=527.915┬╡s
+ts=2025-10-18T07:55:02.800228905Z caller=middlewares.go:153 method=Health result=2 took=608.351┬╡s
+ts=2025-10-18T07:55:05.710484866Z caller=middlewares.go:153 method=Health result=2 took=576.452┬╡s
+ts=2025-10-18T07:55:10.710591434Z caller=middlewares.go:153 method=Health result=2 took=713.883┬╡s
+ts=2025-10-18T07:55:12.801416585Z caller=middlewares.go:153 method=Health result=2 took=717.775┬╡s
+ts=2025-10-18T07:55:15.709771247Z caller=middlewares.go:153 method=Health result=2 took=510.245┬╡s
+ts=2025-10-18T07:55:18.258599642Z caller=middlewares.go:153 method=Health result=2 took=587.04┬╡s
+ts=2025-10-18T07:55:20.34804827Z caller=middlewares.go:153 method=Health result=2 took=481.659┬╡s
+ts=2025-10-18T07:55:23.257745126Z caller=middlewares.go:153 method=Health result=2 took=537.725┬╡s
+ts=2025-10-18T07:55:28.257374437Z caller=middlewares.go:153 method=Health result=2 took=493.757┬╡s
+ts=2025-10-18T07:55:30.348579358Z caller=middlewares.go:153 method=Health result=2 took=657.954┬╡s
+ts=2025-10-18T07:55:33.258770685Z caller=middlewares.go:153 method=Health result=2 took=1.850819ms
+ts=2025-10-18T07:55:38.25840586Z caller=middlewares.go:153 method=Health result=2 took=598.09┬╡s
+ts=2025-10-18T07:55:40.348433077Z caller=middlewares.go:153 method=Health result=2 took=702.631┬╡s
+ts=2025-10-18T07:55:43.258269865Z caller=middlewares.go:153 method=Health result=2 took=593.884┬╡s
+ts=2025-10-18T07:55:45.832920344Z caller=middlewares.go:153 method=Health result=2 took=628.345┬╡s
+ts=2025-10-18T07:55:47.923946573Z caller=middlewares.go:153 method=Health result=2 took=554.236┬╡s
+ts=2025-10-18T07:55:50.832444806Z caller=middlewares.go:153 method=Health result=2 took=574.878┬╡s
+ts=2025-10-18T07:55:55.832562617Z caller=middlewares.go:153 method=Health result=2 took=702.015┬╡s
+ts=2025-10-18T07:55:57.922783473Z caller=middlewares.go:153 method=Health result=2 took=627.616┬╡s
+ts=2025-10-18T07:56:00.832927979Z caller=middlewares.go:153 method=Health result=2 took=559.674┬╡s
+ts=2025-10-18T07:56:05.833079968Z caller=middlewares.go:153 method=Health result=2 took=489.001┬╡s
+ts=2025-10-18T07:56:07.922506594Z caller=middlewares.go:153 method=Health result=2 took=595.951┬╡s
+ts=2025-10-18T07:56:10.832509172Z caller=middlewares.go:153 method=Health result=2 took=660.677┬╡s
+ts=2025-10-18T07:56:13.368279425Z caller=middlewares.go:153 method=Health result=2 took=558.981┬╡s
+ts=2025-10-18T07:56:15.458810392Z caller=middlewares.go:153 method=Health result=2 took=524.31┬╡s
+ts=2025-10-18T07:56:18.368581447Z caller=middlewares.go:153 method=Health result=2 took=659.119┬╡s
+ts=2025-10-18T07:56:23.368481273Z caller=middlewares.go:153 method=Health result=2 took=562.806┬╡s
+ts=2025-10-18T07:56:25.459526056Z caller=middlewares.go:153 method=Health result=2 took=917.198┬╡s
+ts=2025-10-18T07:56:28.368692336Z caller=middlewares.go:153 method=Health result=2 took=710.297┬╡s
+ts=2025-10-18T07:56:33.368127952Z caller=middlewares.go:153 method=Health result=2 took=610.386┬╡s
+ts=2025-10-18T07:56:35.459173029Z caller=middlewares.go:153 method=Health result=2 took=533.352┬╡s
+ts=2025-10-18T07:56:38.368493822Z caller=middlewares.go:153 method=Health result=2 took=523.314┬╡s
+ts=2025-10-18T07:56:40.976003819Z caller=middlewares.go:153 method=Health result=2 took=604.054┬╡s
+ts=2025-10-18T07:56:43.066794233Z caller=middlewares.go:153 method=Health result=2 took=607.712┬╡s
+ts=2025-10-18T07:56:45.976550032Z caller=middlewares.go:153 method=Health result=2 took=1.122275ms
+ts=2025-10-18T07:56:50.977343189Z caller=middlewares.go:153 method=Health result=2 took=776.551┬╡s
+ts=2025-10-18T07:56:53.066971359Z caller=middlewares.go:153 method=Health result=2 took=668.292┬╡s
+ts=2025-10-18T07:56:55.976339577Z caller=middlewares.go:153 method=Health result=2 took=613.586┬╡s
+ts=2025-10-18T07:57:00.975787855Z caller=middlewares.go:153 method=Health result=2 took=471.279┬╡s
+ts=2025-10-18T07:57:03.066529396Z caller=middlewares.go:153 method=Health result=2 took=560.25┬╡s
+ts=2025-10-18T07:57:05.976479424Z caller=middlewares.go:153 method=Health result=2 took=611.522┬╡s
+ts=2025-10-18T07:57:08.512923654Z caller=middlewares.go:153 method=Health result=2 took=677.023┬╡s
+ts=2025-10-18T07:57:10.60449971Z caller=middlewares.go:153 method=Health result=2 took=643.102┬╡s
+ts=2025-10-18T07:57:13.513280153Z caller=middlewares.go:153 method=Health result=2 took=625.927┬╡s
+ts=2025-10-18T07:57:18.513988211Z caller=middlewares.go:153 method=Health result=2 took=591.746┬╡s
+ts=2025-10-18T07:57:20.60428364Z caller=middlewares.go:153 method=Health result=2 took=657.292┬╡s
+ts=2025-10-18T07:57:23.513372555Z caller=middlewares.go:153 method=Health result=2 took=657.703┬╡s
+ts=2025-10-18T07:57:28.513921636Z caller=middlewares.go:153 method=Health result=2 took=571.804┬╡s
+ts=2025-10-18T07:57:30.604555796Z caller=middlewares.go:153 method=Health result=2 took=531.597┬╡s
+ts=2025-10-18T07:57:33.513009918Z caller=middlewares.go:153 method=Health result=2 took=524.533┬╡s
+ts=2025-10-18T07:57:36.148963311Z caller=middlewares.go:153 method=Health result=2 took=647.4┬╡s
+ts=2025-10-18T07:57:38.239237546Z caller=middlewares.go:153 method=Health result=2 took=616.237┬╡s
+ts=2025-10-18T07:57:41.148231918Z caller=middlewares.go:153 method=Health result=2 took=549.977┬╡s
+ts=2025-10-18T07:57:46.148898088Z caller=middlewares.go:153 method=Health result=2 took=530.899┬╡s
+ts=2025-10-18T07:57:48.23894187Z caller=middlewares.go:153 method=Health result=2 took=442.487┬╡s
+ts=2025-10-18T07:57:51.148709764Z caller=middlewares.go:153 method=Health result=2 took=606.333┬╡s
+ts=2025-10-18T07:57:56.148507051Z caller=middlewares.go:153 method=Health result=2 took=609.859┬╡s
+ts=2025-10-18T07:57:58.23905516Z caller=middlewares.go:153 method=Health result=2 took=543.924┬╡s
+ts=2025-10-18T07:58:01.148154552Z caller=middlewares.go:153 method=Health result=2 took=575.842┬╡s
+ts=2025-10-18T07:58:03.720615151Z caller=middlewares.go:153 method=Health result=2 took=608.483┬╡s
+ts=2025-10-18T07:58:05.81041636Z caller=middlewares.go:153 method=Health result=2 took=666.226┬╡s
+ts=2025-10-18T07:58:08.719511702Z caller=middlewares.go:153 method=Health result=2 took=635.082┬╡s
+ts=2025-10-18T07:58:13.719597225Z caller=middlewares.go:153 method=Health result=2 took=468.517┬╡s
+ts=2025-10-18T07:58:15.810123493Z caller=middlewares.go:153 method=Health result=2 took=523.752┬╡s
+ts=2025-10-18T07:58:18.719301542Z caller=middlewares.go:153 method=Health result=2 took=618.746┬╡s
+ts=2025-10-18T07:58:23.72013309Z caller=middlewares.go:153 method=Health result=2 took=548.968┬╡s
+ts=2025-10-18T07:58:25.810135074Z caller=middlewares.go:153 method=Health result=2 took=598.603┬╡s
+ts=2025-10-18T07:58:28.72026723Z caller=middlewares.go:153 method=Health result=2 took=566.414┬╡s
+ts=2025-10-18T07:58:31.290521391Z caller=middlewares.go:153 method=Health result=2 took=541.479┬╡s
+ts=2025-10-18T07:58:33.38129748Z caller=middlewares.go:153 method=Health result=2 took=572.999┬╡s
+ts=2025-10-18T07:58:36.290865923Z caller=middlewares.go:153 method=Health result=2 took=519.342┬╡s
+ts=2025-10-18T07:58:41.290824495Z caller=middlewares.go:153 method=Health result=2 took=615.169┬╡s
+ts=2025-10-18T07:58:43.381293374Z caller=middlewares.go:153 method=Health result=2 took=668.193┬╡s
+ts=2025-10-18T07:58:46.290278418Z caller=middlewares.go:153 method=Health result=2 took=686.157┬╡s
+ts=2025-10-18T07:58:51.291197964Z caller=middlewares.go:153 method=Health result=2 took=608.529┬╡s
+ts=2025-10-18T07:58:53.381174939Z caller=middlewares.go:153 method=Health result=2 took=659.296┬╡s
+ts=2025-10-18T07:58:56.290313665Z caller=middlewares.go:153 method=Health result=2 took=474.85┬╡s
+ts=2025-10-18T07:58:58.837597693Z caller=middlewares.go:153 method=Health result=2 took=417.931┬╡s
+ts=2025-10-18T07:59:00.927145094Z caller=middlewares.go:153 method=Health result=2 took=563.089┬╡s
+ts=2025-10-18T07:59:03.837217914Z caller=middlewares.go:153 method=Health result=2 took=666.143┬╡s
+ts=2025-10-18T07:59:08.836557658Z caller=middlewares.go:153 method=Health result=2 took=462.498┬╡s
+ts=2025-10-18T07:59:10.927992099Z caller=middlewares.go:153 method=Health result=2 took=598.491┬╡s
+ts=2025-10-18T07:59:13.836978557Z caller=middlewares.go:153 method=Health result=2 took=520.018┬╡s
+ts=2025-10-18T07:59:18.8372023Z caller=middlewares.go:153 method=Health result=2 took=547.208┬╡s
+ts=2025-10-18T07:59:20.927418973Z caller=middlewares.go:153 method=Health result=2 took=507.572┬╡s
+ts=2025-10-18T07:59:23.83817197Z caller=middlewares.go:153 method=Health result=2 took=722.074┬╡s
+ts=2025-10-18T07:59:26.404441876Z caller=middlewares.go:153 method=Health result=2 took=2.95368ms
+ts=2025-10-18T07:59:28.489774647Z caller=middlewares.go:153 method=Health result=2 took=581.996┬╡s
+ts=2025-10-18T07:59:31.399095443Z caller=middlewares.go:153 method=Health result=2 took=498.049┬╡s
+ts=2025-10-18T07:59:36.399247335Z caller=middlewares.go:153 method=Health result=2 took=602.198┬╡s
+ts=2025-10-18T07:59:38.491498276Z caller=middlewares.go:153 method=Health result=2 took=516.096┬╡s
+ts=2025-10-18T07:59:41.399619273Z caller=middlewares.go:153 method=Health result=2 took=691.137┬╡s
+ts=2025-10-18T07:59:46.399830104Z caller=middlewares.go:153 method=Health result=2 took=586.707┬╡s
+ts=2025-10-18T07:59:48.490098813Z caller=middlewares.go:153 method=Health result=2 took=705.14┬╡s
+ts=2025-10-18T07:59:51.399446048Z caller=middlewares.go:153 method=Health result=2 took=608.666┬╡s
+ts=2025-10-18T07:59:53.970904404Z caller=middlewares.go:153 method=Health result=2 took=568.868┬╡s
+ts=2025-10-18T07:59:56.061123434Z caller=middlewares.go:153 method=Health result=2 took=616.463┬╡s
+ts=2025-10-18T07:59:58.969982754Z caller=middlewares.go:153 method=Health result=2 took=561.022┬╡s
+ts=2025-10-18T08:00:03.971063428Z caller=middlewares.go:153 method=Health result=2 took=585.23┬╡s
+ts=2025-10-18T08:00:06.06160775Z caller=middlewares.go:153 method=Health result=2 took=543.209┬╡s
+ts=2025-10-18T08:00:08.970384832Z caller=middlewares.go:153 method=Health result=2 took=563.829┬╡s
+ts=2025-10-18T08:00:13.970169211Z caller=middlewares.go:153 method=Health result=2 took=581.305┬╡s
+ts=2025-10-18T08:00:16.061361161Z caller=middlewares.go:153 method=Health result=2 took=596.373┬╡s
+ts=2025-10-18T08:00:18.970803741Z caller=middlewares.go:153 method=Health result=2 took=644.027┬╡s
+ts=2025-10-18T08:00:21.498574668Z caller=middlewares.go:153 method=Health result=2 took=497.375┬╡s
+ts=2025-10-18T08:00:23.590757726Z caller=middlewares.go:153 method=Health result=2 took=790.736┬╡s
+ts=2025-10-18T08:00:26.497319212Z caller=middlewares.go:153 method=Health result=2 took=574.699┬╡s
+ts=2025-10-18T08:00:31.498142672Z caller=middlewares.go:153 method=Health result=2 took=664.907┬╡s
+ts=2025-10-18T08:00:33.589032062Z caller=middlewares.go:153 method=Health result=2 took=615.503┬╡s
+ts=2025-10-18T08:00:36.49812747Z caller=middlewares.go:153 method=Health result=2 took=602.656┬╡s
+ts=2025-10-18T08:00:41.497895104Z caller=middlewares.go:153 method=Health result=2 took=556.83┬╡s
+ts=2025-10-18T08:00:43.588913399Z caller=middlewares.go:153 method=Health result=2 took=633.83┬╡s
+ts=2025-10-18T08:00:46.49829598Z caller=middlewares.go:153 method=Health result=2 took=606.209┬╡s
+ts=2025-10-18T08:00:49.159062121Z caller=middlewares.go:153 method=Health result=2 took=515.099┬╡s
+ts=2025-10-18T08:00:51.250221088Z caller=middlewares.go:153 method=Health result=2 took=542.878┬╡s
+ts=2025-10-18T08:00:54.158966051Z caller=middlewares.go:153 method=Health result=2 took=707.485┬╡s
+ts=2025-10-18T08:00:59.159325287Z caller=middlewares.go:153 method=Health result=2 took=665.92┬╡s
+ts=2025-10-18T08:01:01.249655378Z caller=middlewares.go:153 method=Health result=2 took=625.025┬╡s
+ts=2025-10-18T08:01:04.158635701Z caller=middlewares.go:153 method=Health result=2 took=606.654┬╡s
+ts=2025-10-18T08:01:09.159712808Z caller=middlewares.go:153 method=Health result=2 took=663.901┬╡s
+ts=2025-10-18T08:01:11.25000375Z caller=middlewares.go:153 method=Health result=2 took=704.277┬╡s
+ts=2025-10-18T08:01:14.158709626Z caller=middlewares.go:153 method=Health result=2 took=563.707┬╡s
+ts=2025-10-18T08:01:16.709175939Z caller=middlewares.go:153 method=Health result=2 took=572.363┬╡s
+ts=2025-10-18T08:01:18.800399543Z caller=middlewares.go:153 method=Health result=2 took=499.085┬╡s
+ts=2025-10-18T08:01:21.70940582Z caller=middlewares.go:153 method=Health result=2 took=547.124┬╡s
+ts=2025-10-18T08:01:26.709291233Z caller=middlewares.go:153 method=Health result=2 took=541.948┬╡s
+ts=2025-10-18T08:01:28.801090639Z caller=middlewares.go:153 method=Health result=2 took=654.697┬╡s
+ts=2025-10-18T08:01:31.709665066Z caller=middlewares.go:153 method=Health result=2 took=524.327┬╡s
+ts=2025-10-18T08:01:36.709502441Z caller=middlewares.go:153 method=Health result=2 took=482.286┬╡s
+ts=2025-10-18T08:01:38.800116877Z caller=middlewares.go:153 method=Health result=2 took=716.538┬╡s
+ts=2025-10-18T08:01:41.709119646Z caller=middlewares.go:153 method=Health result=2 took=584.722┬╡s
+ts=2025-10-18T08:01:44.353904088Z caller=middlewares.go:153 method=Health result=2 took=526.336┬╡s
+ts=2025-10-18T08:01:46.444153625Z caller=middlewares.go:153 method=Health result=2 took=714.936┬╡s
+ts=2025-10-18T08:01:49.352587939Z caller=middlewares.go:153 method=Health result=2 took=544.753┬╡s
+ts=2025-10-18T08:01:54.353609746Z caller=middlewares.go:153 method=Health result=2 took=549.331┬╡s
+ts=2025-10-18T08:01:56.443466851Z caller=middlewares.go:153 method=Health result=2 took=605.985┬╡s
+ts=2025-10-18T08:01:59.353152811Z caller=middlewares.go:153 method=Health result=2 took=480.48┬╡s
+ts=2025-10-18T08:02:04.353136893Z caller=middlewares.go:153 method=Health result=2 took=519.151┬╡s
+ts=2025-10-18T08:02:06.4436579Z caller=middlewares.go:153 method=Health result=2 took=574.003┬╡s
+ts=2025-10-18T08:02:09.353469624Z caller=middlewares.go:153 method=Health result=2 took=731.485┬╡s
+ts=2025-10-18T08:02:11.935638329Z caller=middlewares.go:153 method=Health result=2 took=568.261┬╡s
+ts=2025-10-18T08:02:14.025178422Z caller=middlewares.go:153 method=Health result=2 took=670.504┬╡s
+ts=2025-10-18T08:02:16.934855604Z caller=middlewares.go:153 method=Health result=2 took=695.815┬╡s
+ts=2025-10-18T08:02:21.934722653Z caller=middlewares.go:153 method=Health result=2 took=625.681┬╡s
+ts=2025-10-18T08:02:24.025874561Z caller=middlewares.go:153 method=Health result=2 took=890.107┬╡s
+ts=2025-10-18T08:02:26.934721251Z caller=middlewares.go:153 method=Health result=2 took=636.975┬╡s
+ts=2025-10-18T08:02:31.935790505Z caller=middlewares.go:153 method=Health result=2 took=607.64┬╡s
+ts=2025-10-18T08:02:34.026008779Z caller=middlewares.go:153 method=Health result=2 took=541.867┬╡s
+ts=2025-10-18T08:02:36.934474294Z caller=middlewares.go:153 method=Health result=2 took=546.669┬╡s
+ts=2025-10-18T08:02:39.480297551Z caller=middlewares.go:153 method=Health result=2 took=668.514┬╡s
+ts=2025-10-18T08:02:41.570353242Z caller=middlewares.go:153 method=Health result=2 took=590.756┬╡s
+ts=2025-10-18T08:02:44.479829576Z caller=middlewares.go:153 method=Health result=2 took=674.979┬╡s
+ts=2025-10-18T08:02:49.479690443Z caller=middlewares.go:153 method=Health result=2 took=579.233┬╡s
+ts=2025-10-18T08:02:51.570998074Z caller=middlewares.go:153 method=Health result=2 took=593.136┬╡s
+ts=2025-10-18T08:02:54.479862568Z caller=middlewares.go:153 method=Health result=2 took=552.224┬╡s
+ts=2025-10-18T08:02:59.480767899Z caller=middlewares.go:153 method=Health result=2 took=512.289┬╡s
+ts=2025-10-18T08:03:01.570935203Z caller=middlewares.go:153 method=Health result=2 took=700.993┬╡s
+ts=2025-10-18T08:03:04.479418926Z caller=middlewares.go:153 method=Health result=2 took=519.777┬╡s
+ts=2025-10-18T08:03:07.060372556Z caller=middlewares.go:153 method=Health result=2 took=647.72┬╡s
+ts=2025-10-18T08:03:09.151497826Z caller=middlewares.go:153 method=Health result=2 took=644.519┬╡s
+ts=2025-10-18T08:03:12.060888082Z caller=middlewares.go:153 method=Health result=2 took=649.989┬╡s
+ts=2025-10-18T08:03:17.060969974Z caller=middlewares.go:153 method=Health result=2 took=804.196┬╡s
+ts=2025-10-18T08:03:19.151688079Z caller=middlewares.go:153 method=Health result=2 took=693.682┬╡s
+ts=2025-10-18T08:03:22.060553796Z caller=middlewares.go:153 method=Health result=2 took=604.978┬╡s
+ts=2025-10-18T08:03:27.060649932Z caller=middlewares.go:153 method=Health result=2 took=534.132┬╡s
+ts=2025-10-18T08:03:29.151723688Z caller=middlewares.go:153 method=Health result=2 took=662.634┬╡s
+ts=2025-10-18T08:03:32.061262429Z caller=middlewares.go:153 method=Health result=2 took=727.348┬╡s
+ts=2025-10-18T08:03:34.592664619Z caller=middlewares.go:153 method=Health result=2 took=498.951┬╡s
+ts=2025-10-18T08:03:36.682908063Z caller=middlewares.go:153 method=Health result=2 took=560.606┬╡s
+ts=2025-10-18T08:03:39.592280175Z caller=middlewares.go:153 method=Health result=2 took=565.427┬╡s
+ts=2025-10-18T08:03:44.592778188Z caller=middlewares.go:153 method=Health result=2 took=575.807┬╡s
+ts=2025-10-18T08:03:46.683474566Z caller=middlewares.go:153 method=Health result=2 took=642.234┬╡s
+ts=2025-10-18T08:03:49.592375813Z caller=middlewares.go:153 method=Health result=2 took=471.227┬╡s
+ts=2025-10-18T08:03:54.59175162Z caller=middlewares.go:153 method=Health result=2 took=511.659┬╡s
+ts=2025-10-18T08:03:56.682828357Z caller=middlewares.go:153 method=Health result=2 took=654.952┬╡s
+ts=2025-10-18T08:03:59.593041962Z caller=middlewares.go:153 method=Health result=2 took=611.575┬╡s
+ts=2025-10-18T08:04:02.205250598Z caller=middlewares.go:153 method=Health result=2 took=910.145┬╡s
+ts=2025-10-18T08:04:04.296102025Z caller=middlewares.go:153 method=Health result=2 took=651.222┬╡s
+ts=2025-10-18T08:04:07.20533236Z caller=middlewares.go:153 method=Health result=2 took=591.724┬╡s
+ts=2025-10-18T08:04:12.205507685Z caller=middlewares.go:153 method=Health result=2 took=506.511┬╡s
+ts=2025-10-18T08:04:14.296240263Z caller=middlewares.go:153 method=Health result=2 took=639.077┬╡s
+ts=2025-10-18T08:04:17.205213747Z caller=middlewares.go:153 method=Health result=2 took=532.366┬╡s
+ts=2025-10-18T08:04:22.205162933Z caller=middlewares.go:153 method=Health result=2 took=548.114┬╡s
+ts=2025-10-18T08:04:24.295498393Z caller=middlewares.go:153 method=Health result=2 took=752.587┬╡s
+ts=2025-10-18T08:04:27.205453057Z caller=middlewares.go:153 method=Health result=2 took=523.717┬╡s
+ts=2025-10-18T08:04:29.72608844Z caller=middlewares.go:153 method=Health result=2 took=522.04┬╡s
+ts=2025-10-18T08:04:31.81629328Z caller=middlewares.go:153 method=Health result=2 took=675.713┬╡s
+ts=2025-10-18T08:04:34.725392497Z caller=middlewares.go:153 method=Health result=2 took=679.3┬╡s
+ts=2025-10-18T08:04:39.726174491Z caller=middlewares.go:153 method=Health result=2 took=648.51┬╡s
+ts=2025-10-18T08:04:41.816321633Z caller=middlewares.go:153 method=Health result=2 took=591.89┬╡s
+ts=2025-10-18T08:04:44.725451832Z caller=middlewares.go:153 method=Health result=2 took=575.556┬╡s
+ts=2025-10-18T08:04:49.726320875Z caller=middlewares.go:153 method=Health result=2 took=668.224┬╡s
+ts=2025-10-18T08:04:51.816455048Z caller=middlewares.go:153 method=Health result=2 took=617.975┬╡s
+ts=2025-10-18T08:04:54.724810727Z caller=middlewares.go:153 method=Health result=2 took=550.461┬╡s
+ts=2025-10-18T08:04:57.386660126Z caller=middlewares.go:153 method=Health result=2 took=534.965┬╡s
+ts=2025-10-18T08:04:59.477860129Z caller=middlewares.go:153 method=Health result=2 took=882.276┬╡s
+ts=2025-10-18T08:05:02.386538239Z caller=middlewares.go:153 method=Health result=2 took=695.006┬╡s
+ts=2025-10-18T08:05:07.386364223Z caller=middlewares.go:153 method=Health result=2 took=546.033┬╡s
+ts=2025-10-18T08:05:09.476746349Z caller=middlewares.go:153 method=Health result=2 took=517.102┬╡s
+ts=2025-10-18T08:05:12.385749813Z caller=middlewares.go:153 method=Health result=2 took=581.891┬╡s
+ts=2025-10-18T08:05:17.3866578Z caller=middlewares.go:153 method=Health result=2 took=537.555┬╡s
+ts=2025-10-18T08:05:19.476771067Z caller=middlewares.go:153 method=Health result=2 took=563.938┬╡s
+ts=2025-10-18T08:05:22.385871685Z caller=middlewares.go:153 method=Health result=2 took=663.443┬╡s
+ts=2025-10-18T08:05:24.967163408Z caller=middlewares.go:153 method=Health result=2 took=724.837┬╡s
+ts=2025-10-18T08:05:27.056823688Z caller=middlewares.go:153 method=Health result=2 took=562.674┬╡s
+ts=2025-10-18T08:05:29.966687119Z caller=middlewares.go:153 method=Health result=2 took=553.382┬╡s
+ts=2025-10-18T08:05:34.966154152Z caller=middlewares.go:153 method=Health result=2 took=435.796┬╡s
+ts=2025-10-18T08:05:37.0575332Z caller=middlewares.go:153 method=Health result=2 took=747.987┬╡s
+ts=2025-10-18T08:05:39.966493832Z caller=middlewares.go:153 method=Health result=2 took=611.235┬╡s
+ts=2025-10-18T08:05:44.967666199Z caller=middlewares.go:153 method=Health result=2 took=661.276┬╡s
+ts=2025-10-18T08:05:47.058271499Z caller=middlewares.go:153 method=Health result=2 took=735.771┬╡s
+ts=2025-10-18T08:05:49.966880479Z caller=middlewares.go:153 method=Health result=2 took=556.08┬╡s
+ts=2025-10-18T08:05:52.583618595Z caller=middlewares.go:153 method=Health result=2 took=496.86┬╡s
+ts=2025-10-18T08:05:54.67505845Z caller=middlewares.go:153 method=Health result=2 took=817.87┬╡s
+ts=2025-10-18T08:05:57.584277094Z caller=middlewares.go:153 method=Health result=2 took=631.197┬╡s
+ts=2025-10-18T08:06:02.58402958Z caller=middlewares.go:153 method=Health result=2 took=743.18┬╡s
+ts=2025-10-18T08:06:04.674732442Z caller=middlewares.go:153 method=Health result=2 took=569.922┬╡s
+ts=2025-10-18T08:06:07.584068608Z caller=middlewares.go:153 method=Health result=2 took=554.342┬╡s
+ts=2025-10-18T08:06:12.583502172Z caller=middlewares.go:153 method=Health result=2 took=611.855┬╡s
+ts=2025-10-18T08:06:14.675257056Z caller=middlewares.go:153 method=Health result=2 took=692.568┬╡s
+ts=2025-10-18T08:06:17.584159262Z caller=middlewares.go:153 method=Health result=2 took=636.542┬╡s
+ts=2025-10-18T08:06:20.178013207Z caller=middlewares.go:153 method=Health result=2 took=513.477┬╡s
+ts=2025-10-18T08:06:22.268366251Z caller=middlewares.go:153 method=Health result=2 took=609.995┬╡s
+ts=2025-10-18T08:06:25.178424211Z caller=middlewares.go:153 method=Health result=2 took=582.271┬╡s
+ts=2025-10-18T08:06:30.179002005Z caller=middlewares.go:153 method=Health result=2 took=711.39┬╡s
+ts=2025-10-18T08:06:32.269169243Z caller=middlewares.go:153 method=Health result=2 took=650.117┬╡s
+ts=2025-10-18T08:06:35.178663916Z caller=middlewares.go:153 method=Health result=2 took=576.748┬╡s
+ts=2025-10-18T08:06:40.178269589Z caller=middlewares.go:153 method=Health result=2 took=563.101┬╡s
+ts=2025-10-18T08:06:42.268748057Z caller=middlewares.go:153 method=Health result=2 took=466.091┬╡s
+ts=2025-10-18T08:06:45.179136251Z caller=middlewares.go:153 method=Health result=2 took=668.165┬╡s
+ts=2025-10-18T08:06:47.721466074Z caller=middlewares.go:153 method=Health result=2 took=490.329┬╡s
+ts=2025-10-18T08:06:49.811819578Z caller=middlewares.go:153 method=Health result=2 took=556.763┬╡s
+ts=2025-10-18T08:06:52.720487479Z caller=middlewares.go:153 method=Health result=2 took=573.503┬╡s
+ts=2025-10-18T08:06:57.721279463Z caller=middlewares.go:153 method=Health result=2 took=578.348┬╡s
+ts=2025-10-18T08:06:59.812064215Z caller=middlewares.go:153 method=Health result=2 took=607.601┬╡s
+ts=2025-10-18T08:07:02.720219353Z caller=middlewares.go:153 method=Health result=2 took=600.123┬╡s
+ts=2025-10-18T08:07:07.720837912Z caller=middlewares.go:153 method=Health result=2 took=567.117┬╡s
+ts=2025-10-18T08:07:09.811372435Z caller=middlewares.go:153 method=Health result=2 took=523.162┬╡s
+ts=2025-10-18T08:07:12.720177105Z caller=middlewares.go:153 method=Health result=2 took=561.525┬╡s
+ts=2025-10-18T08:07:15.341127992Z caller=middlewares.go:153 method=Health result=2 took=617.153┬╡s
+ts=2025-10-18T08:07:17.43093816Z caller=middlewares.go:153 method=Health result=2 took=594.326┬╡s
+ts=2025-10-18T08:07:20.340246032Z caller=middlewares.go:153 method=Health result=2 took=616.481┬╡s
+ts=2025-10-18T08:07:25.340376494Z caller=middlewares.go:153 method=Health result=2 took=574.927┬╡s
+ts=2025-10-18T08:07:27.431485496Z caller=middlewares.go:153 method=Health result=2 took=690.388┬╡s
+ts=2025-10-18T08:07:30.34051404Z caller=middlewares.go:153 method=Health result=2 took=587.931┬╡s
+ts=2025-10-18T08:07:35.340099143Z caller=middlewares.go:153 method=Health result=2 took=544.56┬╡s
+ts=2025-10-18T08:07:37.431280795Z caller=middlewares.go:153 method=Health result=2 took=652.45┬╡s
+ts=2025-10-18T08:07:40.34031267Z caller=middlewares.go:153 method=Health result=2 took=582.624┬╡s
+ts=2025-10-18T08:07:42.876262339Z caller=middlewares.go:153 method=Health result=2 took=622.23┬╡s
+ts=2025-10-18T08:07:44.967250199Z caller=middlewares.go:153 method=Health result=2 took=870.257┬╡s
+ts=2025-10-18T08:07:47.875937869Z caller=middlewares.go:153 method=Health result=2 took=556.894┬╡s
+ts=2025-10-18T08:07:52.875473787Z caller=middlewares.go:153 method=Health result=2 took=693.313┬╡s
+ts=2025-10-18T08:07:54.9665538Z caller=middlewares.go:153 method=Health result=2 took=734.071┬╡s
+ts=2025-10-18T08:07:57.875134479Z caller=middlewares.go:153 method=Health result=2 took=540.364┬╡s
+ts=2025-10-18T08:08:02.876012449Z caller=middlewares.go:153 method=Health result=2 took=510.085┬╡s
+ts=2025-10-18T08:08:04.966676969Z caller=middlewares.go:153 method=Health result=2 took=821.111┬╡s
+ts=2025-10-18T08:08:07.875821402Z caller=middlewares.go:153 method=Health result=2 took=587.397┬╡s
+ts=2025-10-18T08:08:10.505282498Z caller=middlewares.go:153 method=Health result=2 took=619.673┬╡s
+ts=2025-10-18T08:08:12.596208103Z caller=middlewares.go:153 method=Health result=2 took=700.206┬╡s
+ts=2025-10-18T08:08:15.504685038Z caller=middlewares.go:153 method=Health result=2 took=585.951┬╡s
+ts=2025-10-18T08:08:20.505532508Z caller=middlewares.go:153 method=Health result=2 took=587.725┬╡s
+ts=2025-10-18T08:08:22.59560044Z caller=middlewares.go:153 method=Health result=2 took=599.778┬╡s
+ts=2025-10-18T08:08:25.504700378Z caller=middlewares.go:153 method=Health result=2 took=490.786┬╡s
+ts=2025-10-18T08:08:30.504953388Z caller=middlewares.go:153 method=Health result=2 took=516.241┬╡s
+ts=2025-10-18T08:08:32.595578531Z caller=middlewares.go:153 method=Health result=2 took=548.74┬╡s
+ts=2025-10-18T08:08:35.505349791Z caller=middlewares.go:153 method=Health result=2 took=516.756┬╡s
+ts=2025-10-18T08:08:38.044480261Z caller=middlewares.go:153 method=Health result=2 took=491.247┬╡s
+ts=2025-10-18T08:08:40.134578158Z caller=middlewares.go:153 method=Health result=2 took=519.76┬╡s
+ts=2025-10-18T08:08:43.044214777Z caller=middlewares.go:153 method=Health result=2 took=457.596┬╡s
+ts=2025-10-18T08:08:48.045068482Z caller=middlewares.go:153 method=Health result=2 took=664.393┬╡s
+ts=2025-10-18T08:08:50.13466862Z caller=middlewares.go:153 method=Health result=2 took=559.915┬╡s
+ts=2025-10-18T08:08:53.044509061Z caller=middlewares.go:153 method=Health result=2 took=579.115┬╡s
+ts=2025-10-18T08:08:58.04464917Z caller=middlewares.go:153 method=Health result=2 took=607.099┬╡s
+ts=2025-10-18T08:09:00.134881392Z caller=middlewares.go:153 method=Health result=2 took=527.614┬╡s
+ts=2025-10-18T08:09:03.043632801Z caller=middlewares.go:153 method=Health result=2 took=504.354┬╡s
+ts=2025-10-18T08:09:05.713129659Z caller=middlewares.go:153 method=Health result=2 took=587.614┬╡s
+ts=2025-10-18T08:09:07.803208805Z caller=middlewares.go:153 method=Health result=2 took=512.924┬╡s
+ts=2025-10-18T08:09:10.713197404Z caller=middlewares.go:153 method=Health result=2 took=698.359┬╡s
+ts=2025-10-18T08:09:15.713803006Z caller=middlewares.go:153 method=Health result=2 took=487.114┬╡s
+ts=2025-10-18T08:09:17.803722964Z caller=middlewares.go:153 method=Health result=2 took=590.255┬╡s
+ts=2025-10-18T08:09:20.713895209Z caller=middlewares.go:153 method=Health result=2 took=913.077┬╡s
+ts=2025-10-18T08:09:25.713679475Z caller=middlewares.go:153 method=Health result=2 took=478.716┬╡s
+ts=2025-10-18T08:09:27.804184524Z caller=middlewares.go:153 method=Health result=2 took=634.692┬╡s
+ts=2025-10-18T08:09:30.713529542Z caller=middlewares.go:153 method=Health result=2 took=610.097┬╡s
+ts=2025-10-18T08:09:33.285390463Z caller=middlewares.go:153 method=Health result=2 took=652.619┬╡s
+ts=2025-10-18T08:09:35.375247981Z caller=middlewares.go:153 method=Health result=2 took=502.818┬╡s
+ts=2025-10-18T08:09:38.284344878Z caller=middlewares.go:153 method=Health result=2 took=555.356┬╡s
+ts=2025-10-18T08:09:43.285126089Z caller=middlewares.go:153 method=Health result=2 took=762.838┬╡s
+ts=2025-10-18T08:09:45.37601441Z caller=middlewares.go:153 method=Health result=2 took=803.117┬╡s
+ts=2025-10-18T08:09:48.284853181Z caller=middlewares.go:153 method=Health result=2 took=623.414┬╡s
+ts=2025-10-18T08:09:53.285523924Z caller=middlewares.go:153 method=Health result=2 took=545.637┬╡s
+ts=2025-10-18T08:09:55.376152616Z caller=middlewares.go:153 method=Health result=2 took=528.062┬╡s
+ts=2025-10-18T08:09:58.284873336Z caller=middlewares.go:153 method=Health result=2 took=512.319┬╡s
+ts=2025-10-18T08:10:00.935181723Z caller=middlewares.go:153 method=Health result=2 took=630.536┬╡s
+ts=2025-10-18T08:10:03.025686599Z caller=middlewares.go:153 method=Health result=2 took=586.474┬╡s
+ts=2025-10-18T08:10:05.934610429Z caller=middlewares.go:153 method=Health result=2 took=660.17┬╡s
+ts=2025-10-18T08:10:10.934815919Z caller=middlewares.go:153 method=Health result=2 took=591.748┬╡s
+ts=2025-10-18T08:10:13.025429097Z caller=middlewares.go:153 method=Health result=2 took=620.701┬╡s
+ts=2025-10-18T08:10:15.934397437Z caller=middlewares.go:153 method=Health result=2 took=607.729┬╡s
+ts=2025-10-18T08:10:20.934668071Z caller=middlewares.go:153 method=Health result=2 took=629.756┬╡s
+ts=2025-10-18T08:10:23.024659299Z caller=middlewares.go:153 method=Health result=2 took=516.754┬╡s
+ts=2025-10-18T08:10:25.934515383Z caller=middlewares.go:153 method=Health result=2 took=659.994┬╡s
+ts=2025-10-18T08:10:28.541019286Z caller=middlewares.go:153 method=Health result=2 took=684.489┬╡s
+ts=2025-10-18T08:10:30.630804947Z caller=middlewares.go:153 method=Health result=2 took=601.877┬╡s
+ts=2025-10-18T08:10:33.54138506Z caller=middlewares.go:153 method=Health result=2 took=645.912┬╡s
+ts=2025-10-18T08:10:38.54068906Z caller=middlewares.go:153 method=Health result=2 took=551.899┬╡s
+ts=2025-10-18T08:10:40.631197309Z caller=middlewares.go:153 method=Health result=2 took=607.05┬╡s
+ts=2025-10-18T08:10:43.540017751Z caller=middlewares.go:153 method=Health result=2 took=564.02┬╡s
+ts=2025-10-18T08:10:48.541011594Z caller=middlewares.go:153 method=Health result=2 took=604.884┬╡s
+ts=2025-10-18T08:10:50.631434369Z caller=middlewares.go:153 method=Health result=2 took=602.008┬╡s
+ts=2025-10-18T08:10:53.5403365Z caller=middlewares.go:153 method=Health result=2 took=797.501┬╡s
+ts=2025-10-18T08:10:56.08301402Z caller=middlewares.go:153 method=Health result=2 took=657.114┬╡s
+ts=2025-10-18T08:10:58.173243895Z caller=middlewares.go:153 method=Health result=2 took=631.159┬╡s
+ts=2025-10-18T08:11:01.082963039Z caller=middlewares.go:153 method=Health result=2 took=630.883┬╡s
+ts=2025-10-18T08:11:06.083303932Z caller=middlewares.go:153 method=Health result=2 took=619.085┬╡s
+ts=2025-10-18T08:11:08.173510137Z caller=middlewares.go:153 method=Health result=2 took=589.011┬╡s
+ts=2025-10-18T08:11:11.082447254Z caller=middlewares.go:153 method=Health result=2 took=569.886┬╡s
+ts=2025-10-18T08:11:16.083590011Z caller=middlewares.go:153 method=Health result=2 took=579.217┬╡s
+ts=2025-10-18T08:11:18.173321567Z caller=middlewares.go:153 method=Health result=2 took=447.971┬╡s
+ts=2025-10-18T08:11:21.082724029Z caller=middlewares.go:153 method=Health result=2 took=709.479┬╡s
+ts=2025-10-18T08:11:23.68314319Z caller=middlewares.go:153 method=Health result=2 took=551.772┬╡s
+ts=2025-10-18T08:11:25.773598475Z caller=middlewares.go:153 method=Health result=2 took=655.292┬╡s
+ts=2025-10-18T08:11:28.683073824Z caller=middlewares.go:153 method=Health result=2 took=527.98┬╡s
+ts=2025-10-18T08:11:33.683207607Z caller=middlewares.go:153 method=Health result=2 took=686.965┬╡s
+ts=2025-10-18T08:11:35.774857011Z caller=middlewares.go:153 method=Health result=2 took=1.277976ms
+ts=2025-10-18T08:11:38.682987986Z caller=middlewares.go:153 method=Health result=2 took=524.326┬╡s
+ts=2025-10-18T08:11:43.683639602Z caller=middlewares.go:153 method=Health result=2 took=583.78┬╡s
+ts=2025-10-18T08:11:45.773208883Z caller=middlewares.go:153 method=Health result=2 took=625.454┬╡s
+ts=2025-10-18T08:11:48.684265784Z caller=middlewares.go:153 method=Health result=2 took=601.961┬╡s
+ts=2025-10-18T08:11:51.239602311Z caller=middlewares.go:153 method=Health result=2 took=517.779┬╡s
+ts=2025-10-18T08:11:53.329814484Z caller=middlewares.go:153 method=Health result=2 took=490.146┬╡s
+ts=2025-10-18T08:11:56.239018659Z caller=middlewares.go:153 method=Health result=2 took=586.844┬╡s
+ts=2025-10-18T08:12:01.239106125Z caller=middlewares.go:153 method=Health result=2 took=580.655┬╡s
+ts=2025-10-18T08:12:03.330247113Z caller=middlewares.go:153 method=Health result=2 took=651.984┬╡s
+ts=2025-10-18T08:12:06.239488102Z caller=middlewares.go:153 method=Health result=2 took=544.133┬╡s
+ts=2025-10-18T08:12:11.239872058Z caller=middlewares.go:153 method=Health result=2 took=493.801┬╡s
+ts=2025-10-18T08:12:13.330180597Z caller=middlewares.go:153 method=Health result=2 took=478.801┬╡s
+ts=2025-10-18T08:12:16.238583065Z caller=middlewares.go:153 method=Health result=2 took=484.645┬╡s
+ts=2025-10-18T08:12:18.894144711Z caller=middlewares.go:153 method=Health result=2 took=532.277┬╡s
+ts=2025-10-18T08:12:20.985199175Z caller=middlewares.go:153 method=Health result=2 took=761.054┬╡s
+ts=2025-10-18T08:12:23.894148883Z caller=middlewares.go:153 method=Health result=2 took=561.652┬╡s
+ts=2025-10-18T08:12:28.893869414Z caller=middlewares.go:153 method=Health result=2 took=525.669┬╡s
+ts=2025-10-18T08:12:30.984562077Z caller=middlewares.go:153 method=Health result=2 took=648.631┬╡s
+ts=2025-10-18T08:12:33.893875851Z caller=middlewares.go:153 method=Health result=2 took=541.645┬╡s
+ts=2025-10-18T08:12:38.894322868Z caller=middlewares.go:153 method=Health result=2 took=579.092┬╡s
+ts=2025-10-18T08:12:40.985421812Z caller=middlewares.go:153 method=Health result=2 took=688.249┬╡s
+ts=2025-10-18T08:12:43.893340967Z caller=middlewares.go:153 method=Health result=2 took=596.225┬╡s
+ts=2025-10-18T08:12:46.470328165Z caller=middlewares.go:153 method=Health result=2 took=489.435┬╡s
+ts=2025-10-18T08:12:48.560496851Z caller=middlewares.go:153 method=Health result=2 took=607.085┬╡s
+ts=2025-10-18T08:12:51.469838659Z caller=middlewares.go:153 method=Health result=2 took=580.864┬╡s
+ts=2025-10-18T08:12:56.469807398Z caller=middlewares.go:153 method=Health result=2 took=590.665┬╡s
+ts=2025-10-18T08:12:58.561180926Z caller=middlewares.go:153 method=Health result=2 took=916.781┬╡s
+ts=2025-10-18T08:13:01.470033301Z caller=middlewares.go:153 method=Health result=2 took=586.925┬╡s
+ts=2025-10-18T08:13:06.469655616Z caller=middlewares.go:153 method=Health result=2 took=579.781┬╡s
+ts=2025-10-18T08:13:08.560655605Z caller=middlewares.go:153 method=Health result=2 took=682.221┬╡s
+ts=2025-10-18T08:13:11.470132838Z caller=middlewares.go:153 method=Health result=2 took=604.444┬╡s
+ts=2025-10-18T08:13:14.116371471Z caller=middlewares.go:153 method=Health result=2 took=571.866┬╡s
+ts=2025-10-18T08:13:16.206760787Z caller=middlewares.go:153 method=Health result=2 took=685.391┬╡s
+ts=2025-10-18T08:13:19.116491942Z caller=middlewares.go:153 method=Health result=2 took=710.924┬╡s
+ts=2025-10-18T08:13:24.116240422Z caller=middlewares.go:153 method=Health result=2 took=712.097┬╡s
+ts=2025-10-18T08:13:26.206379859Z caller=middlewares.go:153 method=Health result=2 took=558.669┬╡s
+ts=2025-10-18T08:13:29.116738854Z caller=middlewares.go:153 method=Health result=2 took=473.928┬╡s
+ts=2025-10-18T08:13:34.116361305Z caller=middlewares.go:153 method=Health result=2 took=587.429┬╡s
+ts=2025-10-18T08:13:36.206708618Z caller=middlewares.go:153 method=Health result=2 took=557.386┬╡s
+ts=2025-10-18T08:13:39.116429488Z caller=middlewares.go:153 method=Health result=2 took=691.543┬╡s
+ts=2025-10-18T08:13:41.694556791Z caller=middlewares.go:153 method=Health result=2 took=924.515┬╡s
+ts=2025-10-18T08:13:43.783970813Z caller=middlewares.go:153 method=Health result=2 took=526.709┬╡s
+ts=2025-10-18T08:13:46.693495857Z caller=middlewares.go:153 method=Health result=2 took=518.66┬╡s
+ts=2025-10-18T08:13:51.693848341Z caller=middlewares.go:153 method=Health result=2 took=618.401┬╡s
+ts=2025-10-18T08:13:53.784020136Z caller=middlewares.go:153 method=Health result=2 took=606.56┬╡s
+ts=2025-10-18T08:13:56.694248476Z caller=middlewares.go:153 method=Health result=2 took=527.573┬╡s
+ts=2025-10-18T08:14:01.693509958Z caller=middlewares.go:153 method=Health result=2 took=524.403┬╡s
+ts=2025-10-18T08:14:03.784602284Z caller=middlewares.go:153 method=Health result=2 took=824.644┬╡s
+ts=2025-10-18T08:14:06.693139157Z caller=middlewares.go:153 method=Health result=2 took=631.17┬╡s
+ts=2025-10-18T08:14:09.323689452Z caller=middlewares.go:153 method=Health result=2 took=585.754┬╡s
+ts=2025-10-18T08:14:11.414507197Z caller=middlewares.go:153 method=Health result=2 took=568.031┬╡s
+ts=2025-10-18T08:14:14.323727779Z caller=middlewares.go:153 method=Health result=2 took=562.069┬╡s
+ts=2025-10-18T08:14:19.32366746Z caller=middlewares.go:153 method=Health result=2 took=690.26┬╡s
+ts=2025-10-18T08:14:21.414355142Z caller=middlewares.go:153 method=Health result=2 took=585.151┬╡s
+ts=2025-10-18T08:14:24.322828736Z caller=middlewares.go:153 method=Health result=2 took=747.342┬╡s
+ts=2025-10-18T08:14:29.323784115Z caller=middlewares.go:153 method=Health result=2 took=550.225┬╡s
+ts=2025-10-18T08:14:31.414309634Z caller=middlewares.go:153 method=Health result=2 took=587.329┬╡s
+ts=2025-10-18T08:14:34.323878054Z caller=middlewares.go:153 method=Health result=2 took=782.878┬╡s
+ts=2025-10-18T08:14:36.922467811Z caller=middlewares.go:153 method=Health result=2 took=536.781┬╡s
+ts=2025-10-18T08:14:39.013243953Z caller=middlewares.go:153 method=Health result=2 took=558.266┬╡s
+ts=2025-10-18T08:14:41.922421148Z caller=middlewares.go:153 method=Health result=2 took=566.251┬╡s
+ts=2025-10-18T08:14:46.922432785Z caller=middlewares.go:153 method=Health result=2 took=648.506┬╡s
+ts=2025-10-18T08:14:49.013290402Z caller=middlewares.go:153 method=Health result=2 took=554.628┬╡s
+ts=2025-10-18T08:14:51.92189087Z caller=middlewares.go:153 method=Health result=2 took=560.944┬╡s
+ts=2025-10-18T08:14:56.922208989Z caller=middlewares.go:153 method=Health result=2 took=570.12┬╡s
+ts=2025-10-18T08:14:59.013163534Z caller=middlewares.go:153 method=Health result=2 took=688.879┬╡s
+ts=2025-10-18T08:15:01.922668403Z caller=middlewares.go:153 method=Health result=2 took=654.269┬╡s
+ts=2025-10-18T08:15:04.492487704Z caller=middlewares.go:153 method=Health result=2 took=530.043┬╡s
+ts=2025-10-18T08:15:06.583473511Z caller=middlewares.go:153 method=Health result=2 took=599.665┬╡s
+ts=2025-10-18T08:15:09.503449532Z caller=middlewares.go:153 method=Health result=2 took=682.009┬╡s
+ts=2025-10-18T08:15:14.49333966Z caller=middlewares.go:153 method=Health result=2 took=635.358┬╡s
+ts=2025-10-18T08:15:16.5833212Z caller=middlewares.go:153 method=Health result=2 took=632.245┬╡s
+ts=2025-10-18T08:15:19.491911495Z caller=middlewares.go:153 method=Health result=2 took=639.896┬╡s
+ts=2025-10-18T08:15:24.492631914Z caller=middlewares.go:153 method=Health result=2 took=557.516┬╡s
+ts=2025-10-18T08:15:26.583824619Z caller=middlewares.go:153 method=Health result=2 took=598.102┬╡s
+ts=2025-10-18T08:15:29.49233938Z caller=middlewares.go:153 method=Health result=2 took=519.091┬╡s
+ts=2025-10-18T08:15:32.091572378Z caller=middlewares.go:153 method=Health result=2 took=546.591┬╡s
+ts=2025-10-18T08:15:34.181895467Z caller=middlewares.go:153 method=Health result=2 took=634.983┬╡s
+ts=2025-10-18T08:15:37.09084456Z caller=middlewares.go:153 method=Health result=2 took=584.219┬╡s
+ts=2025-10-18T08:15:42.090878585Z caller=middlewares.go:153 method=Health result=2 took=612.54┬╡s
+ts=2025-10-18T08:15:44.18214471Z caller=middlewares.go:153 method=Health result=2 took=665.79┬╡s
+ts=2025-10-18T08:15:47.090743315Z caller=middlewares.go:153 method=Health result=2 took=544.114┬╡s
+ts=2025-10-18T08:15:52.090577928Z caller=middlewares.go:153 method=Health result=2 took=537.556┬╡s
+ts=2025-10-18T08:15:54.182131353Z caller=middlewares.go:153 method=Health result=2 took=615.386┬╡s
+ts=2025-10-18T08:15:57.090797427Z caller=middlewares.go:153 method=Health result=2 took=598.224┬╡s
+ts=2025-10-18T08:15:59.66973368Z caller=middlewares.go:153 method=Health result=2 took=540.486┬╡s
+ts=2025-10-18T08:16:01.76033115Z caller=middlewares.go:153 method=Health result=2 took=620.354┬╡s
+ts=2025-10-18T08:16:04.669579447Z caller=middlewares.go:153 method=Health result=2 took=632.074┬╡s
+ts=2025-10-18T08:16:09.670022219Z caller=middlewares.go:153 method=Health result=2 took=621.973┬╡s
+ts=2025-10-18T08:16:11.760445349Z caller=middlewares.go:153 method=Health result=2 took=583.615┬╡s
+ts=2025-10-18T08:16:14.669520456Z caller=middlewares.go:153 method=Health result=2 took=556.5┬╡s
+ts=2025-10-18T08:16:19.669227749Z caller=middlewares.go:153 method=Health result=2 took=553.953┬╡s
+ts=2025-10-18T08:16:21.760448904Z caller=middlewares.go:153 method=Health result=2 took=537.972┬╡s
+ts=2025-10-18T08:16:24.669678983Z caller=middlewares.go:153 method=Health result=2 took=656.781┬╡s
+ts=2025-10-18T08:16:27.31311464Z caller=middlewares.go:153 method=Health result=2 took=632.18┬╡s
+ts=2025-10-18T08:16:29.404476229Z caller=middlewares.go:153 method=Health result=2 took=632.409┬╡s
+ts=2025-10-18T08:16:32.312935818Z caller=middlewares.go:153 method=Health result=2 took=551.451┬╡s
+ts=2025-10-18T08:16:37.313645096Z caller=middlewares.go:153 method=Health result=2 took=618.847┬╡s
+ts=2025-10-18T08:16:39.404027376Z caller=middlewares.go:153 method=Health result=2 took=678.288┬╡s
+ts=2025-10-18T08:16:42.312090346Z caller=middlewares.go:153 method=Health result=2 took=358.859┬╡s
+ts=2025-10-18T08:16:47.312242171Z caller=middlewares.go:153 method=Health result=2 took=523.492┬╡s
+ts=2025-10-18T08:16:49.403974563Z caller=middlewares.go:153 method=Health result=2 took=663.481┬╡s
+ts=2025-10-18T08:16:52.313401289Z caller=middlewares.go:153 method=Health result=2 took=574.84┬╡s
+ts=2025-10-18T08:16:54.894087413Z caller=middlewares.go:153 method=Health result=2 took=413.806┬╡s
+ts=2025-10-18T08:16:56.985450018Z caller=middlewares.go:153 method=Health result=2 took=507.24┬╡s
+ts=2025-10-18T08:16:59.893633053Z caller=middlewares.go:153 method=Health result=2 took=561.318┬╡s
+ts=2025-10-18T08:17:04.894520949Z caller=middlewares.go:153 method=Health result=2 took=715.559┬╡s
+ts=2025-10-18T08:17:06.984698091Z caller=middlewares.go:153 method=Health result=2 took=668.952┬╡s
+ts=2025-10-18T08:17:09.893539688Z caller=middlewares.go:153 method=Health result=2 took=719.746┬╡s
+ts=2025-10-18T08:17:14.89372848Z caller=middlewares.go:153 method=Health result=2 took=552.465┬╡s
+ts=2025-10-18T08:17:16.984338122Z caller=middlewares.go:153 method=Health result=2 took=531.273┬╡s
+ts=2025-10-18T08:17:19.893495686Z caller=middlewares.go:153 method=Health result=2 took=582.868┬╡s
+ts=2025-10-18T08:17:22.555294146Z caller=middlewares.go:153 method=Health result=2 took=515.099┬╡s
+ts=2025-10-18T08:17:24.645569891Z caller=middlewares.go:153 method=Health result=2 took=688.992┬╡s
+ts=2025-10-18T08:17:27.554435848Z caller=middlewares.go:153 method=Health result=2 took=615.859┬╡s
+ts=2025-10-18T08:17:32.554751802Z caller=middlewares.go:153 method=Health result=2 took=625.941┬╡s
+ts=2025-10-18T08:17:34.645717077Z caller=middlewares.go:153 method=Health result=2 took=619.607┬╡s
+ts=2025-10-18T08:17:37.554215068Z caller=middlewares.go:153 method=Health result=2 took=599.172┬╡s
+ts=2025-10-18T08:17:42.554361481Z caller=middlewares.go:153 method=Health result=2 took=497.767┬╡s
+ts=2025-10-18T08:17:44.645264508Z caller=middlewares.go:153 method=Health result=2 took=741.691┬╡s
+ts=2025-10-18T08:17:47.554122639Z caller=middlewares.go:153 method=Health result=2 took=644.463┬╡s
+ts=2025-10-18T08:17:50.159632553Z caller=middlewares.go:153 method=Health result=2 took=590.219┬╡s
+ts=2025-10-18T08:17:52.249823452Z caller=middlewares.go:153 method=Health result=2 took=539.294┬╡s
+ts=2025-10-18T08:17:55.158983849Z caller=middlewares.go:153 method=Health result=2 took=561.689┬╡s
+ts=2025-10-18T08:18:00.15908963Z caller=middlewares.go:153 method=Health result=2 took=594.385┬╡s
+ts=2025-10-18T08:18:02.250667605Z caller=middlewares.go:153 method=Health result=2 took=581.123┬╡s
+ts=2025-10-18T08:18:05.158546832Z caller=middlewares.go:153 method=Health result=2 took=502.399┬╡s
+ts=2025-10-18T08:18:10.159644307Z caller=middlewares.go:153 method=Health result=2 took=601.866┬╡s
+ts=2025-10-18T08:18:12.249873814Z caller=middlewares.go:153 method=Health result=2 took=645.623┬╡s
+ts=2025-10-18T08:18:15.159117584Z caller=middlewares.go:153 method=Health result=2 took=535.987┬╡s
+ts=2025-10-18T08:18:17.765131844Z caller=middlewares.go:153 method=Health result=2 took=526.985┬╡s
+ts=2025-10-18T08:18:19.85609284Z caller=middlewares.go:153 method=Health result=2 took=750.511┬╡s
+ts=2025-10-18T08:18:22.764677279Z caller=middlewares.go:153 method=Health result=2 took=687.507┬╡s
+ts=2025-10-18T08:18:27.76565565Z caller=middlewares.go:153 method=Health result=2 took=513.655┬╡s
+ts=2025-10-18T08:18:29.856575276Z caller=middlewares.go:153 method=Health result=2 took=699.765┬╡s
+ts=2025-10-18T08:18:32.765836846Z caller=middlewares.go:153 method=Health result=2 took=987.523┬╡s
+ts=2025-10-18T08:18:37.765820014Z caller=middlewares.go:153 method=Health result=2 took=641.729┬╡s
+ts=2025-10-18T08:18:39.855960641Z caller=middlewares.go:153 method=Health result=2 took=578.794┬╡s
+ts=2025-10-18T08:18:42.76506024Z caller=middlewares.go:153 method=Health result=2 took=611.996┬╡s
+ts=2025-10-18T08:18:45.382961109Z caller=middlewares.go:153 method=Health result=2 took=679.227┬╡s
+ts=2025-10-18T08:18:47.473537522Z caller=middlewares.go:153 method=Health result=2 took=529.85┬╡s
+ts=2025-10-18T08:18:50.382600589Z caller=middlewares.go:153 method=Health result=2 took=814.71┬╡s
+ts=2025-10-18T08:18:55.383672437Z caller=middlewares.go:153 method=Health result=2 took=625.871┬╡s
+ts=2025-10-18T08:18:57.473063261Z caller=middlewares.go:153 method=Health result=2 took=611.463┬╡s
+ts=2025-10-18T08:19:00.413910788Z caller=middlewares.go:153 method=Health result=2 took=505.611┬╡s
+ts=2025-10-18T09:04:58.106225107Z caller=middlewares.go:153 method=Health result=2 took=703.857┬╡s
+ts=2025-10-18T09:05:00.197090829Z caller=middlewares.go:153 method=Health result=2 took=692.034┬╡s
+ts=2025-10-18T09:05:03.107545595Z caller=middlewares.go:153 method=Health result=2 took=771.414┬╡s
+ts=2025-10-18T09:05:07.341578696Z caller=middlewares.go:153 method=Health result=2 took=4.010308ms
+ts=2025-10-18T09:05:09.429396775Z caller=middlewares.go:153 method=Health result=2 took=820.782┬╡s
+ts=2025-10-18T09:05:12.337721051Z caller=middlewares.go:153 method=Health result=2 took=441.731┬╡s
+ts=2025-10-18T09:05:17.338890742Z caller=middlewares.go:153 method=Health result=2 took=697.983┬╡s
+ts=2025-10-18T09:05:19.429535653Z caller=middlewares.go:153 method=Health result=2 took=973.734┬╡s
+ts=2025-10-18T09:05:22.337645194Z caller=middlewares.go:153 method=Health result=2 took=558.335┬╡s
+ts=2025-10-18T09:05:27.338147445Z caller=middlewares.go:153 method=Health result=2 took=583.763┬╡s
+ts=2025-10-18T09:05:29.428676621Z caller=middlewares.go:153 method=Health result=2 took=643.518┬╡s
+ts=2025-10-18T09:05:32.338526703Z caller=middlewares.go:153 method=Health result=2 took=642.521┬╡s
+ts=2025-10-18T09:05:35.260602199Z caller=middlewares.go:153 method=Health result=2 took=480.263┬╡s
+ts=2025-10-18T09:05:37.351226889Z caller=middlewares.go:153 method=Health result=2 took=631.017┬╡s
+ts=2025-10-18T09:05:40.260585823Z caller=middlewares.go:153 method=Health result=2 took=686.91┬╡s
+ts=2025-10-18T09:05:45.260798817Z caller=middlewares.go:153 method=Health result=2 took=538.089┬╡s
+ts=2025-10-18T09:05:47.351563816Z caller=middlewares.go:153 method=Health result=2 took=726.894┬╡s
+ts=2025-10-18T09:05:50.260009368Z caller=middlewares.go:153 method=Health result=2 took=535.34┬╡s
+ts=2025-10-18T09:05:55.260721674Z caller=middlewares.go:153 method=Health result=2 took=637.379┬╡s
+ts=2025-10-18T09:05:57.351741749Z caller=middlewares.go:153 method=Health result=2 took=609.322┬╡s
+ts=2025-10-18T09:06:00.260221545Z caller=middlewares.go:153 method=Health result=2 took=613.774┬╡s
+ts=2025-10-18T09:06:03.481370614Z caller=middlewares.go:153 method=Health result=2 took=842.957┬╡s
+ts=2025-10-18T09:06:05.571933025Z caller=middlewares.go:153 method=Health result=2 took=647.64┬╡s
+ts=2025-10-18T09:06:08.481266768Z caller=middlewares.go:153 method=Health result=2 took=724.121┬╡s
+ts=2025-10-18T09:06:13.480977989Z caller=middlewares.go:153 method=Health result=2 took=764.451┬╡s
+ts=2025-10-18T09:06:15.572049999Z caller=middlewares.go:153 method=Health result=2 took=882.62┬╡s
+ts=2025-10-18T09:06:18.480794292Z caller=middlewares.go:153 method=Health result=2 took=667.259┬╡s
+ts=2025-10-18T09:06:23.480649292Z caller=middlewares.go:153 method=Health result=2 took=513.108┬╡s
+ts=2025-10-18T09:06:25.572625042Z caller=middlewares.go:153 method=Health result=2 took=937.607┬╡s
+ts=2025-10-18T09:06:28.481291849Z caller=middlewares.go:153 method=Health result=2 took=580.465┬╡s
+ts=2025-10-18T09:06:31.282584512Z caller=middlewares.go:153 method=Health result=2 took=518.781┬╡s
+ts=2025-10-18T09:06:33.373374054Z caller=middlewares.go:153 method=Health result=2 took=595.872┬╡s
+ts=2025-10-18T09:06:36.28250977Z caller=middlewares.go:153 method=Health result=2 took=540.961┬╡s
+ts=2025-10-18T09:06:41.282649246Z caller=middlewares.go:153 method=Health result=2 took=865.949┬╡s
+ts=2025-10-18T09:06:43.373038864Z caller=middlewares.go:153 method=Health result=2 took=591.347┬╡s
+ts=2025-10-18T09:06:46.282727769Z caller=middlewares.go:153 method=Health result=2 took=588.57┬╡s
+ts=2025-10-18T09:06:51.28269697Z caller=middlewares.go:153 method=Health result=2 took=567.675┬╡s
+ts=2025-10-18T09:06:53.372600214Z caller=middlewares.go:153 method=Health result=2 took=650.076┬╡s
+ts=2025-10-18T09:06:56.282453299Z caller=middlewares.go:153 method=Health result=2 took=482.773┬╡s
+ts=2025-10-18T09:06:59.086500004Z caller=middlewares.go:153 method=Health result=2 took=571.129┬╡s
+ts=2025-10-18T09:07:01.177363913Z caller=middlewares.go:153 method=Health result=2 took=876.674┬╡s
+ts=2025-10-18T09:07:04.087098059Z caller=middlewares.go:153 method=Health result=2 took=1.0274ms
+ts=2025-10-18T09:07:09.086354166Z caller=middlewares.go:153 method=Health result=2 took=488.308┬╡s
+ts=2025-10-18T09:07:11.179628475Z caller=middlewares.go:153 method=Health result=2 took=694.067┬╡s
+ts=2025-10-18T09:07:14.085661716Z caller=middlewares.go:153 method=Health result=2 took=646.683┬╡s
+ts=2025-10-18T09:07:19.085678104Z caller=middlewares.go:153 method=Health result=2 took=619.892┬╡s
+ts=2025-10-18T09:07:21.1769942Z caller=middlewares.go:153 method=Health result=2 took=728.132┬╡s
+ts=2025-10-18T09:07:24.08613476Z caller=middlewares.go:153 method=Health result=2 took=575.297┬╡s
+ts=2025-10-18T09:07:27.108616318Z caller=middlewares.go:153 method=Health result=2 took=610.381┬╡s
+ts=2025-10-18T09:07:29.198903679Z caller=middlewares.go:153 method=Health result=2 took=763.118┬╡s
+ts=2025-10-18T09:07:32.10814531Z caller=middlewares.go:153 method=Health result=2 took=816.73┬╡s
+ts=2025-10-18T09:07:37.1093997Z caller=middlewares.go:153 method=Health result=2 took=704.116┬╡s
+ts=2025-10-18T09:07:39.199522829Z caller=middlewares.go:153 method=Health result=2 took=733.597┬╡s
+ts=2025-10-18T09:07:42.108262579Z caller=middlewares.go:153 method=Health result=2 took=751.879┬╡s
+ts=2025-10-18T09:07:47.108633769Z caller=middlewares.go:153 method=Health result=2 took=596.079┬╡s
+ts=2025-10-18T09:07:49.199823391Z caller=middlewares.go:153 method=Health result=2 took=853.776┬╡s
+ts=2025-10-18T09:07:52.1075384Z caller=middlewares.go:153 method=Health result=2 took=532.178┬╡s
+ts=2025-10-18T09:07:54.965302884Z caller=middlewares.go:153 method=Health result=2 took=910.615┬╡s
+ts=2025-10-18T09:07:57.056085097Z caller=middlewares.go:153 method=Health result=2 took=565.9┬╡s
+ts=2025-10-18T09:07:59.965872682Z caller=middlewares.go:153 method=Health result=2 took=814.003┬╡s
+ts=2025-10-18T09:08:04.964555727Z caller=middlewares.go:153 method=Health result=2 took=484.019┬╡s
+ts=2025-10-18T09:08:07.055784388Z caller=middlewares.go:153 method=Health result=2 took=545.316┬╡s
+ts=2025-10-18T09:08:09.965375085Z caller=middlewares.go:153 method=Health result=2 took=496.058┬╡s
+ts=2025-10-18T09:08:14.965740363Z caller=middlewares.go:153 method=Health result=2 took=949.658┬╡s
+ts=2025-10-18T09:08:17.055734992Z caller=middlewares.go:153 method=Health result=2 took=771.093┬╡s
+ts=2025-10-18T09:08:19.96510216Z caller=middlewares.go:153 method=Health result=2 took=638.081┬╡s
+ts=2025-10-18T09:08:22.921459029Z caller=middlewares.go:153 method=Health result=2 took=551.984┬╡s
+ts=2025-10-18T09:08:25.013356806Z caller=middlewares.go:153 method=Health result=2 took=1.341085ms
+ts=2025-10-18T09:08:27.922378619Z caller=middlewares.go:153 method=Health result=2 took=831.341┬╡s
+ts=2025-10-18T09:08:32.921676439Z caller=middlewares.go:153 method=Health result=2 took=765.308┬╡s
+ts=2025-10-18T09:08:35.015637916Z caller=middlewares.go:153 method=Health result=2 took=1.062494ms
+ts=2025-10-18T09:08:37.921288213Z caller=middlewares.go:153 method=Health result=2 took=665.264┬╡s
+ts=2025-10-18T09:08:42.920749373Z caller=middlewares.go:153 method=Health result=2 took=608.769┬╡s
+ts=2025-10-18T09:08:45.015380354Z caller=middlewares.go:153 method=Health result=2 took=811.429┬╡s
+ts=2025-10-18T09:08:47.920190214Z caller=middlewares.go:153 method=Health result=2 took=605.033┬╡s
+ts=2025-10-18T09:08:50.777063474Z caller=middlewares.go:153 method=Health result=2 took=822.605┬╡s
+ts=2025-10-18T09:08:52.867496262Z caller=middlewares.go:153 method=Health result=2 took=584.89┬╡s
+ts=2025-10-18T09:08:55.775814678Z caller=middlewares.go:153 method=Health result=2 took=438.23┬╡s
+ts=2025-10-18T09:09:00.777017316Z caller=middlewares.go:153 method=Health result=2 took=570.191┬╡s
+ts=2025-10-18T09:09:02.867102689Z caller=middlewares.go:153 method=Health result=2 took=620.432┬╡s
+ts=2025-10-18T09:09:05.77692166Z caller=middlewares.go:153 method=Health result=2 took=567.447┬╡s
+ts=2025-10-18T09:09:10.777108549Z caller=middlewares.go:153 method=Health result=2 took=579.3┬╡s
+ts=2025-10-18T09:09:12.869142692Z caller=middlewares.go:153 method=Health result=2 took=663.926┬╡s
+ts=2025-10-18T09:09:15.776452039Z caller=middlewares.go:153 method=Health result=2 took=576.969┬╡s
+ts=2025-10-18T09:09:18.738954728Z caller=middlewares.go:153 method=Health result=2 took=637.016┬╡s
+ts=2025-10-18T09:09:20.82910708Z caller=middlewares.go:153 method=Health result=2 took=592.32┬╡s
+ts=2025-10-18T09:09:23.738633037Z caller=middlewares.go:153 method=Health result=2 took=616.663┬╡s
+ts=2025-10-18T09:09:28.73968969Z caller=middlewares.go:153 method=Health result=2 took=625.435┬╡s
+ts=2025-10-18T09:09:30.829528138Z caller=middlewares.go:153 method=Health result=2 took=1.016607ms
+ts=2025-10-18T09:09:33.739895675Z caller=middlewares.go:153 method=Health result=2 took=903.106┬╡s
+ts=2025-10-18T09:09:38.74002372Z caller=middlewares.go:153 method=Health result=2 took=754.921┬╡s
+ts=2025-10-18T09:09:40.830156174Z caller=middlewares.go:153 method=Health result=2 took=623.49┬╡s
+ts=2025-10-18T09:09:43.73956496Z caller=middlewares.go:153 method=Health result=2 took=686.116┬╡s
+ts=2025-10-18T09:09:46.641563813Z caller=middlewares.go:153 method=Health result=2 took=680.787┬╡s
+ts=2025-10-18T09:09:48.732072264Z caller=middlewares.go:153 method=Health result=2 took=575.09┬╡s
+ts=2025-10-18T09:09:51.64077225Z caller=middlewares.go:153 method=Health result=2 took=733.985┬╡s
+ts=2025-10-18T09:09:56.641304548Z caller=middlewares.go:153 method=Health result=2 took=901.434┬╡s
+ts=2025-10-18T09:09:58.73199261Z caller=middlewares.go:153 method=Health result=2 took=701.944┬╡s
+ts=2025-10-18T09:10:01.642185748Z caller=middlewares.go:153 method=Health result=2 took=728.526┬╡s
+ts=2025-10-18T09:10:06.641410493Z caller=middlewares.go:153 method=Health result=2 took=888.527┬╡s
+ts=2025-10-18T09:10:08.732135387Z caller=middlewares.go:153 method=Health result=2 took=627.078┬╡s
+ts=2025-10-18T09:10:11.640977611Z caller=middlewares.go:153 method=Health result=2 took=1.301402ms
+ts=2025-10-18T09:10:14.568346795Z caller=middlewares.go:153 method=Health result=2 took=1.017997ms
+ts=2025-10-18T09:10:16.658213572Z caller=middlewares.go:153 method=Health result=2 took=667.337┬╡s
+ts=2025-10-18T09:10:19.566222243Z caller=middlewares.go:153 method=Health result=2 took=582.668┬╡s
+ts=2025-10-18T09:10:24.569145755Z caller=middlewares.go:153 method=Health result=2 took=560.449┬╡s
+ts=2025-10-18T09:10:26.656862979Z caller=middlewares.go:153 method=Health result=2 took=541.341┬╡s
+ts=2025-10-18T09:10:29.566440166Z caller=middlewares.go:153 method=Health result=2 took=618.327┬╡s
+ts=2025-10-18T09:10:34.567335107Z caller=middlewares.go:153 method=Health result=2 took=596.306┬╡s
+ts=2025-10-18T09:10:36.658368018Z caller=middlewares.go:153 method=Health result=2 took=817.826┬╡s
+ts=2025-10-18T09:10:39.566721036Z caller=middlewares.go:153 method=Health result=2 took=668.75┬╡s
+ts=2025-10-18T09:10:42.44512339Z caller=middlewares.go:153 method=Health result=2 took=651.698┬╡s
+ts=2025-10-18T09:10:44.535377892Z caller=middlewares.go:153 method=Health result=2 took=578.303┬╡s
+ts=2025-10-18T09:10:47.444556724Z caller=middlewares.go:153 method=Health result=2 took=646.482┬╡s
+ts=2025-10-18T09:10:52.444668362Z caller=middlewares.go:153 method=Health result=2 took=619.433┬╡s
+ts=2025-10-18T09:10:54.536549369Z caller=middlewares.go:153 method=Health result=2 took=593.159┬╡s
+ts=2025-10-18T09:10:57.444526367Z caller=middlewares.go:153 method=Health result=2 took=549.1┬╡s
+ts=2025-10-18T09:11:02.444285886Z caller=middlewares.go:153 method=Health result=2 took=561.636┬╡s
+ts=2025-10-18T09:11:04.536369474Z caller=middlewares.go:153 method=Health result=2 took=494.314┬╡s
+ts=2025-10-18T09:11:07.444152517Z caller=middlewares.go:153 method=Health result=2 took=531.258┬╡s
+ts=2025-10-18T09:11:10.371848548Z caller=middlewares.go:153 method=Health result=2 took=1.226142ms
+ts=2025-10-18T09:11:12.461446246Z caller=middlewares.go:153 method=Health result=2 took=612.807┬╡s
+ts=2025-10-18T09:11:15.371575798Z caller=middlewares.go:153 method=Health result=2 took=576.885┬╡s
+ts=2025-10-18T09:11:20.370297154Z caller=middlewares.go:153 method=Health result=2 took=648.343┬╡s
+ts=2025-10-18T09:11:22.461202127Z caller=middlewares.go:153 method=Health result=2 took=652.306┬╡s
+ts=2025-10-18T09:11:25.36978362Z caller=middlewares.go:153 method=Health result=2 took=643.199┬╡s
+ts=2025-10-18T09:11:30.370492727Z caller=middlewares.go:153 method=Health result=2 took=608.503┬╡s
+ts=2025-10-18T09:11:32.46106449Z caller=middlewares.go:153 method=Health result=2 took=723.716┬╡s
+ts=2025-10-18T09:11:35.370640043Z caller=middlewares.go:153 method=Health result=2 took=635.668┬╡s
+ts=2025-10-18T09:11:38.256584304Z caller=middlewares.go:153 method=Health result=2 took=622.745┬╡s
+ts=2025-10-18T09:11:40.34735243Z caller=middlewares.go:153 method=Health result=2 took=580.95┬╡s
+ts=2025-10-18T09:11:43.255505481Z caller=middlewares.go:153 method=Health result=2 took=541.864┬╡s
+ts=2025-10-18T09:11:48.255401802Z caller=middlewares.go:153 method=Health result=2 took=525.472┬╡s
+ts=2025-10-18T09:11:50.347191778Z caller=middlewares.go:153 method=Health result=2 took=549.971┬╡s
+ts=2025-10-18T09:11:53.255491166Z caller=middlewares.go:153 method=Health result=2 took=717.173┬╡s
+ts=2025-10-18T09:11:58.256325229Z caller=middlewares.go:153 method=Health result=2 took=826.623┬╡s
+ts=2025-10-18T09:11:59.513292125Z caller=middlewares.go:70 method=GetUsers id=0Ejzd-HXkwrbbUfWHwoYX1msuQp3dC7T result=1 took=5.954067ms
+ts=2025-10-18T09:11:59.513281167Z caller=middlewares.go:70 method=GetUsers id=0Ejzd-HXkwrbbUfWHwoYX1msuQp3dC7T result=1 took=5.972049ms
+ts=2025-10-18T09:11:59.593365393Z caller=server.go:110 err="Invalid Id Hex"
+ts=2025-10-18T09:11:59.593701168Z caller=server.go:110 err="Invalid Id Hex"
+ts=2025-10-18T09:12:00.348032826Z caller=middlewares.go:153 method=Health result=2 took=787.018┬╡s
+ts=2025-10-18T09:12:03.255664327Z caller=middlewares.go:153 method=Health result=2 took=605.709┬╡s
+ts=2025-10-18T09:12:06.03384862Z caller=middlewares.go:153 method=Health result=2 took=1.013019ms
+ts=2025-10-18T09:12:08.123303637Z caller=middlewares.go:153 method=Health result=2 took=469.13┬╡s
+ts=2025-10-18T09:12:11.032888207Z caller=middlewares.go:153 method=Health result=2 took=650.058┬╡s
+ts=2025-10-18T09:12:11.608938583Z caller=middlewares.go:31 method=Login took=37.410567ms
+ts=2025-10-18T09:12:11.609331114Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:12:15.122668776Z caller=middlewares.go:31 method=Login took=885.942┬╡s
+ts=2025-10-18T09:12:15.122755185Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:12:16.032808343Z caller=middlewares.go:153 method=Health result=2 took=564.917┬╡s
+ts=2025-10-18T09:12:16.536980116Z caller=middlewares.go:31 method=Login took=838.368┬╡s
+ts=2025-10-18T09:12:16.537067396Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:12:18.123800956Z caller=middlewares.go:153 method=Health result=2 took=491.766┬╡s
+ts=2025-10-18T09:12:19.395974892Z caller=middlewares.go:31 method=Login took=1.366244ms
+ts=2025-10-18T09:12:19.396049527Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:12:19.869160671Z caller=middlewares.go:31 method=Login took=828.336┬╡s
+ts=2025-10-18T09:12:19.869237575Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:12:20.107349525Z caller=middlewares.go:31 method=Login took=828.628┬╡s
+ts=2025-10-18T09:12:20.107548121Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:12:20.361654658Z caller=middlewares.go:31 method=Login took=768.705┬╡s
+ts=2025-10-18T09:12:20.361726463Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:12:21.03319617Z caller=middlewares.go:153 method=Health result=2 took=665.065┬╡s
+ts=2025-10-18T09:12:26.033906637Z caller=middlewares.go:153 method=Health result=2 took=914.217┬╡s
+ts=2025-10-18T09:12:26.868618941Z caller=middlewares.go:31 method=Login took=868.398┬╡s
+ts=2025-10-18T09:12:26.8687085Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:12:28.123958224Z caller=middlewares.go:153 method=Health result=2 took=852.741┬╡s
+ts=2025-10-18T09:12:31.03267363Z caller=middlewares.go:153 method=Health result=2 took=632.07┬╡s
+ts=2025-10-18T09:12:33.943880219Z caller=middlewares.go:153 method=Health result=2 took=727.804┬╡s
+ts=2025-10-18T09:12:36.035484757Z caller=middlewares.go:153 method=Health result=2 took=458.784┬╡s
+ts=2025-10-18T09:12:38.944063327Z caller=middlewares.go:153 method=Health result=2 took=598.246┬╡s
+ts=2025-10-18T09:12:41.18158109Z caller=middlewares.go:31 method=Login took=1.846586ms
+ts=2025-10-18T09:12:41.181698189Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:12:41.653835154Z caller=middlewares.go:31 method=Login took=865.911┬╡s
+ts=2025-10-18T09:12:41.653907884Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:12:41.875771416Z caller=middlewares.go:31 method=Login took=1.110278ms
+ts=2025-10-18T09:12:41.875868593Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:12:42.078319124Z caller=middlewares.go:31 method=Login took=845.795┬╡s
+ts=2025-10-18T09:12:42.07840498Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:12:42.293363577Z caller=middlewares.go:31 method=Login took=874.774┬╡s
+ts=2025-10-18T09:12:42.293435017Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:12:43.9452135Z caller=middlewares.go:153 method=Health result=2 took=586.999┬╡s
+ts=2025-10-18T09:12:46.035004151Z caller=middlewares.go:153 method=Health result=2 took=509.764┬╡s
+ts=2025-10-18T09:12:48.944272634Z caller=middlewares.go:153 method=Health result=2 took=632.025┬╡s
+ts=2025-10-18T09:12:53.944702185Z caller=middlewares.go:153 method=Health result=2 took=745.196┬╡s
+ts=2025-10-18T09:12:55.08609085Z caller=middlewares.go:31 method=Login took=783.65┬╡s
+ts=2025-10-18T09:12:55.086164694Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:12:56.034967241Z caller=middlewares.go:153 method=Health result=2 took=624.156┬╡s
+ts=2025-10-18T09:12:57.132575536Z caller=middlewares.go:31 method=Login took=1.32961ms
+ts=2025-10-18T09:12:57.132646438Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:12:57.374219572Z caller=middlewares.go:31 method=Login took=879.162┬╡s
+ts=2025-10-18T09:12:57.374320219Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:12:57.595875219Z caller=middlewares.go:31 method=Login took=859.337┬╡s
+ts=2025-10-18T09:12:57.59597664Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:12:57.783953137Z caller=middlewares.go:31 method=Login took=807.268┬╡s
+ts=2025-10-18T09:12:57.784023385Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:12:58.944202421Z caller=middlewares.go:153 method=Health result=2 took=645.542┬╡s
+ts=2025-10-18T09:13:00.367233008Z caller=middlewares.go:31 method=Login took=2.141297ms
+ts=2025-10-18T09:13:00.367323509Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:13:01.984989648Z caller=middlewares.go:31 method=Login took=894.225┬╡s
+ts=2025-10-18T09:13:01.985065622Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:13:02.199886547Z caller=middlewares.go:31 method=Login took=921.709┬╡s
+ts=2025-10-18T09:13:02.199946426Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:13:02.41251642Z caller=middlewares.go:31 method=Login took=838.449┬╡s
+ts=2025-10-18T09:13:02.41270229Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:13:01.728816299Z caller=middlewares.go:153 method=Health result=2 took=523┬╡s
+ts=2025-10-18T09:13:03.829699299Z caller=middlewares.go:153 method=Health result=2 took=1.437745ms
+ts=2025-10-18T09:13:04.389983305Z caller=middlewares.go:31 method=Login took=940.5┬╡s
+ts=2025-10-18T09:13:04.390052005Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:13:04.915775628Z caller=middlewares.go:31 method=Login took=1.357076ms
+ts=2025-10-18T09:13:04.915859736Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:13:05.126898327Z caller=middlewares.go:31 method=Login took=791.311┬╡s
+ts=2025-10-18T09:13:05.126986046Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:13:05.312403685Z caller=middlewares.go:31 method=Login took=981.888┬╡s
+ts=2025-10-18T09:13:05.312499483Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:13:06.728603042Z caller=middlewares.go:153 method=Health result=2 took=704.563┬╡s
+ts=2025-10-18T09:13:08.971201818Z caller=middlewares.go:31 method=Login took=844.791┬╡s
+ts=2025-10-18T09:13:08.971274765Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:13:09.500840196Z caller=middlewares.go:31 method=Login took=867.055┬╡s
+ts=2025-10-18T09:13:09.500967521Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:13:09.706878643Z caller=middlewares.go:31 method=Login took=1.448992ms
+ts=2025-10-18T09:13:09.706962481Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:13:09.873820297Z caller=middlewares.go:31 method=Login took=899.61┬╡s
+ts=2025-10-18T09:13:09.873870472Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:13:11.729432913Z caller=middlewares.go:153 method=Health result=2 took=543.555┬╡s
+ts=2025-10-18T09:13:13.819103743Z caller=middlewares.go:153 method=Health result=2 took=607.072┬╡s
+ts=2025-10-18T09:13:14.230067119Z caller=middlewares.go:31 method=Login took=1.153477ms
+ts=2025-10-18T09:13:14.230212603Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:13:14.591021745Z caller=middlewares.go:31 method=Login took=859.376┬╡s
+ts=2025-10-18T09:13:14.591084669Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:13:14.782144108Z caller=middlewares.go:31 method=Login took=802.06┬╡s
+ts=2025-10-18T09:13:14.782218043Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:13:14.974971283Z caller=middlewares.go:31 method=Login took=1.210261ms
+ts=2025-10-18T09:13:14.975061849Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:13:15.175262436Z caller=middlewares.go:31 method=Login took=1.051659ms
+ts=2025-10-18T09:13:15.175408577Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:13:15.379463177Z caller=middlewares.go:31 method=Login took=877.195┬╡s
+ts=2025-10-18T09:13:15.379561048Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:13:15.576952366Z caller=middlewares.go:31 method=Login took=778.568┬╡s
+ts=2025-10-18T09:13:15.577039333Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:13:16.728506988Z caller=middlewares.go:153 method=Health result=2 took=532.448┬╡s
+ts=2025-10-18T09:13:21.728834628Z caller=middlewares.go:153 method=Health result=2 took=532.426┬╡s
+ts=2025-10-18T09:13:23.819873934Z caller=middlewares.go:153 method=Health result=2 took=661.04┬╡s
+ts=2025-10-18T09:13:26.728738534Z caller=middlewares.go:153 method=Health result=2 took=761.897┬╡s
+ts=2025-10-18T09:13:29.625519102Z caller=middlewares.go:153 method=Health result=2 took=738.45┬╡s
+ts=2025-10-18T09:13:31.7162036Z caller=middlewares.go:153 method=Health result=2 took=594.002┬╡s
+ts=2025-10-18T09:13:34.625054441Z caller=middlewares.go:153 method=Health result=2 took=728.217┬╡s
+ts=2025-10-18T09:13:39.62507109Z caller=middlewares.go:153 method=Health result=2 took=495.742┬╡s
+ts=2025-10-18T09:13:41.716225463Z caller=middlewares.go:153 method=Health result=2 took=585┬╡s
+ts=2025-10-18T09:13:44.624334747Z caller=middlewares.go:153 method=Health result=2 took=851.996┬╡s
+ts=2025-10-18T09:13:49.625344762Z caller=middlewares.go:153 method=Health result=2 took=716.567┬╡s
+ts=2025-10-18T09:13:51.714747146Z caller=middlewares.go:153 method=Health result=2 took=510.717┬╡s
+ts=2025-10-18T09:13:54.624714171Z caller=middlewares.go:153 method=Health result=2 took=542.495┬╡s
+ts=2025-10-18T09:13:57.365930675Z caller=middlewares.go:153 method=Health result=2 took=795.954┬╡s
+ts=2025-10-18T09:13:59.455836826Z caller=middlewares.go:153 method=Health result=2 took=526.731┬╡s
+ts=2025-10-18T09:14:02.365364061Z caller=middlewares.go:153 method=Health result=2 took=459.74┬╡s
+ts=2025-10-18T09:14:07.36623163Z caller=middlewares.go:153 method=Health result=2 took=1.021263ms
+ts=2025-10-18T09:14:09.455749492Z caller=middlewares.go:153 method=Health result=2 took=671.835┬╡s
+ts=2025-10-18T09:14:12.365864909Z caller=middlewares.go:153 method=Health result=2 took=777.892┬╡s
+ts=2025-10-18T09:14:17.365350545Z caller=middlewares.go:153 method=Health result=2 took=551.305┬╡s
+ts=2025-10-18T09:14:19.455555706Z caller=middlewares.go:153 method=Health result=2 took=724.199┬╡s
+ts=2025-10-18T09:14:22.364863192Z caller=middlewares.go:153 method=Health result=2 took=737.645┬╡s
+ts=2025-10-18T09:14:25.969153929Z caller=middlewares.go:31 method=Login took=2.161797ms
+ts=2025-10-18T09:14:25.96925782Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:14:26.479996433Z caller=middlewares.go:31 method=Login took=999.435┬╡s
+ts=2025-10-18T09:14:26.480058365Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:14:26.678513559Z caller=middlewares.go:31 method=Login took=855.137┬╡s
+ts=2025-10-18T09:14:26.678575104Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:14:25.25275018Z caller=middlewares.go:153 method=Health result=2 took=520.973┬╡s
+ts=2025-10-18T09:14:25.629524945Z caller=middlewares.go:31 method=Login took=785.756┬╡s
+ts=2025-10-18T09:14:25.629594079Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:14:25.90031674Z caller=middlewares.go:31 method=Login took=1.027359ms
+ts=2025-10-18T09:14:25.900386778Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:14:26.112881754Z caller=middlewares.go:31 method=Login took=1.438021ms
+ts=2025-10-18T09:14:26.112953386Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:14:26.319701359Z caller=middlewares.go:31 method=Login took=1.025573ms
+ts=2025-10-18T09:14:26.319769633Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:14:27.344183548Z caller=middlewares.go:153 method=Health result=2 took=790.018┬╡s
+ts=2025-10-18T09:14:30.253293708Z caller=middlewares.go:153 method=Health result=2 took=602.24┬╡s
+ts=2025-10-18T09:14:35.25385215Z caller=middlewares.go:153 method=Health result=2 took=768.604┬╡s
+ts=2025-10-18T09:14:37.132324593Z caller=middlewares.go:70 method=GetUsers id=0Ejzd-HXkwrbbUfWHwoYX1msuQp3dC7T result=1 took=90.482┬╡s
+ts=2025-10-18T09:14:37.132355335Z caller=middlewares.go:70 method=GetUsers id=0Ejzd-HXkwrbbUfWHwoYX1msuQp3dC7T result=1 took=84.097┬╡s
+ts=2025-10-18T09:14:37.134863644Z caller=server.go:110 err="Invalid Id Hex"
+ts=2025-10-18T09:14:37.134888796Z caller=server.go:110 err="Invalid Id Hex"
+ts=2025-10-18T09:14:37.343931411Z caller=middlewares.go:153 method=Health result=2 took=527.212┬╡s
+ts=2025-10-18T09:14:40.254837491Z caller=middlewares.go:153 method=Health result=2 took=665.906┬╡s
+ts=2025-10-18T09:14:45.253377466Z caller=middlewares.go:153 method=Health result=2 took=1.096586ms
+ts=2025-10-18T09:14:47.344909778Z caller=middlewares.go:153 method=Health result=2 took=889.061┬╡s
+ts=2025-10-18T09:14:50.253886656Z caller=middlewares.go:153 method=Health result=2 took=754.113┬╡s
+ts=2025-10-18T09:14:53.032457226Z caller=middlewares.go:153 method=Health result=2 took=582.914┬╡s
+ts=2025-10-18T09:14:55.123338262Z caller=middlewares.go:153 method=Health result=2 took=518.898┬╡s
+ts=2025-10-18T09:14:56.822072794Z caller=middlewares.go:41 method=Register username=Parvaiz email=mdp.cloud25@gmail.com took=29.330472ms
+ts=2025-10-18T09:14:58.033038605Z caller=middlewares.go:153 method=Health result=2 took=604.557┬╡s
+ts=2025-10-18T09:14:59.647776751Z caller=middlewares.go:70 method=GetUsers id=68f35a909c10d300018b6ffe result=1 took=4.069309ms
+ts=2025-10-18T09:14:59.67739222Z caller=middlewares.go:70 method=GetUsers id=68f35a909c10d300018b6ffe result=1 took=1.671908ms
+ts=2025-10-18T09:14:59.689377315Z caller=middlewares.go:70 method=GetUsers id=68f35a909c10d300018b6ffe result=1 took=926.55┬╡s
+ts=2025-10-18T09:15:03.032722816Z caller=middlewares.go:153 method=Health result=2 took=793.683┬╡s
+ts=2025-10-18T09:15:05.123707218Z caller=middlewares.go:153 method=Health result=2 took=590.174┬╡s
+ts=2025-10-18T09:15:08.032849194Z caller=middlewares.go:153 method=Health result=2 took=686.444┬╡s
+ts=2025-10-18T09:15:13.033405533Z caller=middlewares.go:153 method=Health result=2 took=664.041┬╡s
+ts=2025-10-18T09:15:15.123329262Z caller=middlewares.go:153 method=Health result=2 took=629.253┬╡s
+ts=2025-10-18T09:15:18.032880151Z caller=middlewares.go:153 method=Health result=2 took=513.176┬╡s
+ts=2025-10-18T09:15:19.982962034Z caller=middlewares.go:31 method=Login took=1.32126ms
+ts=2025-10-18T09:15:19.983032919Z caller=server.go:110 err=Unauthorized
+ts=2025-10-18T09:15:20.86743703Z caller=middlewares.go:153 method=Health result=2 took=697.76┬╡s
+ts=2025-10-18T09:15:22.957908615Z caller=middlewares.go:153 method=Health result=2 took=547.768┬╡s
+ts=2025-10-18T09:15:23.843571987Z caller=middlewares.go:31 method=Login took=944.736┬╡s
+ts=2025-10-18T09:15:23.843661435Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:15:25.866657574Z caller=middlewares.go:153 method=Health result=2 took=593.964┬╡s
+ts=2025-10-18T09:15:28.81496365Z caller=middlewares.go:31 method=Login took=1.240697ms
+ts=2025-10-18T09:15:28.815053723Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:15:29.327811613Z caller=middlewares.go:31 method=Login took=1.089555ms
+ts=2025-10-18T09:15:29.327888007Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:15:29.533228465Z caller=middlewares.go:31 method=Login took=1.000117ms
+ts=2025-10-18T09:15:29.53332Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:15:29.729446629Z caller=middlewares.go:31 method=Login took=755.999┬╡s
+ts=2025-10-18T09:15:29.72953426Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:15:29.935867792Z caller=middlewares.go:31 method=Login took=957.758┬╡s
+ts=2025-10-18T09:15:29.93595453Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:15:30.133059641Z caller=middlewares.go:31 method=Login took=871.837┬╡s
+ts=2025-10-18T09:15:30.133221568Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:15:30.314113195Z caller=middlewares.go:31 method=Login took=1.364869ms
+ts=2025-10-18T09:15:30.314196106Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:15:30.867100087Z caller=middlewares.go:153 method=Health result=2 took=528.537┬╡s
+ts=2025-10-18T09:15:32.957530999Z caller=middlewares.go:153 method=Health result=2 took=644.377┬╡s
+ts=2025-10-18T09:15:33.730367679Z caller=middlewares.go:31 method=Login took=1.252224ms
+ts=2025-10-18T09:15:33.730460865Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:15:34.007168423Z caller=middlewares.go:31 method=Login took=774.605┬╡s
+ts=2025-10-18T09:15:34.007237764Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:15:34.223784563Z caller=middlewares.go:31 method=Login took=888.33┬╡s
+ts=2025-10-18T09:15:34.223857667Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:15:34.412662409Z caller=middlewares.go:31 method=Login took=827.301┬╡s
+ts=2025-10-18T09:15:34.412734477Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:15:35.866533422Z caller=middlewares.go:153 method=Health result=2 took=665.375┬╡s
+ts=2025-10-18T09:15:40.866665555Z caller=middlewares.go:153 method=Health result=2 took=525.24┬╡s
+ts=2025-10-18T09:15:42.197164547Z caller=middlewares.go:31 method=Login took=1.050752ms
+ts=2025-10-18T09:15:42.197244507Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:15:42.649675002Z caller=middlewares.go:31 method=Login took=929.833┬╡s
+ts=2025-10-18T09:15:42.649746747Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:15:42.859682629Z caller=middlewares.go:31 method=Login took=844.338┬╡s
+ts=2025-10-18T09:15:42.85976767Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:15:42.957521705Z caller=middlewares.go:153 method=Health result=2 took=693.128┬╡s
+ts=2025-10-18T09:15:45.866334763Z caller=middlewares.go:153 method=Health result=2 took=491.19┬╡s
+ts=2025-10-18T09:15:46.99722194Z caller=middlewares.go:31 method=Login took=934.475┬╡s
+ts=2025-10-18T09:15:46.997308877Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:15:47.284762972Z caller=middlewares.go:31 method=Login took=861.696┬╡s
+ts=2025-10-18T09:15:47.284831794Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:15:47.514515789Z caller=middlewares.go:31 method=Login took=2.177951ms
+ts=2025-10-18T09:15:47.514599296Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:15:47.724064292Z caller=middlewares.go:31 method=Login took=963.65┬╡s
+ts=2025-10-18T09:15:47.724124686Z caller=server.go:110 err="not found"
+ts=2025-10-18T09:15:48.670403458Z caller=middlewares.go:153 method=Health result=2 took=731.513┬╡s
+ts=2025-10-18T09:15:50.7606218Z caller=middlewares.go:153 method=Health result=2 took=527.292┬╡s
+ts=2025-10-18T09:15:53.671802234Z caller=middlewares.go:153 method=Health result=2 took=749.735┬╡s
+ts=2025-10-18T09:15:58.6698232Z caller=middlewares.go:153 method=Health result=2 took=565.071┬╡s
+ts=2025-10-18T09:16:00.761547581Z caller=middlewares.go:153 method=Health result=2 took=1.061511ms
+ts=2025-10-18T09:16:03.66947499Z caller=middlewares.go:153 method=Health result=2 took=688.494┬╡s
+ts=2025-10-18T09:16:08.670154989Z caller=middlewares.go:153 method=Health result=2 took=528.305┬╡s
+ts=2025-10-18T09:16:10.761418392Z caller=middlewares.go:153 method=Health result=2 took=744.396┬╡s
+ts=2025-10-18T09:16:13.670353367Z caller=middlewares.go:153 method=Health result=2 took=898.053┬╡s
+ts=2025-10-18T09:16:16.519715629Z caller=middlewares.go:153 method=Health result=2 took=692.631┬╡s
+ts=2025-10-18T09:16:18.609903426Z caller=middlewares.go:153 method=Health result=2 took=533.273┬╡s
+ts=2025-10-18T09:16:21.520458354Z caller=middlewares.go:153 method=Health result=2 took=882.242┬╡s
+ts=2025-10-18T09:16:26.520484389Z caller=middlewares.go:153 method=Health result=2 took=794.028┬╡s
+ts=2025-10-18T09:16:28.610800557Z caller=middlewares.go:153 method=Health result=2 took=987.972┬╡s
+ts=2025-10-18T09:16:31.519875737Z caller=middlewares.go:153 method=Health result=2 took=677.611┬╡s
+ts=2025-10-18T09:16:36.519404316Z caller=middlewares.go:153 method=Health result=2 took=502.819┬╡s
+ts=2025-10-18T09:16:38.611604236Z caller=middlewares.go:153 method=Health result=2 took=446.245┬╡s
+ts=2025-10-18T09:16:41.520515027Z caller=middlewares.go:153 method=Health result=2 took=478.782┬╡s
+ts=2025-10-18T09:16:44.295275513Z caller=middlewares.go:153 method=Health result=2 took=679.58┬╡s
+ts=2025-10-18T09:16:46.385731623Z caller=middlewares.go:153 method=Health result=2 took=745.269┬╡s
+ts=2025-10-18T09:16:49.294242799Z caller=middlewares.go:153 method=Health result=2 took=546.814┬╡s
+ts=2025-10-18T09:16:54.294578329Z caller=middlewares.go:153 method=Health result=2 took=477.958┬╡s
+ts=2025-10-18T09:16:56.385811124Z caller=middlewares.go:153 method=Health result=2 took=938.2┬╡s
+ts=2025-10-18T09:16:59.294898907Z caller=middlewares.go:153 method=Health result=2 took=746.557┬╡s
+ts=2025-10-18T09:17:04.294925701Z caller=middlewares.go:153 method=Health result=2 took=550.045┬╡s
+ts=2025-10-18T09:17:06.384889416Z caller=middlewares.go:153 method=Health result=2 took=662.52┬╡s
+ts=2025-10-18T09:17:09.29637892Z caller=middlewares.go:153 method=Health result=2 took=1.7823ms
+ts=2025-10-18T09:17:12.133024218Z caller=middlewares.go:153 method=Health result=2 took=664.355┬╡s
+ts=2025-10-18T09:17:14.223442227Z caller=middlewares.go:153 method=Health result=2 took=769.253┬╡s
+ts=2025-10-18T09:17:17.132148674Z caller=middlewares.go:153 method=Health result=2 took=504.907┬╡s
+ts=2025-10-18T09:17:22.13286271Z caller=middlewares.go:153 method=Health result=2 took=547.2┬╡s
+ts=2025-10-18T09:17:24.223071931Z caller=middlewares.go:153 method=Health result=2 took=580.858┬╡s
+ts=2025-10-18T09:17:27.132685904Z caller=middlewares.go:153 method=Health result=2 took=807.899┬╡s
+ts=2025-10-18T09:17:32.133314981Z caller=middlewares.go:153 method=Health result=2 took=775.13┬╡s
+ts=2025-10-18T09:17:34.223185361Z caller=middlewares.go:153 method=Health result=2 took=612.186┬╡s
+ts=2025-10-18T09:17:37.132756728Z caller=middlewares.go:153 method=Health result=2 took=1.001234ms
+ts=2025-10-18T09:17:39.940775338Z caller=middlewares.go:153 method=Health result=2 took=662.001┬╡s
+ts=2025-10-18T09:17:42.031474055Z caller=middlewares.go:153 method=Health result=2 took=648.063┬╡s
+ts=2025-10-18T09:17:44.940206552Z caller=middlewares.go:153 method=Health result=2 took=647.686┬╡s
+ts=2025-10-18T09:17:49.940215322Z caller=middlewares.go:153 method=Health result=2 took=651.509┬╡s
+ts=2025-10-18T09:17:52.031416844Z caller=middlewares.go:153 method=Health result=2 took=763.116┬╡s
+ts=2025-10-18T09:17:54.94020712Z caller=middlewares.go:153 method=Health result=2 took=826.657┬╡s
+ts=2025-10-18T09:17:59.940312804Z caller=middlewares.go:153 method=Health result=2 took=458.879┬╡s
+ts=2025-10-18T09:18:02.030367819Z caller=middlewares.go:153 method=Health result=2 took=680.429┬╡s
+ts=2025-10-18T09:18:04.93951016Z caller=middlewares.go:153 method=Health result=2 took=654.39┬╡s
+ts=2025-10-18T09:18:07.785400814Z caller=middlewares.go:153 method=Health result=2 took=617.885┬╡s
+ts=2025-10-18T09:18:09.875878518Z caller=middlewares.go:153 method=Health result=2 took=592.569┬╡s
+ts=2025-10-18T09:18:12.785342167Z caller=middlewares.go:153 method=Health result=2 took=564.346┬╡s
+ts=2025-10-18T09:18:17.78564049Z caller=middlewares.go:153 method=Health result=2 took=622.168┬╡s
+ts=2025-10-18T09:18:19.875592807Z caller=middlewares.go:153 method=Health result=2 took=627.243┬╡s
+ts=2025-10-18T09:18:22.785597916Z caller=middlewares.go:153 method=Health result=2 took=626.21┬╡s
+ts=2025-10-18T09:18:27.786069978Z caller=middlewares.go:153 method=Health result=2 took=699.571┬╡s
+ts=2025-10-18T09:18:29.877179844Z caller=middlewares.go:153 method=Health result=2 took=866.67┬╡s
+ts=2025-10-18T09:18:32.785020009Z caller=middlewares.go:153 method=Health result=2 took=611.866┬╡s
+ts=2025-10-18T09:18:35.56673718Z caller=middlewares.go:153 method=Health result=2 took=727.799┬╡s
+ts=2025-10-18T09:18:37.656971606Z caller=middlewares.go:153 method=Health result=2 took=621.043┬╡s
+ts=2025-10-18T09:18:40.566805147Z caller=middlewares.go:153 method=Health result=2 took=751.05┬╡s
+ts=2025-10-18T09:18:45.566543727Z caller=middlewares.go:153 method=Health result=2 took=661.287┬╡s
+ts=2025-10-18T09:18:47.657559384Z caller=middlewares.go:153 method=Health result=2 took=707.82┬╡s
+ts=2025-10-18T09:18:50.565645256Z caller=middlewares.go:153 method=Health result=2 took=488.594┬╡s
+ts=2025-10-18T09:18:55.5678409Z caller=middlewares.go:153 method=Health result=2 took=845.419┬╡s
+ts=2025-10-18T09:18:57.657265872Z caller=middlewares.go:153 method=Health result=2 took=702.582┬╡s
+ts=2025-10-18T09:19:00.567058009Z caller=middlewares.go:153 method=Health result=2 took=773.165┬╡s
+ts=2025-10-18T09:19:03.441132693Z caller=middlewares.go:153 method=Health result=2 took=615.75┬╡s
+ts=2025-10-18T09:19:05.53220511Z caller=middlewares.go:153 method=Health result=2 took=771.75┬╡s
+ts=2025-10-18T09:19:08.441702652Z caller=middlewares.go:153 method=Health result=2 took=639.006┬╡s
+ts=2025-10-18T09:19:13.441179655Z caller=middlewares.go:153 method=Health result=2 took=788.626┬╡s
+ts=2025-10-18T09:19:15.531451786Z caller=middlewares.go:153 method=Health result=2 took=648.568┬╡s
+ts=2025-10-18T09:19:18.441403047Z caller=middlewares.go:153 method=Health result=2 took=613.179┬╡s
+ts=2025-10-18T09:19:23.442458829Z caller=middlewares.go:153 method=Health result=2 took=1.335753ms
+ts=2025-10-18T09:19:25.532211728Z caller=middlewares.go:153 method=Health result=2 took=662.386┬╡s
+ts=2025-10-18T09:19:28.441531027Z caller=middlewares.go:153 method=Health result=2 took=586.184┬╡s
+ts=2025-10-18T09:19:31.259645365Z caller=middlewares.go:153 method=Health result=2 took=662.229┬╡s
+ts=2025-10-18T09:19:33.350836459Z caller=middlewares.go:153 method=Health result=2 took=1.010113ms
+ts=2025-10-18T09:19:36.259674304Z caller=middlewares.go:153 method=Health result=2 took=570.055┬╡s
+ts=2025-10-18T09:19:41.261413248Z caller=middlewares.go:153 method=Health result=2 took=1.434088ms
+ts=2025-10-18T09:19:43.351197679Z caller=middlewares.go:153 method=Health result=2 took=746.245┬╡s
+ts=2025-10-18T09:19:46.259770986Z caller=middlewares.go:153 method=Health result=2 took=627.567┬╡s
+ts=2025-10-18T09:19:51.259206176Z caller=middlewares.go:153 method=Health result=2 took=634.175┬╡s
+ts=2025-10-18T09:19:53.350679655Z caller=middlewares.go:153 method=Health result=2 took=955.54┬╡s
+ts=2025-10-18T09:19:56.259894164Z caller=middlewares.go:153 method=Health result=2 took=823.843┬╡s
+ts=2025-10-18T09:19:59.102826272Z caller=middlewares.go:153 method=Health result=2 took=752.841┬╡s
+ts=2025-10-18T09:20:01.193556635Z caller=middlewares.go:153 method=Health result=2 took=715.975┬╡s
+ts=2025-10-18T09:20:04.102124251Z caller=middlewares.go:153 method=Health result=2 took=784.257┬╡s
+ts=2025-10-18T09:20:09.103420282Z caller=middlewares.go:153 method=Health result=2 took=713.594┬╡s
+ts=2025-10-18T09:20:11.193778804Z caller=middlewares.go:153 method=Health result=2 took=794.078┬╡s
+ts=2025-10-18T09:20:14.102340684Z caller=middlewares.go:153 method=Health result=2 took=601.023┬╡s
+ts=2025-10-18T09:20:19.102596024Z caller=middlewares.go:153 method=Health result=2 took=502.159┬╡s
+ts=2025-10-18T09:20:21.194044913Z caller=middlewares.go:153 method=Health result=2 took=823.988┬╡s
+ts=2025-10-18T09:20:24.102934802Z caller=middlewares.go:153 method=Health result=2 took=600.115┬╡s
+ts=2025-10-18T09:20:26.892309259Z caller=middlewares.go:153 method=Health result=2 took=761.38┬╡s
+ts=2025-10-18T09:20:28.98259437Z caller=middlewares.go:153 method=Health result=2 took=786.632┬╡s
+ts=2025-10-18T09:20:30.430192293Z caller=middlewares.go:41 method=Register username=demo email=demo@example.com took=7.947539ms
+ts=2025-10-18T09:20:31.892356359Z caller=middlewares.go:153 method=Health result=2 took=591.474┬╡s
+ts=2025-10-18T09:20:36.892547365Z caller=middlewares.go:153 method=Health result=2 took=548.602┬╡s
+ts=2025-10-18T09:20:38.982860862Z caller=middlewares.go:153 method=Health result=2 took=695.503┬╡s
+ts=2025-10-18T09:20:41.891540534Z caller=middlewares.go:153 method=Health result=2 took=560.518┬╡s
+ts=2025-10-18T09:20:46.892704127Z caller=middlewares.go:153 method=Health result=2 took=582.264┬╡s
+ts=2025-10-18T09:20:48.983184559Z caller=middlewares.go:153 method=Health result=2 took=773.896┬╡s
+ts=2025-10-18T09:20:51.89138772Z caller=middlewares.go:153 method=Health result=2 took=551.734┬╡s
+ts=2025-10-18T09:20:54.688314641Z caller=middlewares.go:153 method=Health result=2 took=793.328┬╡s
+ts=2025-10-18T09:20:56.779123145Z caller=middlewares.go:153 method=Health result=2 took=703.766┬╡s
+ts=2025-10-18T09:20:59.688884886Z caller=middlewares.go:153 method=Health result=2 took=592.687┬╡s
+ts=2025-10-18T09:21:04.687226827Z caller=middlewares.go:153 method=Health result=2 took=481.283┬╡s
+ts=2025-10-18T09:21:06.779545184Z caller=middlewares.go:153 method=Health result=2 took=577.608┬╡s
+ts=2025-10-18T09:21:09.688036066Z caller=middlewares.go:153 method=Health result=2 took=853.211┬╡s
+ts=2025-10-18T09:21:14.688461625Z caller=middlewares.go:153 method=Health result=2 took=632.243┬╡s
+ts=2025-10-18T09:21:16.778670458Z caller=middlewares.go:153 method=Health result=2 took=889.567┬╡s
+ts=2025-10-18T09:21:19.695735052Z caller=middlewares.go:153 method=Health result=2 took=694.329┬╡s
+ts=2025-10-18T09:21:22.45886999Z caller=middlewares.go:153 method=Health result=2 took=1.296467ms
+ts=2025-10-18T09:21:24.549780848Z caller=middlewares.go:153 method=Health result=2 took=1.002705ms
+ts=2025-10-18T09:21:27.457870157Z caller=middlewares.go:153 method=Health result=2 took=577.023┬╡s
+ts=2025-10-18T09:21:32.458676032Z caller=middlewares.go:153 method=Health result=2 took=658.642┬╡s
+ts=2025-10-18T09:21:34.548021915Z caller=middlewares.go:153 method=Health result=2 took=714.116┬╡s
+ts=2025-10-18T09:21:37.456906538Z caller=middlewares.go:153 method=Health result=2 took=652.783┬╡s
+ts=2025-10-18T09:21:42.458191533Z caller=middlewares.go:153 method=Health result=2 took=865.186┬╡s
+ts=2025-10-18T09:21:44.548255504Z caller=middlewares.go:153 method=Health result=2 took=796.373┬╡s
+ts=2025-10-18T09:21:47.457060173Z caller=middlewares.go:153 method=Health result=2 took=685.195┬╡s
+ts=2025-10-18T09:21:50.240462783Z caller=middlewares.go:153 method=Health result=2 took=609.335┬╡s
+ts=2025-10-18T09:21:52.331913228Z caller=middlewares.go:153 method=Health result=2 took=691.583┬╡s
+ts=2025-10-18T09:21:55.240656046Z caller=middlewares.go:153 method=Health result=2 took=555.239┬╡s
+ts=2025-10-18T09:22:00.240771992Z caller=middlewares.go:153 method=Health result=2 took=703.925┬╡s
+ts=2025-10-18T09:22:02.331465597Z caller=middlewares.go:153 method=Health result=2 took=687.153┬╡s
+ts=2025-10-18T09:22:05.240201003Z caller=middlewares.go:153 method=Health result=2 took=798.35┬╡s
+ts=2025-10-18T09:22:10.240219787Z caller=middlewares.go:153 method=Health result=2 took=577.542┬╡s
+ts=2025-10-18T09:22:12.332287329Z caller=middlewares.go:153 method=Health result=2 took=555.092┬╡s
+ts=2025-10-18T09:22:15.240572782Z caller=middlewares.go:153 method=Health result=2 took=548.318┬╡s
+ts=2025-10-18T09:22:18.053229264Z caller=middlewares.go:153 method=Health result=2 took=1.312488ms
+ts=2025-10-18T09:22:20.143303807Z caller=middlewares.go:153 method=Health result=2 took=610.644┬╡s
+ts=2025-10-18T09:22:23.052271024Z caller=middlewares.go:153 method=Health result=2 took=476.207┬╡s
+ts=2025-10-18T09:22:28.053369793Z caller=middlewares.go:153 method=Health result=2 took=865.669┬╡s
+ts=2025-10-18T09:22:30.143331473Z caller=middlewares.go:153 method=Health result=2 took=537.245┬╡s
+ts=2025-10-18T09:22:33.052045306Z caller=middlewares.go:153 method=Health result=2 took=1.030922ms
+ts=2025-10-18T09:22:38.053297974Z caller=middlewares.go:153 method=Health result=2 took=808.838┬╡s
+ts=2025-10-18T09:22:40.142717675Z caller=middlewares.go:153 method=Health result=2 took=567.306┬╡s
+ts=2025-10-18T09:22:43.052819675Z caller=middlewares.go:153 method=Health result=2 took=640.959┬╡s
+ts=2025-10-18T09:22:45.779207057Z caller=middlewares.go:153 method=Health result=2 took=511.348┬╡s
+ts=2025-10-18T09:22:47.605295723Z caller=middlewares.go:41 method=Register username=Rayaan email=Rayaan@gmail.com took=4.783467ms
+ts=2025-10-18T09:22:47.870156189Z caller=middlewares.go:153 method=Health result=2 took=604.851┬╡s
+ts=2025-10-18T09:22:50.424650449Z caller=middlewares.go:70 method=GetUsers id=68f35c679c10d300018b7000 result=1 took=2.99081ms
+ts=2025-10-18T09:22:50.778981807Z caller=middlewares.go:153 method=Health result=2 took=690.579┬╡s
+ts=2025-10-18T09:22:54.421159502Z caller=middlewares.go:70 method=GetUsers id=68f35c679c10d300018b7000 result=1 took=1.434863ms
+ts=2025-10-18T09:22:55.780096412Z caller=middlewares.go:153 method=Health result=2 took=555.028┬╡s
+ts=2025-10-18T09:22:57.87110254Z caller=middlewares.go:153 method=Health result=2 took=1.109788ms
+ts=2025-10-18T09:23:00.779382523Z caller=middlewares.go:153 method=Health result=2 took=743.875┬╡s
+ts=2025-10-18T09:23:04.22629224Z caller=middlewares.go:70 method=GetUsers id=68f35c679c10d300018b7000 result=1 took=1.835555ms
+ts=2025-10-18T09:23:04.233073045Z caller=middlewares.go:70 method=GetUsers id=68f35c679c10d300018b7000 result=1 took=6.242528ms
+ts=2025-10-18T09:23:04.240404392Z caller=middlewares.go:70 method=GetUsers id=68f35c679c10d300018b7000 result=1 took=1.245936ms
+ts=2025-10-18T09:23:05.779798695Z caller=middlewares.go:153 method=Health result=2 took=591.745┬╡s
+ts=2025-10-18T09:23:07.870409164Z caller=middlewares.go:153 method=Health result=2 took=600.984┬╡s
+ts=2025-10-18T09:23:10.778948609Z caller=middlewares.go:153 method=Health result=2 took=543.796┬╡s
+ts=2025-10-18T09:23:14.675577291Z caller=middlewares.go:82 method=PostAddress street="Banjara hills" number=781 user=68f35c679c10d300018b7000 took=58.438955ms
+ts=2025-10-18T09:23:13.594678585Z caller=middlewares.go:153 method=Health result=2 took=640.667┬╡s
+ts=2025-10-18T09:23:13.676081199Z caller=middlewares.go:70 method=GetUsers id=68f35c679c10d300018b7000 result=1 took=1.449505ms
+ts=2025-10-18T09:23:13.676266043Z caller=middlewares.go:70 method=GetUsers id=68f35c679c10d300018b7000 result=1 took=1.48304ms
+ts=2025-10-18T09:23:13.743016825Z caller=middlewares.go:70 method=GetUsers id=68f35c679c10d300018b7000 result=1 took=1.17909ms
+ts=2025-10-18T09:23:15.685450604Z caller=middlewares.go:153 method=Health result=2 took=830.608┬╡s
+ts=2025-10-18T09:23:18.593306819Z caller=middlewares.go:153 method=Health result=2 took=592.981┬╡s
+ts=2025-10-18T09:23:23.594165254Z caller=middlewares.go:153 method=Health result=2 took=687.455┬╡s
+ts=2025-10-18T09:23:25.685218027Z caller=middlewares.go:153 method=Health result=2 took=928.978┬╡s
+ts=2025-10-18T09:23:28.593689103Z caller=middlewares.go:153 method=Health result=2 took=706.952┬╡s
+ts=2025-10-18T09:23:29.608632795Z caller=middlewares.go:113 method=PostCard card=*****6789 user=68f35c679c10d300018b7000 took=12.007163ms
+ts=2025-10-18T09:23:30.017190455Z caller=middlewares.go:70 method=GetUsers id=68f35c679c10d300018b7000 result=1 took=1.774301ms
+ts=2025-10-18T09:23:30.02693335Z caller=middlewares.go:70 method=GetUsers id=68f35c679c10d300018b7000 result=1 took=1.575762ms
+ts=2025-10-18T09:23:30.112064Z caller=middlewares.go:70 method=GetUsers id=68f35c679c10d300018b7000 result=1 took=1.300229ms
+ts=2025-10-18T09:23:31.678286124Z caller=middlewares.go:70 method=GetUsers id=68f35c679c10d300018b7000 result=1 took=1.742654ms
+Address is [ {Address:{Street:Banjara hills Number:781 Country:India City:Hyderabad PostCode:500008 ID:68f35c679c10d300018b7000 Links:map[]} ID:ObjectIdHex("68f35c679c10d300018b7000")} ]
+ Card is [ {Card:{LongNum:123456789 Expires:12/25 CCV:125 ID: Links:map[]} ID:ObjectIdHex("68f35c679c10d300018b7000")} ]
+ Address with links is [ {Address:{Street:Banjara hills Number:781 Country:India City:Hyderabad PostCode:500008 ID:68f35c679c10d300018b7000 Links:map[address:{Href:http://user/addresses/68f35c679c10d300018b7000} self:{Href:http://user/addresses/68f35c679c10d300018b7000}]} ID:ObjectIdHex("68f35c679c10d300018b7000")} ]
+[Address] is [ {Street:Banjara hills Number:781 Country:India City:Hyderabad PostCode:500008 ID:68f35c679c10d300018b7000 Links:map[address:{Href:http://user/addresses/68f35c679c10d300018b7000} self:{Href:http://user/addresses/68f35c679c10d300018b7000}]} ]
+ [Address/Links] is [ {Street:Banjara hills Number:781 Country:India City:Hyderabad PostCode:500008 ID:68f35c679c10d300018b7000 Links:map[address:{Href:http://user/addresses/68f35c679c10d300018b7000} self:{Href:http://user/addresses/68f35c679c10d300018b7000}]} ]
+ Card with links is [ {Card:{LongNum:123456789 Expires:12/25 CCV:125 ID: Links:map[card:{Href:http://user/cards/68f35c679c10d300018b7000} self:{Href:http://user/cards/68f35c679c10d300018b7000}]} ID:ObjectIdHex("68f35c679c10d300018b7000")} ]
+Card with links is [ {LongNum:123456789 Expires:12/25 CCV:125 ID: Links:map[card:{Href:http://user/cards/68f35c679c10d300018b7000} self:{Href:http://user/cards/68f35c679c10d300018b7000}]} ]
+[Card] is [ {LongNum:123456789 Expires:12/25 CCV:125 ID:68f35c679c10d300018b7000 Links:map[card:{Href:http://user/cards/68f35c679c10d300018b7000} self:{Href:http://user/cards/68f35c679c10d300018b7000}]} ]
+ [Card] with links is [ {LongNum:123456789 Expires:12/25 CCV:125 ID:68f35c679c10d300018b7000 Links:map[card:{Href:http://user/cards/68f35c679c10d300018b7000} self:{Href:http://user/cards/68f35c679c10d300018b7000}]} ]
+ts=2025-10-18T09:23:31.692521464Z caller=middlewares.go:99 method=GetAddresses id=68f35c679c10d300018b7000 result=1 took=3.620814ms
+ts=2025-10-18T09:23:31.692959339Z caller=middlewares.go:129 method=GetCards id=68f35c679c10d300018b7000 result=1 took=3.9228ms
+ts=2025-10-18T09:23:33.595227465Z caller=middlewares.go:153 method=Health result=2 took=649.496┬╡s
+ts=2025-10-18T09:23:35.684749369Z caller=middlewares.go:153 method=Health result=2 took=654.951┬╡s
+ts=2025-10-18T09:23:38.593525257Z caller=middlewares.go:153 method=Health result=2 took=677.36┬╡s
+ts=2025-10-18T09:23:41.337348732Z caller=middlewares.go:153 method=Health result=2 took=518.335┬╡s
+ts=2025-10-18T09:23:43.428190457Z caller=middlewares.go:153 method=Health result=2 took=716.743┬╡s
+ts=2025-10-18T09:23:44.89606172Z caller=middlewares.go:129 method=GetCards id=68f35c679c10d300018b7000 result=1 took=991.483┬╡s
+Card is [ {Card:{LongNum:123456789 Expires:12/25 CCV:125 ID: Links:map[]} ID:ObjectIdHex("68f35c679c10d300018b7000")} ]
+ Card with links is [ {Card:{LongNum:123456789 Expires:12/25 CCV:125 ID: Links:map[card:{Href:http://user/cards/68f35c679c10d300018b7000} self:{Href:http://user/cards/68f35c679c10d300018b7000}]} ID:ObjectIdHex("68f35c679c10d300018b7000")} ]
+Card with links is [ {LongNum:123456789 Expires:12/25 CCV:125 ID: Links:map[card:{Href:http://user/cards/68f35c679c10d300018b7000} self:{Href:http://user/cards/68f35c679c10d300018b7000}]} ]
+[Card] is [ {LongNum:123456789 Expires:12/25 CCV:125 ID:68f35c679c10d300018b7000 Links:map[card:{Href:http://user/cards/68f35c679c10d300018b7000} self:{Href:http://user/cards/68f35c679c10d300018b7000}]} ]
+ [Card] with links is [ {LongNum:123456789 Expires:12/25 CCV:125 ID:68f35c679c10d300018b7000 Links:map[card:{Href:http://user/cards/68f35c679c10d300018b7000} self:{Href:http://user/cards/68f35c679c10d300018b7000}]} ]
+ts=2025-10-18T09:23:44.89616805Z caller=middlewares.go:70 method=GetUsers id=68f35c679c10d300018b7000 result=1 took=1.119678ms
+Address is [ {Address:{Street:Banjara hills Number:781 Country:India City:Hyderabad PostCode:500008 ID:68f35c679c10d300018b7000 Links:map[]} ID:ObjectIdHex("68f35c679c10d300018b7000")} ]
+ Address with links is [ {Address:{Street:Banjara hills Number:781 Country:India City:Hyderabad PostCode:500008 ID:68f35c679c10d300018b7000 Links:map[address:{Href:http://user/addresses/68f35c679c10d300018b7000} self:{Href:http://user/addresses/68f35c679c10d300018b7000}]} ID:ObjectIdHex("68f35c679c10d300018b7000")} ]
+[Address] is [ {Street:Banjara hills Number:781 Country:India City:Hyderabad PostCode:500008 ID:68f35c679c10d300018b7000 Links:map[address:{Href:http://user/addresses/68f35c679c10d300018b7000} self:{Href:http://user/addresses/68f35c679c10d300018b7000}]} ]
+ [Address/Links] is [ {Street:Banjara hills Number:781 Country:India City:Hyderabad PostCode:500008 ID:68f35c679c10d300018b7000 Links:map[address:{Href:http://user/addresses/68f35c679c10d300018b7000} self:{Href:http://user/addresses/68f35c679c10d300018b7000}]} ]
+ts=2025-10-18T09:23:44.911339426Z caller=middlewares.go:99 method=GetAddresses id=68f35c679c10d300018b7000 result=1 took=16.173271ms
+ts=2025-10-18T09:23:46.339332818Z caller=middlewares.go:153 method=Health result=2 took=2.917756ms
+ts=2025-10-18T09:23:46.727533942Z caller=middlewares.go:70 method=GetUsers id=68f35c679c10d300018b7000 result=1 took=1.392946ms
+ts=2025-10-18T09:23:46.737920251Z caller=middlewares.go:70 method=GetUsers id=68f35c679c10d300018b7000 result=1 took=1.066503ms
+ts=2025-10-18T09:23:46.778692195Z caller=middlewares.go:70 method=GetUsers id=68f35c679c10d300018b7000 result=1 took=1.558368ms
+ts=2025-10-18T09:23:50.238029595Z caller=middlewares.go:70 method=GetUsers id=68f35c679c10d300018b7000 result=1 took=1.647708ms
+ts=2025-10-18T09:23:50.245995593Z caller=middlewares.go:129 method=GetCards id=68f35c679c10d300018b7000 result=1 took=955.257┬╡s
+ts=2025-10-18T09:23:50.246127776Z caller=middlewares.go:99 method=GetAddresses id=68f35c679c10d300018b7000 result=1 took=1.137906ms
+ Card is [ {Card:{LongNum:123456789 Expires:12/25 CCV:125 ID: Links:map[]} ID:ObjectIdHex("68f35c679c10d300018b7000")} ]
+ Address is [ {Address:{Street:Banjara hills Number:781 Country:India City:Hyderabad PostCode:500008 ID:68f35c679c10d300018b7000 Links:map[]} ID:ObjectIdHex("68f35c679c10d300018b7000")} ]
+ Card with links is [ {Card:{LongNum:123456789 Expires:12/25 CCV:125 ID: Links:map[card:{Href:http://user/cards/68f35c679c10d300018b7000} self:{Href:http://user/cards/68f35c679c10d300018b7000}]} ID:ObjectIdHex("68f35c679c10d300018b7000")} ]
+Address with links is [ {Address:{Street:Banjara hills Number:781 Country:India City:Hyderabad PostCode:500008 ID:68f35c679c10d300018b7000 Links:map[address:{Href:http://user/addresses/68f35c679c10d300018b7000} self:{Href:http://user/addresses/68f35c679c10d300018b7000}]} ID:ObjectIdHex("68f35c679c10d300018b7000")} ]
+Card with links is [ {LongNum:123456789 Expires:12/25 CCV:125 ID: Links:map[card:{Href:http://user/cards/68f35c679c10d300018b7000} self:{Href:http://user/cards/68f35c679c10d300018b7000}]} ]
+[Card] is [ {LongNum:123456789 Expires:12/25 CCV:125 ID:68f35c679c10d300018b7000 Links:map[card:{Href:http://user/cards/68f35c679c10d300018b7000} self:{Href:http://user/cards/68f35c679c10d300018b7000}]} ]
+ [Card] with links is [ {LongNum:123456789 Expires:12/25 CCV:125 ID:68f35c679c10d300018b7000 Links:map[card:{Href:http://user/cards/68f35c679c10d300018b7000} self:{Href:http://user/cards/68f35c679c10d300018b7000}]} ]
+[Address] is [ {Street:Banjara hills Number:781 Country:India City:Hyderabad PostCode:500008 ID:68f35c679c10d300018b7000 Links:map[address:{Href:http://user/addresses/68f35c679c10d300018b7000} self:{Href:http://user/addresses/68f35c679c10d300018b7000}]} ]
+ [Address/Links] is [ {Street:Banjara hills Number:781 Country:India City:Hyderabad PostCode:500008 ID:68f35c679c10d300018b7000 Links:map[address:{Href:http://user/addresses/68f35c679c10d300018b7000} self:{Href:http://user/addresses/68f35c679c10d300018b7000}]} ]
+ Card is [ {Card:{LongNum:123456789 Expires:12/25 CCV:125 ID: Links:map[]} ID:ObjectIdHex("68f35c679c10d300018b7000")} ]
+ Card with links is [ {Card:{LongNum:123456789 Expires:12/25 CCV:125 ID: Links:map[card:{Href:http://user/cards/68f35c679c10d300018b7000} self:{Href:http://user/cards/68f35c679c10d300018b7000}]} ID:ObjectIdHex("68f35c679c10d300018b7000")} ]
+Card with links is [ {LongNum:123456789 Expires:12/25 CCV:125 ID: Links:map[card:{Href:http://user/cards/68f35c679c10d300018b7000} self:{Href:http://user/cards/68f35c679c10d300018b7000}]} ]
+[Card] is [ {LongNum:123456789 Expires:12/25 CCV:125 ID:68f35c679c10d300018b7000 Links:map[card:{Href:http://user/cards/68f35c679c10d300018b7000} self:{Href:http://user/cards/68f35c679c10d300018b7000}]} ]
+ [Card] with links is [ {LongNum:123456789 Expires:12/25 CCV:125 ID:68f35c679c10d300018b7000 Links:map[card:{Href:http://user/cards/68f35c679c10d300018b7000} self:{Href:http://user/cards/68f35c679c10d300018b7000}]} ]
+ts=2025-10-18T09:23:50.276877429Z caller=middlewares.go:129 method=GetCards id=68f35c679c10d300018b7000 result=1 took=1.518254ms
+ts=2025-10-18T09:23:50.278038387Z caller=middlewares.go:99 method=GetAddresses id=68f35c679c10d300018b7000 result=1 took=2.051618ms
+Address is [ {Address:{Street:Banjara hills Number:781 Country:India City:Hyderabad PostCode:500008 ID:68f35c679c10d300018b7000 Links:map[]} ID:ObjectIdHex("68f35c679c10d300018b7000")} ]
+ Address with links is [ {Address:{Street:Banjara hills Number:781 Country:India City:Hyderabad PostCode:500008 ID:68f35c679c10d300018b7000 Links:map[address:{Href:http://user/addresses/68f35c679c10d300018b7000} self:{Href:http://user/addresses/68f35c679c10d300018b7000}]} ID:ObjectIdHex("68f35c679c10d300018b7000")} ]
+[Address] is [ {Street:Banjara hills Number:781 Country:India City:Hyderabad PostCode:500008 ID:68f35c679c10d300018b7000 Links:map[address:{Href:http://user/addresses/68f35c679c10d300018b7000} self:{Href:http://user/addresses/68f35c679c10d300018b7000}]} ]
+ [Address/Links] is [ {Street:Banjara hills Number:781 Country:India City:Hyderabad PostCode:500008 ID:68f35c679c10d300018b7000 Links:map[address:{Href:http://user/addresses/68f35c679c10d300018b7000} self:{Href:http://user/addresses/68f35c679c10d300018b7000}]} ]
+ts=2025-10-18T09:23:50.364830162Z caller=middlewares.go:70 method=GetUsers id=68f35c679c10d300018b7000 result=1 took=609.558┬╡s
+ts=2025-10-18T09:23:51.337514636Z caller=middlewares.go:153 method=Health result=2 took=741.861┬╡s
+ts=2025-10-18T09:23:53.426636203Z caller=middlewares.go:153 method=Health result=2 took=579.267┬╡s
+ts=2025-10-18T09:23:56.33732338Z caller=middlewares.go:153 method=Health result=2 took=583.914┬╡s
+ts=2025-10-18T09:23:57.075562296Z caller=middlewares.go:70 method=GetUsers id=68f35c679c10d300018b7000 result=1 took=1.244879ms
+ts=2025-10-18T09:23:57.075675847Z caller=middlewares.go:70 method=GetUsers id=68f35c679c10d300018b7000 result=1 took=801.297┬╡s
+ts=2025-10-18T09:23:57.181792913Z caller=middlewares.go:70 method=GetUsers id=68f35c679c10d300018b7000 result=1 took=736.689┬╡s
+ts=2025-10-18T09:23:58.422011181Z caller=middlewares.go:70 method=GetUsers id=68f35c679c10d300018b7000 result=1 took=1.161618ms
+ Address is [ {Address:{Street:Banjara hills Number:781 Country:India City:Hyderabad PostCode:500008 ID:68f35c679c10d300018b7000 Links:map[]} ID:ObjectIdHex("68f35c679c10d300018b7000")} ]
+ Address with links is [ {Address:{Street:Banjara hills Number:781 Country:India City:Hyderabad PostCode:500008 ID:68f35c679c10d300018b7000 Links:map[address:{Href:http://user/addresses/68f35c679c10d300018b7000} self:{Href:http://user/addresses/68f35c679c10d300018b7000}]} ID:ObjectIdHex("68f35c679c10d300018b7000")} ]
+[Address] is [ {Street:Banjara hills Number:781 Country:India City:Hyderabad PostCode:500008 ID:68f35c679c10d300018b7000 Links:map[address:{Href:http://user/addresses/68f35c679c10d300018b7000} self:{Href:http://user/addresses/68f35c679c10d300018b7000}]} ]
+ts=2025-10-18T09:23:58.433916796Z caller=middlewares.go:99 method=GetAddresses id=68f35c679c10d300018b7000 result=1 took=2.206806ms
+ts=2025-10-18T09:23:58.434335703Z caller=middlewares.go:129 method=GetCards id=68f35c679c10d300018b7000 result=1 took=964.992┬╡s
+ [Address/Links] is [ {Street:Banjara hills Number:781 Country:India City:Hyderabad PostCode:500008 ID:68f35c679c10d300018b7000 Links:map[address:{Href:http://user/addresses/68f35c679c10d300018b7000} self:{Href:http://user/addresses/68f35c679c10d300018b7000}]} ]
+ Card is [ {Card:{LongNum:123456789 Expires:12/25 CCV:125 ID: Links:map[]} ID:ObjectIdHex("68f35c679c10d300018b7000")} ]
+ Card with links is [ {Card:{LongNum:123456789 Expires:12/25 CCV:125 ID: Links:map[card:{Href:http://user/cards/68f35c679c10d300018b7000} self:{Href:http://user/cards/68f35c679c10d300018b7000}]} ID:ObjectIdHex("68f35c679c10d300018b7000")} ]
+Card with links is [ {LongNum:123456789 Expires:12/25 CCV:125 ID: Links:map[card:{Href:http://user/cards/68f35c679c10d300018b7000} self:{Href:http://user/cards/68f35c679c10d300018b7000}]} ]
+[Card] is [ {LongNum:123456789 Expires:12/25 CCV:125 ID:68f35c679c10d300018b7000 Links:map[card:{Href:http://user/cards/68f35c679c10d300018b7000} self:{Href:http://user/cards/68f35c679c10d300018b7000}]} ]
+ [Card] with links is [ {LongNum:123456789 Expires:12/25 CCV:125 ID:68f35c679c10d300018b7000 Links:map[card:{Href:http://user/cards/68f35c679c10d300018b7000} self:{Href:http://user/cards/68f35c679c10d300018b7000}]} ]
+Address is [ {Address:{Street:Banjara hills Number:781 Country:India City:Hyderabad PostCode:500008 ID:68f35c679c10d300018b7000 Links:map[]} ID:ObjectIdHex("68f35c679c10d300018b7000")} ]
+ Address with links is [ {Address:{Street:Banjara hills Number:781 Country:India City:Hyderabad PostCode:500008 ID:68f35c679c10d300018b7000 Links:map[address:{Href:http://user/addresses/68f35c679c10d300018b7000} self:{Href:http://user/addresses/68f35c679c10d300018b7000}]} ID:ObjectIdHex("68f35c679c10d300018b7000")} ]
+[Address] is [ {Street:Banjara hills Number:781 Country:India City:Hyderabad PostCode:500008 ID:68f35c679c10d300018b7000 Links:map[address:{Href:http://user/addresses/68f35c679c10d300018b7000} self:{Href:http://user/addresses/68f35c679c10d300018b7000}]} ]
+ [Address/Links] is [ {Street:Banjara hills Number:781 Country:India City:Hyderabad PostCode:500008 ID:68f35c679c10d300018b7000 Links:map[address:{Href:http://user/addresses/68f35c679c10d300018b7000} self:{Href:http://user/addresses/68f35c679c10d300018b7000}]} ]
+ts=2025-10-18T09:23:58.505504743Z caller=middlewares.go:99 method=GetAddresses id=68f35c679c10d300018b7000 result=1 took=2.348671ms
+ts=2025-10-18T09:23:58.557693068Z caller=middlewares.go:70 method=GetUsers id=68f35c679c10d300018b7000 result=1 took=1.300755ms
+ Card is [ {Card:{LongNum:123456789 Expires:12/25 CCV:125 ID: Links:map[]} ID:ObjectIdHex("68f35c679c10d300018b7000")} ]
+ Card with links is [ {Card:{LongNum:123456789 Expires:12/25 CCV:125 ID: Links:map[card:{Href:http://user/cards/68f35c679c10d300018b7000} self:{Href:http://user/cards/68f35c679c10d300018b7000}]} ID:ObjectIdHex("68f35c679c10d300018b7000")} ]
+Card with links is [ {LongNum:123456789 Expires:12/25 CCV:125 ID: Links:map[card:{Href:http://user/cards/68f35c679c10d300018b7000} self:{Href:http://user/cards/68f35c679c10d300018b7000}]} ]
+[Card] is [ {LongNum:123456789 Expires:12/25 CCV:125 ID:68f35c679c10d300018b7000 Links:map[card:{Href:http://user/cards/68f35c679c10d300018b7000} self:{Href:http://user/cards/68f35c679c10d300018b7000}]} ]
+ [Card] with links is [ {LongNum:123456789 Expires:12/25 CCV:125 ID:68f35c679c10d300018b7000 Links:map[card:{Href:http://user/cards/68f35c679c10d300018b7000} self:{Href:http://user/cards/68f35c679c10d300018b7000}]} ]
+ts=2025-10-18T09:23:58.570820228Z caller=middlewares.go:129 method=GetCards id=68f35c679c10d300018b7000 result=1 took=2.194045ms
+ts=2025-10-18T09:24:01.337298734Z caller=middlewares.go:153 method=Health result=2 took=586.339┬╡s
+ts=2025-10-18T09:24:03.426843936Z caller=middlewares.go:153 method=Health result=2 took=613.725┬╡s
+ts=2025-10-18T09:24:04.281161353Z caller=middlewares.go:70 method=GetUsers id=68f35c679c10d300018b7000 result=1 took=3.668751ms
+ts=2025-10-18T09:24:06.336567466Z caller=middlewares.go:153 method=Health result=2 took=564.892┬╡s
+ts=2025-10-18T09:24:09.144186379Z caller=middlewares.go:153 method=Health result=2 took=716.188┬╡s
+ts=2025-10-18T09:24:11.232668002Z caller=middlewares.go:153 method=Health result=2 took=1.054604ms
+ts=2025-10-18T09:24:14.142361924Z caller=middlewares.go:153 method=Health result=2 took=800.454┬╡s
+ts=2025-10-18T09:24:15.481910714Z caller=middlewares.go:70 method=GetUsers id=68f35c679c10d300018b7000 result=1 took=1.516828ms
+ts=2025-10-18T09:24:18.481426079Z caller=middlewares.go:70 method=GetUsers id=68f35c679c10d300018b7000 result=1 took=1.873362ms
+ts=2025-10-18T09:24:19.142029146Z caller=middlewares.go:153 method=Health result=2 took=779.051┬╡s
+ts=2025-10-18T09:24:21.232575598Z caller=middlewares.go:153 method=Health result=2 took=813.543┬╡s
+ts=2025-10-18T09:24:24.141654239Z caller=middlewares.go:153 method=Health result=2 took=553.436┬╡s
+ts=2025-10-18T09:24:26.603146876Z caller=middlewares.go:70 method=GetUsers id=68f35c679c10d300018b7000 result=1 took=1.37422ms
+ts=2025-10-18T09:24:26.609545864Z caller=middlewares.go:70 method=GetUsers id=68f35c679c10d300018b7000 result=1 took=6.550521ms
+ts=2025-10-18T09:24:26.700237195Z caller=middlewares.go:70 method=GetUsers id=68f35c679c10d300018b7000 result=1 took=5.900767ms
+ts=2025-10-18T09:24:28.305742659Z caller=middlewares.go:70 method=GetUsers id=68f35c679c10d300018b7000 result=1 took=1.547343ms
+Address is [ {Address:{Street:Banjara hills Number:781 Country:India City:Hyderabad PostCode:500008 ID:68f35c679c10d300018b7000 Links:map[]} ID:ObjectIdHex("68f35c679c10d300018b7000")} ]
+ Address with links is [ {Address:{Street:Banjara hills Number:781 Country:India City:Hyderabad PostCode:500008 ID:68f35c679c10d300018b7000 Links:map[address:{Href:http://user/addresses/68f35c679c10d300018b7000} self:{Href:http://user/addresses/68f35c679c10d300018b7000}]} ID:ObjectIdHex("68f35c679c10d300018b7000")} ]
+[Address] is [ {Street:Banjara hills Number:781 Country:India City:Hyderabad PostCode:500008 ID:68f35c679c10d300018b7000 Links:map[address:{Href:http://user/addresses/68f35c679c10d300018b7000} self:{Href:http://user/addresses/68f35c679c10d300018b7000}]} ]
+ [Address/Links] is [ {Street:Banjara hills Number:781 Country:India City:Hyderabad PostCode:500008 ID:68f35c679c10d300018b7000 Links:map[address:{Href:http://user/addresses/68f35c679c10d300018b7000} self:{Href:http://user/addresses/68f35c679c10d300018b7000}]} ]
+ts=2025-10-18T09:24:28.382247455Z caller=middlewares.go:99 method=GetAddresses id=68f35c679c10d300018b7000 result=1 took=1.127393ms
+ts=2025-10-18T09:24:28.384011532Z caller=middlewares.go:129 method=GetCards id=68f35c679c10d300018b7000 result=1 took=773.38┬╡s
+ Card is [ {Card:{LongNum:123456789 Expires:12/25 CCV:125 ID: Links:map[]} ID:ObjectIdHex("68f35c679c10d300018b7000")} ]
+ Card with links is [ {Card:{LongNum:123456789 Expires:12/25 CCV:125 ID: Links:map[card:{Href:http://user/cards/68f35c679c10d300018b7000} self:{Href:http://user/cards/68f35c679c10d300018b7000}]} ID:ObjectIdHex("68f35c679c10d300018b7000")} ]
+Card with links is [ {LongNum:123456789 Expires:12/25 CCV:125 ID: Links:map[card:{Href:http://user/cards/68f35c679c10d300018b7000} self:{Href:http://user/cards/68f35c679c10d300018b7000}]} ]
+[Card] is [ {LongNum:123456789 Expires:12/25 CCV:125 ID:68f35c679c10d300018b7000 Links:map[card:{Href:http://user/cards/68f35c679c10d300018b7000} self:{Href:http://user/cards/68f35c679c10d300018b7000}]} ]
+ [Card] with links is [ {LongNum:123456789 Expires:12/25 CCV:125 ID:68f35c679c10d300018b7000 Links:map[card:{Href:http://user/cards/68f35c679c10d300018b7000} self:{Href:http://user/cards/68f35c679c10d300018b7000}]} ]
+Card is [ {Card:{LongNum:123456789 Expires:12/25 CCV:125 ID: Links:map[]} ID:ObjectIdHex("68f35c679c10d300018b7000")} ]
+ts=2025-10-18T09:24:28.418812889Z caller=middlewares.go:70 method=GetUsers id=68f35c679c10d300018b7000 result=1 took=1.257221ms
+ts=2025-10-18T09:24:28.419767878Z caller=middlewares.go:129 method=GetCards id=68f35c679c10d300018b7000 result=1 took=2.172249ms
+ Card with links is [ {Card:{LongNum:123456789 Expires:12/25 CCV:125 ID: Links:map[card:{Href:http://user/cards/68f35c679c10d300018b7000} self:{Href:http://user/cards/68f35c679c10d300018b7000}]} ID:ObjectIdHex("68f35c679c10d300018b7000")} ]
+Card with links is [ {LongNum:123456789 Expires:12/25 CCV:125 ID: Links:map[card:{Href:http://user/cards/68f35c679c10d300018b7000} self:{Href:http://user/cards/68f35c679c10d300018b7000}]} ]
+[Card] is [ {LongNum:123456789 Expires:12/25 CCV:125 ID:68f35c679c10d300018b7000 Links:map[card:{Href:http://user/cards/68f35c679c10d300018b7000} self:{Href:http://user/cards/68f35c679c10d300018b7000}]} ]
+ [Card] with links is [ {LongNum:123456789 Expires:12/25 CCV:125 ID:68f35c679c10d300018b7000 Links:map[card:{Href:http://user/cards/68f35c679c10d300018b7000} self:{Href:http://user/cards/68f35c679c10d300018b7000}]} ]
+Address is [ {Address:{Street:Banjara hills Number:781 Country:India City:Hyderabad PostCode:500008 ID:68f35c679c10d300018b7000 Links:map[]} ID:ObjectIdHex("68f35c679c10d300018b7000")} ]
+ Address with links is [ {Address:{Street:Banjara hills Number:781 Country:India City:Hyderabad PostCode:500008 ID:68f35c679c10d300018b7000 Links:map[address:{Href:http://user/addresses/68f35c679c10d300018b7000} self:{Href:http://user/addresses/68f35c679c10d300018b7000}]} ID:ObjectIdHex("68f35c679c10d300018b7000")} ]
+[Address] is [ {Street:Banjara hills Number:781 Country:India City:Hyderabad PostCode:500008 ID:68f35c679c10d300018b7000 Links:map[address:{Href:http://user/addresses/68f35c679c10d300018b7000} self:{Href:http://user/addresses/68f35c679c10d300018b7000}]} ]
+ [Address/Links] is [ {Street:Banjara hills Number:781 Country:India City:Hyderabad PostCode:500008 ID:68f35c679c10d300018b7000 Links:map[address:{Href:http://user/addresses/68f35c679c10d300018b7000} self:{Href:http://user/addresses/68f35c679c10d300018b7000}]} ]
+ts=2025-10-18T09:24:28.423652986Z caller=middlewares.go:99 method=GetAddresses id=68f35c679c10d300018b7000 result=1 took=1.274405ms
+ts=2025-10-18T09:24:29.142393114Z caller=middlewares.go:153 method=Health result=2 took=712.645┬╡s
+ts=2025-10-18T09:24:29.88495845Z caller=middlewares.go:70 method=GetUsers id=68f35c679c10d300018b7000 result=1 took=2.217898ms
+ts=2025-10-18T09:24:31.232933338Z caller=middlewares.go:153 method=Health result=2 took=601.873┬╡s
+ts=2025-10-18T09:24:32.879623681Z caller=middlewares.go:70 method=GetUsers id=68f35c679c10d300018b7000 result=1 took=1.293266ms
+ts=2025-10-18T09:24:34.142347946Z caller=middlewares.go:153 method=Health result=2 took=601.819┬╡s
+ts=2025-10-18T09:24:36.929637394Z caller=middlewares.go:153 method=Health result=2 took=681.726┬╡s
+ts=2025-10-18T09:24:39.019839637Z caller=middlewares.go:153 method=Health result=2 took=784.041┬╡s
+ts=2025-10-18T09:24:41.929288527Z caller=middlewares.go:153 method=Health result=2 took=648.974┬╡s
+ts=2025-10-18T09:24:46.928962518Z caller=middlewares.go:153 method=Health result=2 took=531.26┬╡s
+ts=2025-10-18T09:24:49.020422441Z caller=middlewares.go:153 method=Health result=2 took=1.031765ms
+ts=2025-10-18T09:24:51.929233102Z caller=middlewares.go:153 method=Health result=2 took=689.809┬╡s
+ts=2025-10-18T09:24:56.929854789Z caller=middlewares.go:153 method=Health result=2 took=957.918┬╡s
+ts=2025-10-18T09:24:59.019754036Z caller=middlewares.go:153 method=Health result=2 took=722.059┬╡s
+ts=2025-10-18T09:25:01.928291438Z caller=middlewares.go:153 method=Health result=2 took=636.892┬╡s
+ts=2025-10-18T09:25:04.736993207Z caller=middlewares.go:153 method=Health result=2 took=522.892┬╡s
+ts=2025-10-18T09:25:06.827800822Z caller=middlewares.go:153 method=Health result=2 took=692.262┬╡s
+ts=2025-10-18T09:25:09.737356145Z caller=middlewares.go:153 method=Health result=2 took=1.456903ms
+ts=2025-10-18T09:25:14.736586948Z caller=middlewares.go:153 method=Health result=2 took=644.465┬╡s
+ts=2025-10-18T09:25:16.827561566Z caller=middlewares.go:153 method=Health result=2 took=748.63┬╡s
+ts=2025-10-18T09:25:19.735658314Z caller=middlewares.go:153 method=Health result=2 took=521.195┬╡s
+ts=2025-10-18T09:25:24.736838835Z caller=middlewares.go:153 method=Health result=2 took=576.627┬╡s
+ts=2025-10-18T09:25:26.827172453Z caller=middlewares.go:153 method=Health result=2 took=746.328┬╡s
+ts=2025-10-18T09:25:29.736584669Z caller=middlewares.go:153 method=Health result=2 took=573.737┬╡s
+ts=2025-10-18T09:25:32.517410922Z caller=middlewares.go:153 method=Health result=2 took=675.311┬╡s
+ts=2025-10-18T09:25:34.60699069Z caller=middlewares.go:153 method=Health result=2 took=639.693┬╡s
+ts=2025-10-18T09:25:37.516482838Z caller=middlewares.go:153 method=Health result=2 took=675.601┬╡s
+ts=2025-10-18T09:25:42.516890029Z caller=middlewares.go:153 method=Health result=2 took=728.893┬╡s
+ts=2025-10-18T09:25:44.608808934Z caller=middlewares.go:153 method=Health result=2 took=1.330382ms
+ts=2025-10-18T09:25:47.516516381Z caller=middlewares.go:153 method=Health result=2 took=521.877┬╡s
+ts=2025-10-18T09:25:52.516888457Z caller=middlewares.go:153 method=Health result=2 took=523.323┬╡s
+ts=2025-10-18T09:25:54.607134536Z caller=middlewares.go:153 method=Health result=2 took=668.68┬╡s
+ts=2025-10-18T09:25:57.517064848Z caller=middlewares.go:153 method=Health result=2 took=659.044┬╡s
+ts=2025-10-18T09:26:00.303183525Z caller=middlewares.go:153 method=Health result=2 took=910.184┬╡s
+ts=2025-10-18T09:26:02.391295441Z caller=middlewares.go:153 method=Health result=2 took=583.985┬╡s
+ts=2025-10-18T09:26:05.301171676Z caller=middlewares.go:153 method=Health result=2 took=760.431┬╡s
+ts=2025-10-18T09:26:10.301839886Z caller=middlewares.go:153 method=Health result=2 took=679.257┬╡s
+ts=2025-10-18T09:26:12.391810685Z caller=middlewares.go:153 method=Health result=2 took=726.151┬╡s
+ts=2025-10-18T09:26:15.30120696Z caller=middlewares.go:153 method=Health result=2 took=642.629┬╡s
+ts=2025-10-18T09:26:20.3011565Z caller=middlewares.go:153 method=Health result=2 took=835.653┬╡s
+ts=2025-10-18T09:26:22.392548487Z caller=middlewares.go:153 method=Health result=2 took=833.889┬╡s
+ts=2025-10-18T09:26:25.301788453Z caller=middlewares.go:153 method=Health result=2 took=803.484┬╡s
+ts=2025-10-18T09:26:28.102921574Z caller=middlewares.go:153 method=Health result=2 took=628.601┬╡s
+ts=2025-10-18T09:26:30.19416233Z caller=middlewares.go:153 method=Health result=2 took=678.034┬╡s
+ts=2025-10-18T09:26:33.102924597Z caller=middlewares.go:153 method=Health result=2 took=788.08┬╡s
+ts=2025-10-18T09:26:38.103257862Z caller=middlewares.go:153 method=Health result=2 took=600.604┬╡s
+ts=2025-10-18T09:26:40.193305726Z caller=middlewares.go:153 method=Health result=2 took=529.797┬╡s
+ts=2025-10-18T09:26:43.103146049Z caller=middlewares.go:153 method=Health result=2 took=769.879┬╡s
+ts=2025-10-18T09:26:48.102972543Z caller=middlewares.go:153 method=Health result=2 took=595.656┬╡s
+ts=2025-10-18T09:26:50.194548675Z caller=middlewares.go:153 method=Health result=2 took=896.749┬╡s
+ts=2025-10-18T09:26:53.101870444Z caller=middlewares.go:153 method=Health result=2 took=479.614┬╡s
+ts=2025-10-18T09:26:55.891641105Z caller=middlewares.go:153 method=Health result=2 took=1.768535ms
+ts=2025-10-18T09:26:57.979966355Z caller=middlewares.go:153 method=Health result=2 took=588.249┬╡s
+ts=2025-10-18T09:27:00.89052591Z caller=middlewares.go:153 method=Health result=2 took=771.62┬╡s
+ts=2025-10-18T09:27:05.89050909Z caller=middlewares.go:153 method=Health result=2 took=681.256┬╡s
+ts=2025-10-18T09:27:07.980565968Z caller=middlewares.go:153 method=Health result=2 took=776.683┬╡s
+ts=2025-10-18T09:27:10.890733657Z caller=middlewares.go:153 method=Health result=2 took=960.668┬╡s
+ts=2025-10-18T09:27:15.889609169Z caller=middlewares.go:153 method=Health result=2 took=757.486┬╡s
+ts=2025-10-18T09:27:17.982354298Z caller=middlewares.go:153 method=Health result=2 took=660.248┬╡s
+ts=2025-10-18T09:27:20.889883823Z caller=middlewares.go:153 method=Health result=2 took=509.333┬╡s
+ts=2025-10-18T09:27:23.686665696Z caller=middlewares.go:153 method=Health result=2 took=793.489┬╡s
+ts=2025-10-18T09:27:25.776291497Z caller=middlewares.go:153 method=Health result=2 took=549.804┬╡s
+ts=2025-10-18T09:27:28.68560884Z caller=middlewares.go:153 method=Health result=2 took=634.176┬╡s
+ts=2025-10-18T09:27:33.686207908Z caller=middlewares.go:153 method=Health result=2 took=412.617┬╡s
+ts=2025-10-18T09:27:35.776883098Z caller=middlewares.go:153 method=Health result=2 took=647.762┬╡s
+ts=2025-10-18T09:27:37.366917568Z caller=middlewares.go:41 method=Register username=demo_1760779656 email=demo_1760779656@example.com took=1.466599ms
+ts=2025-10-18T09:27:38.684799252Z caller=middlewares.go:153 method=Health result=2 took=561.882┬╡s
+ts=2025-10-18T09:27:43.685402654Z caller=middlewares.go:153 method=Health result=2 took=698.748┬╡s
+ts=2025-10-18T09:27:45.776122613Z caller=middlewares.go:153 method=Health result=2 took=581.039┬╡s
+ts=2025-10-18T09:27:48.685513556Z caller=middlewares.go:153 method=Health result=2 took=560.644┬╡s
+ts=2025-10-18T09:27:51.422468174Z caller=middlewares.go:153 method=Health result=2 took=962.066┬╡s
+ts=2025-10-18T09:27:53.51275605Z caller=middlewares.go:153 method=Health result=2 took=683.68┬╡s
+ts=2025-10-18T09:27:56.421211646Z caller=middlewares.go:153 method=Health result=2 took=730.382┬╡s
+ts=2025-10-18T09:28:01.421509326Z caller=middlewares.go:153 method=Health result=2 took=506.727┬╡s
+ts=2025-10-18T09:28:03.512273871Z caller=middlewares.go:153 method=Health result=2 took=736.324┬╡s
+ts=2025-10-18T09:28:06.420764953Z caller=middlewares.go:153 method=Health result=2 took=690.558┬╡s
+ts=2025-10-18T09:28:11.421567657Z caller=middlewares.go:153 method=Health result=2 took=593.431┬╡s
+ts=2025-10-18T09:28:13.512604719Z caller=middlewares.go:153 method=Health result=2 took=603.89┬╡s
+ts=2025-10-18T09:28:16.421301564Z caller=middlewares.go:153 method=Health result=2 took=626.428┬╡s
+ts=2025-10-18T09:28:19.229501387Z caller=middlewares.go:153 method=Health result=2 took=1.009239ms
+ts=2025-10-18T09:28:21.31922542Z caller=middlewares.go:153 method=Health result=2 took=694.056┬╡s
+ts=2025-10-18T09:28:24.228317389Z caller=middlewares.go:153 method=Health result=2 took=683.221┬╡s
+ts=2025-10-18T09:28:29.229449318Z caller=middlewares.go:153 method=Health result=2 took=869.713┬╡s
+ts=2025-10-18T09:28:31.319077697Z caller=middlewares.go:153 method=Health result=2 took=715.841┬╡s
+ts=2025-10-18T09:28:34.227903219Z caller=middlewares.go:153 method=Health result=2 took=592.005┬╡s
+ts=2025-10-18T09:28:39.228925755Z caller=middlewares.go:153 method=Health result=2 took=847.209┬╡s
+ts=2025-10-18T09:28:41.318888444Z caller=middlewares.go:153 method=Health result=2 took=623.094┬╡s
+ts=2025-10-18T09:28:44.227952282Z caller=middlewares.go:153 method=Health result=2 took=583.229┬╡s
+ts=2025-10-18T09:28:46.963607602Z caller=middlewares.go:153 method=Health result=2 took=702.702┬╡s
+ts=2025-10-18T09:28:49.054254721Z caller=middlewares.go:153 method=Health result=2 took=831.24┬╡s
+ts=2025-10-18T09:28:51.96320037Z caller=middlewares.go:153 method=Health result=2 took=572.627┬╡s
+ts=2025-10-18T09:28:56.963210004Z caller=middlewares.go:153 method=Health result=2 took=612.821┬╡s
+ts=2025-10-18T09:28:59.054432741Z caller=middlewares.go:153 method=Health result=2 took=712.372┬╡s
+ts=2025-10-18T09:29:01.96334361Z caller=middlewares.go:153 method=Health result=2 took=803.679┬╡s
+ts=2025-10-18T09:29:06.964228446Z caller=middlewares.go:153 method=Health result=2 took=1.271374ms
+ts=2025-10-18T09:29:09.052995193Z caller=middlewares.go:153 method=Health result=2 took=657.481┬╡s
+ts=2025-10-18T09:29:11.963661843Z caller=middlewares.go:153 method=Health result=2 took=732.419┬╡s
+ts=2025-10-18T09:29:14.732971531Z caller=middlewares.go:153 method=Health result=2 took=634.383┬╡s
+ts=2025-10-18T09:29:16.824322593Z caller=middlewares.go:153 method=Health result=2 took=589.793┬╡s
+ts=2025-10-18T09:29:19.732375223Z caller=middlewares.go:153 method=Health result=2 took=511.471┬╡s
+ts=2025-10-18T09:29:24.73295809Z caller=middlewares.go:153 method=Health result=2 took=518.636┬╡s
+ts=2025-10-18T09:29:26.823726891Z caller=middlewares.go:153 method=Health result=2 took=602.597┬╡s
+ts=2025-10-18T09:29:29.733115877Z caller=middlewares.go:153 method=Health result=2 took=1.31233ms
+ts=2025-10-18T09:29:34.733639701Z caller=middlewares.go:153 method=Health result=2 took=759.334┬╡s
+ts=2025-10-18T09:29:36.823942031Z caller=middlewares.go:153 method=Health result=2 took=565.697┬╡s
+ts=2025-10-18T09:29:39.732864404Z caller=middlewares.go:153 method=Health result=2 took=605.124┬╡s
+ts=2025-10-18T09:29:41.745052268Z caller=middlewares.go:41 method=Register username=demo_1760779781 email=demo_1760779781@example.com took=1.486447ms
+ts=2025-10-18T09:29:42.483034424Z caller=middlewares.go:153 method=Health result=2 took=496.796┬╡s
+ts=2025-10-18T09:29:44.575151939Z caller=middlewares.go:153 method=Health result=2 took=2.49166ms
+ts=2025-10-18T09:29:47.482761564Z caller=middlewares.go:153 method=Health result=2 took=657.057┬╡s
+ts=2025-10-18T09:29:52.483649888Z caller=middlewares.go:153 method=Health result=2 took=703.886┬╡s
+ts=2025-10-18T09:29:52.87255789Z caller=middlewares.go:41 method=Register username=demo_1760779792 email=demo_1760779792@example.com took=1.387106ms
+ts=2025-10-18T09:29:54.574471218Z caller=middlewares.go:153 method=Health result=2 took=954.841┬╡s
+ts=2025-10-18T09:29:57.482257239Z caller=middlewares.go:153 method=Health result=2 took=633.089┬╡s
+ts=2025-10-18T09:30:02.483484434Z caller=middlewares.go:153 method=Health result=2 took=656.37┬╡s
+ts=2025-10-18T09:30:04.573191574Z caller=middlewares.go:153 method=Health result=2 took=517.206┬╡s
+ts=2025-10-18T09:30:07.482387747Z caller=middlewares.go:153 method=Health result=2 took=610.687┬╡s
+ts=2025-10-18T09:30:10.266423095Z caller=middlewares.go:153 method=Health result=2 took=513.332┬╡s
+ts=2025-10-18T09:30:12.357304628Z caller=middlewares.go:153 method=Health result=2 took=779.718┬╡s
+ts=2025-10-18T09:30:15.266689571Z caller=middlewares.go:153 method=Health result=2 took=522.151┬╡s
+ts=2025-10-18T09:30:20.266268965Z caller=middlewares.go:153 method=Health result=2 took=699.731┬╡s
+ts=2025-10-18T09:30:22.357044664Z caller=middlewares.go:153 method=Health result=2 took=722.648┬╡s
+ts=2025-10-18T09:30:25.266227698Z caller=middlewares.go:153 method=Health result=2 took=666.366┬╡s
+ts=2025-10-18T09:30:30.266584868Z caller=middlewares.go:153 method=Health result=2 took=685.333┬╡s
+ts=2025-10-18T09:30:32.357589573Z caller=middlewares.go:153 method=Health result=2 took=569.951┬╡s
+ts=2025-10-18T09:30:35.265837755Z caller=middlewares.go:153 method=Health result=2 took=601.992┬╡s
+ts=2025-10-18T09:30:38.030664449Z caller=middlewares.go:153 method=Health result=2 took=836.484┬╡s
+ts=2025-10-18T09:30:40.121262425Z caller=middlewares.go:153 method=Health result=2 took=680.126┬╡s
+ts=2025-10-18T09:30:43.029248839Z caller=middlewares.go:153 method=Health result=2 took=630.333┬╡s
+ts=2025-10-18T09:30:48.046751763Z caller=middlewares.go:153 method=Health result=2 took=1.728335ms
+ts=2025-10-18T09:30:50.120889752Z caller=middlewares.go:153 method=Health result=2 took=725.356┬╡s
+ts=2025-10-18T09:30:53.030045678Z caller=middlewares.go:153 method=Health result=2 took=737.792┬╡s
+ts=2025-10-18T09:30:58.030006395Z caller=middlewares.go:153 method=Health result=2 took=682.846┬╡s
+ts=2025-10-18T09:31:00.120372813Z caller=middlewares.go:153 method=Health result=2 took=772.257┬╡s
+ts=2025-10-18T09:31:03.031020299Z caller=middlewares.go:153 method=Health result=2 took=742.651┬╡s
+ts=2025-10-18T09:31:05.825095176Z caller=middlewares.go:153 method=Health result=2 took=659.315┬╡s
+ts=2025-10-18T09:31:07.915446174Z caller=middlewares.go:153 method=Health result=2 took=552.338┬╡s
+ts=2025-10-18T09:31:10.825138792Z caller=middlewares.go:153 method=Health result=2 took=622.84┬╡s
+ts=2025-10-18T09:31:15.825002693Z caller=middlewares.go:153 method=Health result=2 took=680.101┬╡s
+ts=2025-10-18T09:31:17.915280609Z caller=middlewares.go:153 method=Health result=2 took=597.163┬╡s
+ts=2025-10-18T09:31:20.824902127Z caller=middlewares.go:153 method=Health result=2 took=791.71┬╡s
+ts=2025-10-18T09:31:25.824796618Z caller=middlewares.go:153 method=Health result=2 took=569.468┬╡s
+ts=2025-10-18T09:31:27.916525745Z caller=middlewares.go:153 method=Health result=2 took=1.357619ms
+ts=2025-10-18T09:31:30.824844135Z caller=middlewares.go:153 method=Health result=2 took=520.702┬╡s
+ts=2025-10-18T09:31:33.581622066Z caller=middlewares.go:153 method=Health result=2 took=468.051┬╡s
+ts=2025-10-18T09:31:35.672199519Z caller=middlewares.go:153 method=Health result=2 took=585.024┬╡s
+ts=2025-10-18T09:31:38.582367272Z caller=middlewares.go:153 method=Health result=2 took=731.399┬╡s
+ts=2025-10-18T09:31:43.582375404Z caller=middlewares.go:153 method=Health result=2 took=559.658┬╡s
+ts=2025-10-18T09:31:45.672441972Z caller=middlewares.go:153 method=Health result=2 took=457.044┬╡s
+ts=2025-10-18T09:31:48.582348822Z caller=middlewares.go:153 method=Health result=2 took=901.945┬╡s
+ts=2025-10-18T09:31:53.582813664Z caller=middlewares.go:153 method=Health result=2 took=649.245┬╡s
+ts=2025-10-18T09:31:55.672930753Z caller=middlewares.go:153 method=Health result=2 took=587.035┬╡s
+ts=2025-10-18T09:31:58.582261781Z caller=middlewares.go:153 method=Health result=2 took=619.868┬╡s
+ts=2025-10-18T09:32:01.37361128Z caller=middlewares.go:153 method=Health result=2 took=766.455┬╡s
+ts=2025-10-18T09:32:03.464435126Z caller=middlewares.go:153 method=Health result=2 took=628.153┬╡s
+ts=2025-10-18T09:32:03.737201512Z caller=middlewares.go:41 method=Register username=Parvaiz email=mdp.cloud25@gmail.com took=73.192303ms
+ts=2025-10-18T09:32:03.737371208Z caller=server.go:110 err="E11000 duplicate key error collection: users.customers index: username_1 dup key: { : \"Parvaiz\" }"
+ts=2025-10-18T09:32:06.373745521Z caller=middlewares.go:153 method=Health result=2 took=799.549┬╡s
+ts=2025-10-18T09:32:07.364915838Z caller=middlewares.go:41 method=Register username=Parvaiz email=mdp.cloud25@gmail.com took=6.152244ms
+ts=2025-10-18T09:32:07.364989114Z caller=server.go:110 err="E11000 duplicate key error collection: users.customers index: username_1 dup key: { : \"Parvaiz\" }"
+ts=2025-10-18T09:32:07.766706731Z caller=middlewares.go:41 method=Register username=Parvaiz email=mdp.cloud25@gmail.com took=6.608351ms
+ts=2025-10-18T09:32:07.766804884Z caller=server.go:110 err="E11000 duplicate key error collection: users.customers index: username_1 dup key: { : \"Parvaiz\" }"
+ts=2025-10-18T09:32:08.000598042Z caller=middlewares.go:41 method=Register username=Parvaiz email=mdp.cloud25@gmail.com took=8.262779ms
+ts=2025-10-18T09:32:08.000724507Z caller=server.go:110 err="E11000 duplicate key error collection: users.customers index: username_1 dup key: { : \"Parvaiz\" }"
+ts=2025-10-18T09:32:08.186307733Z caller=middlewares.go:41 method=Register username=Parvaiz email=mdp.cloud25@gmail.com took=5.406523ms
+ts=2025-10-18T09:32:08.186385408Z caller=server.go:110 err="E11000 duplicate key error collection: users.customers index: username_1 dup key: { : \"Parvaiz\" }"
+ts=2025-10-18T09:32:08.406098986Z caller=middlewares.go:41 method=Register username=Parvaiz email=mdp.cloud25@gmail.com took=5.386024ms
+ts=2025-10-18T09:32:08.406172663Z caller=server.go:110 err="E11000 duplicate key error collection: users.customers index: username_1 dup key: { : \"Parvaiz\" }"
+ts=2025-10-18T09:32:08.61366324Z caller=middlewares.go:41 method=Register username=Parvaiz email=mdp.cloud25@gmail.com took=5.786963ms
+ts=2025-10-18T09:32:08.613740255Z caller=server.go:110 err="E11000 duplicate key error collection: users.customers index: username_1 dup key: { : \"Parvaiz\" }"
+ts=2025-10-18T09:32:08.823856033Z caller=middlewares.go:41 method=Register username=Parvaiz email=mdp.cloud25@gmail.com took=8.54188ms
+ts=2025-10-18T09:32:08.823908097Z caller=server.go:110 err="E11000 duplicate key error collection: users.customers index: username_1 dup key: { : \"Parvaiz\" }"
+ts=2025-10-18T09:32:11.373554378Z caller=middlewares.go:153 method=Health result=2 took=763.326┬╡s
+ts=2025-10-18T09:32:13.463906702Z caller=middlewares.go:153 method=Health result=2 took=709.8┬╡s
+ts=2025-10-18T09:32:16.373310877Z caller=middlewares.go:153 method=Health result=2 took=608.18┬╡s
+ts=2025-10-18T09:32:21.373945524Z caller=middlewares.go:153 method=Health result=2 took=576.341┬╡s
+ts=2025-10-18T09:32:22.247164647Z caller=middlewares.go:31 method=Login took=4.335106ms
+ts=2025-10-18T09:32:22.247830521Z caller=server.go:110 err=Unauthorized
+ts=2025-10-18T09:32:23.463930433Z caller=middlewares.go:153 method=Health result=2 took=673.713┬╡s
+ts=2025-10-18T09:32:26.37333807Z caller=middlewares.go:153 method=Health result=2 took=704.687┬╡s
+ts=2025-10-18T09:32:29.144988234Z caller=middlewares.go:153 method=Health result=2 took=440.046┬╡s
+ts=2025-10-18T09:32:31.23579159Z caller=middlewares.go:153 method=Health result=2 took=561.152┬╡s
+ts=2025-10-18T09:32:32.089571373Z caller=middlewares.go:41 method=Register username=Parvaiz email=Parvaiz@gmail.com took=6.606835ms
+ts=2025-10-18T09:32:32.08964959Z caller=server.go:110 err="E11000 duplicate key error collection: users.customers index: username_1 dup key: { : \"Parvaiz\" }"
+ts=2025-10-18T09:32:33.497549153Z caller=middlewares.go:41 method=Register username=Parvaiz email=Parvaiz@gmail.com took=6.834438ms
+ts=2025-10-18T09:32:33.497643406Z caller=server.go:110 err="E11000 duplicate key error collection: users.customers index: username_1 dup key: { : \"Parvaiz\" }"
+ts=2025-10-18T09:32:33.714948595Z caller=middlewares.go:41 method=Register username=Parvaiz email=Parvaiz@gmail.com took=5.199805ms
+ts=2025-10-18T09:32:33.715022024Z caller=server.go:110 err="E11000 duplicate key error collection: users.customers index: username_1 dup key: { : \"Parvaiz\" }"
+ts=2025-10-18T09:32:33.93523088Z caller=middlewares.go:41 method=Register username=Parvaiz email=Parvaiz@gmail.com took=5.501561ms
+ts=2025-10-18T09:32:33.935305336Z caller=server.go:110 err="E11000 duplicate key error collection: users.customers index: username_1 dup key: { : \"Parvaiz\" }"
+ts=2025-10-18T09:32:34.127022662Z caller=middlewares.go:41 method=Register username=Parvaiz email=Parvaiz@gmail.com took=5.192056ms
+ts=2025-10-18T09:32:34.127098707Z caller=server.go:110 err="E11000 duplicate key error collection: users.customers index: username_1 dup key: { : \"Parvaiz\" }"
+ts=2025-10-18T09:32:34.144977426Z caller=middlewares.go:153 method=Health result=2 took=568.242┬╡s
+ts=2025-10-18T09:32:39.145167682Z caller=middlewares.go:153 method=Health result=2 took=521.134┬╡s
+ts=2025-10-18T09:32:41.236267301Z caller=middlewares.go:153 method=Health result=2 took=907.28┬╡s
+ts=2025-10-18T09:32:44.145652275Z caller=middlewares.go:153 method=Health result=2 took=705.983┬╡s
+ts=2025-10-18T09:32:49.147903226Z caller=middlewares.go:153 method=Health result=2 took=864.273┬╡s
+ts=2025-10-18T09:32:51.236793587Z caller=middlewares.go:153 method=Health result=2 took=1.221499ms
+ts=2025-10-18T09:32:54.145846753Z caller=middlewares.go:153 method=Health result=2 took=813.926┬╡s
+ts=2025-10-18T09:32:56.871506576Z caller=middlewares.go:153 method=Health result=2 took=636.05┬╡s
+ts=2025-10-18T09:32:58.96227472Z caller=middlewares.go:153 method=Health result=2 took=499.371┬╡s
+ts=2025-10-18T09:33:01.871695777Z caller=middlewares.go:153 method=Health result=2 took=646.642┬╡s
+ts=2025-10-18T09:33:06.871320219Z caller=middlewares.go:153 method=Health result=2 took=724.901┬╡s
+ts=2025-10-18T09:33:08.962287086Z caller=middlewares.go:153 method=Health result=2 took=790.998┬╡s
+ts=2025-10-18T09:33:09.341755639Z caller=middlewares.go:41 method=Register username=Abdul1 email=abdul1@gmail.com took=1.060071ms
+ts=2025-10-18T09:33:11.578743457Z caller=middlewares.go:70 method=GetUsers id=68f35ed59c10d300018b7011 result=1 took=6.742948ms
+ts=2025-10-18T09:33:11.871208923Z caller=middlewares.go:153 method=Health result=2 took=498.508┬╡s
+ts=2025-10-18T09:33:15.387897599Z caller=middlewares.go:70 method=GetUsers id=68f35ed59c10d300018b7011 result=1 took=1.013985ms
+ts=2025-10-18T09:33:16.871320198Z caller=middlewares.go:153 method=Health result=2 took=502.88┬╡s
+ts=2025-10-18T09:33:18.967326933Z caller=middlewares.go:153 method=Health result=2 took=686.947┬╡s
+ts=2025-10-18T09:33:21.871648808Z caller=middlewares.go:153 method=Health result=2 took=606.35┬╡s
+ts=2025-10-18T09:33:22.714844012Z caller=middlewares.go:70 method=GetUsers id=68f35ed59c10d300018b7011 result=1 took=1.140314ms
+ts=2025-10-18T09:33:24.667412649Z caller=middlewares.go:153 method=Health result=2 took=547.117┬╡s
+ts=2025-10-18T09:33:25.786010525Z caller=middlewares.go:70 method=GetUsers id=68f35ed59c10d300018b7011 result=1 took=738.167┬╡s
+ts=2025-10-18T09:33:25.786739377Z caller=middlewares.go:70 method=GetUsers id=68f35ed59c10d300018b7011 result=1 took=1.465798ms
+ts=2025-10-18T09:33:25.811790115Z caller=middlewares.go:70 method=GetUsers id=68f35ed59c10d300018b7011 result=1 took=1.044679ms
+ts=2025-10-18T09:33:26.756623797Z caller=middlewares.go:153 method=Health result=2 took=487.469┬╡s
+ts=2025-10-18T09:33:29.66634251Z caller=middlewares.go:153 method=Health result=2 took=592.967┬╡s
+ts=2025-10-18T09:33:34.667632164Z caller=middlewares.go:153 method=Health result=2 took=923.312┬╡s
+ts=2025-10-18T09:33:36.756452492Z caller=middlewares.go:153 method=Health result=2 took=598.02┬╡s
+ts=2025-10-18T09:33:36.774163572Z caller=middlewares.go:82 method=PostAddress street="Banjara hills" number=121 user=68f35ed59c10d300018b7011 took=3.742002ms
+ts=2025-10-18T09:33:37.125031987Z caller=middlewares.go:70 method=GetUsers id=68f35ed59c10d300018b7011 result=1 took=1.303817ms
+ts=2025-10-18T09:33:37.127211407Z caller=middlewares.go:70 method=GetUsers id=68f35ed59c10d300018b7011 result=1 took=1.496173ms
+ts=2025-10-18T09:33:37.225145737Z caller=middlewares.go:70 method=GetUsers id=68f35ed59c10d300018b7011 result=1 took=936.945┬╡s
+ts=2025-10-18T09:33:39.666065114Z caller=middlewares.go:153 method=Health result=2 took=532.869┬╡s
+ts=2025-10-18T09:33:44.666264439Z caller=middlewares.go:153 method=Health result=2 took=595.666┬╡s
+ts=2025-10-18T09:33:46.756948667Z caller=middlewares.go:153 method=Health result=2 took=779.701┬╡s
+ts=2025-10-18T09:33:48.669601649Z caller=middlewares.go:113 method=PostCard card=*****6789 user=68f35ed59c10d300018b7011 took=2.912202ms
+ts=2025-10-18T09:33:49.047067288Z caller=middlewares.go:70 method=GetUsers id=68f35ed59c10d300018b7011 result=1 took=1.049128ms
+ts=2025-10-18T09:33:49.048453681Z caller=middlewares.go:70 method=GetUsers id=68f35ed59c10d300018b7011 result=1 took=975.491┬╡s
+ts=2025-10-18T09:33:49.114285514Z caller=middlewares.go:70 method=GetUsers id=68f35ed59c10d300018b7011 result=1 took=836.576┬╡s
+ts=2025-10-18T09:33:49.66618254Z caller=middlewares.go:153 method=Health result=2 took=508.08┬╡s
+ts=2025-10-18T09:33:51.060792774Z caller=middlewares.go:70 method=GetUsers id=68f35ed59c10d300018b7011 result=1 took=947.821┬╡s
+ts=2025-10-18T09:33:51.065213637Z caller=middlewares.go:70 method=GetUsers id=68f35ed59c10d300018b7011 result=1 took=4.945075ms
+ts=2025-10-18T09:33:51.135910674Z caller=middlewares.go:70 method=GetUsers id=68f35ed59c10d300018b7011 result=1 took=2.047777ms
+ts=2025-10-18T09:33:54.057188138Z caller=middlewares.go:70 method=GetUsers id=68f35ed59c10d300018b7011 result=1 took=974.661┬╡s
+ Address is [ {Address:{Street:Banjara hills Number:121 Country:United States City:charlotte PostCode:28117 ID:68f35ed59c10d300018b7011 Links:map[]} ID:ObjectIdHex("68f35ed59c10d300018b7011")} ]
+ Address with links is [ {Address:{Street:Banjara hills Number:121 Country:United States City:charlotte PostCode:28117 ID:68f35ed59c10d300018b7011 Links:map[address:{Href:http://user/addresses/68f35ed59c10d300018b7011} self:{Href:http://user/addresses/68f35ed59c10d300018b7011}]} ID:ObjectIdHex("68f35ed59c10d300018b7011")} ]
+[Address] is [ {Street:Banjara hills Number:121 Country:United States City:charlotte PostCode:28117 ID:68f35ed59c10d300018b7011 Links:map[address:{Href:http://user/addresses/68f35ed59c10d300018b7011} self:{Href:http://user/addresses/68f35ed59c10d300018b7011}]} ]
+ [Address/Links] is [ {Street:Banjara hills Number:121 Country:United States City:charlotte PostCode:28117 ID:68f35ed59c10d300018b7011 Links:map[address:{Href:http://user/addresses/68f35ed59c10d300018b7011} self:{Href:http://user/addresses/68f35ed59c10d300018b7011}]} ]
+ Card is [ {Card:{LongNum:123456789 Expires:12/25 CCV:125 ID: Links:map[]} ID:ObjectIdHex("68f35ed59c10d300018b7011")} ]
+ Card with links is [ {Card:{LongNum:123456789 Expires:12/25 CCV:125 ID: Links:map[card:{Href:http://user/cards/68f35ed59c10d300018b7011} self:{Href:http://user/cards/68f35ed59c10d300018b7011}]} ID:ObjectIdHex("68f35ed59c10d300018b7011")} ]
+Card with links is [ {LongNum:123456789 Expires:12/25 CCV:125 ID: Links:map[card:{Href:http://user/cards/68f35ed59c10d300018b7011} self:{Href:http://user/cards/68f35ed59c10d300018b7011}]} ]
+[Card] is [ {LongNum:123456789 Expires:12/25 CCV:125 ID:68f35ed59c10d300018b7011 Links:map[card:{Href:http://user/cards/68f35ed59c10d300018b7011} self:{Href:http://user/cards/68f35ed59c10d300018b7011}]} ]
+ [Card] with links is [ {LongNum:123456789 Expires:12/25 CCV:125 ID:68f35ed59c10d300018b7011 Links:map[card:{Href:http://user/cards/68f35ed59c10d300018b7011} self:{Href:http://user/cards/68f35ed59c10d300018b7011}]} ]
+ts=2025-10-18T09:33:54.068169637Z caller=middlewares.go:99 method=GetAddresses id=68f35ed59c10d300018b7011 result=1 took=1.407959ms
+ts=2025-10-18T09:33:54.068460608Z caller=middlewares.go:129 method=GetCards id=68f35ed59c10d300018b7011 result=1 took=887.078┬╡s
+ts=2025-10-18T09:33:52.391903718Z caller=middlewares.go:153 method=Health result=2 took=503.967┬╡s
+ts=2025-10-18T09:33:52.611524287Z caller=middlewares.go:129 method=GetCards id=68f35ed59c10d300018b7011 result=1 took=1.076827ms
+ts=2025-10-18T09:33:52.611475368Z caller=middlewares.go:70 method=GetUsers id=68f35ed59c10d300018b7011 result=1 took=950.902┬╡s
+Card is [ {Card:{LongNum:123456789 Expires:12/25 CCV:125 ID: Links:map[]} ID:ObjectIdHex("68f35ed59c10d300018b7011")} ]
+ Card with links is [ {Card:{LongNum:123456789 Expires:12/25 CCV:125 ID: Links:map[card:{Href:http://user/cards/68f35ed59c10d300018b7011} self:{Href:http://user/cards/68f35ed59c10d300018b7011}]} ID:ObjectIdHex("68f35ed59c10d300018b7011")} ]
+Card with links is [ {LongNum:123456789 Expires:12/25 CCV:125 ID: Links:map[card:{Href:http://user/cards/68f35ed59c10d300018b7011} self:{Href:http://user/cards/68f35ed59c10d300018b7011}]} ]
+[Card] is [ {LongNum:123456789 Expires:12/25 CCV:125 ID:68f35ed59c10d300018b7011 Links:map[card:{Href:http://user/cards/68f35ed59c10d300018b7011} self:{Href:http://user/cards/68f35ed59c10d300018b7011}]} ]
+ [Card] with links is [ {LongNum:123456789 Expires:12/25 CCV:125 ID:68f35ed59c10d300018b7011 Links:map[card:{Href:http://user/cards/68f35ed59c10d300018b7011} self:{Href:http://user/cards/68f35ed59c10d300018b7011}]} ]
+Address is [ {Address:{Street:Banjara hills Number:121 Country:United States City:charlotte PostCode:28117 ID:68f35ed59c10d300018b7011 Links:map[]} ID:ObjectIdHex("68f35ed59c10d300018b7011")} ]
+ Address with links is [ {Address:{Street:Banjara hills Number:121 Country:United States City:charlotte PostCode:28117 ID:68f35ed59c10d300018b7011 Links:map[address:{Href:http://user/addresses/68f35ed59c10d300018b7011} self:{Href:http://user/addresses/68f35ed59c10d300018b7011}]} ID:ObjectIdHex("68f35ed59c10d300018b7011")} ]
+[Address] is [ {Street:Banjara hills Number:121 Country:United States City:charlotte PostCode:28117 ID:68f35ed59c10d300018b7011 Links:map[address:{Href:http://user/addresses/68f35ed59c10d300018b7011} self:{Href:http://user/addresses/68f35ed59c10d300018b7011}]} ]
+ [Address/Links] is [ {Street:Banjara hills Number:121 Country:United States City:charlotte PostCode:28117 ID:68f35ed59c10d300018b7011 Links:map[address:{Href:http://user/addresses/68f35ed59c10d300018b7011} self:{Href:http://user/addresses/68f35ed59c10d300018b7011}]} ]
+ts=2025-10-18T09:33:52.615644121Z caller=middlewares.go:99 method=GetAddresses id=68f35ed59c10d300018b7011 result=1 took=4.441659ms
+ts=2025-10-18T09:33:54.482191213Z caller=middlewares.go:153 method=Health result=2 took=595.977┬╡s
+ts=2025-10-18T09:33:55.320657024Z caller=middlewares.go:70 method=GetUsers id=68f35ed59c10d300018b7011 result=1 took=1.278551ms
+ts=2025-10-18T09:33:57.391077786Z caller=middlewares.go:153 method=Health result=2 took=855.435┬╡s
+ts=2025-10-18T09:33:57.952681195Z caller=middlewares.go:70 method=GetUsers id=68f35ed59c10d300018b7011 result=1 took=16.988738ms
+ts=2025-10-18T09:34:02.391700244Z caller=middlewares.go:153 method=Health result=2 took=883.818┬╡s
+ts=2025-10-18T09:34:04.482269312Z caller=middlewares.go:153 method=Health result=2 took=708.768┬╡s
+ts=2025-10-18T09:34:07.391164389Z caller=middlewares.go:153 method=Health result=2 took=698.145┬╡s
+ts=2025-10-18T09:34:12.391809681Z caller=middlewares.go:153 method=Health result=2 took=645.445┬╡s
+ts=2025-10-18T09:34:14.482702375Z caller=middlewares.go:153 method=Health result=2 took=777.981┬╡s
+ts=2025-10-18T09:34:17.391719438Z caller=middlewares.go:153 method=Health result=2 took=510.893┬╡s
+ts=2025-10-18T09:34:20.156968698Z caller=middlewares.go:153 method=Health result=2 took=482.807┬╡s
+ts=2025-10-18T09:34:22.250371785Z caller=middlewares.go:153 method=Health result=2 took=652.057┬╡s
+ts=2025-10-18T09:34:25.158186242Z caller=middlewares.go:153 method=Health result=2 took=745.73┬╡s
+ts=2025-10-18T09:34:30.158347957Z caller=middlewares.go:153 method=Health result=2 took=802.481┬╡s
+ts=2025-10-18T09:34:32.248378243Z caller=middlewares.go:153 method=Health result=2 took=755.307┬╡s
+ts=2025-10-18T09:34:35.157678382Z caller=middlewares.go:153 method=Health result=2 took=526.893┬╡s
+ts=2025-10-18T09:34:40.157730474Z caller=middlewares.go:153 method=Health result=2 took=645.763┬╡s
+ts=2025-10-18T09:34:42.249214147Z caller=middlewares.go:153 method=Health result=2 took=676.87┬╡s
+ts=2025-10-18T09:34:45.156981427Z caller=middlewares.go:153 method=Health result=2 took=636.77┬╡s
+ts=2025-10-18T09:34:47.882150133Z caller=middlewares.go:153 method=Health result=2 took=766.603┬╡s
+ts=2025-10-18T09:34:49.971797716Z caller=middlewares.go:153 method=Health result=2 took=493.025┬╡s
+ts=2025-10-18T09:34:52.881881412Z caller=middlewares.go:153 method=Health result=2 took=786.071┬╡s
+ts=2025-10-18T09:34:57.88177797Z caller=middlewares.go:153 method=Health result=2 took=695.554┬╡s
+ts=2025-10-18T09:34:59.972195712Z caller=middlewares.go:153 method=Health result=2 took=657.144┬╡s
+ts=2025-10-18T09:35:02.88148357Z caller=middlewares.go:153 method=Health result=2 took=763.558┬╡s
+ts=2025-10-18T09:35:07.881776933Z caller=middlewares.go:153 method=Health result=2 took=1.105421ms
+ts=2025-10-18T09:35:09.972672074Z caller=middlewares.go:153 method=Health result=2 took=642.23┬╡s
+ts=2025-10-18T09:35:12.880586633Z caller=middlewares.go:153 method=Health result=2 took=531.776┬╡s
+ts=2025-10-18T09:35:15.657325435Z caller=middlewares.go:153 method=Health result=2 took=655.353┬╡s
+ts=2025-10-18T09:35:17.747147968Z caller=middlewares.go:153 method=Health result=2 took=592.517┬╡s
+ts=2025-10-18T09:35:20.658237801Z caller=middlewares.go:153 method=Health result=2 took=1.63316ms
+ts=2025-10-18T09:35:25.656908405Z caller=middlewares.go:153 method=Health result=2 took=552.485┬╡s
+ts=2025-10-18T09:35:27.748136139Z caller=middlewares.go:153 method=Health result=2 took=723.86┬╡s
+ts=2025-10-18T09:35:30.658167695Z caller=middlewares.go:153 method=Health result=2 took=1.766488ms
+ts=2025-10-18T09:35:35.656667385Z caller=middlewares.go:153 method=Health result=2 took=491.156┬╡s
+ts=2025-10-18T09:35:37.748776977Z caller=middlewares.go:153 method=Health result=2 took=788.069┬╡s
+ts=2025-10-18T09:35:40.656778221Z caller=middlewares.go:153 method=Health result=2 took=697.941┬╡s
+ts=2025-10-18T09:35:43.381989534Z caller=middlewares.go:153 method=Health result=2 took=516.087┬╡s
+ts=2025-10-18T09:35:45.471869308Z caller=middlewares.go:153 method=Health result=2 took=618.578┬╡s
+ts=2025-10-18T09:35:48.381207518Z caller=middlewares.go:153 method=Health result=2 took=594.263┬╡s
+ts=2025-10-18T09:35:53.382019011Z caller=middlewares.go:153 method=Health result=2 took=642.218┬╡s
+ts=2025-10-18T09:35:55.473202791Z caller=middlewares.go:153 method=Health result=2 took=772.505┬╡s
+ts=2025-10-18T09:35:58.383784962Z caller=middlewares.go:153 method=Health result=2 took=617.096┬╡s
+ts=2025-10-18T09:36:03.382237158Z caller=middlewares.go:153 method=Health result=2 took=655.414┬╡s
+ts=2025-10-18T09:36:05.472621972Z caller=middlewares.go:153 method=Health result=2 took=708.33┬╡s
+ts=2025-10-18T09:36:08.381982934Z caller=middlewares.go:153 method=Health result=2 took=602.073┬╡s
+ts=2025-10-18T09:36:11.168287605Z caller=middlewares.go:153 method=Health result=2 took=492.825┬╡s
+ts=2025-10-18T09:36:13.258150387Z caller=middlewares.go:153 method=Health result=2 took=629.98┬╡s
+ts=2025-10-18T09:36:16.167996035Z caller=middlewares.go:153 method=Health result=2 took=546.012┬╡s
+ts=2025-10-18T09:36:21.168643392Z caller=middlewares.go:153 method=Health result=2 took=668.978┬╡s
+ts=2025-10-18T09:36:23.259147856Z caller=middlewares.go:153 method=Health result=2 took=707.656┬╡s
+ts=2025-10-18T09:36:26.168911042Z caller=middlewares.go:153 method=Health result=2 took=689.146┬╡s
+ts=2025-10-18T09:36:31.167685025Z caller=middlewares.go:153 method=Health result=2 took=548.322┬╡s
+ts=2025-10-18T09:36:33.258464796Z caller=middlewares.go:153 method=Health result=2 took=517.112┬╡s
+ts=2025-10-18T09:36:36.168274583Z caller=middlewares.go:153 method=Health result=2 took=836.948┬╡s
+ts=2025-10-18T09:36:38.914527242Z caller=middlewares.go:153 method=Health result=2 took=594.128┬╡s
+ts=2025-10-18T09:36:41.005924358Z caller=middlewares.go:153 method=Health result=2 took=620.493┬╡s
+ts=2025-10-18T09:36:43.915052258Z caller=middlewares.go:153 method=Health result=2 took=589.351┬╡s
+ts=2025-10-18T09:36:48.91444056Z caller=middlewares.go:153 method=Health result=2 took=495.89┬╡s
+ts=2025-10-18T09:36:51.0046537Z caller=middlewares.go:153 method=Health result=2 took=500.275┬╡s
+ts=2025-10-18T09:36:53.913837136Z caller=middlewares.go:153 method=Health result=2 took=697.769┬╡s
+ts=2025-10-18T09:36:58.914546995Z caller=middlewares.go:153 method=Health result=2 took=515.526┬╡s
+ts=2025-10-18T09:37:01.005223602Z caller=middlewares.go:153 method=Health result=2 took=652.851┬╡s
+ts=2025-10-18T09:37:03.914080227Z caller=middlewares.go:153 method=Health result=2 took=776.351┬╡s
+ts=2025-10-18T09:37:06.700159416Z caller=middlewares.go:153 method=Health result=2 took=894.06┬╡s
+ts=2025-10-18T09:37:08.789823145Z caller=middlewares.go:153 method=Health result=2 took=561.07┬╡s
+ts=2025-10-18T09:37:11.699333491Z caller=middlewares.go:153 method=Health result=2 took=604.685┬╡s
+ts=2025-10-18T09:37:16.698677375Z caller=middlewares.go:153 method=Health result=2 took=761.634┬╡s
+ts=2025-10-18T09:37:18.790051478Z caller=middlewares.go:153 method=Health result=2 took=682.62┬╡s
+ts=2025-10-18T09:37:21.699321581Z caller=middlewares.go:153 method=Health result=2 took=853.411┬╡s
+ts=2025-10-18T09:37:26.699422109Z caller=middlewares.go:153 method=Health result=2 took=681.044┬╡s
+ts=2025-10-18T09:37:28.790386296Z caller=middlewares.go:153 method=Health result=2 took=756.1┬╡s

@@ -1,0 +1,17 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: sm-rabbitmq
+  namespace: monitoring
+  labels:
+    release: kps
+spec:
+  namespaceSelector:
+    matchNames: ["sock-shop"]
+  selector:
+    matchLabels:
+      name: rabbitmq
+  endpoints:
+  - port: metrics
+    interval: 15s
+    path: /metrics

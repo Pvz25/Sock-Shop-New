@@ -1,0 +1,35 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: locust-login-burst
+  namespace: sock-shop
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: locust
+          image: python:3.11-slim
+          command: ["/bin/sh","-lc"]
+          args:
+            - |
+              pip install --no-cache-dir locust==2.32.2 && \
+              cat > /tmp/locustfile.py <<'PY'
+              from locust import HttpUser, task, between
+              class WebUser(HttpUser):
+                  wait_time = between(1, 2.5)
+                  @task
+                  def login(self):
+                      self.client.post("/login", json={"username":"user","password":"password"})
+              PY
+              locust -f /tmp/locustfile.py \
+                --host http://front-end.sock-shop.svc.cluster.local:80 \
+                --headless -u 1500 -r 150 -t 2m
+          resources:
+            requests:
+              cpu: "200m"
+              memory: "256Mi"
+            limits:
+              cpu: "1"
+              memory: "512Mi"

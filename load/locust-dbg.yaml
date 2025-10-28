@@ -1,0 +1,76 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: locustfile-cm
+  namespace: sock-shop
+data:
+  locustfile.py: |
+    from locust import HttpUser, task, between
+    import os
+
+    PATH = os.getenv("LOGIN_PATH", "/")  # safer default for debug
+
+    class WebUser(HttpUser):
+        wait_time = between(1, 2.5)
+
+        @task
+        def ping(self):
+            with self.client.get(PATH, name="PING", catch_response=True) as r:
+                if r.status_code not in (200, 302):
+                    r.failure(f"Unexpected status {r.status_code}")
+
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: locust-login-burst-quick
+  namespace: sock-shop
+spec:
+  backoffLimit: 0
+  template:
+    metadata:
+      labels:
+        app: locust
+    spec:
+      restartPolicy: Never
+      volumes:
+        - name: locustfile
+          configMap:
+            name: locustfile-cm
+            items:
+              - key: locustfile.py
+                path: locustfile.py
+      containers:
+        - name: locust
+          image: locustio/locust:2.32.1
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: LOCUST_HOST
+              value: "http://front-end.sock-shop.svc.cluster.local"
+            - name: LOGIN_PATH
+              value: "/"         # switch to "/login" after debug passes
+            - name: USERS
+              value: "100"
+            - name: SPAWN_RATE
+              value: "50"
+            - name: RUN_TIME
+              value: "45s"
+          volumeMounts:
+            - name: locustfile
+              mountPath: /mnt/locust
+          workingDir: /mnt/locust
+          command: ["/bin/sh","-lc"]
+          args:
+            - |
+              set -e
+              echo "PATH=$PATH"
+              echo "which locust =>"
+              which locust || true
+              echo "try absolute /usr/local/bin/locust --version =>"
+              /usr/local/bin/locust --version
+              echo "launching..."
+              /usr/local/bin/locust -f locustfile.py \
+                --host "${LOCUST_HOST}" \
+                --headless \
+                -u "${USERS}" -r "${SPAWN_RATE}" \
+                --run-time "${RUN_TIME}"

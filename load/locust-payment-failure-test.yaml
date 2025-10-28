@@ -1,0 +1,112 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: locustfile-payment-failure
+  namespace: sock-shop
+data:
+  locustfile.py: |
+    from locust import HttpUser, task, between
+    import json
+
+    class CheckoutUser(HttpUser):
+        wait_time = between(2, 4)
+        
+        def on_start(self):
+            """Login before placing orders"""
+            # Login
+            self.client.post("/login", json={"username": "user", "password": "password"})
+        
+        @task
+        def place_order_with_payment_failure(self):
+            """Simulate order placement with payment service down"""
+            
+            # Create order (this will fail due to payment service down)
+            response = self.client.post("/orders", json={
+                "customer": {"username": "user"},
+                "address": {
+                    "street": "123 Main St",
+                    "city": "Springfield",
+                    "postcode": "12345",
+                    "country": "USA"
+                },
+                "card": {
+                    "longNum": "4111111111111111",
+                    "expires": "12/25",
+                    "ccv": "123"
+                },
+                "items": [{
+                    "itemId": "03fef6ac-1896-4ce8-bd69-b798f85c6e0b",
+                    "quantity": 1
+                }]
+            }, catch_response=True, name="Place Order (Payment Down)")
+            
+            # We EXPECT this to fail with 500 error
+            if response.status_code == 500:
+                print(f"✅ EXPECTED FAILURE: {response.status_code} - {response.text[:100]}")
+                response.success()  # Mark as success for test purposes
+            elif response.status_code == 201:
+                print(f"❌ UNEXPECTED SUCCESS: Order should have failed!")
+                response.failure("Order succeeded when payment should be down!")
+            else:
+                print(f"⚠️  UNEXPECTED STATUS: {response.status_code} - {response.text[:100]}")
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: locust-payment-failure
+  namespace: sock-shop
+spec:
+  backoffLimit: 0
+  template:
+    metadata:
+      labels:
+        app: locust-payment-failure
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: locust
+          image: locustio/locust:2.32.1
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: LOCUST_HOST
+              value: "http://front-end.sock-shop.svc.cluster.local"
+            - name: USERS
+              value: "5"          # Small number - we want specific failed orders
+            - name: SPAWN_RATE
+              value: "1"
+            - name: RUN_TIME
+              value: "1m"
+          volumeMounts:
+            - name: locustfile
+              mountPath: /mnt/locust
+          workingDir: /mnt/locust
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+          command: ["sh", "-c"]
+          args:
+            - |
+              echo "=========================================="
+              echo "INCIDENT 3: PAYMENT FAILURE TEST"
+              echo "Target: $LOCUST_HOST"
+              echo "Creating failed order transactions..."
+              echo "=========================================="
+              locust -f locustfile.py \
+                --host "$LOCUST_HOST" \
+                --headless \
+                -u "$USERS" \
+                -r "$SPAWN_RATE" \
+                --run-time "$RUN_TIME" \
+                --loglevel INFO
+              echo "=========================================="
+              echo "Failed transactions generated"
+              echo "Check orders with: kubectl -n sock-shop exec -it deployment/orders -- curl -s http://localhost:8080/orders"
+              echo "=========================================="
+      volumes:
+        - name: locustfile
+          configMap:
+            name: locustfile-payment-failure

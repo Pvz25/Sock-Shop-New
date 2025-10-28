@@ -1,0 +1,74 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: locustfile-cm
+  namespace: sock-shop
+data:
+  locustfile.py: |
+    from locust import HttpUser, task, between
+    import os
+
+    LOGIN_PATH = os.getenv("LOGIN_PATH", "/login")  # set "/" if your app has no login route
+
+    class LoginUser(HttpUser):
+        wait_time = between(1, 2.5)
+
+        @task
+        def login(self):
+            # GET-based login page check (200/302 OK). If you actually POST to login, replace with self.client.post(...)
+            with self.client.get(LOGIN_PATH, name="LOGIN", catch_response=True) as r:
+                if r.status_code not in (200, 302):
+                    r.failure(f"Unexpected status {r.status_code}")
+
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: locust-login-burst
+  namespace: sock-shop
+spec:
+  backoffLimit: 0
+  template:
+    metadata:
+      labels:
+        app: locust
+        # Add job-name label to satisfy any pre-existing selector expectations
+        job-name: locust-login-burst
+        batch.kubernetes.io/job-name: locust-login-burst
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: locust
+          image: locustio/locust:2.32.1
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: LOCUST_HOST
+              value: "http://front-end.sock-shop.svc.cluster.local"
+            - name: LOGIN_PATH
+              value: "/login"        # set "/" if your app has no login route; or switch code to POST if needed
+            - name: USERS
+              value: "2000"
+            - name: SPAWN_RATE
+              value: "200"
+            - name: RUN_TIME
+              value: "3m"
+          volumeMounts:
+            - name: locustfile
+              mountPath: /mnt/locust
+          workingDir: /mnt/locust
+          command: ["sh", "-lc"]
+          args:
+            - |
+              echo "Starting Locust against $LOCUST_HOST (LOGIN_PATH=$LOGIN_PATH) ..."
+              locust -f locustfile.py \
+                --host "$LOCUST_HOST" \
+                --headless \
+                -u "$USERS" -r "$SPAWN_RATE" \
+                --run-time "$RUN_TIME"
+      volumes:
+        - name: locustfile
+          configMap:
+            name: locustfile-cm
+            items:
+              - key: locustfile.py
+                path: locustfile.py

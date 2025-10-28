@@ -1,0 +1,1027 @@
+apiVersion: project.openshift.io/v1
+kind: Project
+metadata:
+  labels:
+    kubernetes.io/metadata.name: sock-shop
+    pod-security.kubernetes.io/audit: privileged
+    pod-security.kubernetes.io/audit-version: v1.24
+    pod-security.kubernetes.io/enforce: privileged
+    pod-security.kubernetes.io/warn: privileged
+    pod-security.kubernetes.io/warn-version: v1.24
+    security.openshift.io/scc.podSecurityLabelSync: "false"
+  name: sock-shop
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    name: carts
+  name: carts
+  namespace: sock-shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: carts
+  template:
+    metadata:
+      labels:
+        name: carts
+    spec:
+      containers:
+      - args:
+        - -cp
+        - /opt/app.jar
+        - -Xms64m
+        - -Xmx128m
+        - -XX:+UseG1GC
+        - -Djava.security.egd=file:/dev/urandom
+        - -Dspring.zipkin.enabled=false
+        - -Dloader.path=/opt/lib
+        - org.springframework.boot.loader.PropertiesLauncher
+        - --port=8080
+        command:
+        - /usr/bin/java
+        image: quay.io/powercloud/sock-shop-carts:latest
+        imagePullPolicy: IfNotPresent
+        name: carts
+        ports:
+        - containerPort: 8080
+        resources:
+          limits:
+            cpu: 300m
+            memory: 500Mi
+          requests:
+            cpu: 100m
+            memory: 200Mi
+        securityContext:
+          capabilities:
+            drop:
+            - all
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+        volumeMounts:
+        - mountPath: /tmp
+          name: carts-vol
+      nodeSelector:
+        node-role.kubernetes.io/worker: ""
+      volumes:
+      - emptyDir:
+          medium: Memory
+        name: carts-vol
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    prometheus.io/scrape: "true"
+  labels:
+    name: carts
+  name: carts
+  namespace: sock-shop
+spec:
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    name: carts
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: carts-db-temp-pvc
+  namespace: sock-shop
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: nfs-client
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    name: carts-db
+  name: carts-db
+  namespace: sock-shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: carts-db
+  template:
+    metadata:
+      labels:
+        name: carts-db
+    spec:
+      containers:
+      - image: quay.io/mongodb/mongodb:org-4.4-standalone-ubuntu2204
+        imagePullPolicy: IfNotPresent
+        name: carts-db
+        ports:
+        - containerPort: 27017
+          name: mongo
+        securityContext:
+          readOnlyRootFilesystem: true
+        volumeMounts:
+        - mountPath: /tmp
+          name: carts-db-temp-vol
+        - mountPath: /data/db
+          name: carts-db-vol
+      nodeSelector:
+        kubernetes.io/arch: amd64
+        node-role.kubernetes.io/worker: ""
+      volumes:
+      - name: carts-db-temp-vol
+        persistentVolumeClaim:
+          claimName: carts-db-temp-pvc
+      - emptyDir:
+          medium: Memory
+        name: carts-db-vol
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: carts-db
+  name: carts-db
+  namespace: sock-shop
+spec:
+  ports:
+  - port: 27017
+    targetPort: 27017
+  selector:
+    name: carts-db
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    name: catalogue
+  name: catalogue
+  namespace: sock-shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: catalogue
+  template:
+    metadata:
+      labels:
+        name: catalogue
+    spec:
+      containers:
+      - args:
+        - -port=8080
+        - -DSN=root:admin@tcp(catalogue-db:3306)/socksdb
+        command:
+        - /opt/app
+        image: quay.io/powercloud/sock-shop-catalogue:latest
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 300
+          periodSeconds: 3
+        name: catalogue
+        ports:
+        - containerPort: 8080
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 180
+          periodSeconds: 3
+        resources:
+          limits:
+            cpu: 200m
+            memory: 200Mi
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        securityContext:
+          capabilities:
+            drop:
+            - all
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+      nodeSelector:
+        node-role.kubernetes.io/worker: ""
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    prometheus.io/scrape: "true"
+  labels:
+    name: catalogue
+  name: catalogue
+  namespace: sock-shop
+spec:
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    name: catalogue
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    name: catalogue-db
+  name: catalogue-db
+  namespace: sock-shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: catalogue-db
+  template:
+    metadata:
+      labels:
+        name: catalogue-db
+    spec:
+      containers:
+      - env:
+        - name: MARIADB_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: password
+              name: mongodb-creds
+        - name: MARIADB_USER
+          value: root
+        - name: MARIADB_DATABASE
+          value: socksdb
+        image: quay.io/powercloud/sock-shop-catalogue-db:latest
+        imagePullPolicy: IfNotPresent
+        name: catalogue-db
+        ports:
+        - containerPort: 3306
+          name: mysql
+        securityContext:
+          capabilities:
+            drop:
+            - ALL
+          privileged: false
+          seccompProfile:
+            type: RuntimeDefault
+        volumeMounts:
+        - mountPath: /var/lib/mysql
+          name: catalogue-data
+      nodeSelector:
+        kubernetes.io/arch: amd64
+        node-role.kubernetes.io/worker: ""
+      volumes:
+      - emptyDir:
+          medium: Memory
+        name: catalogue-data
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: catalogue-db
+  name: catalogue-db
+  namespace: sock-shop
+spec:
+  ports:
+  - port: 3306
+    targetPort: 3306
+  selector:
+    name: catalogue-db
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: front-end
+  namespace: sock-shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: front-end
+  template:
+    metadata:
+      labels:
+        name: front-end
+    spec:
+      containers:
+      - args:
+        - start
+        command:
+        - /usr/bin/npm
+        env:
+        - name: SESSION_REDIS
+          value: "true"
+        image: quay.io/powercloud/sock-shop-front-end:latest
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8079
+          initialDelaySeconds: 5
+          periodSeconds: 3
+        name: front-end
+        ports:
+        - containerPort: 8079
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8079
+          initialDelaySeconds: 5
+          periodSeconds: 3
+        resources:
+          limits:
+            cpu: 300m
+            memory: 1000Mi
+          requests:
+            cpu: 100m
+            memory: 300Mi
+        securityContext:
+          capabilities:
+            drop:
+            - all
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+        volumeMounts:
+        - mountPath: /opt/app-root/src/.npm/_cacache
+          name: tmp-volume
+      nodeSelector:
+        node-role.kubernetes.io/worker: ""
+      volumes:
+      - emptyDir:
+          medium: Memory
+        name: tmp-volume
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    prometheus.io/scrape: "true"
+  labels:
+    name: front-end
+  name: front-end
+  namespace: sock-shop
+spec:
+  ports:
+  - nodePort: 30001
+    port: 80
+    targetPort: 8079
+  selector:
+    name: front-end
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    name: orders
+  name: orders
+  namespace: sock-shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: orders
+  template:
+    metadata:
+      labels:
+        name: orders
+    spec:
+      containers:
+      - args:
+        - -cp
+        - /app.jar
+        - -Xms64m
+        - -Xmx128m
+        - -XX:+UseG1GC
+        - -Djava.security.egd=file:/dev/urandom
+        - -Dspring.zipkin.enabled=false
+        - -Dloader.path=/opt/lib
+        - org.springframework.boot.loader.PropertiesLauncher
+        - --port=8080
+        command:
+        - /usr/bin/java
+        image: quay.io/powercloud/sock-shop-orders:latest
+        imagePullPolicy: IfNotPresent
+        name: orders
+        ports:
+        - containerPort: 8080
+        resources:
+          limits:
+            cpu: 500m
+            memory: 500Mi
+          requests:
+            cpu: 100m
+            memory: 300Mi
+        securityContext:
+          capabilities:
+            drop:
+            - all
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+        volumeMounts:
+        - mountPath: /tmp
+          name: tmp-volume
+      nodeSelector:
+        node-role.kubernetes.io/worker: ""
+      volumes:
+      - emptyDir:
+          medium: Memory
+        name: tmp-volume
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    prometheus.io/scrape: "true"
+  labels:
+    name: orders
+  name: orders
+  namespace: sock-shop
+spec:
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    name: orders
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: orders-db-temp-pvc
+  namespace: sock-shop
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: nfs-client
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    name: orders-db
+  name: orders-db
+  namespace: sock-shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: orders-db
+  template:
+    metadata:
+      labels:
+        name: orders-db
+    spec:
+      containers:
+      - image: quay.io/mongodb/mongodb:org-4.4-standalone-ubuntu2204
+        imagePullPolicy: IfNotPresent
+        name: orders-db
+        ports:
+        - containerPort: 27017
+          name: mongo
+        securityContext:
+          readOnlyRootFilesystem: true
+        volumeMounts:
+        - mountPath: /tmp
+          name: orders-db-temp-vol
+        - mountPath: /data/db
+          name: orders-db-vol
+      nodeSelector:
+        kubernetes.io/arch: amd64
+        node-role.kubernetes.io/worker: ""
+      volumes:
+      - emptyDir:
+          medium: Memory
+        name: orders-db-vol
+      - name: orders-db-temp-vol
+        persistentVolumeClaim:
+          claimName: orders-db-temp-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: orders-db
+  name: orders-db
+  namespace: sock-shop
+spec:
+  ports:
+  - port: 27017
+    targetPort: 27017
+  selector:
+    name: orders-db
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    name: payment
+  name: payment
+  namespace: sock-shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: payment
+  template:
+    metadata:
+      labels:
+        name: payment
+    spec:
+      containers:
+      - args:
+        - -port=8080
+        command:
+        - /payment/app
+        image: quay.io/powercloud/sock-shop-payment:latest
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 60
+          periodSeconds: 5
+        name: payment
+        ports:
+        - containerPort: 8080
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 60
+          periodSeconds: 5
+        resources:
+          limits:
+            cpu: 200m
+            memory: 200Mi
+          requests:
+            cpu: 99m
+            memory: 100Mi
+        securityContext:
+          capabilities:
+            add:
+            - NET_BIND_SERVICE
+            drop:
+            - all
+          privileged: false
+          runAsNonRoot: true
+      nodeSelector:
+        node-role.kubernetes.io/worker: ""
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    prometheus.io/scrape: "true"
+  labels:
+    name: payment
+  name: payment
+  namespace: sock-shop
+spec:
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    name: payment
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    name: queue-master
+  name: queue-master
+  namespace: sock-shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: queue-master
+  template:
+    metadata:
+      labels:
+        name: queue-master
+    spec:
+      containers:
+      - args:
+        - -cp
+        - /opt/app.jar
+        - -Dloader.path=/opt/lib
+        - org.springframework.boot.loader.PropertiesLauncher
+        - --port=8080
+        command:
+        - /usr/bin/java
+        env:
+        - name: JAVA_OPTS
+          value: -Xms64m -Xmx128m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom
+            -Dspring.zipkin.enabled=false
+        image: quay.io/powercloud/sock-shop-queue-master:latest
+        imagePullPolicy: IfNotPresent
+        name: queue-master
+        ports:
+        - containerPort: 8080
+        resources:
+          limits:
+            cpu: 300m
+            memory: 500Mi
+          requests:
+            cpu: 100m
+            memory: 300Mi
+      nodeSelector:
+        node-role.kubernetes.io/worker: ""
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    prometheus.io/scrape: "true"
+  labels:
+    name: queue-master
+  name: queue-master
+  namespace: sock-shop
+spec:
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    name: queue-master
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    name: rabbitmq
+  name: rabbitmq
+  namespace: sock-shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: rabbitmq
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "false"
+      labels:
+        name: rabbitmq
+    spec:
+      containers:
+      - args:
+        - /usr/local/bin/docker-entrypoint.sh
+        - rabbitmq-server
+        command:
+        - /usr/bin/bash
+        image: quay.io/powercloud/rabbitmq:latest
+        imagePullPolicy: IfNotPresent
+        name: rabbitmq
+        ports:
+        - containerPort: 15672
+          name: management
+        - containerPort: 5672
+          name: rabbitmq
+        securityContext:
+          readOnlyRootFilesystem: false
+      - image: ghcr.io/kbudde/rabbitmq_exporter:1.0.0
+        imagePullPolicy: IfNotPresent
+        name: rabbitmq-exporter
+        ports:
+        - containerPort: 9090
+          name: exporter
+      nodeSelector:
+        kubernetes.io/arch: amd64
+        node-role.kubernetes.io/worker: ""
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    prometheus.io/port: "9090"
+    prometheus.io/scrape: "true"
+  labels:
+    name: rabbitmq
+  name: rabbitmq
+  namespace: sock-shop
+spec:
+  ports:
+  - name: rabbitmq
+    port: 5672
+    targetPort: 5672
+  - name: exporter
+    port: 9090
+    protocol: TCP
+    targetPort: exporter
+  selector:
+    name: rabbitmq
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    name: session-db
+  name: session-db
+  namespace: sock-shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: session-db
+  template:
+    metadata:
+      annotations:
+        prometheus.io.scrape: "false"
+      labels:
+        name: session-db
+    spec:
+      containers:
+      - image: registry.redhat.io/rhel9/redis-7:1-29.1726663415
+        imagePullPolicy: IfNotPresent
+        name: session-db
+        ports:
+        - containerPort: 6379
+          name: redis
+        securityContext:
+          capabilities:
+            drop:
+            - all
+          readOnlyRootFilesystem: true
+        volumeMounts:
+        - mountPath: /data
+          name: sesion-db-vol
+      nodeSelector:
+        node-role.kubernetes.io/worker: ""
+      volumes:
+      - emptyDir:
+          medium: Memory
+        name: sesion-db-vol
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: session-db
+  name: session-db
+  namespace: sock-shop
+spec:
+  ports:
+  - port: 6379
+    targetPort: 6379
+  selector:
+    name: session-db
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    name: shipping
+  name: shipping
+  namespace: sock-shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: shipping
+  template:
+    metadata:
+      labels:
+        name: shipping
+    spec:
+      containers:
+      - args:
+        - -cp
+        - /opt/app.jar
+        - -Dloader.path=/opt/lib
+        - org.springframework.boot.loader.PropertiesLauncher
+        - --port=8080
+        command:
+        - /usr/bin/java
+        env:
+        - name: ZIPKIN
+          value: zipkin.jaeger.svc.cluster.local
+        - name: JAVA_OPTS
+          value: -Xms64m -Xmx128m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom
+            -Dspring.zipkin.enabled=false
+        image: quay.io/powercloud/sock-shop-shipping:latest
+        imagePullPolicy: IfNotPresent
+        name: shipping
+        ports:
+        - containerPort: 8080
+        resources:
+          limits:
+            cpu: 300m
+            memory: 500Mi
+          requests:
+            cpu: 100m
+            memory: 300Mi
+        securityContext:
+          capabilities:
+            add:
+            - NET_BIND_SERVICE
+            drop:
+            - all
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+        volumeMounts:
+        - mountPath: /tmp
+          name: tmp-volume
+      nodeSelector:
+        node-role.kubernetes.io/worker: ""
+      volumes:
+      - emptyDir:
+          medium: Memory
+        name: tmp-volume
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    prometheus.io/scrape: "true"
+  labels:
+    name: shipping
+  name: shipping
+  namespace: sock-shop
+spec:
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    name: shipping
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    name: user
+  name: user
+  namespace: sock-shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: user
+  template:
+    metadata:
+      labels:
+        name: user
+    spec:
+      containers:
+      - args:
+        - -port=8080
+        - -mongo-host=user-db:27017
+        command:
+        - /opt/user
+        env:
+        - name: mongo
+          value: user-db:27017
+        - name: HATEAOS
+          value: user
+        - name: USER_DATABASE
+          value: mongodb
+        image: quay.io/powercloud/sock-shop-user:latest
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 300
+          periodSeconds: 15
+        name: user
+        ports:
+        - containerPort: 8080
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 180
+          periodSeconds: 3
+        resources:
+          limits:
+            cpu: 300m
+            memory: 200Mi
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        securityContext:
+          runAsNonRoot: true
+      nodeSelector:
+        node-role.kubernetes.io/worker: ""
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    prometheus.io/scrape: "true"
+  labels:
+    name: user
+  name: user
+  namespace: sock-shop
+spec:
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    name: user
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: user-db-temp-pvc
+  namespace: sock-shop
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: nfs-client
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    name: user-db
+  name: user-db
+  namespace: sock-shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: user-db
+  template:
+    metadata:
+      labels:
+        name: user-db
+    spec:
+      containers:
+      - image: quay.io/powercloud/sock-shop-user-db:latest
+        imagePullPolicy: IfNotPresent
+        name: user-db
+        ports:
+        - containerPort: 27017
+          name: mongo
+        securityContext:
+          readOnlyRootFilesystem: true
+        volumeMounts:
+        - mountPath: /tmp
+          name: users-db-temp-vol
+        - mountPath: /data/db-users
+          name: users-db-vol
+      nodeSelector:
+        kubernetes.io/arch: amd64
+        node-role.kubernetes.io/worker: ""
+      volumes:
+      - emptyDir:
+          medium: Memory
+        name: users-db-vol
+      - name: users-db-temp-vol
+        persistentVolumeClaim:
+          claimName: user-db-temp-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: user-db
+  name: user-db
+  namespace: sock-shop
+spec:
+  ports:
+  - port: 27017
+    targetPort: 27017
+  selector:
+    name: user-db
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  labels:
+    service: front-end
+  name: sock-shop
+  namespace: sock-shop
+spec:
+  port:
+    targetPort: "8079"
+  subdomain: sock-shop
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: front-end
+    weight: 100
+  wildcardPolicy: None
+---
+apiVersion: v1
+data:
+  password: ZGVtbzEyMw==
+  username: ZGVtbw==
+kind: Secret
+metadata:
+  name: mongodb-creds
+  namespace: sock-shop
+type: Opaque

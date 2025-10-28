@@ -1,0 +1,430 @@
+
+logs-20251018-150421\carts-db.log:52:{"t":{"$date":"2025-10-18T09:12:06.203+00:00"},"s":"I",  "c":"STORAGE",  "id":20320,   "ctx":"conn3","msg":"createCollection","attr":{"namespace":"data.cart","uuidDisposition":"generated","uuid":{"uuid":{"$uuid":"5c099db9-4940-4725-9145-2fa119912b1b"}},"options":{}}}
+logs-20251018-150421\carts-db.log:53:{"t":{"$date":"2025-10-18T09:12:06.212+00:00"},"s":"I",  "c":"STORAGE",  "id":20320,   "ctx":"conn2","msg":"createCollection","attr":{"namespace":"data.cart","uuidDisposition":"generated","uuid":{"uuid":{"$uuid":"d900dd0e-e8d1-46da-b4cd-b336d2a5b429"}},"options":{}}}
+logs-20251018-150421\carts-db.log:54:{"t":{"$date":"2025-10-18T09:12:06.250+00:00"},"s":"I",  "c":"STORAGE",  "id":20279,   "ctx":"conn3","msg":"Conflicted creating a collection","attr":{"namespace":"data.cart","uuid":{"uuid":{"$uuid":"5c099db9-4940-4725-9145-2fa119912b1b"}}}}
+logs-20251018-150421\carts-db.log:55:{"t":{"$date":"2025-10-18T09:12:06.250+00:00"},"s":"I",  "c":"INDEX",    "id":20345,   "ctx":"conn2","msg":"Index build: done building","attr":{"buildUUID":null,"namespace":"data.cart","index":"_id_","commitTimestamp":{"$timestamp":{"t":0,"i":0}}}}
+logs-20251018-150421\carts-db.log:56:{"t":{"$date":"2025-10-18T09:12:06.278+00:00"},"s":"I",  "c":"COMMAND",  "id":51803,   "ctx":"conn3","msg":"Slow query","attr":{"type":"command","ns":"data.cart","command":{"insert":"cart","ordered":true,"$db":"data"},"ninserted":1,"keysInserted":1,"writeConflicts":1,"numYields":0,"reslen":60,"locks":{"ParallelBatchWriterMode":{"acquireCount":{"r":6}},"FeatureCompatibilityVersion":{"acquireCount":{"r":2,"w":4}},"ReplicationStateTransition":{"acquireCount":{"w":6}},"Global":{"acquireCount":{"r":2,"w":4}},"Database":{"acquireCount":{"r":2,"w":4}},"Collection":{"acquireCount":{"r":1,"w":4}},"Mutex":{"acquireCount":{"r":7}}},"flowControl":{"acquireCount":4,"timeAcquiringMicros":6},"storage":{},"protocol":"op_query","durationMillis":102}}
+logs-20251018-150421\carts.log:1:2025-10-18 09:11:48.683  INFO [carts,,,] 1 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+logs-20251018-150421\carts.log:2:2025-10-18 09:11:48.785  INFO [carts,,,] 1 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+logs-20251018-150421\carts.log:3:2025-10-18 09:11:53.187  INFO [carts,,,] 1 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 4399 ms
+logs-20251018-150421\carts.log:4:2025-10-18 09:12:02.143  INFO [carts,d99a58a189e13b88,0d78307d85a79937,false] 1 --- [nio-8080-exec-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:2}] to carts-db:27017
+logs-20251018-150421\carts.log:5:2025-10-18 09:12:02.886  INFO [carts,a2f56c75da394d70,c0c237683b38bf01,false] 1 --- [nio-8080-exec-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:3, serverValue:3}] to carts-db:27017
+logs-20251018-150421\carts.log:6:2025-10-18 09:12:09.261  INFO [carts,d99a58a189e13b88,0d78307d85a79937,false] 1 --- [nio-8080-exec-1] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/ || ],methods=[OPTIONS],produces=[application/hal+json || application/json || application/*+json;charset=UTF-8]}" onto public org.springframework.http.HttpEntity<?> org.springframework.data.rest.webmvc.RepositoryController.optionsForRepositories()
+logs-20251018-150421\carts.log:7:2025-10-18 09:12:09.263  INFO [carts,d99a58a189e13b88,0d78307d85a79937,false] 1 --- [nio-8080-exec-1] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/ || ],methods=[HEAD],produces=[application/hal+json || application/json || application/*+json;charset=UTF-8]}" onto public org.springframework.http.ResponseEntity<?> org.springframework.data.rest.webmvc.RepositoryController.headForRepositories()
+logs-20251018-150421\carts.log:8:2025-10-18 09:12:09.264  INFO [carts,d99a58a189e13b88,0d78307d85a79937,false] 1 --- [nio-8080-exec-1] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/ || ],methods=[GET],produces=[application/hal+json || application/json || application/*+json;charset=UTF-8]}" onto public org.springframework.http.HttpEntity<org.springframework.data.rest.webmvc.RepositoryLinksResource> org.springframework.data.rest.webmvc.RepositoryController.listRepositories()
+logs-20251018-150421\carts.log:9:2025-10-18 09:12:09.412  INFO [carts,d99a58a189e13b88,0d78307d85a79937,false] 1 --- [nio-8080-exec-1] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}],methods=[GET],produces=[application/x-spring-data-compact+json || text/uri-list]}" onto public org.springframework.hateoas.Resources<?> org.springframework.data.rest.webmvc.RepositoryEntityController.getCollectionResourceCompact(org.springframework.data.rest.webmvc.RootResourceInformation,org.springframework.data.rest.webmvc.support.DefaultedPageable,org.springframework.data.domain.Sort,org.springframework.data.rest.webmvc.PersistentEntityResourceAssembler) throws org.springframework.data.rest.webmvc.ResourceNotFoundException,org.springframework.web.HttpRequestMethodNotSupportedException
+logs-20251018-150421\carts.log:10:2025-10-18 09:12:09.413  INFO [carts,d99a58a189e13b88,0d78307d85a79937,false] 1 --- [nio-8080-exec-1] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}],methods=[POST],produces=[application/hal+json || application/json || application/*+json;charset=UTF-8]}" onto public org.springframework.http.ResponseEntity<org.springframework.hateoas.ResourceSupport> org.springframework.data.rest.webmvc.RepositoryEntityController.postCollectionResource(org.springframework.data.rest.webmvc.RootResourceInformation,org.springframework.data.rest.webmvc.PersistentEntityResource,org.springframework.data.rest.webmvc.PersistentEntityResourceAssembler,java.lang.String) throws org.springframework.web.HttpRequestMethodNotSupportedException
+logs-20251018-150421\carts.log:11:2025-10-18 09:12:09.414  INFO [carts,d99a58a189e13b88,0d78307d85a79937,false] 1 --- [nio-8080-exec-1] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/{id}],methods=[OPTIONS],produces=[application/hal+json || application/json || application/*+json;charset=UTF-8]}" onto public org.springframework.http.ResponseEntity<?> org.springframework.data.rest.webmvc.RepositoryEntityController.optionsForItemResource(org.springframework.data.rest.webmvc.RootResourceInformation)
+logs-20251018-150421\carts.log:12:2025-10-18 09:12:09.414  INFO [carts,d99a58a189e13b88,0d78307d85a79937,false] 1 --- [nio-8080-exec-1] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/{id}],methods=[HEAD],produces=[application/hal+json || application/json || application/*+json;charset=UTF-8]}" onto public org.springframework.http.ResponseEntity<?> org.springframework.data.rest.webmvc.RepositoryEntityController.headForItemResource(org.springframework.data.rest.webmvc.RootResourceInformation,java.io.Serializable,org.springframework.data.rest.webmvc.PersistentEntityResourceAssembler) throws org.springframework.web.HttpRequestMethodNotSupportedException
+logs-20251018-150421\carts.log:13:2025-10-18 09:12:09.415  INFO [carts,d99a58a189e13b88,0d78307d85a79937,false] 1 --- [nio-8080-exec-1] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/{id}],methods=[GET],produces=[application/hal+json || application/json || application/*+json;charset=UTF-8]}" onto public org.springframework.http.ResponseEntity<org.springframework.hateoas.Resource<?>> org.springframework.data.rest.webmvc.RepositoryEntityController.getItemResource(org.springframework.data.rest.webmvc.RootResourceInformation,java.io.Serializable,org.springframework.data.rest.webmvc.PersistentEntityResourceAssembler,org.springframework.util.MultiValueMap<java.lang.String, java.lang.String>) throws org.springframework.web.HttpRequestMethodNotSupportedException
+logs-20251018-150421\carts.log:14:2025-10-18 09:12:09.415  INFO [carts,d99a58a189e13b88,0d78307d85a79937,false] 1 --- [nio-8080-exec-1] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/{id}],methods=[PUT],produces=[application/hal+json || application/json || application/*+json;charset=UTF-8]}" onto public org.springframework.http.ResponseEntity<? extends org.springframework.hateoas.ResourceSupport> org.springframework.data.rest.webmvc.RepositoryEntityController.putItemResource(org.springframework.data.rest.webmvc.RootResourceInformation,org.springframework.data.rest.webmvc.PersistentEntityResource,java.io.Serializable,org.springframework.data.rest.webmvc.PersistentEntityResourceAssembler,org.springframework.data.rest.webmvc.support.ETag,java.lang.String) throws org.springframework.web.HttpRequestMethodNotSupportedException
+logs-20251018-150421\carts.log:15:2025-10-18 09:12:09.416  INFO [carts,d99a58a189e13b88,0d78307d85a79937,false] 1 --- [nio-8080-exec-1] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/{id}],methods=[PATCH],produces=[application/hal+json || application/json || application/*+json;charset=UTF-8]}" onto public org.springframework.http.ResponseEntity<org.springframework.hateoas.ResourceSupport> org.springframework.data.rest.webmvc.RepositoryEntityController.patchItemResource(org.springframework.data.rest.webmvc.RootResourceInformation,org.springframework.data.rest.webmvc.PersistentEntityResource,java.io.Serializable,org.springframework.data.rest.webmvc.PersistentEntityResourceAssembler,org.springframework.data.rest.webmvc.support.ETag,java.lang.String) throws org.springframework.web.HttpRequestMethodNotSupportedException,org.springframework.data.rest.webmvc.ResourceNotFoundException
+logs-20251018-150421\carts.log:16:2025-10-18 09:12:09.416  INFO [carts,d99a58a189e13b88,0d78307d85a79937,false] 1 --- [nio-8080-exec-1] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/{id}],methods=[DELETE],produces=[application/hal+json || application/json || application/*+json;charset=UTF-8]}" onto public org.springframework.http.ResponseEntity<?> org.springframework.data.rest.webmvc.RepositoryEntityController.deleteItemResource(org.springframework.data.rest.webmvc.RootResourceInformation,java.io.Serializable,org.springframework.data.rest.webmvc.support.ETag) throws org.springframework.data.rest.webmvc.ResourceNotFoundException,org.springframework.web.HttpRequestMethodNotSupportedException
+logs-20251018-150421\carts.log:17:2025-10-18 09:12:09.416  INFO [carts,d99a58a189e13b88,0d78307d85a79937,false] 1 --- [nio-8080-exec-1] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}],methods=[OPTIONS],produces=[application/hal+json || application/json || application/*+json;charset=UTF-8]}" onto public org.springframework.http.ResponseEntity<?> org.springframework.data.rest.webmvc.RepositoryEntityController.optionsForCollectionResource(org.springframework.data.rest.webmvc.RootResourceInformation)
+logs-20251018-150421\carts.log:18:2025-10-18 09:12:09.460  INFO [carts,d99a58a189e13b88,0d78307d85a79937,false] 1 --- [nio-8080-exec-1] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}],methods=[HEAD],produces=[application/hal+json || application/json || application/*+json;charset=UTF-8]}" onto public org.springframework.http.ResponseEntity<?> org.springframework.data.rest.webmvc.RepositoryEntityController.headCollectionResource(org.springframework.data.rest.webmvc.RootResourceInformation,org.springframework.data.rest.webmvc.support.DefaultedPageable) throws org.springframework.web.HttpRequestMethodNotSupportedException
+logs-20251018-150421\carts.log:19:2025-10-18 09:12:09.461  INFO [carts,d99a58a189e13b88,0d78307d85a79937,false] 1 --- [nio-8080-exec-1] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}],methods=[GET],produces=[application/hal+json || application/json || application/*+json;charset=UTF-8]}" onto public org.springframework.hateoas.Resources<?> org.springframework.data.rest.webmvc.RepositoryEntityController.getCollectionResource(org.springframework.data.rest.webmvc.RootResourceInformation,org.springframework.data.rest.webmvc.support.DefaultedPageable,org.springframework.data.domain.Sort,org.springframework.data.rest.webmvc.PersistentEntityResourceAssembler) throws org.springframework.data.rest.webmvc.ResourceNotFoundException,org.springframework.web.HttpRequestMethodNotSupportedException
+logs-20251018-150421\carts.log:20:2025-10-18 09:12:09.513  INFO [carts,d99a58a189e13b88,0d78307d85a79937,false] 1 --- [nio-8080-exec-1] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/{id}/{property}],methods=[GET],produces=[application/hal+json || application/json || application/*+json;charset=UTF-8]}" onto public org.springframework.http.ResponseEntity<org.springframework.hateoas.ResourceSupport> org.springframework.data.rest.webmvc.RepositoryPropertyReferenceController.followPropertyReference(org.springframework.data.rest.webmvc.RootResourceInformation,java.io.Serializable,java.lang.String,org.springframework.data.rest.webmvc.PersistentEntityResourceAssembler) throws java.lang.Exception
+logs-20251018-150421\carts.log:21:2025-10-18 09:12:09.513  INFO [carts,d99a58a189e13b88,0d78307d85a79937,false] 1 --- [nio-8080-exec-1] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/{id}/{property}/{propertyId}],methods=[GET],produces=[application/hal+json || application/json || application/*+json;charset=UTF-8]}" onto public org.springframework.http.ResponseEntity<org.springframework.hateoas.ResourceSupport> org.springframework.data.rest.webmvc.RepositoryPropertyReferenceController.followPropertyReference(org.springframework.data.rest.webmvc.RootResourceInformation,java.io.Serializable,java.lang.String,java.lang.String,org.springframework.data.rest.webmvc.PersistentEntityResourceAssembler) throws java.lang.Exception
+logs-20251018-150421\carts.log:22:2025-10-18 09:12:09.514  INFO [carts,d99a58a189e13b88,0d78307d85a79937,false] 1 --- [nio-8080-exec-1] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/{id}/{property}],methods=[DELETE],produces=[application/hal+json || application/json || application/*+json;charset=UTF-8]}" onto public org.springframework.http.ResponseEntity<? extends org.springframework.hateoas.ResourceSupport> org.springframework.data.rest.webmvc.RepositoryPropertyReferenceController.deletePropertyReference(org.springframework.data.rest.webmvc.RootResourceInformation,java.io.Serializable,java.lang.String) throws java.lang.Exception
+logs-20251018-150421\carts.log:23:2025-10-18 09:12:09.514  INFO [carts,d99a58a189e13b88,0d78307d85a79937,false] 1 --- [nio-8080-exec-1] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/{id}/{property}],methods=[GET],produces=[application/x-spring-data-compact+json || text/uri-list]}" onto public org.springframework.http.ResponseEntity<org.springframework.hateoas.ResourceSupport> org.springframework.data.rest.webmvc.RepositoryPropertyReferenceController.followPropertyReferenceCompact(org.springframework.data.rest.webmvc.RootResourceInformation,java.io.Serializable,java.lang.String,org.springframework.data.rest.webmvc.PersistentEntityResourceAssembler) throws java.lang.Exception
+logs-20251018-150421\carts.log:24:2025-10-18 09:12:09.514  INFO [carts,d99a58a189e13b88,0d78307d85a79937,false] 1 --- [nio-8080-exec-1] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/{id}/{property}],methods=[PATCH || PUT || POST],consumes=[application/json || application/x-spring-data-compact+json || text/uri-list],produces=[application/hal+json || application/json || application/*+json;charset=UTF-8]}" onto public org.springframework.http.ResponseEntity<? extends org.springframework.hateoas.ResourceSupport> org.springframework.data.rest.webmvc.RepositoryPropertyReferenceController.createPropertyReference(org.springframework.data.rest.webmvc.RootResourceInformation,org.springframework.http.HttpMethod,org.springframework.hateoas.Resources<java.lang.Object>,java.io.Serializable,java.lang.String) throws java.lang.Exception
+logs-20251018-150421\carts.log:25:2025-10-18 09:12:09.514  INFO [carts,d99a58a189e13b88,0d78307d85a79937,false] 1 --- [nio-8080-exec-1] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/{id}/{property}/{propertyId}],methods=[DELETE],produces=[application/hal+json || application/json || application/*+json;charset=UTF-8]}" onto public org.springframework.http.ResponseEntity<org.springframework.hateoas.ResourceSupport> org.springframework.data.rest.webmvc.RepositoryPropertyReferenceController.deletePropertyReferenceId(org.springframework.data.rest.webmvc.RootResourceInformation,java.io.Serializable,java.lang.String,java.lang.String) throws java.lang.Exception
+logs-20251018-150421\carts.log:26:2025-10-18 09:12:09.516  INFO [carts,d99a58a189e13b88,0d78307d85a79937,false] 1 --- [nio-8080-exec-1] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/search],methods=[GET],produces=[application/hal+json || application/json || application/*+json;charset=UTF-8]}" onto public org.springframework.data.rest.webmvc.RepositorySearchesResource org.springframework.data.rest.webmvc.RepositorySearchController.listSearches(org.springframework.data.rest.webmvc.RootResourceInformation)
+logs-20251018-150421\carts.log:27:2025-10-18 09:12:09.516  INFO [carts,d99a58a189e13b88,0d78307d85a79937,false] 1 --- [nio-8080-exec-1] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/search/{search}],methods=[GET],produces=[application/hal+json || application/json || application/*+json;charset=UTF-8]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> org.springframework.data.rest.webmvc.RepositorySearchController.executeSearch(org.springframework.data.rest.webmvc.RootResourceInformation,org.springframework.util.MultiValueMap<java.lang.String, java.lang.Object>,java.lang.String,org.springframework.data.rest.webmvc.support.DefaultedPageable,org.springframework.data.domain.Sort,org.springframework.data.rest.webmvc.PersistentEntityResourceAssembler)
+logs-20251018-150421\carts.log:28:2025-10-18 09:12:09.517  INFO [carts,d99a58a189e13b88,0d78307d85a79937,false] 1 --- [nio-8080-exec-1] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/search/{search}],methods=[GET],produces=[application/x-spring-data-compact+json]}" onto public org.springframework.hateoas.ResourceSupport org.springframework.data.rest.webmvc.RepositorySearchController.executeSearchCompact(org.springframework.data.rest.webmvc.RootResourceInformation,org.springframework.util.MultiValueMap<java.lang.String, java.lang.Object>,java.lang.String,java.lang.String,org.springframework.data.rest.webmvc.support.DefaultedPageable,org.springframework.data.domain.Sort,org.springframework.data.rest.webmvc.PersistentEntityResourceAssembler)
+logs-20251018-150421\carts.log:29:2025-10-18 09:12:09.517  INFO [carts,d99a58a189e13b88,0d78307d85a79937,false] 1 --- [nio-8080-exec-1] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/search/{search}],methods=[OPTIONS],produces=[application/hal+json || application/json || application/*+json;charset=UTF-8]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> org.springframework.data.rest.webmvc.RepositorySearchController.optionsForSearch(org.springframework.data.rest.webmvc.RootResourceInformation,java.lang.String)
+logs-20251018-150421\carts.log:30:2025-10-18 09:12:09.517  INFO [carts,d99a58a189e13b88,0d78307d85a79937,false] 1 --- [nio-8080-exec-1] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/search/{search}],methods=[HEAD],produces=[application/hal+json || application/json || application/*+json;charset=UTF-8]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> org.springframework.data.rest.webmvc.RepositorySearchController.headForSearch(org.springframework.data.rest.webmvc.RootResourceInformation,java.lang.String)
+logs-20251018-150421\carts.log:31:2025-10-18 09:12:09.517  INFO [carts,d99a58a189e13b88,0d78307d85a79937,false] 1 --- [nio-8080-exec-1] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/search],methods=[HEAD],produces=[application/hal+json || application/json || application/*+json;charset=UTF-8]}" onto public org.springframework.http.HttpEntity<?> org.springframework.data.rest.webmvc.RepositorySearchController.headForSearches(org.springframework.data.rest.webmvc.RootResourceInformation)
+logs-20251018-150421\carts.log:32:2025-10-18 09:12:09.517  INFO [carts,d99a58a189e13b88,0d78307d85a79937,false] 1 --- [nio-8080-exec-1] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/{repository}/search],methods=[OPTIONS],produces=[application/hal+json || application/json || application/*+json;charset=UTF-8]}" onto public org.springframework.http.HttpEntity<?> org.springframework.data.rest.webmvc.RepositorySearchController.optionsForSearches(org.springframework.data.rest.webmvc.RootResourceInformation)
+logs-20251018-150421\front-end.log:3:Request received: /cart, undefined
+logs-20251018-150421\front-end.log:9:Attempting to add to cart: {"id":"510a0d7e-8e83-4193-b483-e27e09ddc34d"}
+logs-20251018-150421\front-end.log:12:POST to carts: http://carts/carts/0Ejzd-HXkwrbbUfWHwoYX1msuQp3dC7T/items body: {"itemId":"510a0d7e-8e83-4193-b483-e27e09ddc34d","unitPrice":15}
+logs-20251018-150421\front-end.log:16:POST /cart 201 - ms - -
+logs-20251018-150421\front-end.log:17:GET /cart 200 - ms - -
+logs-20251018-150421\front-end.log:18:Request received: /cart, undefined
+logs-20251018-150421\front-end.log:20:GET /cart 200 - ms - -
+logs-20251018-150421\front-end.log:21:Request received: /cart, undefined
+logs-20251018-150421\front-end.log:23:GET /cart 200 - ms - -
+logs-20251018-150421\front-end.log:24:Request received: /cart, undefined
+logs-20251018-150421\front-end.log:27:GET /cart 200 - ms - -
+logs-20251018-150421\front-end.log:29:Received login request
+logs-20251018-150421\front-end.log:32:GET /login 401 53.980 ms - -
+logs-20251018-150421\front-end.log:33:Received login request
+logs-20251018-150421\front-end.log:36:GET /login 401 6.694 ms - -
+logs-20251018-150421\front-end.log:37:Received login request
+logs-20251018-150421\front-end.log:40:GET /login 401 10.179 ms - -
+logs-20251018-150421\front-end.log:41:Received login request
+logs-20251018-150421\front-end.log:44:GET /login 401 8.500 ms - -
+logs-20251018-150421\front-end.log:45:Received login request
+logs-20251018-150421\front-end.log:48:GET /login 401 5.837 ms - -
+logs-20251018-150421\front-end.log:49:Received login request
+logs-20251018-150421\front-end.log:52:GET /login 401 7.089 ms - -
+logs-20251018-150421\front-end.log:53:Received login request
+logs-20251018-150421\front-end.log:56:GET /login 401 16.678 ms - -
+logs-20251018-150421\front-end.log:57:Received login request
+logs-20251018-150421\front-end.log:60:GET /login 401 7.084 ms - -
+logs-20251018-150421\front-end.log:61:Received login request
+logs-20251018-150421\front-end.log:64:GET /login 401 9.302 ms - -
+logs-20251018-150421\front-end.log:65:Received login request
+logs-20251018-150421\front-end.log:68:GET /login 401 5.949 ms - -
+logs-20251018-150421\front-end.log:69:Received login request
+logs-20251018-150421\front-end.log:72:GET /login 401 10.143 ms - -
+logs-20251018-150421\front-end.log:73:Received login request
+logs-20251018-150421\front-end.log:76:GET /login 401 6.008 ms - -
+logs-20251018-150421\front-end.log:77:Received login request
+logs-20251018-150421\front-end.log:80:GET /login 401 5.734 ms - -
+logs-20251018-150421\front-end.log:81:Received login request
+logs-20251018-150421\front-end.log:84:GET /login 401 7.750 ms - -
+logs-20251018-150421\front-end.log:85:Received login request
+logs-20251018-150421\front-end.log:88:GET /login 401 7.588 ms - -
+logs-20251018-150421\front-end.log:89:Received login request
+logs-20251018-150421\front-end.log:92:GET /login 401 6.154 ms - -
+logs-20251018-150421\front-end.log:93:Received login request
+logs-20251018-150421\front-end.log:96:GET /login 401 9.026 ms - -
+logs-20251018-150421\front-end.log:97:Received login request
+logs-20251018-150421\front-end.log:100:GET /login 401 5.404 ms - -
+logs-20251018-150421\front-end.log:101:Received login request
+logs-20251018-150421\front-end.log:104:GET /login 401 8.212 ms - -
+logs-20251018-150421\front-end.log:105:Received login request
+logs-20251018-150421\front-end.log:108:GET /login 401 7.123 ms - -
+logs-20251018-150421\front-end.log:109:Received login request
+logs-20251018-150421\front-end.log:112:GET /login 401 5.355 ms - -
+logs-20251018-150421\front-end.log:113:Received login request
+logs-20251018-150421\front-end.log:116:GET /login 401 8.196 ms - -
+logs-20251018-150421\front-end.log:117:Received login request
+logs-20251018-150421\front-end.log:120:GET /login 401 15.678 ms - -
+logs-20251018-150421\front-end.log:121:Received login request
+logs-20251018-150421\front-end.log:124:GET /login 401 6.475 ms - -
+logs-20251018-150421\front-end.log:125:Received login request
+logs-20251018-150421\front-end.log:128:GET /login 401 5.695 ms - -
+logs-20251018-150421\front-end.log:129:Received login request
+logs-20251018-150421\front-end.log:132:GET /login 401 6.820 ms - -
+logs-20251018-150421\front-end.log:133:Received login request
+logs-20251018-150421\front-end.log:136:GET /login 401 7.174 ms - -
+logs-20251018-150421\front-end.log:137:Received login request
+logs-20251018-150421\front-end.log:140:GET /login 401 5.325 ms - -
+logs-20251018-150421\front-end.log:141:Received login request
+logs-20251018-150421\front-end.log:144:GET /login 401 7.275 ms - -
+logs-20251018-150421\front-end.log:145:Received login request
+logs-20251018-150421\front-end.log:148:GET /login 401 6.122 ms - -
+logs-20251018-150421\front-end.log:149:Received login request
+logs-20251018-150421\front-end.log:152:GET /login 401 8.011 ms - -
+logs-20251018-150421\front-end.log:153:Received login request
+logs-20251018-150421\front-end.log:156:GET /login 401 6.575 ms - -
+logs-20251018-150421\front-end.log:157:Received login request
+logs-20251018-150421\front-end.log:160:GET /login 401 5.776 ms - -
+logs-20251018-150421\front-end.log:161:Received login request
+logs-20251018-150421\front-end.log:164:GET /login 401 5.713 ms - -
+logs-20251018-150421\front-end.log:165:Received login request
+logs-20251018-150421\front-end.log:168:GET /login 401 10.969 ms - -
+logs-20251018-150421\front-end.log:169:Received login request
+logs-20251018-150421\front-end.log:172:GET /login 401 5.826 ms - -
+logs-20251018-150421\front-end.log:173:Received login request
+logs-20251018-150421\front-end.log:176:GET /login 401 5.444 ms - -
+logs-20251018-150421\front-end.log:177:Received login request
+logs-20251018-150421\front-end.log:180:GET /login 401 8.403 ms - -
+logs-20251018-150421\front-end.log:181:Received login request
+logs-20251018-150421\front-end.log:184:GET /login 401 5.549 ms - -
+logs-20251018-150421\front-end.log:185:Received login request
+logs-20251018-150421\front-end.log:188:GET /login 401 6.039 ms - -
+logs-20251018-150421\front-end.log:189:Received login request
+logs-20251018-150421\front-end.log:192:GET /login 401 5.317 ms - -
+logs-20251018-150421\front-end.log:193:Received login request
+logs-20251018-150421\front-end.log:196:GET /login 401 5.644 ms - -
+logs-20251018-150421\front-end.log:197:Received login request
+logs-20251018-150421\front-end.log:200:GET /login 401 6.032 ms - -
+logs-20251018-150421\front-end.log:201:Received login request
+logs-20251018-150421\front-end.log:204:GET /login 401 6.099 ms - -
+logs-20251018-150421\front-end.log:205:Request received: /cart, undefined
+logs-20251018-150421\front-end.log:210:GET /cart 200 - ms - -
+logs-20251018-150421\front-end.log:211:Request received: /cart, undefined
+logs-20251018-150421\front-end.log:214:GET /cart 200 - ms - -
+logs-20251018-150421\front-end.log:219:Merging carts for customer id: 68f35a909c10d300018b6ffe and session id: 0Ejzd-HXkwrbbUfWHwoYX1msuQp3dC7T
+logs-20251018-150421\front-end.log:220:Carts merged.
+logs-20251018-150421\front-end.log:223:POST /register 200 848.495 ms - 33
+logs-20251018-150421\front-end.log:224:Request received: /cart, undefined
+logs-20251018-150421\front-end.log:230:GET /cart 200 - ms - -
+logs-20251018-150421\front-end.log:231:Request received: /cart, undefined
+logs-20251018-150421\front-end.log:234:GET /cart 200 - ms - -
+logs-20251018-150421\front-end.log:237:Request received: /cart, undefined
+logs-20251018-150421\front-end.log:239:GET /cart 200 - ms - -
+logs-20251018-150421\front-end.log:240:Received login request
+logs-20251018-150421\front-end.log:243:GET /login 401 6.736 ms - -
+logs-20251018-150421\front-end.log:244:Received login request
+logs-20251018-150421\front-end.log:247:GET /login 401 7.068 ms - -
+logs-20251018-150421\front-end.log:248:Received login request
+logs-20251018-150421\front-end.log:251:GET /login 401 9.481 ms - -
+logs-20251018-150421\front-end.log:252:Received login request
+logs-20251018-150421\front-end.log:255:GET /login 401 7.380 ms - -
+logs-20251018-150421\front-end.log:256:Received login request
+logs-20251018-150421\front-end.log:259:GET /login 401 8.389 ms - -
+logs-20251018-150421\front-end.log:260:Received login request
+logs-20251018-150421\front-end.log:263:GET /login 401 5.877 ms - -
+logs-20251018-150421\front-end.log:264:Received login request
+logs-20251018-150421\front-end.log:267:GET /login 401 9.519 ms - -
+logs-20251018-150421\front-end.log:268:Received login request
+logs-20251018-150421\front-end.log:271:GET /login 401 6.574 ms - -
+logs-20251018-150421\front-end.log:272:Received login request
+logs-20251018-150421\front-end.log:275:GET /login 401 7.920 ms - -
+logs-20251018-150421\front-end.log:276:Received login request
+logs-20251018-150421\front-end.log:279:GET /login 401 11.613 ms - -
+logs-20251018-150421\front-end.log:280:Received login request
+logs-20251018-150421\front-end.log:283:GET /login 401 6.421 ms - -
+logs-20251018-150421\front-end.log:284:Received login request
+logs-20251018-150421\front-end.log:287:GET /login 401 7.376 ms - -
+logs-20251018-150421\front-end.log:288:Received login request
+logs-20251018-150421\front-end.log:291:GET /login 401 5.304 ms - -
+logs-20251018-150421\front-end.log:292:Received login request
+logs-20251018-150421\front-end.log:295:GET /login 401 7.747 ms - -
+logs-20251018-150421\front-end.log:296:Received login request
+logs-20251018-150421\front-end.log:299:GET /login 401 8.819 ms - -
+logs-20251018-150421\front-end.log:300:Received login request
+logs-20251018-150421\front-end.log:303:GET /login 401 5.713 ms - -
+logs-20251018-150421\front-end.log:304:Received login request
+logs-20251018-150421\front-end.log:307:GET /login 401 5.399 ms - -
+logs-20251018-150421\front-end.log:308:Received login request
+logs-20251018-150421\front-end.log:311:GET /login 401 4.995 ms - -
+logs-20251018-150421\front-end.log:312:Received login request
+logs-20251018-150421\front-end.log:315:GET /login 401 8.054 ms - -
+logs-20251018-150421\front-end.log:316:Received login request
+logs-20251018-150421\front-end.log:319:GET /login 401 5.813 ms - -
+logs-20251018-150421\front-end.log:324:Merging carts for customer id: 68f35bde9c10d300018b6fff and session id: CDbblcufoWu5oRwlgr00OSRqMk2Na2G-
+logs-20251018-150421\front-end.log:325:Carts merged.
+logs-20251018-150421\front-end.log:328:POST /register 200 1434.115 ms - 33
+logs-20251018-150421\front-end.log:332:Merging carts for customer id: 68f35c679c10d300018b7000 and session id: 0Ejzd-HXkwrbbUfWHwoYX1msuQp3dC7T
+logs-20251018-150421\front-end.log:333:Carts merged.
+logs-20251018-150421\front-end.log:336:POST /register 200 527.931 ms - 33
+logs-20251018-150421\front-end.log:338:Request received: /cart, undefined
+logs-20251018-150421\front-end.log:341:GET /cart 200 - ms - -
+logs-20251018-150421\front-end.log:343:Request received: /cart, undefined
+logs-20251018-150421\front-end.log:348:GET /cart 200 - ms - -
+logs-20251018-150421\front-end.log:349:Attempting to add to cart: {"id":"03fef6ac-1896-4ce8-bd69-b798f85c6e0b"}
+logs-20251018-150421\front-end.log:352:POST to carts: http://carts/carts/68f35c679c10d300018b7000/items body: {"itemId":"03fef6ac-1896-4ce8-bd69-b798f85c6e0b","unitPrice":99.99}
+logs-20251018-150421\front-end.log:353:POST /cart 201 - ms - -
+logs-20251018-150421\front-end.log:354:Attempting to add to cart: {"id":"03fef6ac-1896-4ce8-bd69-b798f85c6e0b"}
+logs-20251018-150421\front-end.log:357:POST to carts: http://carts/carts/68f35c679c10d300018b7000/items body: {"itemId":"03fef6ac-1896-4ce8-bd69-b798f85c6e0b","unitPrice":99.99}
+logs-20251018-150421\front-end.log:358:POST /cart 201 - ms - -
+logs-20251018-150421\front-end.log:359:Request received: /cart, undefined
+logs-20251018-150421\front-end.log:365:GET /cart 200 - ms - -
+logs-20251018-150421\front-end.log:366:Request received: /cart, undefined
+logs-20251018-150421\front-end.log:369:GET /cart 200 - ms - -
+logs-20251018-150421\front-end.log:373:Request received: /cart, undefined
+logs-20251018-150421\front-end.log:377:GET /cart 200 - ms - -
+logs-20251018-150421\front-end.log:379:Request received: /cart, undefined
+logs-20251018-150421\front-end.log:383:GET /cart 200 - ms - -
+logs-20251018-150421\front-end.log:387:Request received: /cart, undefined
+logs-20251018-150421\front-end.log:393:GET /cart 200 - ms - -
+logs-20251018-150421\front-end.log:394:Request received: /cart, undefined
+logs-20251018-150421\front-end.log:397:GET /cart 200 - ms - -
+logs-20251018-150421\front-end.log:406:Posting Order: {"customer":"http://user/customers/68f35c679c10d300018b7000","address":"http://user/addresses/68f35c679c10d300018b7000","card":"http://user/cards/68f35c679c10d300018b7000","items":"http://carts/carts/68f35c679c10d300018b7000/items"}
+logs-20251018-150421\front-end.log:407:Order response: {"statusCode":406,"body":{"timestamp":1760779425771,"status":406,"error":"Not Acceptable","exception":"works.weave.socks.orders.controllers.OrdersController$PaymentDeclinedException","message":"Payment declined: amount exceeds 105.00","path":"/orders"},"headers":{"x-application-context":"orders:8080","content-type":"application/json;charset=UTF-8","transfer-encoding":"chunked","date":"Sat, 18 Oct 2025 09:23:45 GMT","connection":"close"},"request":{"uri":{"protocol":"http:","slashes":true,"auth":null,"host":"orders","port":80,"hostname":"orders","hash":null,"search":null,"query":null,"pathname":"/orders","path":"/orders","href":"http://orders/orders"},"method":"POST","headers":{"accept":"application/json","content-type":"application/json","content-length":232}}}
+logs-20251018-150421\front-end.log:408:Order response: {"timestamp":1760779425771,"status":406,"error":"Not Acceptable","exception":"works.weave.socks.orders.controllers.OrdersController$PaymentDeclinedException","message":"Payment declined: amount exceeds 105.00","path":"/orders"}
+logs-20251018-150421\front-end.log:409:POST /orders 406 - ms - -
+logs-20251018-150421\front-end.log:410:Request received: /cart, undefined
+logs-20251018-150421\front-end.log:416:GET /cart 200 - ms - -
+logs-20251018-150421\front-end.log:417:Request received: /cart, undefined
+logs-20251018-150421\front-end.log:420:GET /cart 200 - ms - -
+logs-20251018-150421\front-end.log:429:Posting Order: {"customer":"http://user/customers/68f35c679c10d300018b7000","address":"http://user/addresses/68f35c679c10d300018b7000","card":"http://user/cards/68f35c679c10d300018b7000","items":"http://carts/carts/68f35c679c10d300018b7000/items"}
+logs-20251018-150421\front-end.log:430:Order response: {"statusCode":406,"body":{"timestamp":1760779430588,"status":406,"error":"Not Acceptable","exception":"works.weave.socks.orders.controllers.OrdersController$PaymentDeclinedException","message":"Payment declined: amount exceeds 105.00","path":"/orders"},"headers":{"x-application-context":"orders:8080","content-type":"application/json;charset=UTF-8","transfer-encoding":"chunked","date":"Sat, 18 Oct 2025 09:23:50 GMT","connection":"close"},"request":{"uri":{"protocol":"http:","slashes":true,"auth":null,"host":"orders","port":80,"hostname":"orders","hash":null,"search":null,"query":null,"pathname":"/orders","path":"/orders","href":"http://orders/orders"},"method":"POST","headers":{"accept":"application/json","content-type":"application/json","content-length":232}}}
+logs-20251018-150421\front-end.log:431:Order response: {"timestamp":1760779430588,"status":406,"error":"Not Acceptable","exception":"works.weave.socks.orders.controllers.OrdersController$PaymentDeclinedException","message":"Payment declined: amount exceeds 105.00","path":"/orders"}
+logs-20251018-150421\front-end.log:432:POST /orders 406 - ms - -
+logs-20251018-150421\front-end.log:433:Attempting to update cart item: {"id":"03fef6ac-1896-4ce8-bd69-b798f85c6e0b","quantity":"1"}
+logs-20251018-150421\front-end.log:436:PATCH to carts: http://carts/carts/68f35c679c10d300018b7000/items body: {"itemId":"03fef6ac-1896-4ce8-bd69-b798f85c6e0b","quantity":1,"unitPrice":99.99}
+logs-20251018-150421\front-end.log:437:POST /cart/update 202 - ms - -
+logs-20251018-150421\front-end.log:438:Request received: /cart, undefined
+logs-20251018-150421\front-end.log:443:GET /cart 200 - ms - -
+logs-20251018-150421\front-end.log:444:Request received: /cart, undefined
+logs-20251018-150421\front-end.log:448:GET /cart 200 - ms - -
+logs-20251018-150421\front-end.log:457:Posting Order: {"customer":"http://user/customers/68f35c679c10d300018b7000","address":"http://user/addresses/68f35c679c10d300018b7000","card":"http://user/cards/68f35c679c10d300018b7000","items":"http://carts/carts/68f35c679c10d300018b7000/items"}
+logs-20251018-150421\front-end.log:458:Order response: {"statusCode":500,"body":{"timestamp":1760779443813,"status":500,"error":"Internal Server Error","exception":"java.lang.IllegalStateException","message":"Unable to create order due to timeout from one of the services.","path":"/orders"},"headers":{"x-application-context":"orders:8080","content-type":"application/json;charset=UTF-8","transfer-encoding":"chunked","date":"Sat, 18 Oct 2025 09:24:03 GMT","connection":"close"},"request":{"uri":{"protocol":"http:","slashes":true,"auth":null,"host":"orders","port":80,"hostname":"orders","hash":null,"search":null,"query":null,"pathname":"/orders","path":"/orders","href":"http://orders/orders"},"method":"POST","headers":{"accept":"application/json","content-type":"application/json","content-length":232}}}
+logs-20251018-150421\front-end.log:459:Order response: {"timestamp":1760779443813,"status":500,"error":"Internal Server Error","exception":"java.lang.IllegalStateException","message":"Unable to create order due to timeout from one of the services.","path":"/orders"}
+logs-20251018-150421\front-end.log:460:POST /orders 500 - ms - -
+logs-20251018-150421\front-end.log:462:Request received: /cart, undefined
+logs-20251018-150421\front-end.log:465:GET /cart 200 - ms - -
+logs-20251018-150421\front-end.log:467:Received response: "{\n  \"_embedded\" : {\n    \"customerOrders\" : [ ]\n  },\n  \"_links\" : {\n    \"self\" : {\n      \"href\" : \"http://orders/orders/search/customerId?sort=date&custId=68f35c679c10d300018b7000\"\n    }\n  }\n}"
+logs-20251018-150421\front-end.log:468:GET /orders 201 - ms - -
+logs-20251018-150421\front-end.log:470:Request received: /cart, undefined
+logs-20251018-150421\front-end.log:473:Received response: "{\n  \"_embedded\" : {\n    \"customerOrders\" : [ ]\n  },\n  \"_links\" : {\n    \"self\" : {\n      \"href\" : \"http://orders/orders/search/customerId?sort=date&custId=68f35c679c10d300018b7000\"\n    }\n  }\n}"
+logs-20251018-150421\front-end.log:474:GET /orders 201 - ms - -
+logs-20251018-150421\front-end.log:475:GET /cart 200 - ms - -
+logs-20251018-150421\front-end.log:478:Request received: /cart, undefined
+logs-20251018-150421\front-end.log:481:Received response: "{\n  \"_embedded\" : {\n    \"customerOrders\" : [ ]\n  },\n  \"_links\" : {\n    \"self\" : {\n      \"href\" : \"http://orders/orders/search/customerId?sort=date&custId=68f35c679c10d300018b7000\"\n    }\n  }\n}"
+logs-20251018-150421\front-end.log:482:GET /orders 201 - ms - -
+logs-20251018-150421\front-end.log:483:GET /cart 200 - ms - -
+logs-20251018-150421\front-end.log:485:Request received: /cart, undefined
+logs-20251018-150421\front-end.log:489:GET /cart 200 - ms - -
+logs-20251018-150421\front-end.log:491:Request received: /cart, undefined
+logs-20251018-150421\front-end.log:495:GET /cart 200 - ms - -
+logs-20251018-150421\front-end.log:504:Posting Order: {"customer":"http://user/customers/68f35c679c10d300018b7000","address":"http://user/addresses/68f35c679c10d300018b7000","card":"http://user/cards/68f35c679c10d300018b7000","items":"http://carts/carts/68f35c679c10d300018b7000/items"}
+logs-20251018-150421\front-end.log:505:Order response: {"statusCode":201,"body":{"id":"68f35ccc8c07df000189e4e3","customerId":"68f35c679c10d300018b7000","customer":{"id":null,"firstName":"Shah","lastName":"Mohammed","username":"Rayaan","addresses":[],"cards":[]},"address":{"id":null,"number":"781","street":"Banjara hills","city":"Hyderabad","postcode":"500008","country":"India"},"card":{"id":null,"longNum":"123456789","expires":"12/25","ccv":"125"},"items":[{"id":"68f35c7400c4fa0001a66a39","itemId":"03fef6ac-1896-4ce8-bd69-b798f85c6e0b","quantity":1,"unitPrice":99.99}],"shipment":{"id":"7e778167-d3b4-47ba-9765-94cca714f811","name":"68f35c679c10d300018b7000"},"date":"2025-10-18T09:24:28.840+0000","total":104.979996},"headers":{"x-application-context":"orders:8080","content-type":"application/json;charset=UTF-8","transfer-encoding":"chunked","date":"Sat, 18 Oct 2025 09:24:29 GMT","connection":"close"},"request":{"uri":{"protocol":"http:","slashes":true,"auth":null,"host":"orders","port":80,"hostname":"orders","hash":null,"search":null,"query":null,"pathname":"/orders","path":"/orders","href":"http://orders/orders"},"method":"POST","headers":{"accept":"application/json","content-type":"application/json","content-length":232}}}
+logs-20251018-150421\front-end.log:507:POST /orders 201 - ms - -
+logs-20251018-150421\front-end.log:508:Attempting to delete cart for user: 68f35c679c10d300018b7000
+logs-20251018-150421\front-end.log:509:User cart deleted with status: 202
+logs-20251018-150421\front-end.log:510:DELETE /cart 202 - ms - -
+logs-20251018-150421\front-end.log:512:Request received: /cart, undefined
+logs-20251018-150421\front-end.log:515:GET /cart 200 - ms - -
+logs-20251018-150421\front-end.log:516:Received response: "{\n  \"_embedded\" : {\n    \"customerOrders\" : [ {\n      \"customerId\" : \"68f35c679c10d300018b7000\",\n      \"customer\" : {\n        \"firstName\" : \"Shah\",\n        \"lastName\" : \"Mohammed\",\n        \"username\" : \"Rayaan\",\n        \"addresses\" : [ ],\n        \"cards\" : [ ]\n      },\n      \"address\" : {\n        \"number\" : \"781\",\n        \"street\" : \"Banjara hills\",\n        \"city\" : \"Hyderabad\",\n        \"postcode\" : \"500008\",\n        \"country\" : \"India\"\n      },\n      \"card\" : {\n        \"longNum\" : \"123456789\",\n        \"expires\" : \"12/25\",\n        \"ccv\" : \"125\"\n      },\n      \"items\" : [ {\n        \"itemId\" : \"03fef6ac-1896-4ce8-bd69-b798f85c6e0b\",\n        \"quantity\" : 1,\n        \"unitPrice\" : 99.99\n      } ],\n      \"shipment\" : {\n        \"name\" : \"68f35c679c10d300018b7000\"\n      },\n      \"date\" : \"2025-10-18T09:24:28.840+0000\",\n      \"total\" : 104.979996,\n      \"_links\" : {\n        \"self\" : {\n          \"href\" : \"http://orders/orders/68f35ccc8c07df000189e4e3\"\n        },\n        \"order\" : {\n          \"href\" : \"http://orders/orders/68f35ccc8c07df000189e4e3\"\n        }\n      }\n    } ]\n  },\n  \"_links\" : {\n    \"self\" : {\n      \"href\" : \"http://orders/orders/search/customerId?sort=date&custId=68f35c679c10d300018b7000\"\n    }\n  }\n}"
+logs-20251018-150421\front-end.log:517:GET /orders 201 - ms - -
+logs-20251018-150421\front-end.log:518:Request received: /cart, undefined
+logs-20251018-150421\front-end.log:521:GET /cart 200 - ms - -
+logs-20251018-150421\front-end.log:522:GET /orders/68f35ccc8c07df000189e4e3 200 179.142 ms - -
+logs-20251018-150421\front-end.log:527:Merging carts for customer id: 68f35d899c10d300018b7001 and session id: sJPXBKTWpONUAV7mdU1l1tmPUatCmHbX
+logs-20251018-150421\front-end.log:528:Carts merged.
+logs-20251018-150421\front-end.log:531:POST /register 200 121.973 ms - 33
+logs-20251018-150421\front-end.log:535:Merging carts for customer id: 68f35e059c10d300018b7002 and session id: o1sbQ5WY0_JBxDLvKyFQQMgTvrtMJOhe
+logs-20251018-150421\front-end.log:536:Carts merged.
+logs-20251018-150421\front-end.log:539:POST /register 200 182.056 ms - 33
+logs-20251018-150421\front-end.log:543:Merging carts for customer id: 68f35e109c10d300018b7003 and session id: ToiayeiXs1tIUT0o26ZETS-vtlsQK0nL
+logs-20251018-150421\front-end.log:544:Carts merged.
+logs-20251018-150421\front-end.log:547:POST /register 200 217.063 ms - 33
+logs-20251018-150421\front-end.log:548:Request received: /cart, undefined
+logs-20251018-150421\front-end.log:551:GET /cart 200 - ms - -
+logs-20251018-150421\front-end.log:555:POST /register 500 84.389 ms - -
+logs-20251018-150421\front-end.log:559:POST /register 500 13.755 ms - -
+logs-20251018-150421\front-end.log:563:POST /register 500 16.983 ms - -
+logs-20251018-150421\front-end.log:567:POST /register 500 24.854 ms - -
+logs-20251018-150421\front-end.log:571:POST /register 500 14.484 ms - -
+logs-20251018-150421\front-end.log:575:POST /register 500 14.477 ms - -
+logs-20251018-150421\front-end.log:579:POST /register 500 12.088 ms - -
+logs-20251018-150421\front-end.log:583:POST /register 500 15.341 ms - -
+logs-20251018-150421\front-end.log:584:Received login request
+logs-20251018-150421\front-end.log:587:GET /login 401 12.673 ms - -
+logs-20251018-150421\front-end.log:591:POST /register 500 13.690 ms - -
+logs-20251018-150421\front-end.log:595:POST /register 500 14.357 ms - -
+logs-20251018-150421\front-end.log:599:POST /register 500 10.895 ms - -
+logs-20251018-150421\front-end.log:603:POST /register 500 11.336 ms - -
+logs-20251018-150421\front-end.log:607:POST /register 500 15.024 ms - -
+logs-20251018-150421\front-end.log:611:Merging carts for customer id: 68f35ed59c10d300018b7011 and session id: 0Ejzd-HXkwrbbUfWHwoYX1msuQp3dC7T
+logs-20251018-150421\front-end.log:612:Carts merged.
+logs-20251018-150421\front-end.log:615:POST /register 200 82.057 ms - 33
+logs-20251018-150421\front-end.log:617:Request received: /cart, undefined
+logs-20251018-150421\front-end.log:620:GET /cart 200 - ms - -
+logs-20251018-150421\front-end.log:624:Request received: /cart, undefined
+logs-20251018-150421\front-end.log:627:GET /cart 200 - ms - -
+logs-20251018-150421\front-end.log:628:Attempting to add to cart: {"id":"808a2de1-1aaa-4c25-a9b9-6612e8f29a38"}
+logs-20251018-150421\front-end.log:631:POST to carts: http://carts/carts/68f35ed59c10d300018b7011/items body: {"itemId":"808a2de1-1aaa-4c25-a9b9-6612e8f29a38","unitPrice":17.32}
+logs-20251018-150421\front-end.log:632:POST /cart 201 - ms - -
+logs-20251018-150421\front-end.log:633:Attempting to add to cart: {"id":"819e1fbf-8b7e-4f6d-811f-693534916a8b"}
+logs-20251018-150421\front-end.log:636:POST to carts: http://carts/carts/68f35ed59c10d300018b7011/items body: {"itemId":"819e1fbf-8b7e-4f6d-811f-693534916a8b","unitPrice":14}
+logs-20251018-150421\front-end.log:637:POST /cart 201 - ms - -
+logs-20251018-150421\front-end.log:638:Request received: /cart, undefined
+logs-20251018-150421\front-end.log:643:GET /cart 200 - ms - -
+logs-20251018-150421\front-end.log:653:Attempting to add to cart: {"id":"d3588630-ad8e-49df-bbd7-3167f7efb246"}
+logs-20251018-150421\front-end.log:656:POST to carts: http://carts/carts/68f35ed59c10d300018b7011/items body: {"itemId":"d3588630-ad8e-49df-bbd7-3167f7efb246","unitPrice":10.99}
+logs-20251018-150421\front-end.log:657:POST /cart 201 - ms - -
+logs-20251018-150421\front-end.log:658:Request received: /cart, undefined
+logs-20251018-150421\front-end.log:662:GET /cart 200 - ms - -
+logs-20251018-150421\front-end.log:663:Request received: /cart, undefined
+logs-20251018-150421\front-end.log:670:GET /cart 200 - ms - -
+logs-20251018-150421\front-end.log:676:Request received: /cart, undefined
+logs-20251018-150421\front-end.log:680:GET /cart 200 - ms - -
+logs-20251018-150421\front-end.log:682:Request received: /cart, undefined
+logs-20251018-150421\front-end.log:688:GET /cart 200 - ms - -
+logs-20251018-150421\front-end.log:694:Request received: /cart, undefined
+logs-20251018-150421\front-end.log:700:GET /cart 200 - ms - -
+logs-20251018-150421\front-end.log:701:Request received: /cart, undefined
+logs-20251018-150421\front-end.log:705:GET /cart 200 - ms - -
+logs-20251018-150421\front-end.log:710:Request received: /cart, undefined
+logs-20251018-150421\front-end.log:716:GET /cart 200 - ms - -
+logs-20251018-150421\front-end.log:717:Request received: /cart, undefined
+logs-20251018-150421\front-end.log:722:GET /cart 200 - ms - -
+logs-20251018-150421\front-end.log:733:Posting Order: {"customer":"http://user/customers/68f35ed59c10d300018b7011","address":"http://user/addresses/68f35ed59c10d300018b7011","card":"http://user/cards/68f35ed59c10d300018b7011","items":"http://carts/carts/68f35ed59c10d300018b7011/items"}
+logs-20251018-150421\front-end.log:734:Order response: {"statusCode":201,"body":{"id":"68f35f028c07df000189e4e4","customerId":"68f35ed59c10d300018b7011","customer":{"id":null,"firstName":"abdul","lastName":"ateeb","username":"Abdul1","addresses":[],"cards":[]},"address":{"id":null,"number":"121","street":"Banjara hills","city":"charlotte","postcode":"28117","country":"United States"},"card":{"id":null,"longNum":"123456789","expires":"12/25","ccv":"125"},"items":[{"id":"68f35edd00c4fa0001a66a40","itemId":"808a2de1-1aaa-4c25-a9b9-6612e8f29a38","quantity":1,"unitPrice":17.32},{"id":"68f35edf00c4fa0001a66a41","itemId":"819e1fbf-8b7e-4f6d-811f-693534916a8b","quantity":1,"unitPrice":14},{"id":"68f35ee400c4fa0001a66a42","itemId":"d3588630-ad8e-49df-bbd7-3167f7efb246","quantity":1,"unitPrice":10.99}],"shipment":{"id":"1108edd5-c853-44bf-a3f3-2701f1d339ae","name":"68f35ed59c10d300018b7011"},"date":"2025-10-18T09:33:54.091+0000","total":47.299995},"headers":{"x-application-context":"orders:8080","content-type":"application/json;charset=UTF-8","transfer-encoding":"chunked","date":"Sat, 18 Oct 2025 09:33:54 GMT","connection":"close"},"request":{"uri":{"protocol":"http:","slashes":true,"auth":null,"host":"orders","port":80,"hostname":"orders","hash":null,"search":null,"query":null,"pathname":"/orders","path":"/orders","href":"http://orders/orders"},"method":"POST","headers":{"accept":"application/json","content-type":"application/json","content-length":232}}}
+logs-20251018-150421\front-end.log:736:POST /orders 201 - ms - -
+logs-20251018-150421\front-end.log:737:Attempting to delete cart for user: 68f35ed59c10d300018b7011
+logs-20251018-150421\front-end.log:738:User cart deleted with status: 202
+logs-20251018-150421\front-end.log:739:DELETE /cart 202 - ms - -
+logs-20251018-150421\front-end.log:741:Request received: /cart, undefined
+logs-20251018-150421\front-end.log:744:GET /cart 200 - ms - -
+logs-20251018-150421\front-end.log:745:Received response: "{\n  \"_embedded\" : {\n    \"customerOrders\" : [ {\n      \"customerId\" : \"68f35ed59c10d300018b7011\",\n      \"customer\" : {\n        \"firstName\" : \"abdul\",\n        \"lastName\" : \"ateeb\",\n        \"username\" : \"Abdul1\",\n        \"addresses\" : [ ],\n        \"cards\" : [ ]\n      },\n      \"address\" : {\n        \"number\" : \"121\",\n        \"street\" : \"Banjara hills\",\n        \"city\" : \"charlotte\",\n        \"postcode\" : \"28117\",\n        \"country\" : \"United States\"\n      },\n      \"card\" : {\n        \"longNum\" : \"123456789\",\n        \"expires\" : \"12/25\",\n        \"ccv\" : \"125\"\n      },\n      \"items\" : [ {\n        \"itemId\" : \"808a2de1-1aaa-4c25-a9b9-6612e8f29a38\",\n        \"quantity\" : 1,\n        \"unitPrice\" : 17.32\n      }, {\n        \"itemId\" : \"819e1fbf-8b7e-4f6d-811f-693534916a8b\",\n        \"quantity\" : 1,\n        \"unitPrice\" : 14.0\n      }, {\n        \"itemId\" : \"d3588630-ad8e-49df-bbd7-3167f7efb246\",\n        \"quantity\" : 1,\n        \"unitPrice\" : 10.99\n      } ],\n      \"shipment\" : {\n        \"name\" : \"68f35ed59c10d300018b7011\"\n      },\n      \"date\" : \"2025-10-18T09:33:54.091+0000\",\n      \"total\" : 47.299995,\n      \"_links\" : {\n        \"self\" : {\n          \"href\" : \"http://orders/orders/68f35f028c07df000189e4e4\"\n        },\n        \"order\" : {\n          \"href\" : \"http://orders/orders/68f35f028c07df000189e4e4\"\n        }\n      }\n    } ]\n  },\n  \"_links\" : {\n    \"self\" : {\n      \"href\" : \"http://orders/orders/search/customerId?sort=date&custId=68f35ed59c10d300018b7011\"\n    }\n  }\n}"
+logs-20251018-150421\front-end.log:746:GET /orders 201 - ms - -
+logs-20251018-150421\front-end.log:747:Request received: /cart, undefined
+logs-20251018-150421\front-end.log:750:GET /cart 200 - ms - -
+logs-20251018-150421\front-end.log:751:GET /orders/68f35f028c07df000189e4e4 200 328.526 ms - -
+logs-20251018-150421\orders.log:20:2025-10-18 09:23:45.997  INFO [orders,a36be67a4ef5e635,a36be67a4ef5e635,false] 1 --- [nio-8080-exec-1] o.s.d.r.w.RepositoryRestHandlerMapping   : Mapped "{[/orders],methods=[POST],consumes=[application/json],produces=[application/hal+json || application/json || application/*+json;charset=UTF-8]}" onto public works.weave.socks.orders.entities.CustomerOrder works.weave.socks.orders.controllers.OrdersController.newOrder(works.weave.socks.orders.resources.NewOrderResource)
+logs-20251018-150421\user.log:959:ts=2025-10-18T09:12:11.608938583Z caller=middlewares.go:31 method=Login took=37.410567ms
+logs-20251018-150421\user.log:961:ts=2025-10-18T09:12:15.122668776Z caller=middlewares.go:31 method=Login took=885.942┬╡s
+logs-20251018-150421\user.log:964:ts=2025-10-18T09:12:16.536980116Z caller=middlewares.go:31 method=Login took=838.368┬╡s
+logs-20251018-150421\user.log:967:ts=2025-10-18T09:12:19.395974892Z caller=middlewares.go:31 method=Login took=1.366244ms
+logs-20251018-150421\user.log:969:ts=2025-10-18T09:12:19.869160671Z caller=middlewares.go:31 method=Login took=828.336┬╡s
+logs-20251018-150421\user.log:971:ts=2025-10-18T09:12:20.107349525Z caller=middlewares.go:31 method=Login took=828.628┬╡s
+logs-20251018-150421\user.log:973:ts=2025-10-18T09:12:20.361654658Z caller=middlewares.go:31 method=Login took=768.705┬╡s
+logs-20251018-150421\user.log:977:ts=2025-10-18T09:12:26.868618941Z caller=middlewares.go:31 method=Login took=868.398┬╡s
+logs-20251018-150421\user.log:984:ts=2025-10-18T09:12:41.18158109Z caller=middlewares.go:31 method=Login took=1.846586ms
+logs-20251018-150421\user.log:986:ts=2025-10-18T09:12:41.653835154Z caller=middlewares.go:31 method=Login took=865.911┬╡s
+logs-20251018-150421\user.log:988:ts=2025-10-18T09:12:41.875771416Z caller=middlewares.go:31 method=Login took=1.110278ms
+logs-20251018-150421\user.log:990:ts=2025-10-18T09:12:42.078319124Z caller=middlewares.go:31 method=Login took=845.795┬╡s
+logs-20251018-150421\user.log:992:ts=2025-10-18T09:12:42.293363577Z caller=middlewares.go:31 method=Login took=874.774┬╡s
+logs-20251018-150421\user.log:998:ts=2025-10-18T09:12:55.08609085Z caller=middlewares.go:31 method=Login took=783.65┬╡s
+logs-20251018-150421\user.log:1001:ts=2025-10-18T09:12:57.132575536Z caller=middlewares.go:31 method=Login took=1.32961ms
+logs-20251018-150421\user.log:1003:ts=2025-10-18T09:12:57.374219572Z caller=middlewares.go:31 method=Login took=879.162┬╡s
+logs-20251018-150421\user.log:1005:ts=2025-10-18T09:12:57.595875219Z caller=middlewares.go:31 method=Login took=859.337┬╡s
+logs-20251018-150421\user.log:1007:ts=2025-10-18T09:12:57.783953137Z caller=middlewares.go:31 method=Login took=807.268┬╡s
+logs-20251018-150421\user.log:1010:ts=2025-10-18T09:13:00.367233008Z caller=middlewares.go:31 method=Login took=2.141297ms
+logs-20251018-150421\user.log:1012:ts=2025-10-18T09:13:01.984989648Z caller=middlewares.go:31 method=Login took=894.225┬╡s
+logs-20251018-150421\user.log:1014:ts=2025-10-18T09:13:02.199886547Z caller=middlewares.go:31 method=Login took=921.709┬╡s
+logs-20251018-150421\user.log:1016:ts=2025-10-18T09:13:02.41251642Z caller=middlewares.go:31 method=Login took=838.449┬╡s
+logs-20251018-150421\user.log:1020:ts=2025-10-18T09:13:04.389983305Z caller=middlewares.go:31 method=Login took=940.5┬╡s
+logs-20251018-150421\user.log:1022:ts=2025-10-18T09:13:04.915775628Z caller=middlewares.go:31 method=Login took=1.357076ms
+logs-20251018-150421\user.log:1024:ts=2025-10-18T09:13:05.126898327Z caller=middlewares.go:31 method=Login took=791.311┬╡s
+logs-20251018-150421\user.log:1026:ts=2025-10-18T09:13:05.312403685Z caller=middlewares.go:31 method=Login took=981.888┬╡s
+logs-20251018-150421\user.log:1029:ts=2025-10-18T09:13:08.971201818Z caller=middlewares.go:31 method=Login took=844.791┬╡s
+logs-20251018-150421\user.log:1031:ts=2025-10-18T09:13:09.500840196Z caller=middlewares.go:31 method=Login took=867.055┬╡s
+logs-20251018-150421\user.log:1033:ts=2025-10-18T09:13:09.706878643Z caller=middlewares.go:31 method=Login took=1.448992ms
+logs-20251018-150421\user.log:1035:ts=2025-10-18T09:13:09.873820297Z caller=middlewares.go:31 method=Login took=899.61┬╡s
+logs-20251018-150421\user.log:1039:ts=2025-10-18T09:13:14.230067119Z caller=middlewares.go:31 method=Login took=1.153477ms
+logs-20251018-150421\user.log:1041:ts=2025-10-18T09:13:14.591021745Z caller=middlewares.go:31 method=Login took=859.376┬╡s
+logs-20251018-150421\user.log:1043:ts=2025-10-18T09:13:14.782144108Z caller=middlewares.go:31 method=Login took=802.06┬╡s
+logs-20251018-150421\user.log:1045:ts=2025-10-18T09:13:14.974971283Z caller=middlewares.go:31 method=Login took=1.210261ms
+logs-20251018-150421\user.log:1047:ts=2025-10-18T09:13:15.175262436Z caller=middlewares.go:31 method=Login took=1.051659ms
+logs-20251018-150421\user.log:1049:ts=2025-10-18T09:13:15.379463177Z caller=middlewares.go:31 method=Login took=877.195┬╡s
+logs-20251018-150421\user.log:1051:ts=2025-10-18T09:13:15.576952366Z caller=middlewares.go:31 method=Login took=778.568┬╡s
+logs-20251018-150421\user.log:1075:ts=2025-10-18T09:14:25.969153929Z caller=middlewares.go:31 method=Login took=2.161797ms
+logs-20251018-150421\user.log:1077:ts=2025-10-18T09:14:26.479996433Z caller=middlewares.go:31 method=Login took=999.435┬╡s
+logs-20251018-150421\user.log:1079:ts=2025-10-18T09:14:26.678513559Z caller=middlewares.go:31 method=Login took=855.137┬╡s
+logs-20251018-150421\user.log:1082:ts=2025-10-18T09:14:25.629524945Z caller=middlewares.go:31 method=Login took=785.756┬╡s
+logs-20251018-150421\user.log:1084:ts=2025-10-18T09:14:25.90031674Z caller=middlewares.go:31 method=Login took=1.027359ms
+logs-20251018-150421\user.log:1086:ts=2025-10-18T09:14:26.112881754Z caller=middlewares.go:31 method=Login took=1.438021ms
+logs-20251018-150421\user.log:1088:ts=2025-10-18T09:14:26.319701359Z caller=middlewares.go:31 method=Login took=1.025573ms
+logs-20251018-150421\user.log:1104:ts=2025-10-18T09:14:56.822072794Z caller=middlewares.go:41 method=Register username=Parvaiz email=mdp.cloud25@gmail.com took=29.330472ms
+logs-20251018-150421\user.log:1115:ts=2025-10-18T09:15:19.982962034Z caller=middlewares.go:31 method=Login took=1.32126ms
+logs-20251018-150421\user.log:1119:ts=2025-10-18T09:15:23.843571987Z caller=middlewares.go:31 method=Login took=944.736┬╡s
+logs-20251018-150421\user.log:1122:ts=2025-10-18T09:15:28.81496365Z caller=middlewares.go:31 method=Login took=1.240697ms
+logs-20251018-150421\user.log:1124:ts=2025-10-18T09:15:29.327811613Z caller=middlewares.go:31 method=Login took=1.089555ms
+logs-20251018-150421\user.log:1126:ts=2025-10-18T09:15:29.533228465Z caller=middlewares.go:31 method=Login took=1.000117ms
+logs-20251018-150421\user.log:1128:ts=2025-10-18T09:15:29.729446629Z caller=middlewares.go:31 method=Login took=755.999┬╡s
+logs-20251018-150421\user.log:1130:ts=2025-10-18T09:15:29.935867792Z caller=middlewares.go:31 method=Login took=957.758┬╡s
+logs-20251018-150421\user.log:1132:ts=2025-10-18T09:15:30.133059641Z caller=middlewares.go:31 method=Login took=871.837┬╡s
+logs-20251018-150421\user.log:1134:ts=2025-10-18T09:15:30.314113195Z caller=middlewares.go:31 method=Login took=1.364869ms
+logs-20251018-150421\user.log:1138:ts=2025-10-18T09:15:33.730367679Z caller=middlewares.go:31 method=Login took=1.252224ms
+logs-20251018-150421\user.log:1140:ts=2025-10-18T09:15:34.007168423Z caller=middlewares.go:31 method=Login took=774.605┬╡s
+logs-20251018-150421\user.log:1142:ts=2025-10-18T09:15:34.223784563Z caller=middlewares.go:31 method=Login took=888.33┬╡s
+logs-20251018-150421\user.log:1144:ts=2025-10-18T09:15:34.412662409Z caller=middlewares.go:31 method=Login took=827.301┬╡s
+logs-20251018-150421\user.log:1148:ts=2025-10-18T09:15:42.197164547Z caller=middlewares.go:31 method=Login took=1.050752ms
+logs-20251018-150421\user.log:1150:ts=2025-10-18T09:15:42.649675002Z caller=middlewares.go:31 method=Login took=929.833┬╡s
+logs-20251018-150421\user.log:1152:ts=2025-10-18T09:15:42.859682629Z caller=middlewares.go:31 method=Login took=844.338┬╡s
+logs-20251018-150421\user.log:1156:ts=2025-10-18T09:15:46.99722194Z caller=middlewares.go:31 method=Login took=934.475┬╡s
+logs-20251018-150421\user.log:1158:ts=2025-10-18T09:15:47.284762972Z caller=middlewares.go:31 method=Login took=861.696┬╡s
+logs-20251018-150421\user.log:1160:ts=2025-10-18T09:15:47.514515789Z caller=middlewares.go:31 method=Login took=2.177951ms
+logs-20251018-150421\user.log:1162:ts=2025-10-18T09:15:47.724064292Z caller=middlewares.go:31 method=Login took=963.65┬╡s
+logs-20251018-150421\user.log:1256:ts=2025-10-18T09:20:30.430192293Z caller=middlewares.go:41 method=Register username=demo email=demo@example.com took=7.947539ms
+logs-20251018-150421\user.log:1301:ts=2025-10-18T09:22:47.605295723Z caller=middlewares.go:41 method=Register username=Rayaan email=Rayaan@gmail.com took=4.783467ms
+logs-20251018-150421\user.log:1519:ts=2025-10-18T09:27:37.366917568Z caller=middlewares.go:41 method=Register username=demo_1760779656 email=demo_1760779656@example.com took=1.466599ms
+logs-20251018-150421\user.log:1560:ts=2025-10-18T09:29:41.745052268Z caller=middlewares.go:41 method=Register username=demo_1760779781 email=demo_1760779781@example.com took=1.486447ms
+logs-20251018-150421\user.log:1565:ts=2025-10-18T09:29:52.87255789Z caller=middlewares.go:41 method=Register username=demo_1760779792 email=demo_1760779792@example.com took=1.387106ms
+logs-20251018-150421\user.log:1609:ts=2025-10-18T09:32:03.737201512Z caller=middlewares.go:41 method=Register username=Parvaiz email=mdp.cloud25@gmail.com took=73.192303ms
+logs-20251018-150421\user.log:1612:ts=2025-10-18T09:32:07.364915838Z caller=middlewares.go:41 method=Register username=Parvaiz email=mdp.cloud25@gmail.com took=6.152244ms
+logs-20251018-150421\user.log:1614:ts=2025-10-18T09:32:07.766706731Z caller=middlewares.go:41 method=Register username=Parvaiz email=mdp.cloud25@gmail.com took=6.608351ms
+logs-20251018-150421\user.log:1616:ts=2025-10-18T09:32:08.000598042Z caller=middlewares.go:41 method=Register username=Parvaiz email=mdp.cloud25@gmail.com took=8.262779ms
+logs-20251018-150421\user.log:1618:ts=2025-10-18T09:32:08.186307733Z caller=middlewares.go:41 method=Register username=Parvaiz email=mdp.cloud25@gmail.com took=5.406523ms
+logs-20251018-150421\user.log:1620:ts=2025-10-18T09:32:08.406098986Z caller=middlewares.go:41 method=Register username=Parvaiz email=mdp.cloud25@gmail.com took=5.386024ms
+logs-20251018-150421\user.log:1622:ts=2025-10-18T09:32:08.61366324Z caller=middlewares.go:41 method=Register username=Parvaiz email=mdp.cloud25@gmail.com took=5.786963ms
+logs-20251018-150421\user.log:1624:ts=2025-10-18T09:32:08.823856033Z caller=middlewares.go:41 method=Register username=Parvaiz email=mdp.cloud25@gmail.com took=8.54188ms
+logs-20251018-150421\user.log:1630:ts=2025-10-18T09:32:22.247164647Z caller=middlewares.go:31 method=Login took=4.335106ms
+logs-20251018-150421\user.log:1636:ts=2025-10-18T09:32:32.089571373Z caller=middlewares.go:41 method=Register username=Parvaiz email=Parvaiz@gmail.com took=6.606835ms
+logs-20251018-150421\user.log:1638:ts=2025-10-18T09:32:33.497549153Z caller=middlewares.go:41 method=Register username=Parvaiz email=Parvaiz@gmail.com took=6.834438ms
+logs-20251018-150421\user.log:1640:ts=2025-10-18T09:32:33.714948595Z caller=middlewares.go:41 method=Register username=Parvaiz email=Parvaiz@gmail.com took=5.199805ms
+logs-20251018-150421\user.log:1642:ts=2025-10-18T09:32:33.93523088Z caller=middlewares.go:41 method=Register username=Parvaiz email=Parvaiz@gmail.com took=5.501561ms
+logs-20251018-150421\user.log:1644:ts=2025-10-18T09:32:34.127022662Z caller=middlewares.go:41 method=Register username=Parvaiz email=Parvaiz@gmail.com took=5.192056ms
+logs-20251018-150421\user.log:1658:ts=2025-10-18T09:33:09.341755639Z caller=middlewares.go:41 method=Register username=Abdul1 email=abdul1@gmail.com took=1.060071ms
+

@@ -1,0 +1,100 @@
+1                  GET View Cart: Cart slow: 8.73s                                                                     
+1                  GET View Cart: Cart slow: 8.48s                                                                     
+1                  GET View Cart: Cart slow: 8.71s                                                                     
+2                  GET Browse Catalogue: Slow response: 9.16s                                                          
+2                  GET Login Page: Login page slow: 9.15s                                                              
+1                  GET Login Page: Login page slow: 9.40s                                                              
+1                  GET Browse Catalogue: Slow response: 8.76s                                                          
+1                  GET Login Page: Login page slow: 8.91s                                                              
+1                  GET Login Page: Login page slow: 8.98s                                                              
+1                  GET Login Page: Login page slow: 9.25s                                                              
+1                  GET Login Page: Login page slow: 9.07s                                                              
+1                  GET Login Page: Login page slow: 9.14s                                                              
+2                  GET Login Page: Login page slow: 9.18s                                                              
+1                  GET Login Page: Login page slow: 9.24s                                                              
+2                  GET View Item: Slow item load: 9.15s                                                                
+1                  GET View Item: Slow item load: 8.86s                                                                
+1                  GET View Item: Slow item load: 9.34s                                                                
+1                  GET View Item: Slow item load: 9.35s                                                                
+1                  GET Browse Catalogue: Slow response: 6.35s                                                          
+1                  GET View Item: Slow item load: 8.94s                                                                
+1                  GET Browse Catalogue: Slow response: 9.29s                                                          
+1                  GET View Item: Slow item load: 9.31s                                                                
+1                  GET Browse Catalogue: Slow response: 9.31s                                                          
+1                  GET View Item: Slow item load: 9.40s                                                                
+2                  GET Browse Catalogue: Slow response: 9.18s                                                          
+2                  GET Browse Catalogue: Slow response: 8.97s                                                          
+1                  GET Browse Catalogue: Slow response: 9.45s                                                          
+1                  GET Browse Catalogue: Slow response: 9.37s                                                          
+1                  GET Browse Catalogue: Slow response: 9.49s                                                          
+2                  GET Browse Catalogue: Slow response: 9.44s                                                          
+1                  GET View Item: Slow item load: 9.42s                                                                
+3                  GET Browse Catalogue: Slow response: 9.00s                                                          
+1                  GET Browse Catalogue: Slow response: 9.41s                                                          
+2                  GET Browse Catalogue: Slow response: 8.95s                                                          
+1                  GET Browse Catalogue: Slow response: 8.96s                                                          
+2                  GET Browse Catalogue: Slow response: 9.52s                                                          
+1                  GET Browse Catalogue: Slow response: 9.27s                                                          
+2                  GET Browse Catalogue: Slow response: 9.47s                                                          
+2                  GET Browse Catalogue: Slow response: 9.22s                                                          
+1                  GET View Item: Slow item load: 9.24s                                                                
+2                  GET Browse Catalogue: Slow response: 9.42s                                                          
+1                  GET Browse Catalogue: Slow response: 9.59s                                                          
+1                  GET Browse Catalogue: Slow response: 9.02s                                                          
+1                  GET View Item: Slow item load: 9.03s                                                                
+1                  GET View Item: Slow item load: 9.56s                                                                
+1                  GET View Item: Slow item load: 9.38s                                                                
+3                  GET Browse Catalogue: Slow response: 9.34s                                                          
+1                  GET Browse Catalogue: Slow response: 9.43s                                                          
+1                  GET View Item: Slow item load: 9.41s                                                                
+1                  GET View Item: Slow item load: 9.48s                                                                
+1                  GET Browse Catalogue: Slow response: 9.36s                                                          
+1                  GET View Cart: Cart slow: 11.96s                                                                    
+1                  GET View Cart: Cart slow: 11.91s                                                                    
+1                  GET View Cart: Cart slow: 11.92s                                                                    
+1                  GET View Cart: Cart slow: 12.01s                                                                    
+1                  GET View Cart: Cart slow: 12.13s                                                                    
+1                  GET Login Page: Login page slow: 9.51s                                                              
+1                  GET View Item: Slow item load: 9.32s                                                                
+1                  GET Browse Catalogue: Slow response: 12.49s                                                         
+1                  GET View Item: Slow item load: 12.36s                                                               
+1                  GET Browse Catalogue: Slow response: 12.40s                                                         
+1                  GET View Cart: Cart slow: 12.07s                                                                    
+1                  GET View Cart: Cart slow: 12.03s                                                                    
+1                  GET View Cart: Cart slow: 12.08s                                                                    
+1                  GET View Cart: Cart slow: 12.31s                                                                    
+3                  GET View Cart: Cart slow: 11.97s                                                                    
+1                  GET View Cart: Cart slow: 12.32s                                                                    
+1                  GET View Cart: Cart slow: 11.87s                                                                    
+1                  GET View Cart: Cart slow: 11.98s                                                                    
+1                  GET View Cart: Cart slow: 11.89s                                                                    
+1                  GET View Cart: Cart slow: 11.94s                                                                    
+2                  GET View Cart: Cart slow: 12.04s                                                                    
+1                  GET Login Page: Login page slow: 12.69s                                                             
+1                  GET Login Page: Login page slow: 12.41s                                                             
+1                  GET Login Page: Login page slow: 12.45s                                                             
+3                  GET Browse Catalogue: Slow response: 12.70s                                                         
+2                  GET Login Page: Login page slow: 13.09s                                                             
+1                  GET Login Page: Login page slow: 13.01s                                                             
+1                  GET Login Page: Login page slow: 12.87s                                                             
+1                  GET Login Page: Login page slow: 12.84s                                                             
+1                  GET Browse Catalogue: Slow response: 12.46s                                                         
+5                  GET Browse Catalogue: Slow response: 12.71s                                                         
+2                  GET View Item: Slow item load: 12.67s                                                               
+1                  GET View Item: Slow item load: 12.42s                                                               
+1                  GET View Item: Slow item load: 12.44s                                                               
+1                  GET View Item: Slow item load: 12.70s                                                               
+1                  GET View Item: Slow item load: 12.55s                                                               
+2                  GET View Item: Slow item load: 12.71s                                                               
+1                  GET View Item: Slow item load: 9.02s                                                                
+1                  GET Browse Catalogue: Slow response: 12.67s                                                         
+1                  GET Browse Catalogue: Slow response: 12.41s                                                         
+706                GET Browse Catalogue: ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x70c3745ef9d0>, 'Connection to front-end.sock-shop.svc.cluster.local timed out. (connect timeout=None)')
+374                GET View Item: ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x70c374564d90>, 'Connection to front-end.sock-shop.svc.cluster.local timed out. (connect timeout=None)')
+118                GET Login Page: ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x70c3745884d0>, 'Connection to front-end.sock-shop.svc.cluster.local timed out. (connect timeout=None)')
+266                GET View Cart: ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x70c3744aa0d0>, 'Connection to front-end.sock-shop.svc.cluster.local timed out. (connect timeout=None)')
+------------------|---------------------------------------------------------------------------------------------------------------------------------------------
+
+==========================================
+LATENCY TEST COMPLETED
+==========================================

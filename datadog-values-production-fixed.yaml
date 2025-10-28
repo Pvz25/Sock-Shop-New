@@ -1,0 +1,71 @@
+# Minimal Production Configuration - No Environment Variable Conflicts
+# This file resolves the $setElementOrder patch error by removing duplicate env vars
+# The Helm chart automatically sets DD_LOGS_* variables from the logs: section
+
+datadog:
+  site: us5.datadoghq.com
+  apiKeyExistingSecret: datadog-secret
+  clusterName: sockshop-kind
+
+  logs:
+    enabled: true
+    containerCollectUsingFiles: true
+    containerCollectAll: true
+    containerExclude:
+      - "kube_namespace:kube-system"
+      - "kube_namespace:kube-public"
+      - "kube_namespace:kube-node-lease"
+      - "kube_namespace:local-path-storage"
+
+  kubelet:
+    tlsVerify: false
+    useApiServer: true
+
+  apm:
+    enabled: false
+  processAgent:
+    enabled: false
+  admissionController:
+    enabled: false
+  orchestratorExplorer:
+    enabled: false
+  kubeStateMetricsCore:
+    enabled: false
+  clusterChecks:
+    enabled: false
+  
+  useHostPID: false
+  containerImageCollection:
+    enabled: false
+  containerLifecycle:
+    enabled: false
+
+clusterAgent:
+  enabled: false
+
+systemProbe:
+  enabled: false
+
+agents:
+  tolerations:
+    - key: "node-role.kubernetes.io/control-plane"
+      operator: "Exists"
+      effect: "NoSchedule"
+    - key: "node-role.kubernetes.io/master"
+      operator: "Exists"
+      effect: "NoSchedule"
+  
+  useHostNetwork: true
+
+  containers:
+    traceAgent:
+      enabled: false
+    
+    agent:
+      env:
+        # Only set custom variables that Helm chart doesn't manage
+        # DD_HOSTNAME is custom (uses fieldRef), so it's safe to keep
+        - name: DD_HOSTNAME
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName

@@ -1,0 +1,172 @@
+# Complete Datadog Configuration - Metrics + Logs Collection
+# Created: October 27, 2025
+# Purpose: Production setup for sock-shop-demo with full observability
+
+datadog:
+  # Datadog site (your region)
+  site: us5.datadoghq.com
+  
+  # Reference to Kubernetes secret containing API key
+  apiKeyExistingSecret: datadog-secret
+  
+  # Cluster name (appears in Datadog UI)
+  clusterName: sockshop-kind
+
+  # ============================================
+  # LOGS COLLECTION CONFIGURATION
+  # ============================================
+  logs:
+    enabled: true
+    containerCollectUsingFiles: true
+    containerCollectAll: true
+    # Exclude system namespaces to reduce noise and cost
+    containerExclude:
+      - "kube_namespace:kube-system"
+      - "kube_namespace:kube-public"
+      - "kube_namespace:kube-node-lease"
+      - "kube_namespace:local-path-storage"
+
+  # ============================================
+  # METRICS COLLECTION CONFIGURATION
+  # ============================================
+  
+  # DogStatsD - for application metrics
+  dogstatsd:
+    useHostPort: true
+    port: 8125
+    nonLocalTraffic: true
+  
+  # Process Agent - for process metrics
+  processAgent:
+    enabled: true
+    processCollection: true
+    # Enable container-level metrics
+  
+  # Orchestrator Explorer - for Kubernetes resource metrics
+  orchestratorExplorer:
+    enabled: true
+  
+  # Kube State Metrics - for Kubernetes cluster state
+  kubeStateMetricsCore:
+    enabled: true
+  
+  # Cluster Checks - for service checks
+  clusterChecks:
+    enabled: true
+
+  # ============================================
+  # DISABLED FEATURES
+  # ============================================
+  # APM/Tracing - Not needed for this demo
+  apm:
+    enabled: false
+    
+  # Admission Controller - Not needed
+  admissionController:
+    enabled: false
+  
+  # Network Performance Monitoring - Not needed
+  networkMonitoring:
+    enabled: false
+  
+  # Security - Not needed for demo
+  securityAgent:
+    compliance:
+      enabled: false
+    runtime:
+      enabled: false
+
+  # ============================================
+  # KUBELET CONFIGURATION (KIND-specific)
+  # ============================================
+  kubelet:
+    tlsVerify: false        # KIND uses self-signed certs
+    useApiServer: true       # Required for KIND
+
+  # ============================================
+  # RESOURCE MANAGEMENT
+  # ============================================
+  useHostPID: false          # Not needed for metrics/logs
+  containerImageCollection:
+    enabled: false
+  containerLifecycle:
+    enabled: false
+
+# ============================================
+# CLUSTER AGENT CONFIGURATION
+# ============================================
+clusterAgent:
+  enabled: true
+  replicas: 1               # For demo (use 2+ in production)
+  createPodDisruptionBudget: false  # Not needed for 1 replica
+  
+  resources:
+    requests:
+      cpu: 200m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+
+# ============================================
+# SYSTEM PROBE (Network/Security)
+# ============================================
+systemProbe:
+  enabled: false
+
+# ============================================
+# NODE AGENT CONFIGURATION
+# ============================================
+agents:
+  # Tolerations for control-plane node
+  tolerations:
+    - key: "node-role.kubernetes.io/control-plane"
+      operator: "Exists"
+      effect: "NoSchedule"
+    - key: "node-role.kubernetes.io/master"
+      operator: "Exists"
+      effect: "NoSchedule"
+  
+  # CRITICAL: useHostNetwork required on KIND for kubelet communication
+  useHostNetwork: true
+  
+  # Resource limits for node agent
+  containers:
+    agent:
+      resources:
+        requests:
+          cpu: 200m
+          memory: 256Mi
+        limits:
+          cpu: 500m
+          memory: 512Mi
+      
+      # Custom environment variables
+      env:
+        # Use node name as hostname (prevents hostname resolution issues)
+        - name: DD_HOSTNAME
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName
+        
+        # Enable Kubernetes event collection
+        - name: DD_COLLECT_KUBERNETES_EVENTS
+          value: "true"
+        
+        # Enable Kubernetes metadata collection
+        - name: DD_KUBERNETES_COLLECT_METADATA_TAGS
+          value: "true"
+    
+    # Trace agent (disabled, but container must be defined)
+    traceAgent:
+      enabled: false
+    
+    # Process agent
+    processAgent:
+      resources:
+        requests:
+          cpu: 100m
+          memory: 128Mi
+        limits:
+          cpu: 200m
+          memory: 256Mi

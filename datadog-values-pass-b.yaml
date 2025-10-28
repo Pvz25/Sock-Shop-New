@@ -1,0 +1,48 @@
+datadog:
+  site: us5.datadoghq.com
+  apiKeyExistingSecret: datadog-secret
+  clusterName: sockshop-kind
+
+  logs:
+    enabled: true
+    containerCollectUsingFiles: true
+    containerCollectAll: false
+    containerInclude:
+      - "kube_namespace:sock-shop"
+
+  kubelet:
+    tlsVerify: false
+    useApiServer: true
+
+  apm: { enabled: false }
+  processAgent: { enabled: false }
+  admissionController: { enabled: false }
+  orchestratorExplorer: { enabled: false }
+  kubeStateMetricsCore: { enabled: false }
+  clusterChecks: { enabled: false }
+
+  useHostPID: false
+  containerImageCollection: { enabled: false }
+  containerLifecycle: { enabled: false }
+
+clusterAgent: { enabled: false }
+systemProbe: { enabled: false }
+
+agents:
+  tolerations:
+    - key: "node-role.kubernetes.io/control-plane"
+      operator: "Exists"
+      effect: "NoSchedule"
+    - key: "node-role.kubernetes.io/master"
+      operator: "Exists"
+      effect: "NoSchedule"
+  useHostNetwork: true
+  containers:
+    traceAgent: { enabled: false }
+    agent:
+      env:
+        - name: DD_HOSTNAME
+          valueFrom:
+            fieldRef: { fieldPath: spec.nodeName }
+        - name: DD_APM_ENABLED
+          value: "false"

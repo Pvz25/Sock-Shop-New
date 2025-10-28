@@ -1,0 +1,96 @@
+USER-SUPPLIED VALUES:
+agents:
+  containers:
+    agent:
+      env:
+      - name: DD_HOSTNAME
+        valueFrom:
+          fieldRef:
+            fieldPath: spec.nodeName
+      - name: DD_COLLECT_KUBERNETES_EVENTS
+        value: "true"
+      - name: DD_KUBERNETES_COLLECT_METADATA_TAGS
+        value: "true"
+      resources:
+        limits:
+          cpu: 500m
+          memory: 512Mi
+        requests:
+          cpu: 200m
+          memory: 256Mi
+    processAgent:
+      resources:
+        limits:
+          cpu: 200m
+          memory: 256Mi
+        requests:
+          cpu: 100m
+          memory: 128Mi
+    traceAgent:
+      enabled: false
+  tolerations:
+  - effect: NoSchedule
+    key: node-role.kubernetes.io/control-plane
+    operator: Exists
+  - effect: NoSchedule
+    key: node-role.kubernetes.io/master
+    operator: Exists
+  useHostNetwork: true
+clusterAgent:
+  createPodDisruptionBudget: false
+  enabled: true
+  replicas: 1
+  resources:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+      cpu: 200m
+      memory: 256Mi
+datadog:
+  admissionController:
+    enabled: false
+  apiKeyExistingSecret: datadog-secret
+  apm:
+    enabled: false
+  clusterChecks:
+    enabled: true
+  clusterName: sockshop-kind
+  containerImageCollection:
+    enabled: false
+  containerLifecycle:
+    enabled: false
+  dogstatsd:
+    nonLocalTraffic: true
+    port: 8125
+    useHostPort: true
+  kubeStateMetricsCore:
+    enabled: true
+  kubelet:
+    tlsVerify: false
+    useApiServer: true
+  logs:
+    containerCollectAll: true
+    containerCollectUsingFiles: true
+    containerExclude:
+    - kube_namespace:kube-system
+    - kube_namespace:kube-public
+    - kube_namespace:kube-node-lease
+    - kube_namespace:local-path-storage
+    enabled: true
+  networkMonitoring:
+    enabled: false
+  orchestratorExplorer:
+    enabled: true
+  processAgent:
+    enabled: true
+    processCollection: true
+  securityAgent:
+    compliance:
+      enabled: false
+    runtime:
+      enabled: false
+  site: us5.datadoghq.com
+  useHostPID: false
+systemProbe:
+  enabled: false
