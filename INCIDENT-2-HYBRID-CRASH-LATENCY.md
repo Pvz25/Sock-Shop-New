@@ -1,25 +1,27 @@
-# Incident 2: Application Latency via Moderate Load
+# Incident 2: Hybrid Crash + Latency via Moderate Load
 
 ## Overview
 
-**Incident Type:** Performance Degradation Due to Resource Pressure  
+**Incident Type:** HYBRID - Frontend Bottleneck Causing Crashes + Backend Latency  
 **Severity:** High (P2)  
-**User Impact:** Slow response times, degraded user experience  
-**Root Cause:** CPU/Memory pressure causing request queuing and slow processing
+**User Impact:** Intermittent availability, severe slowness, frequent connection failures  
+**Root Cause:** Frontend unable to handle 750 concurrent connections, crashes intermittently while backend experiences only latency
 
 ## Incident Description
 
-When the Sock Shop application experiences moderate concurrent user load (600-900 users), it does NOT crash but experiences significant performance degradation:
-- Response times increase from milliseconds to seconds
-- CPU throttling causes request queuing
-- Database connections become saturated
-- Users experience timeouts and slowness
+When the Sock Shop application experiences 750 concurrent users, it exhibits a **HYBRID failure pattern**:
+- **Frontend:** Crashes intermittently (5-10 restarts during 8-minute test), enters CrashLoopBackOff
+- **Backend:** Remains stable (0 restarts) but experiences severe latency (9-13 second responses)
+- Response times: 23+ seconds average (vs 150ms normal)
+- Failure rate: 87%+ due to frontend connection timeouts
+- Users experience intermittent availability with extreme slowness
 
-This simulates a realistic scenario where an e-commerce site experiences higher-than-normal traffic (e.g., weekend sales, marketing campaign) but doesn't completely fail—instead, it becomes frustratingly slow for users.
+This simulates a realistic scenario where an architectural bottleneck (frontend) causes partial system failure while other components remain operational but degraded.
 
-**Key Difference from Incident 1:**
-- Incident 1: Application CRASHES (pods restart)
-- Incident 2: Application SLOWS DOWN (pods stay running but degraded)
+**Key Differences:**
+- **Incident 1 (3000 users):** Complete system-wide crash, all pods restart, total outage
+- **Incident 2 (750 users):** Frontend crashes + backend latency, intermittent availability
+- **Incident 4 (500 users):** Pure latency, NO crashes, slow but fully functional (see INCIDENT-4-APP-LATENCY.md)
 
 ---
 
@@ -31,7 +33,8 @@ This simulates a realistic scenario where an e-commerce site experiences higher-
 |------------|---------------|-----------|--------|-----------------|
 | 50-100 | < 200ms | 10-30% | ✅ Healthy | Excellent |
 | 200-400 | 200-800ms | 40-60% | ⚠️ Warning | Acceptable |
-| **600-900** | **2-5 seconds** | **75-95%** | 🔴 **Degraded** | **Poor (This Incident)** |
+| **400-600** | **2-5 seconds** | **75-95%** | 🔴 **Degraded** | **Slow (see Incident 4)** |
+| **750** | **20-25 seconds** | **80-95%** | 🔴💀 **HYBRID** | **Crashes + Latency (THIS)** |
 | 1500+ | Timeouts | 100% | 💀 Crash | Unusable |
 
 ### Target Metrics for This Incident
@@ -181,7 +184,7 @@ spec:
             - name: LOCUST_HOST
               value: "http://front-end.sock-shop.svc.cluster.local"
             - name: USERS
-              value: "750"        # Moderate load for latency
+              value: "750"        # HYBRID: Causes frontend crashes + backend latency
             - name: SPAWN_RATE
               value: "50"         # Gradual ramp-up
             - name: RUN_TIME
@@ -201,11 +204,11 @@ spec:
           args:
             - |
               echo "=========================================="
-              echo "INCIDENT 2: LATENCY TEST - STARTING"
+              echo "INCIDENT 2: HYBRID CRASH + LATENCY TEST - STARTING"
               echo "Target: $LOCUST_HOST"
               echo "Users: $USERS | Spawn Rate: $SPAWN_RATE"
               echo "Duration: $RUN_TIME"
-              echo "Goal: Induce 2-5 second response times"
+              echo "Goal: Induce frontend crashes + backend latency (HYBRID)"
               echo "=========================================="
               locust -f locustfile.py \
                 --host "$LOCUST_HOST" \
@@ -345,7 +348,7 @@ user-xxxxx      | CPU: 250m | MEM: 180Mi      (Red - throttled)
 orders-xxxxx    | CPU: 320m | MEM: 420Mi      (Red - over limit but stable)
 ```
 
-**Key Observation:** CPU stays high but pods DON'T restart (unlike Incident 1)
+**Key Observation:** Frontend WILL crash intermittently (5-10 restarts), backend stays running
 
 #### Window 3: Monitor Pod Status (Verify No Crashes)
 ```powershell
@@ -362,7 +365,7 @@ orders-xxxxx                    1/1     Running   0          45m
 payment-xxxxx                   1/1     Running   0          45m
 carts-xxxxx                     1/1     Running   0          45m
 
-# NO CrashLoopBackOff or OOMKilled events (this is the key difference)
+# Frontend WILL show CrashLoopBackOff, backend stays Running (HYBRID behavior)
 ```
 
 #### Window 4: Monitor Locust Statistics

@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: locustfile-latency
+  name: locustfile-hybrid
   namespace: sock-shop
 data:
   locustfile.py: |
@@ -49,14 +49,14 @@ data:
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: locust-latency-test
+  name: locust-hybrid-crash-test
   namespace: sock-shop
 spec:
   backoffLimit: 0
   template:
     metadata:
       labels:
-        app: locust-latency
+        app: locust-hybrid
     spec:
       restartPolicy: Never
       containers:
@@ -67,7 +67,7 @@ spec:
             - name: LOCUST_HOST
               value: "http://front-end.sock-shop.svc.cluster.local"
             - name: USERS
-              value: "750"        # Moderate load for latency
+              value: "750"        # HYBRID: Frontend crashes + backend latency
             - name: SPAWN_RATE
               value: "50"         # Gradual ramp-up
             - name: RUN_TIME
@@ -87,11 +87,11 @@ spec:
           args:
             - |
               echo "=========================================="
-              echo "INCIDENT 2: LATENCY TEST - STARTING"
+              echo "INCIDENT 2: HYBRID CRASH + LATENCY TEST - STARTING"
               echo "Target: $LOCUST_HOST"
               echo "Users: $USERS | Spawn Rate: $SPAWN_RATE"
               echo "Duration: $RUN_TIME"
-              echo "Goal: Induce 2-5 second response times"
+              echo "Goal: Frontend crashes + backend latency (HYBRID)"
               echo "=========================================="
               locust -f locustfile.py \
                 --host "$LOCUST_HOST" \
@@ -102,9 +102,9 @@ spec:
                 --html=/tmp/latency-report.html \
                 --csv=/tmp/latency-stats
               echo "=========================================="
-              echo "LATENCY TEST COMPLETED"
+              echo "HYBRID CRASH TEST COMPLETED"
               echo "=========================================="
       volumes:
         - name: locustfile
           configMap:
-            name: locustfile-latency
+            name: locustfile-hybrid

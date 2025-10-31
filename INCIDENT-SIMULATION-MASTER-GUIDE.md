@@ -154,11 +154,19 @@ Invoke-WebRequest -UseBasicParsing http://localhost:2025 -TimeoutSec 5
 
 ---
 
-### Incident 2: Application Latency via Moderate Load
+### Incident 2: Hybrid Crash + Latency via Moderate Load
 
-**File:** [INCIDENT-2-APP-LATENCY.md](./INCIDENT-2-APP-LATENCY.md)
+**File:** [INCIDENT-2-HYBRID-CRASH-LATENCY.md](./INCIDENT-2-HYBRID-CRASH-LATENCY.md)
 
-**Summary:** Simulate moderate user load (750 concurrent users) causing significant performance degradation. **HYBRID INCIDENT:** Front-end experiences crashes (5-10 restarts) while backend services remain stable with latency only.
+**Summary:** Simulate 750 concurrent users revealing frontend as architectural bottleneck. **HYBRID INCIDENT:** Frontend crashes intermittently (5-10 restarts) with CrashLoopBackOff while backend services remain stable experiencing only latency. Demonstrates differential diagnosis of partial system failures.
+
+---
+
+### Incident 4: Pure Application Latency (NEW)
+
+**File:** [INCIDENT-4-APP-LATENCY.md](./INCIDENT-4-APP-LATENCY.md)
+
+**Summary:** Simulate 500 concurrent users causing pure performance degradation WITHOUT crashes. Application remains fully functional but slow (2-5 second response times). Demonstrates early warning signs before critical failures. **NO POD RESTARTS** - all services stay running but degraded.
 
 **Key Characteristics:**
 - User Load: 750 concurrent users
@@ -328,7 +336,7 @@ code INCIDENT-1-APP-CRASH.md
 
 ```powershell
 # Navigate to incident guide
-code INCIDENT-2-APP-LATENCY.md
+code INCIDENT-2-HYBRID-CRASH-LATENCY.md
 
 # Execute steps from guide
 # Key observation points:

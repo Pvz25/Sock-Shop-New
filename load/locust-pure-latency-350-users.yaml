@@ -1,0 +1,112 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: locustfile-pure-latency-350
+  namespace: sock-shop
+data:
+  locustfile.py: |
+    from locust import HttpUser, task, between
+    import random
+
+    class SockShopUser(HttpUser):
+        wait_time = between(1, 3)  # Moderate pacing
+        
+        @task(5)
+        def browse_catalogue(self):
+            """Most common user action"""
+            with self.client.get("/catalogue", catch_response=True, name="Browse Catalogue") as resp:
+                if resp.elapsed.total_seconds() > 5:
+                    resp.failure(f"Very slow response: {resp.elapsed.total_seconds():.2f}s")
+        
+        @task(3)
+        def view_item_details(self):
+            """View specific product"""
+            item_ids = [
+                "03fef6ac-1896-4ce8-bd69-b798f85c6e0b",
+                "510a0d7e-8e83-4193-b483-e27e09ddc34d",
+                "808a2de1-1aaa-4c25-a9b9-6612e8f29a38",
+                "d3588630-ad8e-49df-bbd7-3167f7efb246"
+            ]
+            item_id = random.choice(item_ids)
+            with self.client.get(f"/catalogue/{item_id}", catch_response=True, name="View Item") as resp:
+                if resp.elapsed.total_seconds() > 5:
+                    resp.failure(f"Very slow item load: {resp.elapsed.total_seconds():.2f}s")
+        
+        @task(2)
+        def check_cart(self):
+            """Check shopping cart"""
+            with self.client.get("/basket.html", catch_response=True, name="View Cart") as resp:
+                if resp.elapsed.total_seconds() > 5:
+                    resp.failure(f"Cart very slow: {resp.elapsed.total_seconds():.2f}s")
+        
+        @task(1)
+        def view_login(self):
+            """View login page"""
+            with self.client.get("/login", catch_response=True, name="Login Page") as resp:
+                if resp.elapsed.total_seconds() > 5:
+                    resp.failure(f"Login page very slow: {resp.elapsed.total_seconds():.2f}s")
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: locust-pure-latency-350-test
+  namespace: sock-shop
+spec:
+  backoffLimit: 0
+  template:
+    metadata:
+      labels:
+        app: locust-pure-latency-350
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: locust
+          image: locustio/locust:2.32.1
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: LOCUST_HOST
+              value: "http://front-end.sock-shop.svc.cluster.local"
+            - name: USERS
+              value: "350"        # REDUCED: Testing pure latency threshold
+            - name: SPAWN_RATE
+              value: "30"         # Gradual ramp-up (350/30 = ~12 seconds to full load)
+            - name: RUN_TIME
+              value: "8m"         # Extended duration to observe latency
+          volumeMounts:
+            - name: locustfile
+              mountPath: /mnt/locust
+          workingDir: /mnt/locust
+          resources:
+            requests:
+              cpu: "300m"
+              memory: "512Mi"
+            limits:
+              cpu: "1000m"
+              memory: "1Gi"
+          command: ["sh", "-c"]
+          args:
+            - |
+              echo "=========================================="
+              echo "INCIDENT 4B: PURE LATENCY TEST - 350 USERS"
+              echo "Target: $LOCUST_HOST"
+              echo "Users: $USERS | Spawn Rate: $SPAWN_RATE"
+              echo "Duration: $RUN_TIME"
+              echo "Goal: Pure latency (slow but NO crashes)"
+              echo "Previous test: 500 users caused 6 crashes"
+              echo "This test: Reduced to 350 users for stability"
+              echo "=========================================="
+              locust -f locustfile.py \
+                --host "$LOCUST_HOST" \
+                --headless \
+                -u "$USERS" \
+                -r "$SPAWN_RATE" \
+                --run-time "$RUN_TIME" \
+                --html=/tmp/pure-latency-350-report.html \
+                --csv=/tmp/pure-latency-350-stats
+              echo "=========================================="
+              echo "PURE LATENCY TEST (350 USERS) COMPLETED"
+              echo "=========================================="
+      volumes:
+        - name: locustfile
+          configMap:
+            name: locustfile-pure-latency-350

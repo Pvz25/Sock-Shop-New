@@ -326,7 +326,8 @@ kubectl scale deployment payment --replicas=0 -n sock-shop
 📘 **Incident Guides**: 
 - [INCIDENT-SIMULATION-MASTER-GUIDE.md](./INCIDENT-SIMULATION-MASTER-GUIDE.md)
 - [INCIDENT-1-APP-CRASH.md](./INCIDENT-1-APP-CRASH.md)
-- [INCIDENT-2-APP-LATENCY.md](./INCIDENT-2-APP-LATENCY.md)
+- [INCIDENT-2-HYBRID-CRASH-LATENCY.md](./INCIDENT-2-HYBRID-CRASH-LATENCY.md) - Frontend crashes + backend latency
+- [INCIDENT-4-APP-LATENCY.md](./INCIDENT-4-APP-LATENCY.md) - Pure latency, no crashes
 - [INCIDENT-3-PAYMENT-FAILURE.md](./INCIDENT-3-PAYMENT-FAILURE.md)
 
 ---

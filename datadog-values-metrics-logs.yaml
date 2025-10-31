@@ -19,6 +19,8 @@ datadog:
     enabled: true
     containerCollectUsingFiles: true
     containerCollectAll: true
+    # Force HTTPS transport (more reliable than TCP)
+    useHTTP: true
     # Exclude system namespaces to reduce noise and cost
     containerExclude:
       - "kube_namespace:kube-system"
