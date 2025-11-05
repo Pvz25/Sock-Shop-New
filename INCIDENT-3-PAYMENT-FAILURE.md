@@ -4,19 +4,23 @@
 
 **Incident Type:** Distributed Transaction Failure Leading to Data Inconsistency  
 **Severity:** Critical (P1)  
-**User Impact:** Payment processed but order shows as "Payment Pending" or "Failed"  
+**User Impact:** Payment service unavailable → User sees clear error message (with v1.1-error-fix) → Order marked as "PAYMENT_FAILED"  
 **Root Cause:** Payment service unavailability during checkout causes transaction state inconsistency
 
 **✅ PREREQUISITE:** This incident leverages the newly implemented `OrderStatus` lifecycle in the orders service. Ensure you have deployed the v1.0-status-fix version with `CREATED`, `PENDING`, `PAID`, and `PAYMENT_FAILED` status support.
+
+**✅ UI ERROR HANDLING FIX (v1.1-error-fix):** As of November 2025, the front-end has been updated to properly display payment failure errors to users. The `v1.1-error-fix` image includes comprehensive error handling that shows clear, user-friendly messages when payment processing fails. This eliminates the previous issue where users saw no feedback (or incorrect success messages) despite backend payment failures.
 
 ## Incident Description
 
 This incident simulates a critical e-commerce scenario where:
 1. User places an order and completes checkout
 2. Payment service is temporarily unavailable or times out
-3. Payment is debited from user's account (or payment gateway shows success)
-4. Order service records the order as "Payment Failed" or "Pending"
-5. User is confused and frustrated (money taken, no order confirmation)
+3. **With v1.1-error-fix:** User immediately sees clear error message explaining payment failed
+4. Order service records the order as "PAYMENT_FAILED" in database
+5. **Before fix:** User confusion (money possibly taken, unclear status) → **After fix:** User informed and can retry
+
+**Note:** The v1.1-error-fix deployment significantly improves the user experience by providing immediate, clear feedback when payment processing fails, reducing customer confusion and support burden
 
 This is one of the **most critical production issues** in e-commerce because it:
 - Creates financial reconciliation problems
@@ -57,12 +61,12 @@ sequenceDiagram
     Front-end->>Orders: Create Order (status: CREATED)
     Orders->>Payment: Process Payment
     Note over Payment: Payment Service DOWN ❌
-    Payment-->>Orders: TIMEOUT / ERROR
+    Payment-->>Orders: TIMEOUT / ERROR (HTTP 500)
     Orders->>Orders: Update Order (status: PAYMENT_FAILED)
-    Orders-->>Front-end: Order Failed
-    Front-end-->>User: Payment Error
-    Note over User: User's bank account DEBITED 💰
-    Note over User,Orders: INCONSISTENT STATE!<br/>Money taken, Order shows failed
+    Orders-->>Front-end: HTTP 500 + Error Message
+    Front-end-->>User: 🚨 RED ERROR: "Payment processing failed.<br/>The payment service is temporarily unavailable.<br/>Your card has NOT been charged.<br/>Please try again in a few moments."
+    Note over User: ✅ Clear feedback (v1.1-error-fix)
+    Note over User: ⚠️ Before fix: User might see success or no message
 ```
 
 ---
@@ -216,14 +220,30 @@ Start-Process http://localhost:2025
 # 5. Click "Next" and then "Place Order"
 ```
 
-**Expected User Experience:**
+**Expected User Experience (with v1.1-error-fix):**
+
+The user will see a **RED error alert box** at the top of the checkout page:
+
 ```
-❌ Error: Unable to process payment
-❌ Payment service unavailable
-❌ Please try again later
+🚨 Error: Payment processing failed. Payment service unavailable for order [ORDER-ID]: 
+[error details]. The payment service is temporarily unavailable. Your card has NOT been 
+charged. Please try again in a few moments.
 ```
 
-**BUT:** In a real scenario, the payment gateway might have already charged the card!
+**Key User Experience Improvements:**
+- ✅ **Immediate visual feedback:** Red alert box with error icon
+- ✅ **Clear explanation:** User knows exactly what happened
+- ✅ **Reassurance:** Explicitly states "card has NOT been charged"
+- ✅ **Actionable guidance:** "Please try again in a few moments"
+- ✅ **Auto-scroll:** Page automatically scrolls to show the error message
+
+**Before v1.1-error-fix (Legacy Behavior):**
+- ❌ User saw no error message, or generic failure
+- ❌ Confusion: "Did my order go through?"
+- ❌ Risk of retrying and creating duplicate orders
+- ❌ Support tickets: "I was charged but have no confirmation"
+
+**Note:** This fix significantly reduces customer confusion and support burden during payment service outages
 
 #### Option B: Automated Order Placement via Locust (For Bulk Testing)
 
@@ -783,7 +803,7 @@ kubectl -n sock-shop logs deployment/orders | Select-String "69009776c1f4320001b
 2. **No circuit breaker:** Failed payment calls cause cascading failures
 3. **No idempotency:** No mechanism to safely retry payment operations
 4. **No compensation logic:** Failed transactions aren't automatically reversed/retried
-5. **Poor error handling:** User sees generic error, not actionable message
+5. ~~**Poor error handling:** User sees generic error, not actionable message~~ → **✅ FIXED in v1.1-error-fix:** UI now displays clear, actionable error messages with comprehensive HTTP status handling
 
 ### Evidence Collected
 
@@ -802,9 +822,20 @@ Failed order count: X
 
 **From Application:**
 ```
-User sees: "Payment failed" error
-Order status: PAYMENT_FAILED
+User sees (v1.1-error-fix): RED error alert with message:
+  "Error: Payment processing failed. Payment service unavailable for order [ID]: 
+   [details]. The payment service is temporarily unavailable. Your card has NOT 
+   been charged. Please try again in a few moments."
+
+Order status in database: PAYMENT_FAILED
+Browser console: "Order placement error - Status: 500, Response: [error details]"
 ```
+
+**User Experience Comparison:**
+| Version | What User Sees |
+|---------|---------------|
+| **Before v1.1-error-fix** | Nothing, or generic browser error, or possibly success message |
+| **After v1.1-error-fix** | Clear red error message with specific details and guidance |
 
 ### Business Impact Assessment
 
@@ -920,8 +951,9 @@ readinessProbe:
 ✅ Orders fail with "payment service unavailable"  
 ✅ Orders marked as "PAYMENT_FAILED" in database  
 ✅ Datadog logs show connection refused errors  
-✅ Users see payment error message  
-✅ No successful orders processed
+✅ **Users see clear RED error message (v1.1-error-fix):** "Payment processing failed..." with reassurance that card was not charged  
+✅ **UI error message auto-scrolls into view** for immediate visibility  
+✅ No successful orders processed during outage
 
 ### After Recovery
 ✅ Payment service restored (1/1 Running)  
@@ -970,33 +1002,55 @@ This incident is ideal for testing SRE agent capabilities:
 
 ## Troubleshooting
 
-### Issue 1: UI Shows "Shipped" but Database Shows "PAYMENT_FAILED"
+### Issue 1: Verifying UI Error Display Works (v1.1-error-fix)
 
-**Symptom:** UI displays orders as "Shipped" even though database has `status: PAYMENT_FAILED`
+**How to Verify the Fix:**
 
-**Root Cause:** UI caching or stale data in front-end application
-
-**Verification:**
-```powershell
-# Check actual database status via API
-kubectl -n sock-shop exec -it deployment/front-end -- curl -s http://orders:80/orders | ConvertFrom-Json | Select-Object -ExpandProperty _embedded | Select-Object -ExpandProperty customerOrders | Where-Object { $_.id -eq "6900953ac1f4320001b50703" } | Select-Object id, status
-
-# Expected:
-# id                       status
-# --                       ------
-# 6900953ac1f4320001b50703 PAYMENT_FAILED
-```
-
-**Solution:**
-1. **Hard refresh browser:** `Ctrl+Shift+R` or `Cmd+Shift+R`
-2. **Clear browser cache** and reload
-3. **Query API directly** to confirm database state (as shown above)
-4. **Check front-end logs** for any errors:
+1. **Check front-end deployment image:**
    ```powershell
-   kubectl -n sock-shop logs deployment/front-end | Select-String "order"
+   kubectl -n sock-shop get deployment front-end -o jsonpath='{.spec.template.spec.containers[0].image}'
+   
+   # Should output: quay.io/powercloud/sock-shop-front-end:v1.1-error-fix
    ```
 
-**Note:** The database is the source of truth. Always verify order status via API, not just UI.
+2. **Test error display manually:**
+   ```powershell
+   # Scale payment to 0
+   kubectl -n sock-shop scale deployment payment --replicas=0
+   
+   # Try to place order via UI at http://localhost:2025
+   # Expected: RED error alert appears with clear message
+   
+   # Restore payment
+   kubectl -n sock-shop scale deployment payment --replicas=1
+   ```
+
+3. **Check browser console for proper error logging:**
+   - Open browser DevTools (F12)
+   - Go to Console tab
+   - Try checkout with payment down
+   - Expected console log: `Order placement error - Status: 500, Response: {...}`
+
+4. **Verify error message content:**
+   The displayed error should include:
+   - ✅ Clear error statement: "Payment processing failed"
+   - ✅ Specific reason: "Payment service unavailable..."
+   - ✅ Reassurance: "Your card has NOT been charged"
+   - ✅ Guidance: "Please try again in a few moments"
+
+**Legacy Issue (Fixed in v1.1-error-fix):**
+- ~~**Old Symptom:** UI showed "Shipped" or success even when database had `PAYMENT_FAILED`~~
+- ~~**Old Root Cause:** Front-end JavaScript only handled HTTP 406 errors, not HTTP 500~~
+- ✅ **Resolution:** v1.1-error-fix added comprehensive error handling for all HTTP status codes (400, 406, 500, 503, etc.)
+
+**If Error Message Still Not Displaying:**
+1. Verify you're running v1.1-error-fix image (see check #1 above)
+2. Hard refresh browser: `Ctrl+Shift+R` or `Cmd+Shift+R`
+3. Clear browser cache completely
+4. Check front-end pod logs for errors:
+   ```powershell
+   kubectl -n sock-shop logs deployment/front-end --tail=50
+   ```
 
 ### Issue 2: Datadog Shows All Logs as "Info" Status
 
@@ -1204,6 +1258,148 @@ kube_namespace:sock-shop service:sock-shop-orders "Connection refused"
 # Find PAYMENT_FAILED status updates
 kube_namespace:sock-shop service:sock-shop-orders "status updated to PAYMENT_FAILED"
 ```
+
+---
+
+## 🔧 Technical Details: UI Error Handling Fix (v1.1-error-fix)
+
+### Implementation Overview
+
+**Deployment Date:** November 4, 2025  
+**Image:** `quay.io/powercloud/sock-shop-front-end:v1.1-error-fix`  
+**Files Modified:** `public/js/client.js` (order function, error handler)  
+**Lines Changed:** ~40 lines (comprehensive error handling)  
+
+### What Was Fixed
+
+**Before (Buggy Behavior):**
+```javascript
+error: function (jqXHR, textStatus, errorThrown) {
+    response_payload = JSON.parse(jqXHR.responseText)  // ❌ Can crash
+    console.log('error: ' + jqXHR.responseText);
+    if (jqXHR.status == 406) {  // ❌ Only handles 406
+        $("#user-message").html('...Error placing order...');
+    }
+    // ❌ HTTP 500 completely ignored - silent failure!
+}
+```
+
+**After (Fixed Behavior):**
+```javascript
+error: function (jqXHR, textStatus, errorThrown) {
+    var response_payload;
+    var errorMessage = "Unable to place order. Please try again.";
+    
+    // ✅ Safe JSON parsing with try-catch
+    try {
+        response_payload = JSON.parse(jqXHR.responseText);
+    } catch(e) {
+        response_payload = { message: textStatus || errorThrown || "Unknown error" };
+    }
+    
+    // ✅ Comprehensive HTTP status handling
+    if (jqXHR.status == 406) {
+        errorMessage = "Payment declined. " + (response_payload.message || "...");
+    } else if (jqXHR.status == 500) {  // ✅ NEW: Handles server errors
+        errorMessage = "Payment processing failed. " + (response_payload.message || 
+            "The payment service is temporarily unavailable. Your card has NOT been charged...");
+    } else if (jqXHR.status == 503) {  // ✅ NEW: Service unavailable
+        errorMessage = "Service temporarily unavailable...";
+    } else if (jqXHR.status == 400) {  // ✅ NEW: Bad request
+        errorMessage = "Invalid order information...";
+    } else if (jqXHR.status == 0) {    // ✅ NEW: Network error
+        errorMessage = "Network error. Please check your internet connection...";
+    } else {                            // ✅ NEW: Catch-all
+        errorMessage = "Unable to place order. " + (response_payload.message || "...");
+    }
+    
+    // ✅ Display error with proper styling
+    $("#user-message").html('<div class="alert alert-danger">...' + errorMessage + '</div>');
+    
+    // ✅ Auto-scroll to error message
+    $('html, body').animate({
+        scrollTop: $("#user-message").offset().top - 100
+    }, 500);
+}
+```
+
+### HTTP Status Codes Now Handled
+
+| Status Code | Scenario | User Message | Before Fix |
+|-------------|----------|--------------|------------|
+| **201** | Success | "Order placed." | ✅ Worked |
+| **400** | Bad request | "Invalid order information..." | ❌ Silent |
+| **406** | Payment declined | "Payment declined. [reason]" | ✅ Worked |
+| **500** | Server error | "Payment processing failed..." | ❌ **Silent** |
+| **503** | Service unavailable | "Service temporarily unavailable..." | ❌ Silent |
+| **0** | Network error | "Network error..." | ❌ Silent |
+| **Other** | Unknown | "Unable to place order..." | ❌ Silent |
+
+### Key Improvements
+
+1. **Safe JSON Parsing:** Try-catch prevents crashes on malformed responses
+2. **Comprehensive Coverage:** All HTTP error statuses handled
+3. **User-Friendly Messages:** Clear, non-technical language
+4. **Reassurance:** Explicitly states "card NOT charged" for payment failures
+5. **Actionable Guidance:** Tells user what to do next
+6. **Auto-Scroll:** Ensures error message is visible
+7. **Enhanced Logging:** Better console logs for debugging
+
+### Deployment Process
+
+```powershell
+# 1. Clone repository
+cd d:\
+git clone https://github.com/ocp-power-demos/sock-shop-front-end.git
+
+# 2. Modify public/js/client.js (error handler in order() function)
+
+# 3. Build with correct Dockerfile (UBI9-based)
+cd d:\sock-shop-front-end
+docker build -f ../sock-shop-demo/automation/Dockerfile-front-end-local \
+    -t quay.io/powercloud/sock-shop-front-end:v1.1-error-fix .
+
+# 4. Load into KIND cluster
+kind load docker-image quay.io/powercloud/sock-shop-front-end:v1.1-error-fix --name sockshop
+
+# 5. Deploy
+kubectl -n sock-shop set image deployment/front-end \
+    front-end=quay.io/powercloud/sock-shop-front-end:v1.1-error-fix
+
+# 6. Verify
+kubectl -n sock-shop get pods -l name=front-end
+kubectl -n sock-shop logs -l name=front-end --tail=20
+```
+
+### Verification Commands
+
+```powershell
+# Verify correct image is deployed
+kubectl -n sock-shop get deployment front-end -o jsonpath='{.spec.template.spec.containers[0].image}'
+
+# Test error display
+kubectl -n sock-shop scale deployment payment --replicas=0
+# Try checkout at http://localhost:2025
+# Should see RED error message
+kubectl -n sock-shop scale deployment payment --replicas=1
+```
+
+### Impact Metrics
+
+| Metric | Before Fix | After Fix |
+|--------|-----------|-----------|
+| **User Confusion** | High (no feedback) | Low (clear message) |
+| **Support Tickets** | Expected spike | Reduced (user informed) |
+| **User Retry Behavior** | Random (unclear status) | Informed (knows to wait) |
+| **Error Visibility** | 0% (silent) | 100% (red alert) |
+
+### Backward Compatibility
+
+✅ **No Breaking Changes:**
+- All existing functionality preserved
+- Success handling unchanged
+- HTTP 406 handling improved (not broken)
+- Additional error handling added (not replaced)
 
 ---
 

@@ -1,0 +1,95 @@
+{
+  "dashboard": {
+    "title": "RabbitMQ Metrics - Sock Shop",
+    "timezone": "browser",
+    "panels": [
+      {
+        "title": "Messages Published Rate (msg/sec)",
+        "type": "graph",
+        "gridPos": {"h": 8, "w": 12, "x": 0, "y": 0},
+        "targets": [
+          {
+            "expr": "rate(rabbitmq_queue_messages_published_total{queue=\"shipping-task\"}[1m])",
+            "legendFormat": "Published Rate"
+          }
+        ]
+      },
+      {
+        "title": "Messages Delivered Rate (msg/sec)",
+        "type": "graph",
+        "gridPos": {"h": 8, "w": 12, "x": 12, "y": 0},
+        "targets": [
+          {
+            "expr": "rate(rabbitmq_queue_messages_delivered_total{queue=\"shipping-task\"}[1m])",
+            "legendFormat": "Delivered Rate"
+          }
+        ]
+      },
+      {
+        "title": "Current Queue Depth",
+        "type": "stat",
+        "gridPos": {"h": 4, "w": 6, "x": 0, "y": 8},
+        "targets": [
+          {
+            "expr": "rabbitmq_queue_messages{queue=\"shipping-task\"}"
+          }
+        ]
+      },
+      {
+        "title": "Messages Ready",
+        "type": "stat",
+        "gridPos": {"h": 4, "w": 6, "x": 6, "y": 8},
+        "targets": [
+          {
+            "expr": "rabbitmq_queue_messages_ready{queue=\"shipping-task\"}"
+          }
+        ]
+      },
+      {
+        "title": "Active Consumers",
+        "type": "stat",
+        "gridPos": {"h": 4, "w": 6, "x": 12, "y": 8},
+        "targets": [
+          {
+            "expr": "rabbitmq_queue_consumers{queue=\"shipping-task\"}"
+          }
+        ]
+      },
+      {
+        "title": "Total Connections",
+        "type": "stat",
+        "gridPos": {"h": 4, "w": 6, "x": 18, "y": 8},
+        "targets": [
+          {
+            "expr": "rabbitmq_connections"
+          }
+        ]
+      },
+      {
+        "title": "Total Messages Published (Lifetime)",
+        "type": "timeseries",
+        "gridPos": {"h": 8, "w": 12, "x": 0, "y": 12},
+        "targets": [
+          {
+            "expr": "rabbitmq_queue_messages_published_total{queue=\"shipping-task\"}",
+            "legendFormat": "Total Published"
+          }
+        ]
+      },
+      {
+        "title": "Total Messages Delivered (Lifetime)",
+        "type": "timeseries",
+        "gridPos": {"h": 8, "w": 12, "x": 12, "y": 12},
+        "targets": [
+          {
+            "expr": "rabbitmq_queue_messages_delivered_total{queue=\"shipping-task\"}",
+            "legendFormat": "Total Delivered"
+          }
+        ]
+      }
+    ],
+    "refresh": "5s",
+    "time": {"from": "now-1h", "to": "now"},
+    "timepicker": {"refresh_intervals": ["5s", "10s", "30s", "1m", "5m"]}
+  }
+}
