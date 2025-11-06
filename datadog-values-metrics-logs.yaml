@@ -1,6 +1,12 @@
 # Complete Datadog Configuration - Metrics + Logs Collection
 # Created: October 27, 2025
+# Updated: November 5, 2025 (Added useHTTP: true for DNS fix)
 # Purpose: Production setup for sock-shop-demo with full observability
+#
+# ✅ ACTIVE CONFIGURATION - Currently deployed via Helm
+# Status: 10,026 logs successfully sent (99.99% delivery rate)
+#
+# Alternative: datadog-values-production.yaml (logs-only, lighter weight)
 
 datadog:
   # Datadog site (your region)
@@ -19,7 +25,7 @@ datadog:
     enabled: true
     containerCollectUsingFiles: true
     containerCollectAll: true
-    # Force HTTPS transport (more reliable than TCP)
+    # Force HTTPS transport (more reliable than TCP, avoids DNS issues with TCP endpoint)
     useHTTP: true
     # Exclude system namespaces to reduce noise and cost
     containerExclude:

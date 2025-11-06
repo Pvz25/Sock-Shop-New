@@ -1,6 +1,12 @@
 # Production-Ready Datadog Configuration for Sock-Shop Demo
 # This configuration enables reliable log collection from sock-shop namespace
 # with minimal overhead and no unnecessary features enabled.
+#
+# ❌ NOT CURRENTLY DEPLOYED - This is an alternative lightweight configuration
+# Active config: datadog-values-metrics-logs.yaml (full observability with metrics)
+#
+# Use this file if you only need logs without metrics/infrastructure monitoring
+# Deploy with: helm upgrade datadog-agent -n datadog datadog/datadog -f datadog-values-production.yaml
 
 datadog:
   site: us5.datadoghq.com

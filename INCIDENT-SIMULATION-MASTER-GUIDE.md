@@ -2,10 +2,10 @@
 
 ## Overview
 
-This guide provides comprehensive instructions for simulating three realistic production incidents in the Sock Shop e-commerce application. These incidents are designed to test and demonstrate SRE agent capabilities in identifying, diagnosing, and resolving real-world microservices issues.
+This guide provides comprehensive instructions for simulating six realistic production incidents in the Sock Shop e-commerce application. These incidents are designed to test and demonstrate SRE agent capabilities in identifying, diagnosing, and resolving real-world microservices issues.
 
-**Version:** 1.0  
-**Last Updated:** October 27, 2025  
+**Version:** 1.2  
+**Last Updated:** November 5, 2025  
 **Environment:** kind cluster (sockshop) with Datadog monitoring  
 **Repository:** D:\sock-shop-demo
 
@@ -89,14 +89,40 @@ kubectl -n sock-shop logs deployment/orders --tail=20 | Select-String "status up
 ```
 
 #### 3. Datadog Agent Configured
-```powershell
-# Verify Datadog agent is collecting logs (select node agent, not cluster agent)
-$POD = kubectl -n datadog get pods -o json | ConvertFrom-Json | Select-Object -ExpandProperty items | Where-Object { $_.metadata.name -like "datadog-agent-*" -and $_.metadata.name -notlike "*cluster-agent*" } | Select-Object -First 1 | Select-Object -ExpandProperty metadata | Select-Object -ExpandProperty name
 
-kubectl -n datadog exec $POD -c agent -- agent status | Select-String -Pattern "LogsProcessed"
+**⚠️ IMPORTANT - DNS Fix Required:**
 
-# Expected: LogsProcessed: [non-zero number]
+The Datadog agent's default TCP transport uses an endpoint that may fail DNS resolution. The **permanent fix** is to use HTTP transport instead:
+
+**Configuration File:** `datadog-values-metrics-logs.yaml` (currently active)
+```yaml
+datadog:
+  logs:
+    enabled: true
+    useHTTP: true  # ✅ CRITICAL: Forces HTTPS transport, avoids DNS issues
+    containerCollectAll: true
 ```
+
+**Verification:**
+```powershell
+# Check Datadog agent log delivery (not just pod status)
+$POD = kubectl -n datadog get pods -l app=datadog-agent -o jsonpath='{.items[0].metadata.name}'
+kubectl -n datadog exec $POD -c agent -- agent status 2>&1 | Select-String -Pattern "Logs Agent" -Context 0,12
+
+# Expected output:
+# Logs Agent
+# ==========
+#   Reliable: Sending compressed logs in HTTPS to agent-http-intake.logs.us5.datadoghq.com.
+#   LogsProcessed: [non-zero number]
+#   LogsSent: [non-zero number, ~99.9% of processed]
+#   Transport: HTTP  ✅
+```
+
+**Common Issue - DNS Resolution Failure:**
+- **Symptom:** `dial tcp: lookup agent-intake.logs.us5.datadoghq.com.: no such host`
+- **Root Cause:** TCP endpoint doesn't resolve in some cluster environments
+- **Permanent Fix:** `useHTTP: true` in Helm values (already applied)
+- **Status:** ✅ Fixed in current deployment (10,026 logs successfully sent)
 
 #### 4. Port Forwards Active
 ```powershell
@@ -213,6 +239,74 @@ Invoke-WebRequest -UseBasicParsing http://localhost:2025 -TimeoutSec 5
 - Transaction ID inconsistencies
 
 **Use Case:** Demonstrates SRE agent's ability to trace distributed transactions and identify data inconsistencies requiring manual remediation.
+
+---
+
+### Incident 5: Async Processing Failure (Queue Consumer Down)
+
+**File:** [INCIDENT-5-ASYNC-PROCESSING-FAILURE.md](./INCIDENT-5-ASYNC-PROCESSING-FAILURE.md)
+
+**Summary:** Simulate distributed async processing failure where queue-master (consumer) is scaled to 0, causing messages to accumulate in RabbitMQ without processing. Orders succeed but shipments never occur - a **silent failure** with no user-facing errors.
+
+**Key Characteristics:**
+- Trigger: queue-master scaled to 0 replicas (async consumer unavailable)
+- RabbitMQ: Operational (message broker running)
+- Shipping service: Publishing messages (producer active)
+- Queue: Messages accumulating, never consumed
+- User Impact: **Silent** - Orders succeed with no errors, but shipments never processed
+- Business Impact: HIGH - Orders paid but never shipped (discovered days later)
+- Pod Restarts: 0 (queue-master terminated, not crashed)
+- Recovery: Manual (scale queue-master to 1 replica)
+
+**Datadog Evidence:**
+- Metrics: `kubernetes_state.deployment.replicas_available` = 0 for queue-master
+- Infrastructure: queue-master container absent
+- Logs: Shipping service publishing, queue-master logs **absent**
+- Log Correlation: Publisher active + Consumer inactive = Broken async pipeline
+- Events: "Deployment queue-master scaled to 0"
+
+**Timeline (Nov 5, 2025):**
+- Start: 2025-11-05T20:43:00Z
+- Recovery: 2025-11-05T20:47:03Z
+- Duration: ~4 minutes
+
+**Use Case:** Demonstrates SRE agent's ability to detect silent failures through log correlation analysis, identifying broken async pipelines without user-facing error signals.
+
+---
+
+### Incident 8: Database Performance Degradation (CPU Throttling)
+
+**File:** [INCIDENT-8-DATABASE-PERFORMANCE-DEGRADATION.md](./INCIDENT-8-DATABASE-PERFORMANCE-DEGRADATION.md)
+
+**Summary:** Simulate database performance degradation by applying restrictive CPU/memory limits to catalogue-db, causing CPU throttling, slow queries, connection timeouts, and cascading failures through catalogue service triggering circuit breaker protection.
+
+**Key Characteristics:**
+- Trigger: catalogue-db CPU limited to 50m, memory to 128Mi (severely under-provisioned)
+- Database: Running but CPU throttled at 100% of limit (51m/50m)
+- Catalogue service: Circuit breaker opens due to database timeouts
+- Error pattern: "circuit breaker 'List' is open" (protecting from DB failures)
+- User Impact: Product browsing slow/unavailable, timeouts
+- Performance: Query latency 100x increase (microseconds → milliseconds)
+- Pod Status: **Running** (not crashed, but degraded)
+- Recovery: Manual (increase CPU to 500m, memory to 512Mi)
+
+**Datadog Evidence:**
+- Metrics: `kubernetes.cpu.usage.total` pegged at 50m (100% of limit)
+- Metrics: `kubernetes.cpu.limits` changes: unlimited → 50m → 500m
+- Infrastructure: catalogue-db CPU at RED status (100% utilization)
+- Logs: Catalogue service "circuit breaker 'List' is open" (85+ errors)
+- Logs: Health check latency increase (10µs → 1-6ms)
+- Events: "Deployment catalogue-db updated" (resource limits applied)
+- Cascade: Database throttling → Service errors → Circuit breaker → User failures
+
+**Timeline (Nov 5, 2025):**
+- Start: 2025-11-05T20:59:28Z
+- Symptoms: 2025-11-05T21:00:30Z (circuit breaker opened)
+- Recovery: 2025-11-05T21:02:30Z
+- Complete: 2025-11-05T21:03:28Z
+- Duration: ~4 minutes
+
+**Use Case:** Demonstrates SRE agent's ability to distinguish throttling from crashing, trace cascading failures across service tiers, and identify resource constraints as root cause when pod status shows "Running".
 
 ---
 
@@ -825,12 +919,20 @@ This master guide provides everything needed to execute three comprehensive inci
 
 ---
 
-**Document Version:** 1.1  
-**Last Updated:** October 28, 2025  
+**Document Version:** 1.2  
+**Last Updated:** November 5, 2025  
 **Author:** SRE Team  
 **Contact:** For questions or issues, refer to repository documentation
 
-**Version 1.1 Changes:**
+**Version 1.2 Changes (November 5, 2025):**
+- ✅ Added **Incident 5: Async Processing Failure** (queue-master scaled to 0, silent failure pattern)
+- ✅ Added **Incident 8: Database Performance Degradation** (CPU throttling, circuit breaker, cascading failures)
+- ✅ Documented **permanent Datadog DNS fix** (useHTTP: true for HTTPS transport)
+- ✅ Expanded from 3 to 6 incidents covering broader failure scenarios
+- ✅ Added actual execution timelines and Datadog verification steps
+- ✅ Included circuit breaker and async pipeline failure patterns
+
+**Version 1.1 Changes (October 28, 2025):**
 - Added critical prerequisite for Incident 3 (v1.0-status-fix with OrderStatus lifecycle)
 - Updated Incident 2 to accurately reflect HYBRID nature (front-end crashes, backend latency)
 - Enhanced all Incident 3 references with OrderStatus lifecycle details
