@@ -1,0 +1,33 @@
+# Datadog RabbitMQ Integration - Annotation Patch
+# Purpose: Enable Datadog agent to collect RabbitMQ metrics via management API
+# Method: Kubernetes annotations for auto-discovery
+# Risk Level: ZERO - Only adds annotations, no functional changes
+# Reversible: Yes - can remove annotations anytime
+
+spec:
+  template:
+    metadata:
+      annotations:
+        # Existing annotation (DO NOT REMOVE)
+        prometheus.io/scrape: "false"
+        
+        # Datadog Auto-Discovery Annotations (NEW)
+        ad.datadoghq.com/rabbitmq.check_names: '["rabbitmq"]'
+        ad.datadoghq.com/rabbitmq.init_configs: '[{}]'
+        ad.datadoghq.com/rabbitmq.instances: |
+          [
+            {
+              "rabbitmq_api_url": "http://%%host%%:15672/api/",
+              "username": "guest",
+              "password": "guest",
+              "tags": [
+                "app:sock-shop",
+                "service:rabbitmq",
+                "env:demo"
+              ],
+              "queues": ["shipping-task"],
+              "collect_node_metrics": true,
+              "collect_connection_metrics": true
+            }
+          ]
+        ad.datadoghq.com/rabbitmq.logs: '[{"source": "rabbitmq", "service": "rabbitmq"}]'
