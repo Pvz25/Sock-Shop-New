@@ -1,365 +1,169 @@
 # Sock Shop User Journey Failure Scenarios
 
-This document outlines 10 realistic user journey failure scenarios for the Sock Shop e-commerce application. Each scenario includes:
-- User impact
-- Steps to reproduce
-- Expected behavior vs. actual behavior
-- Potential root causes
-- Relevant metrics to monitor
-- Suggested remediation steps
-
-## 1. High Login Latency During Peak Traffic
-
-**User Impact**: Users experience slow login times during peak traffic periods.
-
-**Reproduction Methods**:
-
-### Method 1: Simulate Traffic with Locust
-```bash
-# Deploy Locust to simulate traffic
-kubectl create -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.0.0/deploy/static/provider/cloud/deploy.yaml
-
-# Create Locust configuration for login endpoint
-cat <<EOF > locustfile.py
-from locust import HttpUser, task, between
-
-class LoginUser(HttpUser):
-    wait_time = between(1, 2.5)
-    
-    @task
-    def login(self):
-        self.client.post("/login", {"username":"user", "password":"password"})
-EOF
-
-# Run Locust test
-kubectl run locust --image=locustio/locust -n sock-shop -- \
-  --host=http://front-end.sock-shop.svc.cluster.local:80 \
-  --locustfile=/mnt/locustfile.py \
-  --users=5000 --spawn-rate=100 --run-time=10m
-```
-
-### Method 2: Induce MongoDB CPU Pressure
-```bash
-# Scale down MongoDB resources
-kubectl patch statefulset mongo -n sock-shop --type='json' -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/resources/limits/cpu", "value": "100m"}]'
-
-# Create CPU-intensive query
-kubectl exec -it mongo-0 -n sock-shop -- mongo --eval "
-  db.getSiblingDB('users').getCollection('users').createIndex({email: 1});
-  for(i=0; i<1000000; i++) { 
-    db.getSiblingDB('users').users.find({
-      email: { $regex: '.*' + Math.random().toString(36).substring(7) + '@example.com' }
-    }).explain('executionStats'); 
-  }"
-```
-
-### Method 3: Network Latency Injection
-```bash
-# Install Chaos Mesh if not present
-curl -sSL https://mirrors.chaos-mesh.org/v2.1.5/install.sh | bash
-
-# Add network latency between frontend and user service
-cat <<EOF | kubectl apply -f -
-apiVersion: chaos-mesh.org/v1alpha1
-kind: NetworkChaos
-metadata:
-  name: frontend-user-latency
-  namespace: sock-shop
-spec:
-  action: delay
-  mode: one
-  selector:
-    namespaces:
-      - sock-shop
-    labelSelectors:
-      app.kubernetes.io/name: front-end
-  delay:
-    latency: "2s"
-    correlation: "100"
-    jitter: "0ms"
-  duration: "1h"
-  scheduler:
-    cron: "@every 1h"
-  direction: to
-  target:
-    selector:
-      namespaces:
-        - sock-shop
-      labelSelectors:
-        app.kubernetes.io/name: user
-    mode: all
-EOF
-```
-
-**Expected vs Actual**:
-- Expected: Login completes in < 1s
-- Actual: Login takes > 5s with increased failure rate
-
-**Potential Root Causes**:
-- MongoDB user database CPU saturation
-- Inefficient authentication queries
-- Missing database indexes on user collection
-- Service mesh/API gateway overload
-
-**Key Metrics**:
-- MongoDB CPU/Memory usage
-- Login endpoint latency (p50, p95, p99)
-- Authentication service error rate
-- Database query execution time
-  
-**Validation**:
-```bash
-# Monitor login latency
-kubectl exec -it $(kubectl get pods -n monitoring -l app=prometheus -o name | head -1) -n monitoring -- \
-  curl -s 'http://localhost:9090/api/v1/query?query=histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket{job="front-end", path="/login"}[1m])) by (le))'
-```
-
-## 2. Failed Order Processing
-
-**User Impact**: Users receive "Order Failed" message after checkout.
-
-**Reproduction Steps**:
-1. Add items to cart and proceed to checkout
-2. During payment processing, simulate network partition to payment service
-3. Observe order status
-
-**Expected vs Actual**:
-- Expected: Order is processed successfully or clearly fails with retry option
-- Actual: Order appears to fail but payment is processed
-
-**Potential Root Causes**:
-- Payment service timeout
-- Inconsistent transaction handling
-- Failed message in RabbitMQ queue
-- Insufficient retry logic
-
-**Key Metrics**:
-- Payment service availability
-- Order service error rate
-- RabbitMQ queue depth
-- Failed transaction count
-
-## 3. Shopping Cart Data Loss
-
-**User Impact**: Users report items disappearing from cart between sessions.
-
-**Reproduction Steps**:
-1. Add items to cart
-2. Wait 30+ minutes
-3. Refresh page or return to site
-
-**Expected vs Actual**:
-- Expected: Cart items persist between sessions
-- Actual: Cart is empty or partially empty
-
-**Potential Root Causes**:
-- Session timeout too short
-- Cart service database connection issues
-- Data eviction from cache
-- Failed cart synchronization between services
-
-**Key Metrics**:
-- Cart service response time
-- Cache hit/miss ratio
-- Database connection pool usage
-- Session expiration events
-
-## 4. Product Catalog Staleness
-
-**User Impact**: Users see outdated product information or stock levels.
-
-**Reproduction Steps**:
-1. Update product information in admin panel
-2. Browse catalog from multiple regions
-3. Check if updates are consistent
-
-**Expected vs Actual**:
-- Expected: All users see updated product info within 1 minute
-- Actual: Stale data persists for some users
-
-**Potential Root Causes**:
-- CDN cache TTL too high
-- Cache invalidation failures
-- Eventual consistency delays
-- Service mesh routing issues
-
-**Key Metrics**:
-- Cache hit ratio
-- Catalog update propagation time
-- CDN cache age
-- Service mesh health
-
-## 5. Payment Processing Timeout
-
-**User Impact**: Payment takes too long, causing user to abandon purchase.
-
-**Reproduction Steps**:
-1. Start a large number of concurrent checkouts
-2. Introduce network latency to payment processor
-3. Monitor checkout completion rate
-
-**Expected vs Actual**:
-- Expected: Payment processes in < 3s
-- Actual: Payment times out after 30s
-
-**Potential Root Causes**:
-- Third-party payment gateway latency
-- Circuit breaker tripping
-- Connection pool exhaustion
-- Inefficient payment validation
-
-**Key Metrics**:
-- Payment processing time
-- Timeout error rate
-- Circuit breaker state
-- External API response times
-
-## 6. Search Functionality Degradation
-
-**User Impact**: Product search returns incomplete or slow results.
-
-**Reproduction Steps**:
-1. Index 10,000+ products
-2. Execute complex search queries
-3. Monitor search performance
-
-**Expected vs Actual**:
-- Expected: Search results in < 1s
-- Actual: Search takes > 5s or returns partial results
-
-**Potential Root Causes**:
-- Missing search indexes
-- Search cluster health issues
-- Query optimization needed
-- Resource constraints
-
-**Key Metrics**:
-- Search query latency
-- Search error rate
-- Indexing queue depth
-- Search cluster health
-
-## 7. Checkout Page Timeout
-
-**User Impact**: Checkout page fails to load during high traffic.
-
-**Reproduction Steps**:
-1. Simulate 1000+ concurrent checkouts
-2. Monitor frontend and API response times
-
-**Expected vs Actual**:
-- Expected: Checkout page loads in < 2s
-- Actual: Page times out after 30s
-
-**Potential Root Causes**:
-- Frontend service overload
-- API gateway timeouts
-- Backend service degradation
-- Resource exhaustion
-
-**Key Metrics**:
-- Frontend response time
-- API gateway latency
-- Error rate by endpoint
-- Container/VM resource usage
-
-## 8. Order Status Inconsistency
-
-**User Impact**: Order status doesn't reflect actual state.
-
-**Reproduction Steps**:
-1. Place an order
-2. Check status from different devices/regions
-3. Compare order status information
-
-**Expected vs Actual**:
-- Expected: Consistent order status across all views
-- Actual: Different statuses shown in different places
-
-**Potential Root Causes**:
-- Eventual consistency delays
-- Failed state transitions
-- Cache invalidation issues
-- Service communication failures
-
-**Key Metrics**:
-- Order status update latency
-- Event processing lag
-- Inconsistent state events
-- Service-to-service call success rate
-
-## 9. User Profile Update Failures
-
-**User Impact**: User profile updates are not saved or partially applied.
-
-**Reproduction Steps**:
-1. Update multiple profile fields
-2. Save and verify changes
-3. Check from different sessions
-
-**Expected vs Actual**:
-- Expected: All changes saved successfully
-- Actual: Some changes lost or not persisted
-
-**Potential Root Causes**:
-- Data validation failures
-- Service timeouts
-- Database constraint violations
-- Concurrent modification issues
-
-**Key Metrics**:
-- Profile update success rate
-- Database write latency
-- Validation error rate
-- Concurrent update conflicts
-
-## 10. Shipping Calculation Errors
-
-**User Impact**: Incorrect shipping costs shown at checkout.
-
-**Reproduction Steps**:
-1. Add items to cart from different regions
-2. Proceed to checkout
-3. Verify shipping calculations
-
-**Expected vs Actual**:
-- Expected: Accurate shipping costs based on location
-- Actual: Incorrect or missing shipping options
-
-**Potential Root Causes**:
-- Third-party shipping API failures
-- Cached shipping rates
-- Geocoding inaccuracies
-- Service configuration errors
-
-**Key Metrics**:
-- Shipping API response time
-- Calculation error rate
-- Geocoding accuracy
-- Cache hit/miss ratio
-
-## Implementation Notes for Testing
-
-1. **Load Testing**:
-   - Use Locust or similar tools to simulate user traffic
-   - Gradually ramp up from normal to peak load
-   - Monitor system metrics during tests
-
-2. **Chaos Engineering**:
-   - Introduce network latency between services
-   - Simulate service failures
-   - Test circuit breakers and retry mechanisms
-
-3. **Monitoring**:
-   - Set up comprehensive logging and metrics
-   - Create dashboards for key user journeys
-   - Configure alerts for SLO violations
-
-4. **Remediation**:
-   - Document common failure patterns
-   - Create runbooks for each scenario
-   - Implement automated remediation where possible
-
-## Conclusion
-
-These scenarios provide a comprehensive test suite for evaluating SRE agent capabilities in identifying and resolving real-world e-commerce issues. By systematically reproducing these failure modes, you can validate your SRE agent's ability to detect, diagnose, and suggest remediation for complex, user-impacting issues in a microservices environment.
+## Executive Summary
+
+- The Sock Shop platform comprises eight microservices, four data stores, and RabbitMQ-backed asynchronous flows that collectively deliver browse → cart → checkout → fulfillment experiences for end users.@README.md#48-125
+- Comprehensive incident guides already exist for middleware queue blockage (Incident 5A), autoscaling misconfiguration (Incident 7), and database performance degradation (Incident 8). Each aligns exactly with the requested user-journey failure modes and contains deterministic reproduction instructions.@INCIDENT-5A-QUEUE-BLOCKAGE.md#1-354 @INCIDENT-7-AUTOSCALING-FAILURE.md#1-607 @INCIDENT-8-DATABASE-PERFORMANCE-DEGRADATION.md#1-656
+- This report synthesizes architectural understanding, validates incident coverage against requirements, and consolidates reproduction and observability plans so the SRE agent can prove rapid MTTR on user-facing degradations.
+
+## Methodological Approach
+
+1. **Inventory & context mapping** – Parsed repository documentation, deployment manifests, and incident runbooks to catalogue components, dependencies, and observability hooks.
+2. **Framework-driven analysis** – Evaluated incidents through the Four Golden Signals (latency, traffic, errors, saturation) and socio-technical lenses (business impact, infrastructure misconfiguration, data tier health).
+3. **Cross-verification** – Matched requirements word-for-word against incident narratives, reproduction steps, and evidence artifacts to eliminate ambiguity or hallucination.
+4. **Counterfactual testing** – Considered alternate root causes and validation steps to ensure scenarios truly exercise the specified failure class.
+
+## Core Architecture & Workflow
+
+### Microservices and Responsibilities
+
+- **front-end (Node.js)** – Traffic ingress, renders catalogue, checkout, order history.@README.md#81-124
+- **catalogue (Go)** – Product listing/search API backed by MariaDB.@README.md#95-124
+- **user (Go)** – Authentication and profile management over MongoDB.@README.md#95-124
+- **carts (Java)** – Shopping cart persistence via Redis.@README.md#95-124
+- **orders (Java)** – Order lifecycle orchestration and RabbitMQ publisher.@README.md#95-124
+- **payment (Go)** – Gateway simulator invoked synchronously by orders.@README.md#95-124
+- **shipping (Java)** and **queue-master (Java)** – Asynchronous fulfillment consumers driven by RabbitMQ queues.@README.md#95-124
+
+### Data Stores & Messaging
+
+- **MariaDB (catalogue-db)** for product catalogue content.@README.md#100-107
+- **MongoDB replicas** for user, carts, and orders state.@README.md#95-124
+- **Redis session-db** for cart/session caching.@README.md#100-106
+- **RabbitMQ** mediates order fulfillment via the `shipping-task` queue.@README.md#108-110
+
+### Observability Fabric
+
+- Prometheus, Grafana, and Datadog capture metrics, logs, and Kubernetes events for all services, including RabbitMQ queue depth and HPA metrics.@README.md#56-136
+- Incident runbooks leverage Datadog metrics such as `rabbitmq.queue.messages`, `kubernetes.cpu.usage.total`, and Kubernetes events for deployments/HPA to drive SRE agent investigations.@INCIDENT-5A-QUEUE-BLOCKAGE.md#109-148 @INCIDENT-7-AUTOSCALING-FAILURE.md#161-343 @INCIDENT-8-DATABASE-PERFORMANCE-DEGRADATION.md#272-393
+
+### End-to-End Order Journey Baseline
+
+1. Customer submits order through front-end.
+2. Orders service validates payment, persists state in Mongo, and publishes to RabbitMQ.
+3. Queue-master consumes messages, invokes shipping, which finalizes fulfillment and updates status back to orders DB.@INCIDENT-5-ASYNC-PROCESSING-FAILURE.md#48-110
+
+Understanding this base flow is essential for reasoning about queue blockages, HPA failures, and catalogue bottlenecks.
+
+## Incident Alignment Review
+
+### Incident 5A – Middleware Queue Blockage
+
+**Requirement:** “Customer order processing stuck in middleware queue due to blockage in a queue/topic.”
+
+**Runbook Evidence:** Incident 5A explicitly constrains RabbitMQ (`max-length:3`, `overflow:reject-publish`) and simultaneously removes the consumer, producing a queue at capacity with rejected publishes and no downstream shipping progress.@INCIDENT-5A-QUEUE-BLOCKAGE.md#56-105
+
+**Alignment Verdict:** **Exact match.** Orders 1–3 remain stranded in the queue, orders 4+ are rejected, and the UI continues to report success, modeling a real middleware blockage with user-visible fulfillment failure.@INCIDENT-5A-QUEUE-BLOCKAGE.md#14-32
+
+**Reproduction Blueprint:**
+1. Apply restrictive policy on `shipping-task` queue.
+2. Scale `queue-master` deployment to zero replicas.
+3. Generate ≥5 orders through UI or provided Locust job.
+4. Verify queue depth stuck at three and consumer count at zero.@INCIDENT-5A-QUEUE-BLOCKAGE.md#56-105
+
+**Diagnostics & Observability:**
+- RabbitMQ metrics flatline at capacity and consumer count drops to zero.@INCIDENT-5A-QUEUE-BLOCKAGE.md#109-133
+- Datadog events confirm queue-master scale-down; logs show absence of consumer activity.
+- Orders DB retains `pending` status, confirming business backlog.
+
+**SRE Agent Reasoning Path:**
+1. Correlate missing queue-master replicas with queue saturation.
+2. Interpret silent failure (no HTTP errors) as asynchronous pipeline issue.
+3. Recommend removing policy and restoring consumer replicas, followed by queue drain validation.@INCIDENT-5A-QUEUE-BLOCKAGE.md#256-304
+
+**Counterarguments Addressed:**
+- *What if only the consumer is down?* That is Incident 5; 5A adds capacity enforcement to ensure actual blockage (rejections + stuck messages).
+- *Could network issues mimic this?* The policy + consumer shutdown create deterministic RabbitMQ errors (406 PRECONDITION_FAILED) proving queue-level root cause.
+
+**Trade-offs & Mitigations:** Increasing queue capacity or adding dead-lettering mitigates the immediate symptom but must be paired with better error propagation and autoscaling to prevent silent failures.@INCIDENT-5A-QUEUE-BLOCKAGE.md#223-252
+
+### Incident 7 – Autoscaling Failure During Traffic Spike
+
+**Requirement:** “Autoscaling not triggering during traffic spikes (Kubernetes-based; load can be simulated with JMeter).”
+
+**Runbook Evidence:** Incident 7 deploys an HPA misconfigured to watch memory instead of CPU. Under a 750-user load test, CPU saturates at 300m while memory stays near 60%, so replicas never scale beyond one and the pod repeatedly crashes.@INCIDENT-7-AUTOSCALING-FAILURE.md#12-143
+
+**Alignment Verdict:** **Exact match.** The HPA is present but ineffective, capturing the scenario where autoscaling fails despite traffic surge because the wrong metric is targeted.@INCIDENT-7-AUTOSCALING-FAILURE.md#12-27
+
+**Reproduction Blueprint:**
+1. Apply `incident-7-broken-hpa.yaml` to monitor memory.
+2. Launch high-concurrency load (Locust job equivalent to JMeter) at 750 users.
+3. Observe CPU pegged at 100% with no replica increase while pods crash/restart.
+4. Capture HPA status showing low memory utilization and replicas stuck at one.@INCIDENT-7-AUTOSCALING-FAILURE.md#73-143
+
+**Diagnostics & Observability:**
+- Datadog metrics show CPU saturating and replicas flat at one.@INCIDENT-7-AUTOSCALING-FAILURE.md#161-211
+- HPA telemetry reveals monitored metric `memory` with current values below target.@INCIDENT-7-AUTOSCALING-FAILURE.md#214-250
+- Logs expose Node.js OOM / timeout errors confirming user impact.@INCIDENT-7-AUTOSCALING-FAILURE.md#273-299
+
+**SRE Agent Reasoning Path:**
+1. Validate user-facing failures via log spikes and restarts.
+2. Inspect HPA configuration to detect metric mismatch.
+3. Recommend switching to CPU-based HPA and retesting to confirm automatic horizontal scaling.@INCIDENT-7-AUTOSCALING-FAILURE.md#366-472
+
+**Counterarguments Addressed:**
+- *Could traffic simply exceed cluster capacity?* The remedial run with the fixed HPA scales to eight replicas and restores performance, proving misconfiguration rather than capacity shortage.@INCIDENT-7-AUTOSCALING-FAILURE.md#395-472
+- *Is manual scaling sufficient?* Manual scaling masks the underlying control-plane gap; the scenario validates HPA governance and alerting needs.
+
+**Trade-offs & Mitigations:** Permanent fix involves reviewing HPA metrics, setting alerts for “high CPU + no scaling events,” and load-testing autoscaling profiles ahead of peak traffic.@INCIDENT-7-AUTOSCALING-FAILURE.md#490-553
+
+### Incident 8 – Catalogue Database Performance Degradation
+
+**Requirement:** “Product search slowness due to database latency or connection pool exhaustion.”
+
+**Runbook Evidence:** Incident 8 caps catalogue-db CPU at 50m, driving sustained 100% CPU usage, multi-second query latency, catalogue service timeouts, and front-end 500/504 errors. User experience degrades for product browsing/search.
+@INCIDENT-8-DATABASE-PERFORMANCE-DEGRADATION.md#12-27 @INCIDENT-8-DATABASE-PERFORMANCE-DEGRADATION.md#141-269
+
+**Alignment Verdict:** **Exact match.** Slow catalogue queries originate from deliberate database resource starvation, reproducing the targeted product search latency failure.
+
+**Reproduction Blueprint:**
+1. Patch catalogue-db deployment with restrictive CPU/memory limits.
+2. Generate sustained catalogue traffic (manual browsing or provided Locust script).
+3. Observe query latency spikes, connection timeouts, and front-end errors.
+4. Record incident window for observability correlation.@INCIDENT-8-DATABASE-PERFORMANCE-DEGRADATION.md#141-269
+
+**Diagnostics & Observability:**
+- Datadog shows CPU pegged at 50m (100% of limit) for catalogue-db, with cascading catalogue/front-end errors.@INCIDENT-8-DATABASE-PERFORMANCE-DEGRADATION.md#272-393
+- Logs reveal circuit breaker openings and database connection errors confirming database-origin latency.@INCIDENT-8-DATABASE-PERFORMANCE-DEGRADATION.md#336-399
+
+**SRE Agent Reasoning Path:**
+1. Start from user complaint (“slow product pages”), trace front-end logs to catalogue errors, then to database saturation.
+2. Quantify latency regression (50ms → 4.5s) and connection pool stress.
+3. Recommend increasing resources and adding slow-query observability for prevention.@INCIDENT-8-DATABASE-PERFORMANCE-DEGRADATION.md#450-567
+
+**Counterarguments Addressed:**
+- *Could application code cause latency?* Restoring CPU limit to 500m immediately normalizes response time, confirming infrastructure bottleneck.
+- *What about connection pool exhaustion?* The runbook notes that slow queries consume connections longer, leading to pool exhaustion—part of the intended failure mode.@INCIDENT-8-DATABASE-PERFORMANCE-DEGRADATION.md#484-505
+
+**Trade-offs & Mitigations:** Balance between cost (resource limits) and performance, add indexes, enable slow-query logging, and consider auto-scaling or caching to absorb spikes.@INCIDENT-8-DATABASE-PERFORMANCE-DEGRADATION.md#640-648
+
+## Comparative Insights & Practical Considerations
+
+- **Business-first detection:** All three incidents manifest as user complaints (orders not shipped, outages during spike, slow search). Monitoring must map business KPIs to technical telemetry.
+- **Silent vs. loud failures:** Queue blockage and database throttling are silent/sneaky; autoscaling misconfig presents loudly with crashes. The SRE agent must adapt investigation strategies accordingly.
+- **Countermeasure hierarchy:** Immediate remediation (scaling resources, removing policies) must be paired with systemic fixes (alerting, configuration checks, indexing) to prevent recurrence.
+- **Resilience validation:** These incidents stress asynchronous pipelines, resource governance, and data-layer capacity—key axes for e-commerce reliability.
+
+## Recommended Actions for SRE Agent Testing
+
+1. **Pre-stage lab environment** with baseline health checks and ensure observability backends retain relevant metrics/logs during experiments.
+2. **Automate runbooks** via scripts or GitOps to apply queue policies, HPA configs, and resource patches, reducing manual error.
+3. **Instrument guardrail alerts** for RabbitMQ consumer count, HPA no-scale conditions, and catalogue-db CPU saturation, aligning with remediation sections of each incident.@INCIDENT-5A-QUEUE-BLOCKAGE.md#223-252 @INCIDENT-7-AUTOSCALING-FAILURE.md#545-553 @INCIDENT-8-DATABASE-PERFORMANCE-DEGRADATION.md#640-648
+4. **Capture before/after evidence** (metrics snapshots, log excerpts) to feed the SRE agent for post-incident evaluation and scoring.
+5. **Iteratively rehearse** by combining incidents (e.g., queue blockage + database throttling) to challenge multi-signal correlation capabilities once single-fault runs are mastered.
+
+## Appendix A – Quick Command Reference
+
+| Incident | Trigger Commands | Load Generation | Validation Checks |
+|----------|------------------|-----------------|-------------------|
+| 5A – Queue Blockage | `rabbitmqctl set_policy ... max-length=3`, `kubectl scale deployment/queue-master --replicas=0` | Place 5–7 orders via UI or `load/locust-payment-failure-test.yaml` | `rabbitmqctl list_queues`, Datadog queue metrics, orders status pending.@INCIDENT-5A-QUEUE-BLOCKAGE.md#56-105 @INCIDENT-5A-QUEUE-BLOCKAGE.md#98-148 |
+| 7 – Autoscaling Failure | `kubectl apply -f incident-7-broken-hpa.yaml` | `load/locust-hybrid-crash-test.yaml` (750 users) | `kubectl get hpa`, `kubectl top pods`, Datadog CPU vs replicas.@INCIDENT-7-AUTOSCALING-FAILURE.md#73-143 @INCIDENT-7-AUTOSCALING-FAILURE.md#161-211 |
+| 8 – Catalogue DB Latency | `kubectl set resources deployment/catalogue-db --limits=cpu=50m,memory=128Mi` | Manual browsing or `load/incident8_db_degradation.py` | `kubectl top pod catalogue-db`, catalogue logs, Datadog latency graphs.@INCIDENT-8-DATABASE-PERFORMANCE-DEGRADATION.md#141-248 @INCIDENT-8-DATABASE-PERFORMANCE-DEGRADATION.md#272-393 |
+
+## Appendix B – Dependency Reference
+
+- **Order Fulfillment Pipeline:** front-end → orders → payment → RabbitMQ → queue-master → shipping → orders-db.@INCIDENT-5-ASYNC-PROCESSING-FAILURE.md#48-110
+- **Autoscaling Control Plane:** front-end deployment + HPA + metrics-server delivering pod metrics for scaling decisions.@INCIDENT-7-AUTOSCALING-FAILURE.md#34-67
+- **Catalogue Query Path:** front-end → catalogue service → catalogue-db (MariaDB) executing unindexed searches under constrained CPU.@INCIDENT-8-DATABASE-PERFORMANCE-DEGRADATION.md#38-76
+
+These references help anchor SRE agent prompts in concrete architecture, ensuring reproducible and explainable incident simulations.

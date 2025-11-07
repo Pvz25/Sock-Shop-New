@@ -1,0 +1,47 @@
+FROM registry.access.redhat.com/ubi9/go-toolset:latest as builder
+
+USER 0
+
+# Copy the entire payment source (already patched) directly
+COPY payment-source /go/src/github.com/microservices-demo/payment
+
+# Copy patched go.mod
+COPY automation/payment-go.mod.patch /go/src/github.com/microservices-demo/payment/go.mod
+
+WORKDIR /go/src/github.com/microservices-demo/payment
+
+# Remove conflicting vendor directory and build with go modules
+RUN rm -rf vendor \
+    && go mod download \
+    && go mod tidy || true \
+    && CGO_ENABLED=0 GOOS=linux go build -mod=mod -a -installsuffix cgo -o /app github.com/microservices-demo/payment/cmd/paymentsvc
+
+USER 1001
+
+FROM registry.access.redhat.com/ubi9/ubi-minimal:latest
+
+ENV	SERVICE_USER=myuser \
+	SERVICE_UID=10001 \
+	SERVICE_GROUP=mygroup \
+	SERVICE_GID=10001
+
+RUN microdnf update -y \
+    && microdnf install -y nc tzdata openssl ca-certificates fontconfig glibc-langpack-en gzip tar findutils shadow-utils \
+    && groupadd -r -g ${SERVICE_GID} ${SERVICE_GROUP} \
+    && useradd -r -u ${SERVICE_UID} -g ${SERVICE_GROUP} -m -d /home/${SERVICE_USER} -s /sbin/nologin ${SERVICE_USER}
+
+ENV HATEAOS=user
+ENV USER_DATABASE=mongodb
+ENV MONGO_HOST=user-db
+
+WORKDIR /
+EXPOSE 8080
+RUN	mkdir -p /payment
+COPY --from=builder /app /payment/app
+
+RUN	chmod +x /payment/app && \
+	chown -R ${SERVICE_USER}:${SERVICE_GROUP} /payment/app
+
+USER ${SERVICE_USER}
+
+CMD ["/payment/app", "-port=8080"]

@@ -1,0 +1,21 @@
+# Incident 6: Payment Service Degradation (Resource Starvation)
+# Simulates payment gateway experiencing high load/degradation
+# This is RELIABLE and will work consistently
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment
+  namespace: sock-shop
+spec:
+  template:
+    spec:
+      containers:
+      - name: payment
+        resources:
+          limits:
+            cpu: "10m"      # Severely throttled (from 200m)
+            memory: "50Mi"  # Reduced (from 200Mi)
+          requests:
+            cpu: "5m"
+            memory: "25Mi"
