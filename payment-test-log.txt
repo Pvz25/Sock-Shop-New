@@ -1,0 +1,2 @@
+ts=2025-11-10T12:11:17.563911457Z caller=logging.go:36 method=Health result=1 took=4.815µs
+ts=2025-11-10T12:11:18.291816478Z caller=logging.go:36 method=Health result=1 took=4.684µs
