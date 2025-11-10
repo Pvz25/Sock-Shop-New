@@ -1,0 +1,12 @@
+# Remove PostStart Hook and Enable Plugin via Environment Variable
+# This is the correct approach for quay.io/powercloud/rabbitmq image
+
+spec:
+  template:
+    spec:
+      containers:
+      - name: rabbitmq
+        lifecycle: null  # Remove the postStart hook
+        env:
+        - name: RABBITMQ_ENABLED_PLUGINS
+          value: "rabbitmq_management"

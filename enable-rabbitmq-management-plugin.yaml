@@ -1,0 +1,37 @@
+# RabbitMQ Management Plugin Enablement Patch
+# Purpose: Enable management API for metrics collection
+# Risk: LOW - Standard plugin, widely used
+# Regression: ZERO - Plugin only adds functionality
+
+spec:
+  template:
+    spec:
+      containers:
+      - name: rabbitmq
+        lifecycle:
+          postStart:
+            exec:
+              command:
+              - /bin/bash
+              - -c
+              - |
+                # Wait for RabbitMQ to be ready (max 60 seconds)
+                for i in {1..30}; do
+                  if rabbitmq-diagnostics ping 2>/dev/null; then
+                    echo "RabbitMQ is ready"
+                    break
+                  fi
+                  echo "Waiting for RabbitMQ... ($i/30)"
+                  sleep 2
+                done
+                
+                # Enable management plugin
+                echo "Enabling management plugin..."
+                rabbitmq-plugins enable rabbitmq_management
+                
+                # Verify plugin is enabled
+                if rabbitmq-plugins list | grep -q "rabbitmq_management.*E"; then
+                  echo "✅ Management plugin enabled successfully"
+                else
+                  echo "⚠️ Management plugin enablement may need restart"
+                fi

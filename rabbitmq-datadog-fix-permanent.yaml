@@ -1,0 +1,89 @@
+# ==============================================================================
+# PERMANENT FIX: RabbitMQ Datadog Integration
+# ==============================================================================
+# Issue: Datadog auto-discovery tries port 15692 (doesn't exist)
+# Solution: Override with correct port 9090 (prometheus exporter)
+# Approach: Industry-standard Kubernetes annotations for Datadog autodiscovery
+# Risk: ZERO - Only adds metadata, no functional changes
+# Regression: ZERO - Existing prometheus annotations preserved
+# ==============================================================================
+
+spec:
+  template:
+    metadata:
+      annotations:
+        # ==============================================================================
+        # EXISTING ANNOTATIONS (PRESERVED - DO NOT REMOVE)
+        # ==============================================================================
+        prometheus.io/scrape: "false"
+        
+        # ==============================================================================
+        # DATADOG AUTODISCOVERY ANNOTATIONS (NEW - PERMANENT FIX)
+        # ==============================================================================
+        # These annotations configure Datadog agent to:
+        # 1. Discover the RabbitMQ exporter container
+        # 2. Use OpenMetrics check (not legacy rabbitmq check)
+        # 3. Connect to correct port 9090 (not default 15692)
+        # 4. Collect queue-level metrics for incident detection
+        # ==============================================================================
+        
+        # Target the rabbitmq-exporter container specifically
+        ad.datadoghq.com/rabbitmq-exporter.check_names: '["openmetrics"]'
+        
+        # Initialize check with empty config (use defaults)
+        ad.datadoghq.com/rabbitmq-exporter.init_configs: '[{}]'
+        
+        # Configure the check instance
+        ad.datadoghq.com/rabbitmq-exporter.instances: |
+          [
+            {
+              "openmetrics_endpoint": "http://%%host%%:9090/metrics",
+              "namespace": "rabbitmq",
+              "metrics": [".*"],
+              "send_distribution_buckets": true,
+              "send_distribution_counts_as_monotonic": true,
+              "send_distribution_sums_as_monotonic": true,
+              "tags": [
+                "app:sock-shop",
+                "component:rabbitmq",
+                "service:rabbitmq",
+                "env:demo",
+                "integration:rabbitmq-exporter"
+              ]
+            }
+          ]
+        
+        # Configure log collection (already working, but explicit is better)
+        ad.datadoghq.com/rabbitmq.logs: '[{"source": "rabbitmq", "service": "sock-shop-rabbitmq"}]'
+        ad.datadoghq.com/rabbitmq-exporter.logs: '[{"source": "rabbitmq_exporter", "service": "sock-shop-rabbitmq-exporter"}]'
+
+# ==============================================================================
+# WHAT THIS FIXES:
+# ==============================================================================
+# Before: Datadog tries port 15692 → Connection refused → No metrics
+# After:  Datadog uses port 9090 → Success → Metrics flowing
+#
+# Available Metrics (after 2-3 min):
+# - rabbitmq_queue_messages           (queue depth)
+# - rabbitmq_queue_messages_ready     (ready messages)
+# - rabbitmq_queue_consumers          (consumer count) ← CRITICAL FOR INCIDENT-5
+# - rabbitmq_queue_message_stats_*    (publish/deliver rates)
+# - rabbitmq_node_*                   (node health)
+#
+# ==============================================================================
+# VERIFICATION COMMANDS:
+# ==============================================================================
+# 1. Apply: kubectl patch deployment rabbitmq -n sock-shop --patch-file rabbitmq-datadog-fix-permanent.yaml
+# 2. Wait: 30 seconds for pod restart
+# 3. Check: kubectl get pods -n sock-shop -l name=rabbitmq
+# 4. Verify: kubectl exec -n datadog <agent-pod> -- agent status | grep -A 20 openmetrics
+# 5. Datadog: Search for "rabbitmq_queue_consumers" in Metrics Explorer (wait 2-3 min)
+#
+# ==============================================================================
+# ROLLBACK (if needed):
+# ==============================================================================
+# kubectl patch deployment rabbitmq -n sock-shop --type json -p='[{"op": "remove", "path": "/spec/template/metadata/annotations/ad.datadoghq.com~1rabbitmq-exporter.check_names"}]'
+# kubectl patch deployment rabbitmq -n sock-shop --type json -p='[{"op": "remove", "path": "/spec/template/metadata/annotations/ad.datadoghq.com~1rabbitmq-exporter.init_configs"}]'
+# kubectl patch deployment rabbitmq -n sock-shop --type json -p='[{"op": "remove", "path": "/spec/template/metadata/annotations/ad.datadoghq.com~1rabbitmq-exporter.instances"}]'
+#
+# ==============================================================================

@@ -1,0 +1,22 @@
+# Enable RabbitMQ Management Plugin
+# This enables the Management API on port 15672 so the exporter can collect metrics
+
+spec:
+  template:
+    spec:
+      containers:
+      - name: rabbitmq
+        env:
+        - name: RABBITMQ_MANAGEMENT_PLUGIN_ENABLED
+          value: "true"
+        # Alternative: Use command to enable plugin
+        lifecycle:
+          postStart:
+            exec:
+              command:
+              - /bin/bash
+              - -c
+              - |
+                timeout 30 sh -c 'until rabbitmq-diagnostics ping; do sleep 1; done'
+                rabbitmq-plugins enable --offline rabbitmq_management
+                rabbitmqctl eval 'application:ensure_all_started(rabbitmq_management).'

@@ -1,0 +1,115 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "2"
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"labels":{"name":"rabbitmq"},"name":"rabbitmq","namespace":"sock-shop"},"spec":{"replicas":1,"selector":{"matchLabels":{"name":"rabbitmq"}},"template":{"metadata":{"annotations":{"prometheus.io/scrape":"false"},"labels":{"name":"rabbitmq"}},"spec":{"containers":[{"args":["/usr/local/bin/docker-entrypoint.sh","rabbitmq-server"],"command":["/usr/bin/bash"],"image":"quay.io/powercloud/rabbitmq:latest","imagePullPolicy":"IfNotPresent","name":"rabbitmq","ports":[{"containerPort":15672,"name":"management"},{"containerPort":5672,"name":"rabbitmq"}],"securityContext":{"readOnlyRootFilesystem":false}},{"image":"ghcr.io/kbudde/rabbitmq_exporter:1.0.0","imagePullPolicy":"IfNotPresent","name":"rabbitmq-exporter","ports":[{"containerPort":9090,"name":"exporter"}]}],"nodeSelector":{"kubernetes.io/arch":"amd64","node-role.kubernetes.io/worker":""}}}}}
+  creationTimestamp: "2025-11-09T08:39:06Z"
+  generation: 2
+  labels:
+    name: rabbitmq
+  name: rabbitmq
+  namespace: sock-shop
+  resourceVersion: "48786"
+  uid: e7bc8cb2-0890-4379-a8b2-b18f687e8bf3
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      name: rabbitmq
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        ad.datadoghq.com/rabbitmq-exporter.check_names: '["openmetrics"]'
+        ad.datadoghq.com/rabbitmq-exporter.init_configs: '[{}]'
+        ad.datadoghq.com/rabbitmq-exporter.instances: |
+          [
+            {
+              "openmetrics_endpoint": "http://%%host%%:9090/metrics",
+              "namespace": "rabbitmq",
+              "metrics": [".*"],
+              "send_distribution_buckets": true,
+              "send_distribution_counts_as_monotonic": true,
+              "send_distribution_sums_as_monotonic": true,
+              "tags": [
+                "app:sock-shop",
+                "component:rabbitmq",
+                "service:rabbitmq",
+                "env:demo",
+                "integration:rabbitmq-exporter"
+              ]
+            }
+          ]
+        ad.datadoghq.com/rabbitmq-exporter.logs: '[{"source": "rabbitmq_exporter",
+          "service": "sock-shop-rabbitmq-exporter"}]'
+        ad.datadoghq.com/rabbitmq.logs: '[{"source": "rabbitmq", "service": "sock-shop-rabbitmq"}]'
+        prometheus.io/scrape: "false"
+      labels:
+        name: rabbitmq
+    spec:
+      containers:
+      - args:
+        - /usr/local/bin/docker-entrypoint.sh
+        - rabbitmq-server
+        command:
+        - /usr/bin/bash
+        image: quay.io/powercloud/rabbitmq:latest
+        imagePullPolicy: IfNotPresent
+        name: rabbitmq
+        ports:
+        - containerPort: 15672
+          name: management
+          protocol: TCP
+        - containerPort: 5672
+          name: rabbitmq
+          protocol: TCP
+        resources: {}
+        securityContext:
+          readOnlyRootFilesystem: false
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      - image: ghcr.io/kbudde/rabbitmq_exporter:1.0.0
+        imagePullPolicy: IfNotPresent
+        name: rabbitmq-exporter
+        ports:
+        - containerPort: 9090
+          name: exporter
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      nodeSelector:
+        kubernetes.io/arch: amd64
+        node-role.kubernetes.io/worker: ""
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2025-11-09T08:39:08Z"
+    lastUpdateTime: "2025-11-09T08:39:08Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2025-11-09T08:39:06Z"
+    lastUpdateTime: "2025-11-10T06:33:31Z"
+    message: ReplicaSet "rabbitmq-55f68d5b57" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  observedGeneration: 2
+  readyReplicas: 1
+  replicas: 1
+  updatedReplicas: 1

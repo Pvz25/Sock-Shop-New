@@ -1,0 +1,30 @@
+# Enable RabbitMQ Management Plugin via Configuration
+# Approach: Use init container to write enabled_plugins file
+
+spec:
+  template:
+    spec:
+      initContainers:
+      - name: enable-management-plugin
+        image: busybox:latest
+        command:
+        - sh
+        - -c
+        - |
+          echo '[rabbitmq_management,rabbitmq_management_agent].' > /var/lib/rabbitmq/enabled_plugins
+          echo "✅ Management plugin configuration written"
+          cat /var/lib/rabbitmq/enabled_plugins
+        volumeMounts:
+        - name: rabbitmq-data
+          mountPath: /var/lib/rabbitmq
+      containers:
+      - name: rabbitmq
+        env:
+        - name: RABBITMQ_ENABLED_PLUGINS_FILE
+          value: "/var/lib/rabbitmq/enabled_plugins"
+        volumeMounts:
+        - name: rabbitmq-data
+          mountPath: /var/lib/rabbitmq
+      volumes:
+      - name: rabbitmq-data
+        emptyDir: {}
