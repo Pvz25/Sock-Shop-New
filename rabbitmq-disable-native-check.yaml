@@ -1,0 +1,117 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rabbitmq
+  namespace: sock-shop
+  labels:
+    name: rabbitmq
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: rabbitmq
+  template:
+    metadata:
+      labels:
+        name: rabbitmq
+      annotations:
+        # Disable Prometheus scraping (we use Datadog)
+        prometheus.io/scrape: "false"
+        
+        # ===== DISABLE NATIVE RABBITMQ CHECK =====
+        # This prevents Datadog from trying to use the native RabbitMQ integration
+        # which expects port 15692 (RabbitMQ's built-in Prometheus plugin)
+        # We're using kbudde exporter on port 9090 instead via OpenMetrics
+        ad.datadoghq.com/rabbitmq.check_names: '["ignore"]'
+        
+        # ===== RABBITMQ CONTAINER LOGS =====
+        ad.datadoghq.com/rabbitmq.logs: |
+          [
+            {
+              "source": "rabbitmq",
+              "service": "sock-shop-rabbitmq"
+            }
+          ]
+        
+        # ===== RABBITMQ EXPORTER - OPENMETRICS CHECK (PRIMARY) =====
+        ad.datadoghq.com/rabbitmq-exporter.check_names: '["openmetrics"]'
+        ad.datadoghq.com/rabbitmq-exporter.init_configs: '[{}]'
+        ad.datadoghq.com/rabbitmq-exporter.instances: |
+          [
+            {
+              "openmetrics_endpoint": "http://%%host%%:9090/metrics",
+              "namespace": "rabbitmq",
+              "metrics": [".*"],
+              "send_distribution_buckets": true,
+              "send_distribution_counts_as_monotonic": true,
+              "send_distribution_sums_as_monotonic": true,
+              "tags": [
+                "app:sock-shop",
+                "component:rabbitmq",
+                "service:rabbitmq",
+                "env:demo",
+                "integration:rabbitmq-exporter"
+              ]
+            }
+          ]
+        
+        # ===== RABBITMQ EXPORTER LOGS =====
+        ad.datadoghq.com/rabbitmq-exporter.logs: |
+          [
+            {
+              "source": "rabbitmq_exporter",
+              "service": "sock-shop-rabbitmq-exporter"
+            }
+          ]
+    spec:
+      nodeSelector:
+        kubernetes.io/arch: amd64
+        node-role.kubernetes.io/worker: ""
+      containers:
+      # ===== RABBITMQ MAIN CONTAINER =====
+      - name: rabbitmq
+        image: quay.io/powercloud/rabbitmq:latest
+        imagePullPolicy: IfNotPresent
+        command: ["/usr/bin/bash"]
+        args:
+          - /usr/local/bin/docker-entrypoint.sh
+          - rabbitmq-server
+        env:
+        - name: RABBITMQ_ENABLED_PLUGINS
+          value: rabbitmq_management
+        ports:
+        - name: management
+          containerPort: 15672
+          protocol: TCP
+        - name: rabbitmq
+          containerPort: 5672
+          protocol: TCP
+        securityContext:
+          readOnlyRootFilesystem: false
+      
+      # ===== RABBITMQ EXPORTER SIDECAR =====
+      - name: rabbitmq-exporter
+        image: ghcr.io/kbudde/rabbitmq_exporter:1.0.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: exporter
+          containerPort: 9090
+          protocol: TCP
+        env:
+        # CRITICAL: Override default port 9419 to match our service/container port
+        - name: PUBLISH_PORT
+          value: "9090"
+        # Connect to RabbitMQ Management API on localhost
+        - name: RABBIT_URL
+          value: http://127.0.0.1:15672
+        - name: RABBIT_USER
+          value: guest
+        - name: RABBIT_PASSWORD
+          value: guest
+        # Export all metric types
+        - name: RABBIT_EXPORTERS
+          value: exchange,node,overview,queue
+        - name: OUTPUT_FORMAT
+          value: JSON
+        - name: LOG_LEVEL
+          value: info
