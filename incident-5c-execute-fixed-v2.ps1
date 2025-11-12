@@ -1,5 +1,6 @@
-# INCIDENT-5C: Order Processing Stuck in Middleware Queue (FIXED VERSION)
-# Uses RabbitMQ Management API instead of rabbitmqctl
+# INCIDENT-5C: Order Processing Stuck in Middleware Queue (FIXED VERSION 2)
+# Root Cause Fix: Force delete pods to ensure consumer disconnection
+# Date: November 12, 2025
 
 param(
     [int]$DurationSeconds = 180  # 3 minutes (extended for user testing)
@@ -7,7 +8,7 @@ param(
 
 Write-Host "`n========================================" -ForegroundColor Cyan
 Write-Host "  INCIDENT-5C: MIDDLEWARE QUEUE BLOCKED" -ForegroundColor Cyan
-Write-Host "  (Management API Version)" -ForegroundColor Cyan
+Write-Host "  (Fixed Version 2 - Force Delete)" -ForegroundColor Cyan
 Write-Host "========================================" -ForegroundColor Cyan
 
 # Record start time
@@ -66,52 +67,60 @@ $policyCheck = kubectl -n sock-shop exec deployment/rabbitmq -c rabbitmq -- `
 if ($policyCheck -match "shipping-limit") {
     Write-Host "✅ Queue policy set successfully via Management API" -ForegroundColor Green
     Write-Host "   Policy: max-length=3, overflow=reject-publish" -ForegroundColor Gray
-    Write-Host "   API Response: Success" -ForegroundColor Gray
 } else {
     Write-Host "❌ ERROR: Could not set policy" -ForegroundColor Red
     Write-Host "   API Response: $apiResult" -ForegroundColor Yellow
     exit 1
 }
 
-# Step 2: Scale Down Consumer
-Write-Host "`n[Step 2] Stopping queue consumer..." -ForegroundColor Red
-Write-Host "Action: Scaling queue-master to 0 replicas" -ForegroundColor White
+# Step 2: FORCE DELETE Consumer (CRITICAL FIX)
+Write-Host "`n[Step 2] FORCE STOPPING queue consumer..." -ForegroundColor Red
+Write-Host "Action: Force deleting queue-master pods (no grace period)" -ForegroundColor White
 
-kubectl -n sock-shop scale deployment/queue-master --replicas=0 | Out-Null
+# Scale to 0 first
+kubectl -n sock-shop scale deployment/queue-master --replicas=0 2>&1 | Out-Null
 
-Start-Sleep -Seconds 10
+# Force delete all pods immediately (no grace period)
+Write-Host "   Executing: kubectl delete pod --grace-period=0 --force" -ForegroundColor Gray
+kubectl -n sock-shop delete pod -l name=queue-master --grace-period=0 --force 2>&1 | Out-Null
 
-# Verify consumer is down (check pods)
-$queueMasterAfter = kubectl -n sock-shop get pods -l name=queue-master --no-headers 2>&1
-if ($queueMasterAfter -match "No resources found") {
-    Write-Host "✅ Queue-master pods scaled to 0" -ForegroundColor Green
-} else {
-    Write-Host "⚠️ Warning: Queue-master pods may still be terminating" -ForegroundColor Yellow
-}
+# Wait for termination and consumer disconnection
+Write-Host "   Waiting for consumer disconnection..." -ForegroundColor Gray
+Start-Sleep -Seconds 8
 
-# CRITICAL: Verify consumer actually disconnected from RabbitMQ
-Write-Host "   Verifying consumer disconnection via RabbitMQ API..." -ForegroundColor Gray
-Start-Sleep -Seconds 5  # Additional wait for consumer to disconnect
-
+# CRITICAL: Verify consumer is actually disconnected
+Write-Host "`n   Verifying consumer disconnection via RabbitMQ API..." -ForegroundColor Yellow
 $consumerCheck = kubectl -n sock-shop exec deployment/rabbitmq -c rabbitmq -- `
     curl -s -u guest:guest http://localhost:15672/api/queues/%2F/shipping-task 2>&1
 
+$consumerCount = -1
 if ($consumerCheck -match '"consumers":(\d+)') {
     $consumerCount = [int]$Matches[1]
-    if ($consumerCount -eq 0) {
-        Write-Host "✅ Consumer is DOWN - queue will fill up (consumers: 0)" -ForegroundColor Green
-    } else {
-        Write-Host "❌ CRITICAL: Consumer still active (consumers: $consumerCount)" -ForegroundColor Red
-        Write-Host "   Incident cannot proceed - aborting and cleaning up..." -ForegroundColor Yellow
-        
-        # Cleanup: Remove policy before exiting
-        kubectl -n sock-shop exec deployment/rabbitmq -c rabbitmq -- `
-            curl -s -u guest:guest -X DELETE `
-            http://localhost:15672/api/policies/%2F/shipping-limit 2>&1 | Out-Null
-        
-        Write-Host "❌ Incident aborted - consumer did not disconnect" -ForegroundColor Red
-        exit 1
-    }
+}
+
+if ($consumerCount -eq 0) {
+    Write-Host "✅ Consumer disconnected successfully (consumers: 0)" -ForegroundColor Green
+    Write-Host "✅ Queue will now fill up and reject messages after 3" -ForegroundColor Green
+} else {
+    Write-Host "❌ CRITICAL ERROR: Consumer still active (consumers: $consumerCount)!" -ForegroundColor Red
+    Write-Host "   The incident cannot proceed - consumer must be disconnected" -ForegroundColor Yellow
+    Write-Host "   Aborting incident execution..." -ForegroundColor Red
+    
+    # Cleanup: Remove policy before exiting
+    kubectl -n sock-shop exec deployment/rabbitmq -c rabbitmq -- `
+        curl -s -u guest:guest -X DELETE `
+        http://localhost:15672/api/policies/%2F/shipping-limit 2>&1 | Out-Null
+    
+    exit 1
+}
+
+# Additional verification: Check no queue-master pods exist
+$podCheck = kubectl -n sock-shop get pods -l name=queue-master --no-headers 2>&1
+if ($podCheck -match "No resources found") {
+    Write-Host "✅ No queue-master pods running (verified)" -ForegroundColor Green
+} else {
+    Write-Host "⚠️ Warning: Queue-master pods detected:" -ForegroundColor Yellow
+    Write-Host "   $podCheck" -ForegroundColor Gray
 }
 
 # Step 3: User Action Window
@@ -120,6 +129,7 @@ Write-Host "  [Step 3] INCIDENT ACTIVE" -ForegroundColor Red
 Write-Host "========================================" -ForegroundColor Red
 
 Write-Host "`n⚠️ QUEUE LIMITED TO 3 MESSAGES" -ForegroundColor Yellow
+Write-Host "⚠️ CONSUMER DISCONNECTED (VERIFIED)" -ForegroundColor Yellow
 Write-Host "⚠️ ORDERS 4+ WILL FAIL WITH VISIBLE ERRORS" -ForegroundColor Yellow
 
 Write-Host "`nInstructions:" -ForegroundColor Cyan
@@ -131,19 +141,37 @@ Write-Host "5. Click 'Place Order'" -ForegroundColor White
 Write-Host "6. Repeat until you see errors (place 5-7 orders)" -ForegroundColor White
 
 Write-Host "`nExpected Behavior:" -ForegroundColor Yellow
-Write-Host "  • Orders 1-3: SUCCESS ✅ (queue has space)" -ForegroundColor Green
-Write-Host "  • Orders 4+: FAILURE ❌ (queue FULL, RabbitMQ rejects)" -ForegroundColor Red
+Write-Host "  • Order 1: SUCCESS ✅ (queue: 1/3)" -ForegroundColor Green
+Write-Host "  • Order 2: SUCCESS ✅ (queue: 2/3)" -ForegroundColor Green
+Write-Host "  • Order 3: SUCCESS ✅ (queue: 3/3 - FULL)" -ForegroundColor Green
+Write-Host "  • Order 4: FAILURE ❌ (queue FULL, RabbitMQ rejects)" -ForegroundColor Red
+Write-Host "  • Order 5+: FAILURE ❌ (queue FULL, RabbitMQ rejects)" -ForegroundColor Red
 Write-Host "  • You will see: 'Queue unavailable' or 'Service unavailable'" -ForegroundColor Red
 
 Write-Host "`nDuration: $DurationSeconds seconds ($([Math]::Floor($DurationSeconds/60))m $($DurationSeconds%60)s)" -ForegroundColor Green
 Write-Host "`nCountdown:" -ForegroundColor Gray
 
-# Countdown timer
+# Countdown timer with periodic queue depth monitoring
 $remaining = $DurationSeconds
+$lastQueueCheck = Get-Date
 while ($remaining -gt 0) {
     $minutes = [Math]::Floor($remaining / 60)
     $seconds = $remaining % 60
     Write-Host "`r  Time remaining: $minutes min $seconds sec   " -NoNewline -ForegroundColor Cyan
+    
+    # Check queue depth every 15 seconds
+    $now = Get-Date
+    if (($now - $lastQueueCheck).TotalSeconds -ge 15) {
+        $queueDepth = kubectl -n sock-shop exec deployment/rabbitmq -c rabbitmq -- `
+            curl -s -u guest:guest http://localhost:15672/api/queues/%2F/shipping-task 2>&1
+        
+        if ($queueDepth -match '"messages":(\d+)') {
+            $depth = $Matches[1]
+            Write-Host "`n  [Monitor] Queue depth: $depth messages" -ForegroundColor Gray -NoNewline
+        }
+        $lastQueueCheck = $now
+    }
+    
     Start-Sleep -Seconds 1
     $remaining--
 }
@@ -161,22 +189,39 @@ if ($queueInfo -match '"messages":(\d+)') {
     Write-Host "✅ Queue status: $messageCount messages" -ForegroundColor Green
     if ($messageCount -eq 3) {
         Write-Host "✅ PERFECT: Queue stuck at capacity (3/3)" -ForegroundColor Green
+    } elseif ($messageCount -gt 0) {
+        Write-Host "✅ GOOD: Queue has messages ($messageCount/3)" -ForegroundColor Green
+    } else {
+        Write-Host "⚠️ WARNING: Queue is empty (no orders placed?)" -ForegroundColor Yellow
     }
 } else {
     Write-Host "⚠️ Could not retrieve queue depth" -ForegroundColor Yellow
 }
 
 Write-Host "`nChecking shipping service logs for rejections..." -ForegroundColor Yellow
-$shippingLogs = kubectl -n sock-shop logs deployment/shipping --tail=50 2>&1 | Select-String "rejected|Queue unavailable|confirmed"
+$shippingLogs = kubectl -n sock-shop logs deployment/shipping --tail=50 2>&1 | Select-String "rejected|NACK|confirmed"
 
 if ($shippingLogs) {
     Write-Host "✅ Found shipping service activity:" -ForegroundColor Green
-    $shippingLogs | Select-Object -Last 10 | ForEach-Object { 
+    $confirmCount = 0
+    $rejectCount = 0
+    
+    $shippingLogs | Select-Object -Last 15 | ForEach-Object { 
         if ($_ -match "confirmed") {
+            $confirmCount++
             Write-Host "  [✅ ACK] $_" -ForegroundColor Green
         } else {
+            $rejectCount++
             Write-Host "  [❌ NACK] $_" -ForegroundColor Red
         }
+    }
+    
+    Write-Host "`n   Summary: $confirmCount confirmations, $rejectCount rejections" -ForegroundColor White
+    
+    if ($rejectCount -gt 0) {
+        Write-Host "✅ SUCCESS: Rejections detected (incident worked!)" -ForegroundColor Green
+    } else {
+        Write-Host "⚠️ WARNING: No rejections found (were 4+ orders placed?)" -ForegroundColor Yellow
     }
 } else {
     Write-Host "⚠️ No shipping activity found (check if orders were placed)" -ForegroundColor Yellow
@@ -199,9 +244,9 @@ Write-Host "  [Step 5] RECOVERING SYSTEM" -ForegroundColor Green
 Write-Host "========================================" -ForegroundColor Green
 
 Write-Host "`nStep 5a: Removing queue limit policy via Management API..." -ForegroundColor White
-kubectl -n sock-shop exec deployment/rabbitmq -c rabbitmq -- `
+$deleteResult = kubectl -n sock-shop exec deployment/rabbitmq -c rabbitmq -- `
     curl -s -u guest:guest -X DELETE `
-    http://localhost:15672/api/policies/%2F/shipping-limit 2>&1 | Out-Null
+    http://localhost:15672/api/policies/%2F/shipping-limit 2>&1
 
 Start-Sleep -Seconds 2
 
@@ -211,7 +256,7 @@ Write-Host "`nStep 5b: Restoring queue consumer..." -ForegroundColor White
 kubectl -n sock-shop scale deployment/queue-master --replicas=1 | Out-Null
 
 Write-Host "Waiting for queue-master pod to start..." -ForegroundColor Gray
-kubectl -n sock-shop wait --for=condition=ready pod -l name=queue-master --timeout=60s 2>&1 | Out-Null
+$waitResult = kubectl -n sock-shop wait --for=condition=ready pod -l name=queue-master --timeout=60s 2>&1
 
 if ($LASTEXITCODE -eq 0) {
     Write-Host "✅ Queue-master recovered successfully" -ForegroundColor Green
@@ -230,6 +275,21 @@ if ($queueMasterLogs) {
     $queueMasterLogs | Select-Object -First 5 | ForEach-Object { Write-Host "  $_" -ForegroundColor Gray }
 } else {
     Write-Host "⚠️ No processing activity yet (queue may have been empty)" -ForegroundColor Yellow
+}
+
+# Verify queue is now empty
+Write-Host "`nVerifying queue is drained..." -ForegroundColor Cyan
+Start-Sleep -Seconds 3
+$finalQueueCheck = kubectl -n sock-shop exec deployment/rabbitmq -c rabbitmq -- `
+    curl -s -u guest:guest http://localhost:15672/api/queues/%2F/shipping-task 2>&1
+
+if ($finalQueueCheck -match '"messages":(\d+)') {
+    $finalDepth = $Matches[1]
+    if ($finalDepth -eq 0) {
+        Write-Host "✅ Queue drained successfully (0 messages)" -ForegroundColor Green
+    } else {
+        Write-Host "⚠️ Queue still has $finalDepth messages (may still be processing)" -ForegroundColor Yellow
+    }
 }
 
 $RECOVERY = Get-Date
@@ -273,8 +333,9 @@ Write-Host "  Duration: $([Math]::Round($DURATION, 2)) minutes" -ForegroundColor
 Write-Host "`nIncident Configuration:" -ForegroundColor Yellow
 Write-Host "  Queue Limit: 3 messages (max-length)" -ForegroundColor White
 Write-Host "  Overflow Policy: reject-publish" -ForegroundColor White
-Write-Host "  Consumer: Scaled to 0 (blocked)" -ForegroundColor White
+Write-Host "  Consumer: Force deleted (--grace-period=0)" -ForegroundColor White
 Write-Host "  Method: RabbitMQ Management API ✅" -ForegroundColor Green
+Write-Host "  Fix: Force delete pods (v2) ✅" -ForegroundColor Green
 
 Write-Host "`nExpected Results:" -ForegroundColor Yellow
 Write-Host "  First 3 orders: Queued successfully ✅" -ForegroundColor Green

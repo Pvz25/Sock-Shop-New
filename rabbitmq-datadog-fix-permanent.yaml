@@ -53,9 +53,9 @@ spec:
             }
           ]
         
-        # Configure log collection (already working, but explicit is better)
-        ad.datadoghq.com/rabbitmq.logs: '[{"source": "rabbitmq", "service": "sock-shop-rabbitmq"}]'
-        ad.datadoghq.com/rabbitmq-exporter.logs: '[{"source": "rabbitmq_exporter", "service": "sock-shop-rabbitmq-exporter"}]'
+        # DO NOT ADD EXPLICIT LOG ANNOTATIONS
+        # They interfere with global containerCollectAll: true behavior
+        # Logs are automatically collected via Datadog agent's file-based collection
 
 # ==============================================================================
 # WHAT THIS FIXES:
