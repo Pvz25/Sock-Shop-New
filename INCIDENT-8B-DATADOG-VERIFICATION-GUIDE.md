@@ -2,21 +2,66 @@
 
 ## Incident Overview
 
-**Incident Type:** Product search slowness due to database latency or connection pool exhaustion  
+**Incident Type:** Database Performance Degradation (Connection Pool Exhaustion)  
 **Incident ID:** INCIDENT-8B  
-**Date:** November 10, 2025  
-**Time:** 4:25 PM - 4:27 PM IST (10:55 AM - 10:57 AM UTC)  
-**Duration:** ~2 minutes
+**Severity:** High (P2)  
+**Method:** Load Testing (60 concurrent requests)
 
 ---
 
+## Incident Timeline
+
+### Date & Time
+
+**Date:** November 10, 2025  
+
+**IST (Indian Standard Time):**
+- **Incident Start:** 4:25 PM IST (16:25:22 IST)
+- **Incident End:** 4:27 PM IST (16:27:04 IST)
+- **Duration:** ~2 minutes
+
+**UTC (Coordinated Universal Time):**
+- **Incident Start:** 10:55 AM UTC (10:55:22 UTC)
+- **Incident End:** 10:57 AM UTC (10:57:04 UTC)
+- **Duration:** ~2 minutes
+
+**Conversion:** IST = UTC + 5:30
+
+---
+
+## Datadog Service Names (From Screenshots)
+
+Based on the Datadog UI screenshots, the exact service names are:
+
+### Application Services:
+- `sock-shop-front-end`
+- `sock-shop-catalogue`
+- `sock-shop-user`
+- `sock-shop-carts`
+- `sock-shop-orders`
+- `sock-shop-payment`
+- `sock-shop-shipping`
+- `sock-shop-queue-master`
+
+### Database Services:
+- `sock-shop-catalogue-db` (MariaDB - **PRIMARY TARGET**)
+- `sock-shop-user-db`
+- `sock-shop-carts-db`
+- `sock-shop-orders-db`
+
+### Infrastructure:
+- Namespace: `sock-shop`
+- Host: `sockshop-worker`
+- Cluster: `sockshop-control-plane`
 ## 🎯 Key Point: Focus on METRICS, Not Logs
 
 **Database logs will be mostly EMPTY during this incident - this is normal!**
 
 MariaDB only logs during startup, errors, or shutdowns. During normal operation (even under heavy load), it produces minimal logs. **Use metrics for analysis.**
 
+
 ---
+
 
 ## 📊 Datadog Logs Query
 
