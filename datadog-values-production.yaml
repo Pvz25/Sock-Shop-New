@@ -106,6 +106,13 @@ agents:
         - name: DD_LOGS_CONFIG_K8S_CONTAINER_USE_FILE
           value: "true"
         
+        # CRITICAL: Force HTTPS transport mode (prevents TCP regression)
+        # Without this, agent may fall back to TCP mode which causes logs
+        # to be sent but not visible in Datadog UI
+        # See: DATADOG-LOG-COLLECTION-PERMANENT-FIX-2025-11-30.md
+        - name: DD_LOGS_CONFIG_FORCE_USE_HTTP
+          value: "true"
+        
         # Optional: Set log level (use "info" for production, "debug" for troubleshooting)
         - name: DD_LOG_LEVEL
           value: "info"

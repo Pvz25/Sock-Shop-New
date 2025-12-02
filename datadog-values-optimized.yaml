@@ -1,0 +1,187 @@
+# Optimized Datadog Configuration - With Log Noise Reduction
+# Created: November 30, 2025
+# Purpose: Production setup with health check log filtering
+#
+# ============================================
+# LOG NOISE REDUCTION STRATEGY
+# ============================================
+# Problem: Health checks every 3 seconds generating ~4,680 logs/hour
+# Solution: Exclude health check logs at agent level
+# Expected Result: ~90% log volume reduction (only meaningful logs)
+#
+# Industry Standard Comparison:
+# - Before: ~78 logs/minute (4,680/hour) - ❌ Excessive
+# - After:  ~8 logs/minute (480/hour) - ✅ Industry Standard
+#
+# ============================================
+
+datadog:
+  site: us5.datadoghq.com
+  apiKeyExistingSecret: datadog-secret
+  clusterName: sockshop-kind
+
+  # ============================================
+  # LOGS COLLECTION WITH NOISE FILTERING
+  # ============================================
+  logs:
+    enabled: true
+    containerCollectUsingFiles: true
+    containerCollectAll: true
+    useHTTP: true
+    
+    # Exclude system namespaces
+    containerExclude:
+      - "kube_namespace:kube-system"
+      - "kube_namespace:kube-public"
+      - "kube_namespace:kube-node-lease"
+      - "kube_namespace:local-path-storage"
+    
+    # ============================================
+    # LOG PROCESSING RULES - NOISE REDUCTION
+    # ============================================
+    # These rules filter out noisy health check logs at the agent level
+    # before they are sent to Datadog, saving bandwidth and cost
+    config:
+      processing_rules:
+        # Exclude Go microservice health check logs
+        # Pattern: method=Health (catalogue, user, etc.)
+        - type: exclude_at_match
+          name: exclude_go_health_checks
+          pattern: "method=Health"
+        
+        # Exclude RabbitMQ exporter routine metrics updates
+        # Pattern: "Metrics updated" (every 15 seconds)
+        - type: exclude_at_match
+          name: exclude_rabbitmq_metrics_updates
+          pattern: "Metrics updated"
+        
+        # Exclude MongoDB WiredTiger routine messages
+        # Pattern: "WiredTiger message" (periodic checkpoint logs)
+        - type: exclude_at_match
+          name: exclude_mongodb_wiredtiger
+          pattern: "WiredTiger message"
+        
+        # Exclude Kubernetes liveness/readiness probe access logs
+        # Pattern: GET /health (if logged at HTTP level)
+        - type: exclude_at_match
+          name: exclude_health_endpoint_access
+          pattern: 'GET /health'
+
+  # ============================================
+  # METRICS COLLECTION
+  # ============================================
+  dogstatsd:
+    useHostPort: true
+    port: 8125
+    nonLocalTraffic: true
+
+  processAgent:
+    enabled: true
+    processCollection: true
+
+  orchestratorExplorer:
+    enabled: true
+
+  kubeStateMetricsCore:
+    enabled: true
+
+  clusterChecks:
+    enabled: true
+
+  # ============================================
+  # DISABLED FEATURES
+  # ============================================
+  apm:
+    enabled: false
+  admissionController:
+    enabled: false
+  networkMonitoring:
+    enabled: false
+  securityAgent:
+    compliance:
+      enabled: false
+    runtime:
+      enabled: false
+
+  # ============================================
+  # KUBELET CONFIGURATION (KIND-specific)
+  # ============================================
+  kubelet:
+    tlsVerify: false
+    useApiServer: true
+
+  useHostPID: false
+  containerImageCollection:
+    enabled: false
+  containerLifecycle:
+    enabled: false
+
+# ============================================
+# CLUSTER AGENT
+# ============================================
+clusterAgent:
+  enabled: true
+  replicas: 1
+  createPodDisruptionBudget: false
+  resources:
+    requests:
+      cpu: 200m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+
+# ============================================
+# SYSTEM PROBE
+# ============================================
+systemProbe:
+  enabled: false
+
+# ============================================
+# NODE AGENT
+# ============================================
+agents:
+  tolerations:
+    - key: "node-role.kubernetes.io/control-plane"
+      operator: "Exists"
+      effect: "NoSchedule"
+    - key: "node-role.kubernetes.io/master"
+      operator: "Exists"
+      effect: "NoSchedule"
+
+  useHostNetwork: true
+
+  containers:
+    agent:
+      resources:
+        requests:
+          cpu: 200m
+          memory: 256Mi
+        limits:
+          cpu: 500m
+          memory: 512Mi
+
+      env:
+        - name: DD_HOSTNAME
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName
+        - name: DD_COLLECT_KUBERNETES_EVENTS
+          value: "true"
+        - name: DD_KUBERNETES_COLLECT_METADATA_TAGS
+          value: "true"
+        # CRITICAL: Force HTTPS transport (prevents TCP regression)
+        - name: DD_LOGS_CONFIG_FORCE_USE_HTTP
+          value: "true"
+
+    traceAgent:
+      enabled: false
+
+    processAgent:
+      resources:
+        requests:
+          cpu: 100m
+          memory: 128Mi
+        limits:
+          cpu: 200m
+          memory: 256Mi
